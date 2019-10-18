@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="https://www.w3.org/2005/Atom">
   <title>Macyrate&#39;s site</title>
   <subtitle>计院之犬</subtitle>
   <link href="/atom.xml" rel="self"/>
@@ -13,7 +13,7 @@
     
   </author>
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+  <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
     <title>一个不错的素材网站</title>
@@ -25,10 +25,10 @@
     <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Macyrate/MarkdownPhoto/master/QQ%E6%88%AA%E5%9B%BE20161230135020-903x1024.png" alt="">今天有仙交同学在空间发自己抠图的苦逼经历</p>
 <p>当时我就坐不住了，MDZZ，都什么年代了去个底还要手动PS？</p>
 <p>之前为了做答辩PPT（没错，就是为了那次作业我才做了这个破站），是找过纯色图片去底的方法的，结果最简单易用的果然永远是在线工具！！</p>
-<p>干货：<a href="http://www.aigei.com/bgremover" target="_blank" rel="external">BgRemover - 在线图片去底工具</a></p>
+<p>干货：<a href="https://www.aigei.com/bgremover" target="_blank" rel="external">BgRemover - 在线图片去底工具</a></p>
 <p>10秒后的成果：</p>
 <p><img src="https://raw.githubusercontent.com/Macyrate/MarkdownPhoto/master/%E5%8E%BB%E5%BA%95%E6%A0%A1%E5%BE%BD.png" alt=""></p>
-<p>这个工具所属的<a href="http://www.aigei.com/" target="_blank" rel="external">爱给网</a>里还有大量的蜜汁素材和视频教程，相当实用。</p>
+<p>这个工具所属的<a href="https://www.aigei.com/" target="_blank" rel="external">爱给网</a>里还有大量的蜜汁素材和视频教程，相当实用。</p>
 ]]></content>
     
     <summary type="html">
@@ -93,7 +93,7 @@
 <p>不过作者说续作正在制作，看来最后大概还是能给我们一个完美结局……吧？</p>
 <p>从赛妮亚的这句话看来，还是很有可能的：</p>
 <p><img src="https://raw.githubusercontent.com/Macyrate/MarkdownPhoto/master/QQ%E6%88%AA%E5%9B%BE20161217200817-1024x831.png" alt=""></p>
-<iframe src="http://store.steampowered.com/widget/351640/?t=Steam%E8%AF%84%E8%AE%BA%EF%BC%9A%0A%E5%85%8D%E8%B4%B9%E6%B8%B8%E6%88%8F%E9%87%8C%E7%9A%84%E5%B0%8F%E7%B2%BE%E5%93%81%EF%BC%8C3-4%E4%B8%AA%E5%B0%8F%E6%97%B6%E9%80%9A%E5%85%B3%E6%B5%81%E7%A8%8B%E5%B9%B6%E4%B8%8D%E7%AE%97%E9%95%BF%E3%80%82%0A%E6%B4%97%E8%84%91%E7%9A%84BGM%E8%AE%A9%E6%88%91%E5%BE%AA%E7%8E%AF%E4%BA%86%E5%BE%88%E4%B9%85%E3%80%82%E6%9C%80%E5%90%8E%E7%9A%84%E5%87%A0%E5%B9%85CG%E7%9B%B8%E5%BD%93%E6%83%8A%E8%89%B3%E3%80%82%0A%E6%93%8D%E4%BD%9C%E7%AE%80%E5%8D%95%E3%80%81%E6%98%93%E4%B8%8A%E6%89%8B%EF%BC%8C%E4%BD%86%E6%98%AF%E6%89%93boss%E8%BF%98%E6%98%AF%E5%B0%8F%E5%B0%8F%E5%9C%B0%E8%80%83%E9%AA%8C%E6%8A%80%E6%9C%AF%EF%BC%8C%E6%9C%89%E8%B6%A3%E3%80%82%0A%E5%94%AF%E4%B8%80%E5%80%BC%E5%BE%97%E8%AF%9F%E7%97%85%E7%9A%84%E5%BA%94%E8%AF%A5%E6%98%AF%E5%8F%8D%E5%A4%8D%E5%88%B7%E5%B1%9E%E6%80%A7%E4%B9%A6%E4%BA%86%E3%80%82%0A%E7%8B%AC%E7%AB%8B%E4%BD%9C%E8%80%85%EF%BC%8C%E6%9C%9F%E5%BE%85%E5%85%B6%E7%BB%AD%E4%BD%9C%E3%80%82" width="646" height="190" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://store.steampowered.com/widget/351640/?t=Steam%E8%AF%84%E8%AE%BA%EF%BC%9A%0A%E5%85%8D%E8%B4%B9%E6%B8%B8%E6%88%8F%E9%87%8C%E7%9A%84%E5%B0%8F%E7%B2%BE%E5%93%81%EF%BC%8C3-4%E4%B8%AA%E5%B0%8F%E6%97%B6%E9%80%9A%E5%85%B3%E6%B5%81%E7%A8%8B%E5%B9%B6%E4%B8%8D%E7%AE%97%E9%95%BF%E3%80%82%0A%E6%B4%97%E8%84%91%E7%9A%84BGM%E8%AE%A9%E6%88%91%E5%BE%AA%E7%8E%AF%E4%BA%86%E5%BE%88%E4%B9%85%E3%80%82%E6%9C%80%E5%90%8E%E7%9A%84%E5%87%A0%E5%B9%85CG%E7%9B%B8%E5%BD%93%E6%83%8A%E8%89%B3%E3%80%82%0A%E6%93%8D%E4%BD%9C%E7%AE%80%E5%8D%95%E3%80%81%E6%98%93%E4%B8%8A%E6%89%8B%EF%BC%8C%E4%BD%86%E6%98%AF%E6%89%93boss%E8%BF%98%E6%98%AF%E5%B0%8F%E5%B0%8F%E5%9C%B0%E8%80%83%E9%AA%8C%E6%8A%80%E6%9C%AF%EF%BC%8C%E6%9C%89%E8%B6%A3%E3%80%82%0A%E5%94%AF%E4%B8%80%E5%80%BC%E5%BE%97%E8%AF%9F%E7%97%85%E7%9A%84%E5%BA%94%E8%AF%A5%E6%98%AF%E5%8F%8D%E5%A4%8D%E5%88%B7%E5%B1%9E%E6%80%A7%E4%B9%A6%E4%BA%86%E3%80%82%0A%E7%8B%AC%E7%AB%8B%E4%BD%9C%E8%80%85%EF%BC%8C%E6%9C%9F%E5%BE%85%E5%85%B6%E7%BB%AD%E4%BD%9C%E3%80%82" width="646" height="190" frameborder="0" allowfullscreen></iframe>
 ]]></content>
     
     <summary type="html">
@@ -172,8 +172,8 @@
 <p>制作过程比较简单，动画效果只有树和帽带的晃动（但是至少熟悉了flash的基本操作），毕竟我们要做到简洁纯朴啊。</p>
 <p>本来想给文字也添加一个动画效果的，但是出现了各种迷之问题，就秉承一贯的“简洁风”弃了。</p>
 <p>真正劳神的是把.swf插到wordpress站点里，因为flash早就是时代的眼泪了，wordpress已经不再支持.swf的上传，找来了“Swf Upload Enabler”插件才上传成功；插入.swf又用到WOPUS论坛上大佬的方法，引入代码：</p>
-<p><pre lang="html" line="1" escaped="true"><object style="outline: none;" data="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?" type="application/x-shockwave-flash" width="215" height="161"><param name="movie" value="http://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?"><param name="AllowScriptAccess" value="always"><param name="wmode" value="opaque"></object></pre><br>（WP-Syntax简直有毒，锻炼视力的时刻到了）（代码显示效果以后再调试吧）</p>
-<p>把url改为媒体库中文件的链接，再改改宽高，就完成了。<br>但是移动端上显示很不理想，因为尺寸不会自适应，导致排版出现缺陷（况且移动端根本不支持flash）<br><a href="http://bxu2442560153.my3w.com /wp-content/uploads/2016/12/Screenshot_20161208-144418.png" target="_blank" rel="external"><img src="http://bxu2442560153.my3w.com /wp-content/uploads/2016/12/Screenshot_20161208-144418-169x300.png" alt=""></a></p>
+<p><pre lang="html" line="1" escaped="true"><object style="outline: none;" data="https://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?" type="application/x-shockwave-flash" width="215" height="161"><param name="movie" value="https://hosting.gmodules.com/ig/gadgets/file/112581010116074801021/hamster.swf?"><param name="AllowScriptAccess" value="always"><param name="wmode" value="opaque"></object></pre><br>（WP-Syntax简直有毒，锻炼视力的时刻到了）（代码显示效果以后再调试吧）</p>
+<p>把url改为媒体库中文件的链接，再改改宽高，就完成了。<br>但是移动端上显示很不理想，因为尺寸不会自适应，导致排版出现缺陷（况且移动端根本不支持flash）<br><a href="https://bxu2442560153.my3w.com /wp-content/uploads/2016/12/Screenshot_20161208-144418.png" target="_blank" rel="external"><img src="https://bxu2442560153.my3w.com /wp-content/uploads/2016/12/Screenshot_20161208-144418-169x300.png" alt=""></a></p>
 <p>嘛，不过就这样吧。</p>
 <p>天若有情天亦老，我为长者续一秒；<br>垂死病中惊坐起，谈笑风生又一年。</p>
 ]]></content>
@@ -205,11 +205,11 @@
     <published>2016-12-08T13:35:26.000Z</published>
     <updated>2017-08-16T02:46:14.069Z</updated>
     
-    <content type="html"><![CDATA[<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="800" height="600" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><paramname="src" value="FLASH地址"><param name="quality" value="high"><embed type="application/x-shockwave-flash" width="800" height="600" src="http://bxu2442560153.my3w.com /wp-content/uploads/2016/12/flash.swf" quality="high"></paramname="src"></object>]]></content>
+    <content type="html"><![CDATA[<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="800" height="600" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><paramname="src" value="FLASH地址"><param name="quality" value="high"><embed type="application/x-shockwave-flash" width="800" height="600" src="https://bxu2442560153.my3w.com /wp-content/uploads/2016/12/flash.swf" quality="high"></paramname="src"></object>]]></content>
     
     <summary type="html">
     
-      &lt;object classid=&quot;clsid:d27cdb6e-ae6d-11cf-96b8-444553540000&quot; width=&quot;800&quot; height=&quot;600&quot; codebase=&quot;http://download.macromedia.com/pub/shockwave
+      &lt;object classid=&quot;clsid:d27cdb6e-ae6d-11cf-96b8-444553540000&quot; width=&quot;800&quot; height=&quot;600&quot; codebase=&quot;https://download.macromedia.com/pub/shockwave
     
     </summary>
     

@@ -42,7 +42,7 @@
 
 {%- if theme.footer.powered.enable %}
   <div class="powered-by">
-    {{- __('footer.powered', next_url('https://thwiki.cc/博丽灵梦', '博麗大結界', {class: 'theme-link'})) }}
+    {{- __('footer.powered', next_url('https://thwiki.cc/博丽灵梦/一设资料', '博麗大結界', {class: 'theme-link'})) }}
     {%- if theme.footer.powered.version %} v{{ hexo_version }}{%- endif %}
   </div>
 {%- endif %}

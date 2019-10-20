@@ -39,6 +39,12 @@
         {{- next_inject('sidebar') }}
       </div>
 
+      <div id="musicplayer">
+      <!--网易云iframe外链插件-->
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=70 src="//music.163.com/outchain/player?type=2&id=26477410&auto=0&height=66">
+        </iframe>
+      </div>
+
       {%- if theme.back2top.enable and theme.back2top.sidebar %}
         <div class="back-to-top motion-element">
           <i class="fa fa-arrow-up"></i>

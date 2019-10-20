@@ -2,7 +2,7 @@
 
 > 最早是为了交计算机基础作业而制作的网站，从此走上不归之路……
 > 
-> 想到用WordPress很大程度上是受老司机@雪见仙尊（https://www.saber.我爱你）影响。
+> 想到用WordPress很大程度上是受老司机[ @雪见仙尊（https://saber.我爱你）](https://www.saber.我爱你)影响。
 > 
 > *↑这个站的域名已经改为 [saber.love](https://saber.love)*
 > 

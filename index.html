@@ -14,6 +14,7 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
 
 <script id="hexo-configurations">
@@ -23,11 +24,11 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
+    sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
+    fancybox: true,
     mediumzoom: false,
     lazyload: false,
     pangu: false,
@@ -38,7 +39,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":false,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -192,10 +193,10 @@
       <meta itemprop="name" content="博丽吹笛分社">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2019/10/20/%E4%B8%BAHexo%E9%85%8D%E7%BD%AEGitalk%EF%BC%8C%E5%B9%B6%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/" class="post-title-link" itemprop="url">为Hexo配置Gitalk，并更改主题颜色</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -206,13 +207,6 @@
 
               <time title="创建时间：2019-10-20 21:01:35" itemprop="dateCreated datePublished" datetime="2019-10-20T21:01:35+08:00">2019-10-20</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-21 18:38:16" itemprop="dateModified" datetime="2019-10-21T18:38:16+08:00">2019-10-21</time>
-              </span>
 
           
 
@@ -235,40 +229,14 @@
 </blockquote>
 <p>于是我转而尝试其他的评论系统，好么，国内的一个赛一个麻烦，又是实名认证又是人脸信息的，还是别了。而国外的又时刻有被河蟹的风险。</p>
 <p>终于我看到了Gitalk，它基于GitHub的issue，只要有GitHub账号就可以评论，看来同性交友网站不倒，这玩意就能用下去。</p>
-<p>配置起来不算太麻烦，在NexT的配置文件里<strong>找到comments块，将gitalk给active上</strong>（这一步很重要），再去下面一点的gitalk块里按照文档一顿填，基本就完事了。</p>
-<p>给出我的配置以供参考：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalk%E5%9D%97%E9%85%8D%E7%BD%AE.jpg" alt="gitalk块配置"></p>
-<p>到这里，理论上你基本就能看到和gitalk官网上一样的效果了。</p>
-<p>然而，坑爹的事情不会就此停止，如果你在本地<code>hexo s</code>，然后打开一篇文章，你应该确实会看到“Gitalk加载中”，然后 * 噔  噔  咚 * ，出现了这样的场景：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E6%9C%AA%E6%89%BE%E5%88%B0%E7%9B%B8%E5%85%B3%E7%9A%84Issues.jpg" alt="未找到相关的Issues"></p>
-<p>你会试着点击<code>使用GitHub登录</code>，然而什么也没有发生，这大概是因为GitHub的登陆结果传不回本机的Hexo server。不必奇怪，尽管<code>hexo d</code>将它部署上去，访问你的站点再次点击它就好了。</p>
-<p>需要注意，每篇文章下面的Gitalk都需要你戳上一下才能开始运行，这是因为刚刚说过的，Gitalk的原理是issue，你得以管理员的身份在repo里给每篇文章开上一个对应的issue，其他人才能在下面留言。</p>
-<p>举个栗子，这是我用于测试Gitalk的几个留言在站点上的样子：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalkinsite.jpg" alt="gitalk在站点上"></p>
-<p>而这是repo里对应的issue：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalkinissue.jpg" alt="gitalk在issue中"></p>
-<p>注意到红线标出的这一行，Gitalk就是用这两个标签来对应issue和文章的。</p>
-<h1 id="更改Gitalk的主题颜色"><a href="#更改Gitalk的主题颜色" class="headerlink" title="更改Gitalk的主题颜色"></a>更改Gitalk的主题颜色</h1><p>如果你足够细心，也许会注意到官方的gitalk是蓝色的，而我站点中的却是与页头一致的绯色。</p>
-<p>这两种颜色差别太大，我想要保持网页配色的一致性，于是免不了多折腾两下。</p>
-<p>要更改颜色，首先就得知道这是什么颜色。</p>
-<p>F12，审查元素，可以看到默认的色号是<code>#6190E8</code>。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalkcolor.jpg" alt="默认配色"></p>
-<p>既然如此，我们去Gitalk的repo，找找这个色号出现在哪些地方。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalkrepocolor.jpg" alt="repo中的位置"></p>
-<p>可以看到，这个色号出现在<code>dist/gitalk.css</code>和<code>src/style/index.styl</code>中。而真正决定Gitalk颜色的，应当是<code>dist</code>（Distribution，分发）中的<code>gitalk.css</code>。</p>
-<p>明白了这一点，我们就可以整活了。首先将这个repo给fork过来，再将<code>dist/gitalk.css</code>中的色号全都改成想要的样子。我使用的绯色<code>#CC543A</code>取自<a href="http://nipponcolors.com" target="_blank" rel="noopener">NIPPON COLORS - 日本の伝統色</a>。</p>
-<p>康康初音浅葱色？</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E6%97%A5%E6%9C%AC%E4%BC%A0%E7%BB%9F%E8%89%B2.jpg" alt="浅葱"></p>
-<p>这套色彩也是锤子的坚果手机“文青版”那几个骚气配色名称：远州鼠、落栗、苏芳、石竹、枯草、柳煤竹茶、锖青磁、鸠羽紫的来源。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E5%9D%9A%E6%9E%9C%E6%89%8B%E6%9C%BA%E9%85%8D%E8%89%B2.jpg" alt="坚果手机文青版"></p>
-<p>当然，这还不算完，我们得让NexT主题用上我们修改过的<code>gitalk.css</code>。</p>
-<p>我们可以在next文件夹里搜索gitalk，看看它是如何被加载的。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gtalk%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C.jpg" alt="gitalk搜索结果"></p>
-<p>显然，第2、4行的<code>gitalk_css_uri</code>和<code>gitalk_js_uri</code>就是关键。它说明gitalk的文件可以从两个地方加载：一个是<code>theme.vendors</code>，也就是主题配置文件<code>_config.yml</code>的<code>vendors</code>块中的记录，一个是<code>jsdelivr</code>这个CDN。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalkvendors.jpg" alt="gitalk vendors"></p>
-<p>以上两张截图里的CDN已经被我改成了我修改后的分支中对应的文件。关于这个CDN地址的格式，可以参看<a href="https://www.jsdelivr.com" target="_blank" rel="noopener">jsDelivr官网</a>的说明。</p>
-<p>地址修改完成后，<code>hexo g -d</code>走起，你的配色应该已经成了想要的样子，庆贺吧！</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/20/%E4%B8%BAHexo%E9%85%8D%E7%BD%AEGitalk%EF%BC%8C%E5%B9%B6%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -299,10 +267,10 @@
       <meta itemprop="name" content="博丽吹笛分社">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2019/10/20/Hello%20World%20Again!/" class="post-title-link" itemprop="url">Hello World Again!</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -313,13 +281,6 @@
 
               <time title="创建时间：2019-10-20 16:01:17" itemprop="dateCreated datePublished" datetime="2019-10-20T16:01:17+08:00">2019-10-20</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-21 18:36:56" itemprop="dateModified" datetime="2019-10-21T18:36:56+08:00">2019-10-21</time>
-              </span>
 
           
 
@@ -379,10 +340,10 @@
       <meta itemprop="name" content="博丽吹笛分社">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2016/12/30/%E4%B8%80%E4%B8%AA%E4%B8%8D%E9%94%99%E7%9A%84%E7%B4%A0%E6%9D%90%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">一个不错的素材网站</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -393,13 +354,6 @@
 
               <time title="创建时间：2016-12-30 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-30T00:00:00+08:00">2016-12-30</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-20 16:01:08" itemprop="dateModified" datetime="2019-10-20T16:01:08+08:00">2019-10-20</time>
-              </span>
 
           
 
@@ -451,10 +405,10 @@
       <meta itemprop="name" content="博丽吹笛分社">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2016/12/18/161218/" class="post-title-link" itemprop="url">161218</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -465,13 +419,6 @@
 
               <time title="创建时间：2016-12-18 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-18T00:00:00+08:00">2016-12-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-20 14:49:22" itemprop="dateModified" datetime="2019-10-20T14:49:22+08:00">2019-10-20</time>
-              </span>
 
           
 
@@ -517,10 +464,10 @@
       <meta itemprop="name" content="博丽吹笛分社">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2016/12/17/Steam%E6%B8%B8%E8%A7%88%E8%AE%B0%E5%BD%95%EF%BC%9AEternal%20Senia%EF%BC%88%E6%B0%B8%E6%81%92%E7%9A%84%E8%B5%9B%E5%A6%AE%E4%BA%9A%EF%BC%89/" class="post-title-link" itemprop="url">Steam游览记录：Eternal Senia（永恒的赛妮亚）</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -531,13 +478,6 @@
 
               <time title="创建时间：2016-12-17 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-17T00:00:00+08:00">2016-12-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-20 16:01:08" itemprop="dateModified" datetime="2019-10-20T16:01:08+08:00">2019-10-20</time>
-              </span>
 
           
 
@@ -558,20 +498,14 @@
 <p>但是，不知道为什么就是这么带感啊！！！一口气刷过去根本停不下来啊！！！</p>
 <p>大概我享受着这种见证赛妮亚从一个脆弱胆怯的少女逐渐成长为真正的勇者的过程吧。</p>
 <p>我玩着感觉还是比较投入的。后期赛妮亚会觉醒R技能，爆发出“永（hei）恒（hua）”的力量，威力巨大，但是除非为了保命，我完全不愿意用这个技能。因为一旦使用，一段时间内赛妮亚都会黑化，在菜单里看着十分揪心。</p>
-<p>这是赛妮亚正常的样子：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/senia-2.jpg" alt=""></p>
-<p>这是黑化之后的样子：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/senia-3.jpg" alt=""></p>
-<p>不！我不要赛妮亚被玩♀坏！！！</p>
-<p>另外，BGM非常棒，时而轻松缓和，时而压抑恐怖，时而高雅圣洁，时而欢快激动，主题曲《悲伤的另一面》更是有味道啊。</p>
-<p>BOSS房间前可以选择BOSS难度，我由于相信自己的“高超技术”，每次都作死地选“困难”，所幸前面的BOSS套路都不深，顶多用浪死的结果换来BOSS的所有技能情况，然后第二次打轻松过关。但是最终BOSS和前面的难度简直不在一个次元，让我想起了一度被魂魄妖梦支配的恐惧。</p>
-<p>然而当我好不容易打到最后，才发现三种结局居然没有一个和谐美满，我的刀片饥渴难耐，作者肯定和老虚共同编译过Trade.py！<del>（直接证据：一周目通关后开放的特典房间里，作者的头像是掉头狂魔Charlotte）</del></p>
-<p>三个不同程度的BAD ENDING之中好歹算是最好的结局：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/senia-4.jpg" alt=""></p>
-<p>不过作者说续作正在制作，看来最后大概还是能给我们一个完美结局……吧？</p>
-<p>从赛妮亚的这句话看来，还是很有可能的：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/senia-5.jpg" alt=""></p>
-<iframe src="https://store.steampowered.com/widget/351640/?t=Steam%E8%AF%84%E8%AE%BA%EF%BC%9A%0A%E5%85%8D%E8%B4%B9%E6%B8%B8%E6%88%8F%E9%87%8C%E7%9A%84%E5%B0%8F%E7%B2%BE%E5%93%81%EF%BC%8C3-4%E4%B8%AA%E5%B0%8F%E6%97%B6%E9%80%9A%E5%85%B3%E6%B5%81%E7%A8%8B%E5%B9%B6%E4%B8%8D%E7%AE%97%E9%95%BF%E3%80%82%0A%E6%B4%97%E8%84%91%E7%9A%84BGM%E8%AE%A9%E6%88%91%E5%BE%AA%E7%8E%AF%E4%BA%86%E5%BE%88%E4%B9%85%E3%80%82%E6%9C%80%E5%90%8E%E7%9A%84%E5%87%A0%E5%B9%85CG%E7%9B%B8%E5%BD%93%E6%83%8A%E8%89%B3%E3%80%82%0A%E6%93%8D%E4%BD%9C%E7%AE%80%E5%8D%95%E3%80%81%E6%98%93%E4%B8%8A%E6%89%8B%EF%BC%8C%E4%BD%86%E6%98%AF%E6%89%93boss%E8%BF%98%E6%98%AF%E5%B0%8F%E5%B0%8F%E5%9C%B0%E8%80%83%E9%AA%8C%E6%8A%80%E6%9C%AF%EF%BC%8C%E6%9C%89%E8%B6%A3%E3%80%82%0A%E5%94%AF%E4%B8%80%E5%80%BC%E5%BE%97%E8%AF%9F%E7%97%85%E7%9A%84%E5%BA%94%E8%AF%A5%E6%98%AF%E5%8F%8D%E5%A4%8D%E5%88%B7%E5%B1%9E%E6%80%A7%E4%B9%A6%E4%BA%86%E3%80%82%0A%E7%8B%AC%E7%AB%8B%E4%BD%9C%E8%80%85%EF%BC%8C%E6%9C%9F%E5%BE%85%E5%85%B6%E7%BB%AD%E4%BD%9C%E3%80%82" frameborder="0" width="646" height="190"></iframe>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/12/17/Steam%E6%B8%B8%E8%A7%88%E8%AE%B0%E5%BD%95%EF%BC%9AEternal%20Senia%EF%BC%88%E6%B0%B8%E6%81%92%E7%9A%84%E8%B5%9B%E5%A6%AE%E4%BA%9A%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -602,10 +536,10 @@
       <meta itemprop="name" content="博丽吹笛分社">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2016/12/13/%E5%9B%9E%E4%B9%A1%E8%A7%81%E9%97%BB/" class="post-title-link" itemprop="url">回乡见闻</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -616,13 +550,6 @@
 
               <time title="创建时间：2016-12-13 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-13T00:00:00+08:00">2016-12-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-20 14:49:12" itemprop="dateModified" datetime="2019-10-20T14:49:12+08:00">2019-10-20</time>
-              </span>
 
           
 
@@ -641,20 +568,83 @@
 <p>原来这个舞台是点歌用的吗。</p>
 <p>再看台上，一个中年妇女捏着话筒搞事，大概是类似于主持人的吧。她宣读“送行点歌单”时，声音抑扬顿挫，细细一听就发现原来交钱越多的便被喊得越有气势，有个砸了一千元的来宾名字叫的震天响，而那些只点了一两百元的就给含糊地混过去了。</p>
 <p>这倒没什么，你们爱唱便唱罢，葬礼庆典、坟头蹦迪也就算了。</p>
-<p>然而到了晚上，居然请来了一个演员，不是为了别的，而是为了让她在这陌生人的葬礼上表演嚎啕大哭。这演员一身古代孝妇行头，竟然真的哭出了眼泪。于是大家也就很欣慰，有人便给主持人递上红票子算是捧了场。主持人则是喜笑颜开，把一张张红票子收进口袋时还不忘对着话筒宣讲这位演员的专业，以及其眼泪是真的有感而发，否则不可能真的哭出来云云云。</p>
-<p>虽然很可笑，我姑且忍了罢。没准是什么特别的丧葬习俗呢。</p>
-<p>然而接下来便不对了，演员在主持人数钱的当口暂停了哭声。此时又有两人送上红票，主持人接过来便讲“我们又有两位孝子孝孙为老太君送上十全十美”云云，回过头便切换成流利的土话对着那演员飙起：“你快点儿哭撒，冇看倒你一哭钱就来了？几赚钱哦，我都不想说你了，你跟我快点哭撒！”大概为了防止后台听不到，主持人还是对着她的话筒大声说的。</p>
-<p>后台和演员也很配合，音乐声马上走起，演员酝酿一两秒便又涌出货真价实的泪水，带着哭腔继续撕心裂肺。台下的大家脸上露出了默契的笑容，各自继续抽烟喝酒，闲谈打牌。</p>
-<p>EXCUSE ME???</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E9%BB%91%E4%BA%BA%E9%97%AE%E5%8F%B7.jpg" alt=""></p>
-<p>淡定如我，都不由得为此感到惊奇，这已经是明目张胆的抢钱了吧。罢了罢了。</p>
-<p>直到这个时候，我才头一次为躺在棺材里的曾外祖母感到同情与痛心。</p>
-<p>一辈子，活了快一个世纪了，身经百战见得多了之后，最后就特么是这样？就这样让自己的遗体被充满铜臭味的气氛环绕着？就这样走向人生的结末？</p>
-<p>我有一句妈卖批，不知当讲不当讲。</p>
-<p>古代守孝三年，现在简化了，应该也至少守到五七、七七，或者百天啊？尸骨未寒，甚至还未下葬，大家就围绕在棺材前兴奋的开party，真是66666。</p>
-<p>我记得，母亲曾经说过，在她小时候，那里是一个充满文化气息的和谐村落，她家也算得上是个书香门第，和我父亲那里的“穷乡僻壤”不知道高到哪里去了。我也记得，舅舅曾经说过，现在不行了，大家全都只知道打牌赌钱混日子，农活基本也荒废了。</p>
-<p>我能怎么办？我也很绝望啊？</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/12/13/%E5%9B%9E%E4%B9%A1%E8%A7%81%E9%97%BB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽吹笛分社">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/" class="post-title-link" itemprop="url">Flash暴力膜-说明</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-08 19:01:52" itemprop="dateCreated datePublished" datetime="2016-12-08T19:01:52+08:00">2016-12-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这篇文章是对“Flash暴力膜”一文的说明。</p>
+<blockquote>
+<p>“所以×××同志同我讲话，说‘中央都决定了，你来当总书记’。我说另请高明吧，我实在也不是谦虚。我一个上海市委书记怎么到北京来了呢？但是，×××同志讲‘大家已经研究决定了’。后来我念了两首诗，叫‘苟利国家生死以，岂因祸福避趋之’。”</p>
+<p><em>—— 长者</em></p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -685,10 +675,10 @@
       <meta itemprop="name" content="博丽吹笛分社">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C/" class="post-title-link" itemprop="url">Flash暴力膜</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -699,13 +689,6 @@
 
               <time title="创建时间：2016-12-08 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-08T00:00:00+08:00">2016-12-08</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-20 16:06:33" itemprop="dateModified" datetime="2019-10-20T16:06:33+08:00">2019-10-20</time>
-              </span>
 
           
 
@@ -739,111 +722,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/" class="post-title-link" itemprop="url">Flash暴力膜-说明</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-08 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-08T00:00:00+08:00">2016-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-20 14:49:04" itemprop="dateModified" datetime="2019-10-20T14:49:04+08:00">2019-10-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这篇文章是对“Flash暴力膜”一文的说明。</p>
-<blockquote>
-<p>“所以×××同志同我讲话，说‘中央都决定了，你来当总书记’。我说另请高明吧，我实在也不是谦虚。我一个上海市委书记怎么到北京来了呢？但是，×××同志讲‘大家已经研究决定了’。后来我念了两首诗，叫‘苟利国家生死以，岂因祸福避趋之’。”</p>
-<p><em>—— 长者</em></p>
-</blockquote>
-<p>Flash的素材来源于站长之家和百度图片（那张AV画质的背景图是中国联合工程公司，原国机二院），使用软件是Adobe Flash Professional CS6，因为没有VISA卡只好下载了破解免费版，在此向Adobe致歉(。</p>
-<p>制作过程比较简单，动画效果只有树和帽带的晃动（但是至少熟悉了flash的基本操作），毕竟我们要做到简洁纯朴啊。</p>
-<p>本来想给文字也添加一个动画效果的，但是出现了各种迷之问题，就秉承一贯的“简洁风”弃了。</p>
-<p>真正劳神的是把.swf插到wordpress站点里，因为flash早就是时代的眼泪了，wordpress已经不再支持.swf的上传，找来了“Swf Upload Enabler”插件才上传成功；插入.swf又用到WOPUS论坛上大佬的方法，引入代码：</p>
-<pre><code>&lt;!--其实我也不知道是不是这段代码，网站迁移时这里的内容丢失了（--&gt;
-
-&lt;object id=&quot;flashcontent&quot; 
-        classid=&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot; 
-        width=&quot;550px&quot; 
-        height=&quot;400px&quot;&gt;
-&lt;param name=&quot;movie&quot; value=&quot;mymovie.swf&quot; /&gt;
-
-&lt;!--[if !IE]&gt;--&gt;
-&lt;object type=&quot;application/x-shockwave-flash&quot; 
-        data=&quot;mymovie.swf&quot; 
-        width=&quot;550px&quot; 
-        height=&quot;400px&quot;&gt;
-&lt;!--&lt;![endif]--&gt;
-
-    &lt;p&gt;
-    Fallback or &quot;alternate&quot; content goes here.
-    This content will only be visible if the SWF fails to load.
-    &lt;/p&gt;
-
-&lt;!--[if !IE]&gt;--&gt;
-&lt;/object&gt;
-&lt;!--&lt;![endif]--&gt;
-
-&lt;/object&gt;</code></pre><p>（WP-Syntax简直有毒，锻炼视力的时刻到了）（代码显示效果以后再调试吧）</p>
-<p>把url改为媒体库中文件的链接，再改改宽高，就完成了。</p>
-<p>但是移动端上显示很不理想，因为尺寸不会自适应，导致排版出现缺陷（况且移动端根本不支持flash）</p>
-<p>嘛，不过就这样吧。</p>
-<blockquote>
-<p><strong>天若有情天亦老，我为长者续一秒；</strong></p>
-<p><strong>垂死病中惊坐起，谈笑风生又一年。</strong></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2016/11/23/Hello%20World!/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -856,10 +734,10 @@
       <meta itemprop="name" content="博丽吹笛分社">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2016/11/23/Hello%20World!/" class="post-title-link" itemprop="url">Hello World!</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -870,13 +748,6 @@
 
               <time title="创建时间：2016-11-23 00:00:00" itemprop="dateCreated datePublished" datetime="2016-11-23T00:00:00+08:00">2016-11-23</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-20 16:01:08" itemprop="dateModified" datetime="2019-10-20T16:01:08+08:00">2019-10-20</time>
-              </span>
 
           
 
@@ -1012,6 +883,26 @@
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -1031,6 +922,8 @@
 
   
   <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 <script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
@@ -1040,6 +933,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 

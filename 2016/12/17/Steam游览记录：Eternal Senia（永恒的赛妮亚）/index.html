@@ -14,6 +14,7 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
 
 <script id="hexo-configurations">
@@ -23,11 +24,11 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
+    sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
+    fancybox: true,
     mediumzoom: false,
     lazyload: false,
     pangu: false,
@@ -38,7 +39,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":false,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -62,7 +63,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;senia-3.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;senia-4.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;senia-5.jpg">
-<meta property="og:updated_time" content="2019-10-20T08:01:08.089Z">
+<meta property="og:updated_time" content="2019-10-22T02:48:12.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;senia-1.jpg">
   <link rel="canonical" href="https://hakurei.red/2016/12/17/Steam%E6%B8%B8%E8%A7%88%E8%AE%B0%E5%BD%95%EF%BC%9AEternal%20Senia%EF%BC%88%E6%B0%B8%E6%81%92%E7%9A%84%E8%B5%9B%E5%A6%AE%E4%BA%9A%EF%BC%89/">
@@ -199,9 +200,9 @@
       <meta itemprop="name" content="博丽吹笛分社">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           Steam游览记录：Eternal Senia（永恒的赛妮亚）
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -212,15 +213,15 @@
 
               <time title="创建时间：2016-12-17 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-17T00:00:00+08:00">2016-12-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-20 16:01:08" itemprop="dateModified" datetime="2019-10-20T16:01:08+08:00">2019-10-20</time>
-              </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -239,6 +240,8 @@
 <p>但是，不知道为什么就是这么带感啊！！！一口气刷过去根本停不下来啊！！！</p>
 <p>大概我享受着这种见证赛妮亚从一个脆弱胆怯的少女逐渐成长为真正的勇者的过程吧。</p>
 <p>我玩着感觉还是比较投入的。后期赛妮亚会觉醒R技能，爆发出“永（hei）恒（hua）”的力量，威力巨大，但是除非为了保命，我完全不愿意用这个技能。因为一旦使用，一段时间内赛妮亚都会黑化，在菜单里看着十分揪心。</p>
+<a id="more"></a>
+
 <p>这是赛妮亚正常的样子：</p>
 <p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/senia-2.jpg" alt=""></p>
 <p>这是黑化之后的样子：</p>
@@ -393,6 +396,26 @@
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -412,6 +435,8 @@
 
   
   <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 <script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
@@ -421,6 +446,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 

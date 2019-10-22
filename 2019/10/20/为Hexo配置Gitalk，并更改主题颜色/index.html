@@ -14,6 +14,7 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
 
 <script id="hexo-configurations">
@@ -23,11 +24,11 @@
     scheme: 'Pisces',
     version: '7.4.1',
     exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
+    sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
+    fancybox: true,
     mediumzoom: false,
     lazyload: false,
     pangu: false,
@@ -38,7 +39,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":false,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -68,7 +69,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E5%9D%9A%E6%9E%9C%E6%89%8B%E6%9C%BA%E9%85%8D%E8%89%B2.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;gtalk%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;gitalkvendors.jpg">
-<meta property="og:updated_time" content="2019-10-21T10:38:16.249Z">
+<meta property="og:updated_time" content="2019-10-22T02:48:31.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E4%B8%8D%E6%94%AF%E6%8C%81Disqus.jpg">
   <link rel="canonical" href="https://hakurei.red/2019/10/20/%E4%B8%BAHexo%E9%85%8D%E7%BD%AEGitalk%EF%BC%8C%E5%B9%B6%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/">
@@ -205,9 +206,9 @@
       <meta itemprop="name" content="博丽吹笛分社">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           为Hexo配置Gitalk，并更改主题颜色
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -218,15 +219,15 @@
 
               <time title="创建时间：2019-10-20 21:01:35" itemprop="dateCreated datePublished" datetime="2019-10-20T21:01:35+08:00">2019-10-20</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-21 18:38:16" itemprop="dateModified" datetime="2019-10-21T18:38:16+08:00">2019-10-21</time>
-              </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -247,6 +248,8 @@
 </blockquote>
 <p>于是我转而尝试其他的评论系统，好么，国内的一个赛一个麻烦，又是实名认证又是人脸信息的，还是别了。而国外的又时刻有被河蟹的风险。</p>
 <p>终于我看到了Gitalk，它基于GitHub的issue，只要有GitHub账号就可以评论，看来同性交友网站不倒，这玩意就能用下去。</p>
+<a id="more"></a>
+
 <p>配置起来不算太麻烦，在NexT的配置文件里<strong>找到comments块，将gitalk给active上</strong>（这一步很重要），再去下面一点的gitalk块里按照文档一顿填，基本就完事了。</p>
 <p>给出我的配置以供参考：</p>
 <p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalk%E5%9D%97%E9%85%8D%E7%BD%AE.jpg" alt="gitalk块配置"></p>
@@ -419,6 +422,26 @@
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -438,6 +461,8 @@
 
   
   <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 <script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
@@ -447,6 +472,15 @@
 
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 

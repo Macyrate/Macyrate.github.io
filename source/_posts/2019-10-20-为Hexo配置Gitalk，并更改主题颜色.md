@@ -23,6 +23,8 @@ tags:
 
 终于我看到了Gitalk，它基于GitHub的issue，只要有GitHub账号就可以评论，看来同性交友网站不倒，这玩意就能用下去。
 
+<!-- more -->
+
 配置起来不算太麻烦，在NexT的配置文件里**找到comments块，将gitalk给active上**（这一步很重要），再去下面一点的gitalk块里按照文档一顿填，基本就完事了。
 
 给出我的配置以供参考：

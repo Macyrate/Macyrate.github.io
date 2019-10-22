@@ -14,6 +14,8 @@
 
 我玩着感觉还是比较投入的。后期赛妮亚会觉醒R技能，爆发出“永（hei）恒（hua）”的力量，威力巨大，但是除非为了保命，我完全不愿意用这个技能。因为一旦使用，一段时间内赛妮亚都会黑化，在菜单里看着十分揪心。
 
+<!-- more -->
+
 这是赛妮亚正常的样子：
 
 ![](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/senia-2.jpg)

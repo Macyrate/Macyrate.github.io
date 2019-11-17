@@ -51,19 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="对于所谓“现充”，我一向是不屑一顾的。对于所谓人人趋之若鹜的“潮流”，我更是嗤之以鼻的。 毕竟这种东西，和他们自己说的一样，“流行是个圈”，有甚么意思呢？ 是故在根本没有校服的高中时代，同学们——只要有条件的，个个汪洋恣肆泼洒青春时，我常常以和我心象般灰暗，似我体重般深沉的军夹克、牛仔裤、徒步鞋示人：一种自我麻痹式的超然放逐。那时的我只是一个丢不掉过去的失魂人，或者说，是过去的“什么”拉扯着我的魂">
+  <meta name="description" content="这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。 这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。 我所阅览的是由风农发布在bilibili的翻译版。 Awake() 和 Start()这两个函数用于做一些前置性工作。 不同之处在于，Awake()只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而Start()则在Aw">
 <meta property="og:type" content="article">
-<meta property="og:title" content="191024">
-<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2019&#x2F;10&#x2F;24&#x2F;191024&#x2F;index.html">
+<meta property="og:title" content="Unity脚本开发学习随记 壹">
+<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2019&#x2F;11&#x2F;17&#x2F;Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="博丽吹笛分社 | Macyrate">
-<meta property="og:description" content="对于所谓“现充”，我一向是不屑一顾的。对于所谓人人趋之若鹜的“潮流”，我更是嗤之以鼻的。 毕竟这种东西，和他们自己说的一样，“流行是个圈”，有甚么意思呢？ 是故在根本没有校服的高中时代，同学们——只要有条件的，个个汪洋恣肆泼洒青春时，我常常以和我心象般灰暗，似我体重般深沉的军夹克、牛仔裤、徒步鞋示人：一种自我麻痹式的超然放逐。那时的我只是一个丢不掉过去的失魂人，或者说，是过去的“什么”拉扯着我的魂">
+<meta property="og:description" content="这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。 这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。 我所阅览的是由风农发布在bilibili的翻译版。 Awake() 和 Start()这两个函数用于做一些前置性工作。 不同之处在于，Awake()只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而Start()则在Aw">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;konata.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;ndsl.jpg">
-<meta property="og:updated_time" content="2019-11-02T01:50:10.633Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E5%B7%A6%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg">
+<meta property="og:updated_time" content="2019-11-17T15:53:23.333Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;konata.jpg">
-  <link rel="canonical" href="https://hakurei.red/2019/10/24/191024/">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E5%B7%A6%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg">
+  <link rel="canonical" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -77,7 +76,7 @@
   };
 </script>
 
-  <title>191024 | 博丽吹笛分社 | Macyrate</title>
+  <title>Unity脚本开发学习随记 壹 | 博丽吹笛分社 | Macyrate</title>
   
 
 
@@ -185,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/10/24/191024/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -198,7 +197,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          191024
+          Unity脚本开发学习随记 壹
         </h2>
 
         <div class="post-meta">
@@ -208,7 +207,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-24 00:34:56" itemprop="dateCreated datePublished" datetime="2019-10-24T00:34:56+08:00">2019-10-24</time>
+              <time title="创建时间：2019-11-17 22:03:38" itemprop="dateCreated datePublished" datetime="2019-11-17T22:03:38+08:00">2019-11-17</time>
             </span>
 
           
@@ -229,30 +228,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>对于所谓“现充”，我一向是不屑一顾的。对于所谓人人趋之若鹜的“潮流”，我更是嗤之以鼻的。</p>
-<p>毕竟这种东西，和他们自己说的一样，“流行是个圈”，有甚么意思呢？</p>
-<p>是故在根本没有校服的高中时代，同学们——只要有条件的，个个汪洋恣肆泼洒青春时，我常常以和我心象般灰暗，似我体重般深沉的军夹克、牛仔裤、徒步鞋示人：一种自我麻痹式的超然放逐。那时的我只是一个丢不掉过去的失魂人，或者说，是过去的“什么”拉扯着我的魂魄，将它的一端钉在了2013年那个该死春季的墓碑上。</p>
-<a id="more"></a>
-
-<p>一晃七年，我日复一日，我得过且过；我浑浑噩噩，耗费了我已走过人生的三分之一——而其前三分之二，我甚至没有三两记忆。我学知识，忘得比学得更快；我记日记，终究又付之一炬；我结好友，“远走高飞难找寻”。</p>
-<p>唯一可以确信的，居然是这六七年我对东方project有了不少了解，而且从对STG基本没有概念到全通e、若干通n的程度，以及知道了一些文化方面的皮毛，能让我在新作里认出一些个出典，但也仅此而已。</p>
-<p>起初他们流行屌丝文化，我虽尚幼但仍然抵触；后来他们吹捧鲜肉韩星，我亦觉得怪异非常；现在他们搞起快手抖音，我只敢敬而远之。我脱离流行文化，不看电视、不听新歌，更叫不出明星们的名字，连英雄联盟也不曾打；即便是电影，也只是偶尔凑个热闹而已。</p>
-<p>每天我都能看到做着意义不明的事，开着低级趣味玩笑的闲人；也能见到蒙昧无知，却依然妄自尊大咄咄逼人的蠢人。<strong>可气，可笑，可悲！</strong> 但这个世界依然前进得太快，好像只有我自己在退行：没有什么比这更令人恐惧和焦虑的了——我！我也是他们中的一员！</p>
-<p>我实在是一个活在过去的人。曾经我以为这是我的特质，这是我的“格调”，但实际上是莫名其妙的自卑在驱使我不断加强自己的“AT力场”。</p>
-<p>这是我和任天堂的“孽缘”：作为五线城市普通家庭的孩子，小学有幸在官二代同学那里玩到了Sony PSP，于是到了2011年我读初一之时，我想要一台游戏机。只不过，我决定要从任天堂的平台开始。和每个中国孩子一样，我不免需要靠成绩来证明自己足以配得上神的恩赐。我是幸运的，我拿了学生时代唯一的一个全校第一：至于这背后有怎样的阴谋阳谋、机缘巧合，已经不重要了。</p>
-<p>其实3DS在那时已经发布，但之前只玩过4399和4399游戏盒的我，哪里敢想什么裸眼3D，更别提对没见过钱的初中生而言那天文数字般的价格。我想要一台2006年的NDSL，那红色外壳上的龙纹让我兴奋不已。然而父母那时承诺的礼物额度大抵只有300元而已，NDSL虽是上一世代，依然要价600；我只有退而求其次，在400元左右的2004年初代NDS中找寻，试图捡漏。但显然，这是不现实的，我只能再“退而求其次”，我看向了2003年的GBA SP，一台不带卡带的二手机器差不多就是300元了。至于卡带，只有之后“节衣缩食”来攒了，而且我甚至觉得这是一件很浪漫的事。</p>
-<p>这时已经是2011年，我希望得到一台2003年的游戏机。然而这个愿望依旧不能满足，因为在中国基本不会有哪个父母会给孩子奖励游戏机，这是我后来才意识到的事实。我没有不开心，好像这一切本就是理所当然，唯一让我有点难过的，是次年的伦敦奥运会开幕式上，我看到英国的孩子们在玩着3DS。最后我来到了武汉，在东湖边享用了当时我们的城市里还没有的必胜客披萨。那一餐我吃得很开心也很满足，但之后至今的八年里，虽然必胜客已经遍地开花，我却再未走进任何一家的大门。</p>
-<p>一直到了大学，到了2018年，这件小事才有了一点转机。其实在这之前，关于任天堂，关于掌机，乃至关于游戏还有许许多多记忆，不过这又是另一个故事了。2018年的暑假，我看完了《幸运星》，泉此方的NDSL唤起了我的记忆，和多年前一样，我打开淘宝，我输入了<code>NDSL</code>——不同的是，这一次我得以点下了购买按键。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/konata.jpg" alt="此方的NDSL"></p>
-<p>与和善的老板商谈几句，我要了和此方同款的深蓝色。货到了，是2006年生产的批次。我很开心，虽然跨越了十多年，但我总算玩上了《逆转裁判4》。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/ndsl.jpg" alt="此方的NDSL in 现实"></p>
-<p>可是，2018年了，早已经是Nintendo Switch的时代了，当年与NDSL同台竞技的索尼掌机也早已成了时代的眼泪。在这样的时代，来自十二年前的简单快乐让我投入且专注。现在，我认为这是我最为怪异的一点。</p>
-<p>“这样的事，以后还多着呢。”但我不想这样下去。如果我还能被称为“少年”，那这个念头可能就是我唯一的“倔强”。</p>
-<p>可是，要怎样做？</p>
-<p>不知道。想到这里，我心里空空荡荡，能抓住的绳索只有EVA。我没有什么鉴赏水平，EVA览毕，只记得了一点：庵野秀明的“补完计划”，是让阿宅走出自己闭锁的AT力场，走向社会。</p>
-<p>“那个东西”，它终究要死去。</p>
+        <p>这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。</p>
+<p>这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。</p>
+<p>我所阅览的是由<a href="https://space.bilibili.com/7647261" target="_blank" rel="noopener">风农</a>发布在bilibili的翻译版。</p>
+<h2 id="Awake-和-Start"><a href="#Awake-和-Start" class="headerlink" title="Awake() 和 Start()"></a>Awake() 和 Start()</h2><p>这两个函数用于做一些前置性工作。</p>
+<p>不同之处在于，<code>Awake()</code>只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而<code>Start()</code>则在<code>Awake()</code>之后执行，且脚本必须被使能。</p>
+<h2 id="Update-和-FixedUpdate"><a href="#Update-和-FixedUpdate" class="headerlink" title="Update() 和 FixedUpdate()"></a>Update() 和 FixedUpdate()</h2><p><code>Update()</code>很简单，每一帧调用一次。但显然，每一帧的渲染时间不会是一致的，即调用<code>Update()</code>的间隔时间不确定，这就导致如果我们把物理效果放到<code>Update()</code>里，会导致物理效果不太流畅。</p>
+<p>为了保证物理运动与时间之间的紧密联系，应该使用<code>FixedUpdate()</code>。顾名思义，这是“固定的”Update，即间隔时间可以保持一致。间隔时间由<code>Time.fixedDeltaTime</code>决定，默认的时间是<code>0.02s</code>，一秒钟调用50次。</p>
+<h2 id="坐标与向量"><a href="#坐标与向量" class="headerlink" title="坐标与向量"></a>坐标与向量</h2><p>Unity使用左手坐标系，三轴的相对位置依照下图所示。与数学立体几何中的一般表示不同，在这里Z轴代表的是“深度”而不是“高度”。</p>
+<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E5%B7%A6%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg" alt="左手坐标系"></p>
+<p>Unity包含了一些用于进行向量运算的方法，它们基本被放在<code>Vector2</code>和<code>Vector3</code>类里。</p>
+<h2 id="游戏对象、组件，及其开关"><a href="#游戏对象、组件，及其开关" class="headerlink" title="游戏对象、组件，及其开关"></a>游戏对象、组件，及其开关</h2><p>一个游戏对象（GameObject）可以拥有多个组件（Component）。</p>
+<p>比如一个简单的点光源，其本身是一个<code>GameObject</code>。首先它有一个<code>Transform</code>组件标示其位置、旋转、缩放等信息，还得有一个<code>Light</code>组件让它发光。也许，还有若干用于控制这个点光源的脚本组件。</p>
+<p>如果我们关闭这个游戏对象（我们把它叫做激活/停用），那么这个灯整个就从场景中消失了。用游戏对象的<code>SetActive(bool value)</code>方法来实现这一点。</p>
+<p>需要注意的是，如果游戏对象有多层结构，将一个父对象停用并不会使其子对象停用（虽然效果上，子对象也消失了）。查看一个对象到底是在层级中被激活还是本身确实在场景里激活了，可以用游戏对象的activeInHierarchy()和activeSelf()方法来确定。</p>
+<p>要关掉灯，除了让灯凭空消失，我们当然还有更正常的做法。每一个组件都有一个bool类型的<code>enabled</code>标志位，只要把这个标志位设为<code>false</code>，就能去使能（禁用）这个组件。如将点光源的<code>Light</code>组件禁用，光是没了，但灯依然还在原处。</p>
 <blockquote>
-<p>己亥霜降。</p>
+<p>今天先记到这里好了。</p>
 </blockquote>
 
     </div>
@@ -272,17 +264,14 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/10/20/%E4%B8%BAHexo%E9%85%8D%E7%BD%AEGitalk%EF%BC%8C%E5%B9%B6%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/" rel="next" title="为Hexo配置Gitalk，并更改主题颜色">
-                  <i class="fa fa-chevron-left"></i> 为Hexo配置Gitalk，并更改主题颜色
+                <a href="/2019/11/02/191102/" rel="next" title="191102">
+                  <i class="fa fa-chevron-left"></i> 191102
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/02/191102/" rel="prev" title="191102">
-                  191102 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -322,6 +311,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Awake-和-Start"><span class="nav-number">1.</span> <span class="nav-text">Awake() 和 Start()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Update-和-FixedUpdate"><span class="nav-number">2.</span> <span class="nav-text">Update() 和 FixedUpdate()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坐标与向量"><span class="nav-number">3.</span> <span class="nav-text">坐标与向量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游戏对象、组件，及其开关"><span class="nav-number">4.</span> <span class="nav-text">游戏对象、组件，及其开关</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -488,7 +478,7 @@
       repo: 'Macyrate.github.io',
       owner: 'macyrate',
       admin: ['macyrate'],
-      id: '9064b7aba0ddfb851e35e2d0aa477c34',
+      id: 'a606b42c950f60c5eb1e63e2712cf159',
         language: 'zh-CN',
       distractionFreeMode: 'true'
     });

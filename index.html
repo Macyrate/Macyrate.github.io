@@ -181,6 +181,81 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0/" class="post-title-link" itemprop="url">Unity脚本开发学习随记 壹</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-17 22:03:38" itemprop="dateCreated datePublished" datetime="2019-11-17T22:03:38+08:00">2019-11-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。</p>
+<p>这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。</p>
+<p>我所阅览的是由<a href="https://space.bilibili.com/7647261" target="_blank" rel="noopener">风农</a>发布在bilibili的翻译版。</p>
+<h2 id="Awake-和-Start"><a href="#Awake-和-Start" class="headerlink" title="Awake() 和 Start()"></a>Awake() 和 Start()</h2><p>这两个函数用于做一些前置性工作。</p>
+<p>不同之处在于，<code>Awake()</code>只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而<code>Start()</code>则在<code>Awake()</code>之后执行，且脚本必须被使能。</p>
+<h2 id="Update-和-FixedUpdate"><a href="#Update-和-FixedUpdate" class="headerlink" title="Update() 和 FixedUpdate()"></a>Update() 和 FixedUpdate()</h2><p><code>Update()</code>很简单，每一帧调用一次。但显然，每一帧的渲染时间不会是一致的，即调用<code>Update()</code>的间隔时间不确定，这就导致如果我们把物理效果放到<code>Update()</code>里，会导致物理效果不太流畅。</p>
+<p>为了保证物理运动与时间之间的紧密联系，应该使用<code>FixedUpdate()</code>。顾名思义，这是“固定的”Update，即间隔时间可以保持一致。间隔时间由<code>Time.fixedDeltaTime</code>决定，默认的时间是<code>0.02s</code>，一秒钟调用50次。</p>
+<h2 id="坐标与向量"><a href="#坐标与向量" class="headerlink" title="坐标与向量"></a>坐标与向量</h2><p>Unity使用左手坐标系，三轴的相对位置依照下图所示。与数学立体几何中的一般表示不同，在这里Z轴代表的是“深度”而不是“高度”。</p>
+<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E5%B7%A6%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg" alt="左手坐标系"></p>
+<p>Unity包含了一些用于进行向量运算的方法，它们基本被放在<code>Vector2</code>和<code>Vector3</code>类里。</p>
+<h2 id="游戏对象、组件，及其开关"><a href="#游戏对象、组件，及其开关" class="headerlink" title="游戏对象、组件，及其开关"></a>游戏对象、组件，及其开关</h2><p>一个游戏对象（GameObject）可以拥有多个组件（Component）。</p>
+<p>比如一个简单的点光源，其本身是一个<code>GameObject</code>。首先它有一个<code>Transform</code>组件标示其位置、旋转、缩放等信息，还得有一个<code>Light</code>组件让它发光。也许，还有若干用于控制这个点光源的脚本组件。</p>
+<p>如果我们关闭这个游戏对象（我们把它叫做激活/停用），那么这个灯整个就从场景中消失了。用游戏对象的<code>SetActive(bool value)</code>方法来实现这一点。</p>
+<p>需要注意的是，如果游戏对象有多层结构，将一个父对象停用并不会使其子对象停用（虽然效果上，子对象也消失了）。查看一个对象到底是在层级中被激活还是本身确实在场景里激活了，可以用游戏对象的activeInHierarchy()和activeSelf()方法来确定。</p>
+<p>要关掉灯，除了让灯凭空消失，我们当然还有更正常的做法。每一个组件都有一个bool类型的<code>enabled</code>标志位，只要把这个标志位设为<code>false</code>，就能去使能（禁用）这个组件。如将点光源的<code>Light</code>组件禁用，光是没了，但灯依然还在原处。</p>
+<blockquote>
+<p>今天先记到这里好了。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/02/191102/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -795,65 +870,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C/" class="post-title-link" itemprop="url">Flash暴力膜</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-08 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-08T00:00:00+08:00">2016-12-08</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E6%9A%B4%E5%8A%9B%E8%86%9C.gif" alt=""></p>
-<p>本应是Flash的，但时间已过3年，Flash成了时代眼泪中的时代眼泪，拿gif凑数好了（这抖动频率有点太快了）</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -904,7 +920,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

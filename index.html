@@ -181,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0_%E8%B4%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -195,7 +195,98 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0/" class="post-title-link" itemprop="url">Unity脚本开发学习随记 壹</a>
+            <a href="/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0_%E8%B4%B0/" class="post-title-link" itemprop="url">Unity脚本开发学习随记 贰</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-18 12:21:58" itemprop="dateCreated datePublished" datetime="2019-11-18T12:21:58+08:00">2019-11-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>书接上文。</p>
+<h2 id="按键控制"><a href="#按键控制" class="headerlink" title="按键控制"></a>按键控制</h2><p><code>Input.GetKey</code>和<code>Input.GetButton</code>两种方法用于获取按键情况。</p>
+<p>区别在于，Key有确定的KeyCode。KeyCode是Unity内置的枚举类，内含各种键盘、手柄按键，如空格键就由<code>KeyCode.Space</code>表示。</p>
+<p>而Button是可以自定义详细配置的。在<code>Edit-ProjectSettings-Input</code>中可以对输入进行详细配置，为一种操作提供一个字符串别名。只要使用<code>GetBotton(string str)</code>就可以监测对应的输入了。</p>
+<p>除了知道按键是否被按下之外，我们还需要确切地知道按键在哪一帧被按下，哪一帧被松开。 因此，这两个方法都有衍生的<code>GetxxxDown</code>和<code>GetxxxUp</code>。在对应按键被按下后的第一帧，<code>GetKeyDown</code>返回true，而到了第二帧，它就再次返回false了。同理，<code>GetKeyUp</code>也仅在松开按键后的第一帧返回true。</p>
+<p>当然，这些方法都应该被放在Update()函数里，这样才能在每一帧对按键进行监测。</p>
+<h2 id="摇杆控制"><a href="#摇杆控制" class="headerlink" title="摇杆控制"></a>摇杆控制</h2><p>确切地讲，这里应该是“轴”而不是摇杆。不过比起按键，摇杆更能体现“轴”的涵义，虽然按键确实也可以作为轴。</p>
+<p>摇杆控制就比较麻烦了，因为按键只有按下与没按下两个状态，可以简单地用bool值表示，但摇杆有推移的距离，只能用浮点数表示。而且摇杆还有反向。</p>
+<p>对于这些特性，GetKey之类的方法显然无法处理，所以需要使用<code>Input.GetAxis</code>。</p>
+<p><code>Input.GetAxis</code>的参数是称为<code>axisName</code>的字符串，可以在<code>Edit-ProjectSettings-Input</code>中定义。其返回的是一个-1到1之间的浮点数，<code>Positive Botton</code>使其返回正值，而<code>Negative Botton</code>让其返回负值。</p>
+<p><code>Sensitivity</code>和<code>Gravity</code>决定了按键触发/松开时返回值多快地上升/归零。</p>
+<p>此外还有<code>Dead</code>值，这使得可以不对较小幅度的摇杆活动进行处理，一定程度上能够防止误触。<code>Snap</code>选项，其为true时如果同时触发了<code>Positive Botton</code>和<code>Negative Botton</code>，就返回0。</p>
+<p>以上说的，是比较“完备”的摇杆控制，但是在很多时候我们并不需要这个“轴”返回浮点值。举个例子，《刺客信条：起源》中并没有以往的“奔跑”键，而是用摇杆推移的幅度决定移动速度，这就非常<code>GetAxis</code>。如果用键盘操作，WASD控制方向，是没有推移幅度这一说的，我们就当按下按键就是摇杆直接推到底，这就是<code>Type</code>属性为<code>Key or Mouse Button</code>而不是<code>Joystick Axis</code>的轴。无论如何，巴耶克并不是弹射起步，而是有gravity和sensitivity的作用。</p>
+<p>但是，在东方的STG里就没有这些玩意，大家的运动都像加速度不存在一样。这种情况下，应当使用<code>Input.GetAxisRaw</code>方法，按键后返回的是1和-1这两个整数而非浮点数。</p>
+<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AE%AE%E7%9A%84%E5%B9%BB%E6%83%B3%E4%B9%A1.png" alt="不可思议的幻想乡"></p>
+<h2 id="重写和成员隐藏"><a href="#重写和成员隐藏" class="headerlink" title="重写和成员隐藏"></a>重写和成员隐藏</h2><p>关于这一点，可以看看微软文档：<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/knowing-when-to-use-override-and-new-keywords" target="_blank" rel="noopener">了解何时使用 Override 和 New 关键字</a>。</p>
+<p>以前我以为“重写覆盖”是一个词，但今天发现似乎并非如此。</p>
+<p>重写（Overriding，有人称为覆盖）是在派生类中重新实现基类中已有的方法和属性等，为了安全，基类中被重写的方法/属性需要有<code>virtual</code>修饰符（或者abstract、override），派生类重写的方法/属性需要有<code>override</code>修饰符。由于是重新“实现”，重写的方法签名/属性类型和名称必须和之前保持一致，也不能改变访问性，重写方法相当于只是重新编写了方法的函数体。</p>
+<p>我的理解是，<strong>在派生类中重写之后，从基类继承下来的方法/属性就相当于不存在了</strong>。因此，不管我们把派生类的对象当成该类的对象还是其基类的对象，在直接调用方法时调用的都是重写之后的方法。</p>
+<p>而成员隐藏则完全不同（Member Hiding，虽然也有人称其为覆盖），它虽然看上去是在派生类中用<code>new</code>修饰符重新定义了基类中已有的成员，<strong>但！是！</strong> 从基类继承下来的成员并没有消失，而是被<strong>隐藏</strong>了。如果我们把派生类的对象作为其基类的对象（Upcasting，向上转型），那调用到的就是被隐藏的基类成员。</p>
+<p>总而言之，“覆盖”这个翻译是谁发明的？出来挨打！</p>
+<h2 id="委托和事件"><a href="#委托和事件" class="headerlink" title="委托和事件"></a>委托和事件</h2><p>委托（delegate）可以被当作函数指针。要定义委托，首先需要用<code>delegate</code>关键字声明一个模板，模板展示了这种委托应该存放怎样的函数——用其返回类型以及参数列表来限定。</p>
+<p>可以把委托名直接当成函数名来用。</p>
+<p>委托支持“多播”，这使得我们可以把同一类型的函数集中放到一个委托里，只要调用这个委托，就是依次调用委托中函数列表里的函数。用<code>+=</code>和<code>-=</code>运算符把函数加入委托或从委托中删除。</p>
+<p>最初看到多播委托这里，我还没有领会这个机制的用处，但很快我就看到了“事件”。</p>
+<p>事件就是一种特殊的委托，或者说它非常类似于公共的多播委托。我们在定义委托的基础上使用<code>event</code>关键字定义一个事件。</p>
+<p>对于同一个事件，不同的对象可能有不同的反应，也就有不同的处理函数。如果把唤起事件视作调用委托，那么一系列的事件处理函数就是委托的函数列表，要订阅或取消订阅事件的话，用<code>+=</code>和<code>-=</code>就好了。</p>
+<h2 id="协程和生成器"><a href="#协程和生成器" class="headerlink" title="协程和生成器"></a>协程和生成器</h2><p>看到C#协程（Coroutine）里熟悉的<code>yield</code>，我想到的是此前在Python中学到过的生成器（Generator）。简直是一个套路，运行到yield时，函数返回，但下次调用该函数时不会再从头执行，而是从上次退出的地方之后开始执行。</p>
+<p>实际上生成器就是协程的一种，称为半协程（Semi-coroutine），这是一种受限制的协程实现。</p>
+<p>在这里面学问很深，我才疏学浅暂且接触不到，这里就贴个知乎专栏链接吧：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/25513336" target="_blank" rel="noopener">Coroutine从入门到劝退 - 王迅的文章 - 知乎</a></p>
+<blockquote>
+<p>暂时就记到这里了。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0_%E5%A3%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0_%E5%A3%B9/" class="post-title-link" itemprop="url">Unity脚本开发学习随记 壹</a>
         </h2>
 
         <div class="post-meta">
@@ -801,75 +892,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/" class="post-title-link" itemprop="url">Flash暴力膜-说明</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-08 19:01:52" itemprop="dateCreated datePublished" datetime="2016-12-08T19:01:52+08:00">2016-12-08</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这篇文章是对“Flash暴力膜”一文的说明。</p>
-<blockquote>
-<p>“所以×××同志同我讲话，说‘中央都决定了，你来当总书记’。我说另请高明吧，我实在也不是谦虚。我一个上海市委书记怎么到北京来了呢？但是，×××同志讲‘大家已经研究决定了’。后来我念了两首诗，叫‘苟利国家生死以，岂因祸福避趋之’。”</p>
-<p><em>—— 长者</em></p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -920,7 +942,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -1,3 +1,10 @@
+---
+title: Steam游览记录：Eternal Senia（永恒的赛妮亚）
+date: 2016-12-17
+tags:
+- 游戏
+---
+
 ![](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/senia-1.jpg)
 
 台湾独立开发者做的免费ARPG，好顶赞！

@@ -25,9 +25,9 @@
     version: '7.4.1',
     exturl: false,
     sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":null},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    bookmark: {"enable":false,"color":"#CC543A","save":"auto"},
     fancybox: true,
     mediumzoom: false,
     lazyload: false,
@@ -58,7 +58,7 @@
 <meta property="og:site_name" content="博丽吹笛分社 | Macyrate">
 <meta property="og:description" content="这篇文章是对“Flash暴力膜”一文的说明。  “所以×××同志同我讲话，说‘中央都决定了，你来当总书记’。我说另请高明吧，我实在也不是谦虚。我一个上海市委书记怎么到北京来了呢？但是，×××同志讲‘大家已经研究决定了’。后来我念了两首诗，叫‘苟利国家生死以，岂因祸福避趋之’。” —— 长者">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-22T03:10:34.477Z">
+<meta property="og:updated_time" content="2019-11-21T03:22:13.908Z">
 <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://hakurei.red/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/">
 
@@ -151,6 +151,11 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
@@ -237,31 +242,9 @@
 <p>制作过程比较简单，动画效果只有树和帽带的晃动（但是至少熟悉了flash的基本操作），毕竟我们要做到简洁纯朴啊。</p>
 <p>本来想给文字也添加一个动画效果的，但是出现了各种迷之问题，就秉承一贯的“简洁风”弃了。</p>
 <p>真正劳神的是把.swf插到wordpress站点里，因为flash早就是时代的眼泪了，wordpress已经不再支持.swf的上传，找来了“Swf Upload Enabler”插件才上传成功；插入.swf又用到WOPUS论坛上大佬的方法，引入代码：</p>
-<pre><code>&lt;!--其实我也不知道是不是这段代码，网站迁移时这里的内容丢失了（--&gt;
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--其实我也不知道是不是这段代码，网站迁移时这里的内容丢失了（--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">id</span>=<span class="string">"flashcontent"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">classid</span>=<span class="string">"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">width</span>=<span class="string">"550px"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">height</span>=<span class="string">"400px"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"movie"</span> <span class="attr">value</span>=<span class="string">"mymovie.swf"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--[if !IE]&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">type</span>=<span class="string">"application/x-shockwave-flash"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">data</span>=<span class="string">"mymovie.swf"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">width</span>=<span class="string">"550px"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">height</span>=<span class="string">"400px"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;![endif]--&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    Fallback or "alternate" content goes here.</span><br><span class="line">    This content will only be visible if the SWF fails to load.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--[if !IE]&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;![endif]--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-&lt;object id=&quot;flashcontent&quot; 
-        classid=&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot; 
-        width=&quot;550px&quot; 
-        height=&quot;400px&quot;&gt;
-&lt;param name=&quot;movie&quot; value=&quot;mymovie.swf&quot; /&gt;
-
-&lt;!--[if !IE]&gt;--&gt;
-&lt;object type=&quot;application/x-shockwave-flash&quot; 
-        data=&quot;mymovie.swf&quot; 
-        width=&quot;550px&quot; 
-        height=&quot;400px&quot;&gt;
-&lt;!--&lt;![endif]--&gt;
-
-    &lt;p&gt;
-    Fallback or &quot;alternate&quot; content goes here.
-    This content will only be visible if the SWF fails to load.
-    &lt;/p&gt;
-
-&lt;!--[if !IE]&gt;--&gt;
-&lt;/object&gt;
-&lt;!--&lt;![endif]--&gt;
-
-&lt;/object&gt;</code></pre><p>（WP-Syntax简直有毒，锻炼视力的时刻到了）（代码显示效果以后再调试吧）</p>
+<p>（WP-Syntax简直有毒，锻炼视力的时刻到了）（代码显示效果以后再调试吧）</p>
 <p>把url改为媒体库中文件的链接，再改改宽高，就完成了。</p>
 <p>但是移动端上显示很不理想，因为尺寸不会自适应，导致排版出现缺陷（况且移动端根本不支持flash）</p>
 <p>嘛，不过就这样吧。</p>

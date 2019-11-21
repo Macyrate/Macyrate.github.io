@@ -127,7 +127,7 @@ scheme: Pisces
 menu:
   home: / || home
   # about: /about/ || user
-  #tags: /tags/ || tags
+  tags: /tags/ || tags
   #categories: /categories/ || th
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
@@ -333,7 +333,7 @@ tagcloud:
   # All values below are same as default, change them by yourself
   min: 12 # Minimun font size in px
   max: 30 # Maxium font size in px
-  start: "#ccc" # Start color (hex, rgba, hsla or color keywords)
+  start: "#CC543A" # Start color (hex, rgba, hsla or color keywords)
   end: "#111" # End color (hex, rgba, hsla or color keywords)
   amount: 200 # Amount of tags, change it if you have more than 200 tags
 
@@ -389,7 +389,7 @@ codeblock:
     # Show text copy result.
     show_result: true
     # Available values: default | flat | mac
-    style:
+    style: flat
 
 back2top:
   enable: true
@@ -403,14 +403,14 @@ reading_progress:
   enable: false
   # Available values: top | bottom
   position: top
-  color: "#37c6c0"
+  color: "#CC543A"
   height: 3px
 
 # Bookmark Support
 bookmark:
   enable: false
   # Customize the color of the bookmark.
-  color: "#222"
+  color: "#CC543A"
   # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
   # If manual, only save it by clicking the bookmark-icon.
   save: auto
@@ -450,7 +450,7 @@ font:
   global:
     external: true
     family: Lato
-    size:
+    size: 1
 
   # Font settings for site title (.site-title).
   title:
@@ -865,7 +865,7 @@ note:
   #  - modern    bs-callout new (v2-v3) alert style.
   #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
   #  - disabled  disable all CSS styles import of note tag.
-  style: simple
+  style: modern
   icons: false
   border_radius: 3
   # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).

@@ -21,6 +21,7 @@ $blue-bright  = #87daff;
 $blue         = #0684bd;
 $blue-deep    = #262a30;
 $orange       = #fc6423;
+$ake          = #cc543a;
 
 
 // Scaffolding
@@ -36,13 +37,13 @@ $link-decoration-color        = $grey-dark;
 $link-decoration-hover-color  = $black-deep;
 
 // Global border color.
-$border-color                 = $grey-light;
+$border-color                 = $ake;
 
 // Background color for <body>
 $body-bg-color                = white;
 
 // Selection
-$selection-bg                 = $blue-deep;
+$selection-bg                 = $ake;
 $selection-color              = white;
 
 
@@ -69,8 +70,8 @@ $font-family-headings     = get_font_family('headings'), $font-family-base if ge
 $font-family-posts        = $font-family-base;
 $font-family-posts        = get_font_family('posts'), $font-family-base if get_font_family('posts');
 
-$font-family-monospace    = consolas, Menlo, monospace, $font-family-chinese;
-$font-family-monospace    = get_font_family('codes'), consolas, Menlo, monospace, $font-family-chinese if get_font_family('codes');
+$font-family-monospace    = "Cascadia Code", consolas, Menlo, monospace, $font-family-chinese;
+$font-family-monospace    = get_font_family('codes'), "Cascadia Code", consolas, Menlo, monospace, $font-family-chinese if get_font_family('codes');
 
 $font-family-icons        = 'FontAwesome';
 
@@ -133,7 +134,7 @@ $table-row-hover-bg-color       = $whitesmoke;
 // --------------------------------------------------
 $code-font-family               = $font-family-monospace;
 $code-border-radius             = 3px;
-$code-foreground                = $black-light;
+$code-foreground                = $ake;
 $code-background                = $gainsboro;
 
 

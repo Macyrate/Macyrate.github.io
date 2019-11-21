@@ -51,18 +51,19 @@
   };
 </script>
 
-  <meta name="description" content="书接上文。 按键控制Input.GetKey和Input.GetButton两种方法用于获取按键情况。 区别在于，Key有确定的KeyCode。KeyCode是Unity内置的枚举类，内含各种键盘、手柄按键，如空格键就由KeyCode.Space表示。 而Button是可以自定义详细配置的。在Edit-ProjectSettings-Input中可以对输入进行详细配置，为一种操作提供一个字符串别名">
+  <meta name="description" content="这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。 这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。 我所阅览的是由风农发布在bilibili的翻译版。 Awake() 和 Start()这两个函数用于做一些前置性工作。 不同之处在于，Awake()只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而Start()则在Aw">
+<meta name="keywords" content="游戏,笔记,Unity,c#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity脚本开发学习随记 贰">
-<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2019&#x2F;11&#x2F;18&#x2F;Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0-%E8%B4%B0&#x2F;index.html">
+<meta property="og:title" content="Unity脚本开发学习笔记 壹">
+<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2019&#x2F;11&#x2F;17&#x2F;Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9&#x2F;index.html">
 <meta property="og:site_name" content="博丽吹笛分社 | Macyrate">
-<meta property="og:description" content="书接上文。 按键控制Input.GetKey和Input.GetButton两种方法用于获取按键情况。 区别在于，Key有确定的KeyCode。KeyCode是Unity内置的枚举类，内含各种键盘、手柄按键，如空格键就由KeyCode.Space表示。 而Button是可以自定义详细配置的。在Edit-ProjectSettings-Input中可以对输入进行详细配置，为一种操作提供一个字符串别名">
+<meta property="og:description" content="这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。 这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。 我所阅览的是由风农发布在bilibili的翻译版。 Awake() 和 Start()这两个函数用于做一些前置性工作。 不同之处在于，Awake()只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而Start()则在Aw">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AE%AE%E7%9A%84%E5%B9%BB%E6%83%B3%E4%B9%A1.png">
-<meta property="og:updated_time" content="2019-11-21T01:40:03.675Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E5%B7%A6%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg">
+<meta property="og:updated_time" content="2019-11-21T03:44:35.510Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AE%AE%E7%9A%84%E5%B9%BB%E6%83%B3%E4%B9%A1.png">
-  <link rel="canonical" href="https://hakurei.red/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0-%E8%B4%B0/">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E5%B7%A6%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg">
+  <link rel="canonical" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
 
 
 <script id="page-configurations">
@@ -76,7 +77,7 @@
   };
 </script>
 
-  <title>Unity脚本开发学习随记 贰 | 博丽吹笛分社 | Macyrate</title>
+  <title>Unity脚本开发学习笔记 壹 | 博丽吹笛分社 | Macyrate</title>
   
 
 
@@ -189,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0-%E8%B4%B0/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -202,7 +203,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          Unity脚本开发学习随记 贰
+          Unity脚本开发学习笔记 壹
         </h2>
 
         <div class="post-meta">
@@ -212,7 +213,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-11-18 12:21:58" itemprop="dateCreated datePublished" datetime="2019-11-18T12:21:58+08:00">2019-11-18</time>
+              <time title="创建时间：2019-11-17 22:03:38" itemprop="dateCreated datePublished" datetime="2019-11-17T22:03:38+08:00">2019-11-17</time>
             </span>
 
           
@@ -233,39 +234,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>书接上文。</p>
-<h2 id="按键控制"><a href="#按键控制" class="headerlink" title="按键控制"></a>按键控制</h2><p><code>Input.GetKey</code>和<code>Input.GetButton</code>两种方法用于获取按键情况。</p>
-<p>区别在于，Key有确定的KeyCode。KeyCode是Unity内置的枚举类，内含各种键盘、手柄按键，如空格键就由<code>KeyCode.Space</code>表示。</p>
-<p>而Button是可以自定义详细配置的。在<code>Edit-ProjectSettings-Input</code>中可以对输入进行详细配置，为一种操作提供一个字符串别名。只要使用<code>GetBotton(string str)</code>就可以监测对应的输入了。</p>
-<p>除了知道按键是否被按下之外，我们还需要确切地知道按键在哪一帧被按下，哪一帧被松开。 因此，这两个方法都有衍生的<code>GetxxxDown</code>和<code>GetxxxUp</code>。在对应按键被按下后的第一帧，<code>GetKeyDown</code>返回true，而到了第二帧，它就再次返回false了。同理，<code>GetKeyUp</code>也仅在松开按键后的第一帧返回true。</p>
-<p>当然，这些方法都应该被放在Update()函数里，这样才能在每一帧对按键进行监测。</p>
-<h2 id="摇杆控制"><a href="#摇杆控制" class="headerlink" title="摇杆控制"></a>摇杆控制</h2><p>确切地讲，这里应该是“轴”而不是摇杆。不过比起按键，摇杆更能体现“轴”的涵义，虽然按键确实也可以作为轴。</p>
-<p>摇杆控制就比较麻烦了，因为按键只有按下与没按下两个状态，可以简单地用bool值表示，但摇杆有推移的距离，只能用浮点数表示。而且摇杆还有反向。</p>
-<p>对于这些特性，GetKey之类的方法显然无法处理，所以需要使用<code>Input.GetAxis</code>。</p>
-<p><code>Input.GetAxis</code>的参数是称为<code>axisName</code>的字符串，可以在<code>Edit-ProjectSettings-Input</code>中定义。其返回的是一个-1到1之间的浮点数，<code>Positive Botton</code>使其返回正值，而<code>Negative Botton</code>让其返回负值。</p>
-<p><code>Sensitivity</code>和<code>Gravity</code>决定了按键触发/松开时返回值多快地上升/归零。</p>
-<p>此外还有<code>Dead</code>值，这使得可以不对较小幅度的摇杆活动进行处理，一定程度上能够防止误触。<code>Snap</code>选项，其为true时如果同时触发了<code>Positive Botton</code>和<code>Negative Botton</code>，就返回0。</p>
-<p>以上说的，是比较“完备”的摇杆控制，但是在很多时候我们并不需要这个“轴”返回浮点值。举个例子，《刺客信条：起源》中并没有以往的“奔跑”键，而是用摇杆推移的幅度决定移动速度，这就非常<code>GetAxis</code>。如果用键盘操作，WASD控制方向，是没有推移幅度这一说的，我们就当按下按键就是摇杆直接推到底，这就是<code>Type</code>属性为<code>Key or Mouse Button</code>而不是<code>Joystick Axis</code>的轴。无论如何，巴耶克并不是弹射起步，而是有gravity和sensitivity的作用。</p>
-<p>但是，在东方的STG里就没有这些玩意，大家的运动都像加速度不存在一样。这种情况下，应当使用<code>Input.GetAxisRaw</code>方法，按键后返回的是1和-1这两个整数而非浮点数。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AE%AE%E7%9A%84%E5%B9%BB%E6%83%B3%E4%B9%A1.png" alt="不可思议的幻想乡"></p>
-<h2 id="重写和成员隐藏"><a href="#重写和成员隐藏" class="headerlink" title="重写和成员隐藏"></a>重写和成员隐藏</h2><p>关于这一点，可以看看微软文档：<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/knowing-when-to-use-override-and-new-keywords" target="_blank" rel="noopener">了解何时使用 Override 和 New 关键字</a>。</p>
-<p>以前我以为“重写覆盖”是一个词，但今天发现似乎并非如此。</p>
-<p>重写（Overriding，有人称为覆盖）是在派生类中重新实现基类中已有的方法和属性等，为了安全，基类中被重写的方法/属性需要有<code>virtual</code>修饰符（或者abstract、override），派生类重写的方法/属性需要有<code>override</code>修饰符。由于是重新“实现”，重写的方法签名/属性类型和名称必须和之前保持一致，也不能改变访问性，重写方法相当于只是重新编写了方法的函数体。</p>
-<p>我的理解是，<strong>在派生类中重写之后，从基类继承下来的方法/属性就相当于不存在了</strong>。因此，不管我们把派生类的对象当成该类的对象还是其基类的对象，在直接调用方法时调用的都是重写之后的方法。</p>
-<p>而成员隐藏则完全不同（Member Hiding，虽然也有人称其为覆盖），它虽然看上去是在派生类中用<code>new</code>修饰符重新定义了基类中已有的成员，<strong>但！是！</strong> 从基类继承下来的成员并没有消失，而是被<strong>隐藏</strong>了。如果我们把派生类的对象作为其基类的对象（Upcasting，向上转型），那调用到的就是被隐藏的基类成员。</p>
-<p>总而言之，“覆盖”这个翻译是谁发明的？出来挨打！</p>
-<h2 id="委托和事件"><a href="#委托和事件" class="headerlink" title="委托和事件"></a>委托和事件</h2><p>委托（delegate）可以被当作函数指针。要定义委托，首先需要用<code>delegate</code>关键字声明一个模板，模板展示了这种委托应该存放怎样的函数——用其返回类型以及参数列表来限定。</p>
-<p>可以把委托名直接当成函数名来用。</p>
-<p>委托支持“多播”，这使得我们可以把同一类型的函数集中放到一个委托里，只要调用这个委托，就是依次调用委托中函数列表里的函数。用<code>+=</code>和<code>-=</code>运算符把函数加入委托或从委托中删除。</p>
-<p>最初看到多播委托这里，我还没有领会这个机制的用处，但很快我就看到了“事件”。</p>
-<p>事件就是一种特殊的委托，或者说它非常类似于公共的多播委托。我们在定义委托的基础上使用<code>event</code>关键字定义一个事件。</p>
-<p>对于同一个事件，不同的对象可能有不同的反应，也就有不同的处理函数。如果把唤起事件视作调用委托，那么一系列的事件处理函数就是委托的函数列表，要订阅或取消订阅事件的话，用<code>+=</code>和<code>-=</code>就好了。</p>
-<h2 id="协程和生成器"><a href="#协程和生成器" class="headerlink" title="协程和生成器"></a>协程和生成器</h2><p>看到C#协程（Coroutine）里熟悉的<code>yield</code>，我想到的是此前在Python中学到过的生成器（Generator）。简直是一个套路，运行到yield时，函数返回，但下次调用该函数时不会再从头执行，而是从上次退出的地方之后开始执行。</p>
-<p>实际上生成器就是协程的一种，称为半协程（Semi-coroutine），这是一种受限制的协程实现。</p>
-<p>在这里面学问很深，我才疏学浅暂且接触不到，这里就贴个知乎专栏链接吧：</p>
-<p><a href="https://zhuanlan.zhihu.com/p/25513336" target="_blank" rel="noopener">Coroutine从入门到劝退 - 王迅的文章 - 知乎</a></p>
+        <p>这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。</p>
+<p>这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。</p>
+<p>我所阅览的是由<a href="https://space.bilibili.com/7647261" target="_blank" rel="noopener">风农</a>发布在bilibili的翻译版。</p>
+<h2 id="Awake-和-Start"><a href="#Awake-和-Start" class="headerlink" title="Awake() 和 Start()"></a>Awake() 和 Start()</h2><p>这两个函数用于做一些前置性工作。</p>
+<p>不同之处在于，<code>Awake()</code>只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而<code>Start()</code>则在<code>Awake()</code>之后执行，且脚本必须被使能。</p>
+<h2 id="Update-和-FixedUpdate"><a href="#Update-和-FixedUpdate" class="headerlink" title="Update() 和 FixedUpdate()"></a>Update() 和 FixedUpdate()</h2><p><code>Update()</code>很简单，每一帧调用一次。但显然，每一帧的渲染时间不会是一致的，即调用<code>Update()</code>的间隔时间不确定，这就导致如果我们把物理效果放到<code>Update()</code>里，会导致物理效果不太流畅。</p>
+<p>为了保证物理运动与时间之间的紧密联系，应该使用<code>FixedUpdate()</code>。顾名思义，这是“固定的”Update，即间隔时间可以保持一致。间隔时间由<code>Time.fixedDeltaTime</code>决定，默认的时间是<code>0.02s</code>，一秒钟调用50次。</p>
+<h2 id="坐标与向量"><a href="#坐标与向量" class="headerlink" title="坐标与向量"></a>坐标与向量</h2><p>Unity使用左手坐标系，三轴的相对位置依照下图所示。与数学立体几何中的一般表示不同，在这里Z轴代表的是“深度”而不是“高度”。</p>
+<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E5%B7%A6%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg" alt="左手坐标系"></p>
+<p>Unity包含了一些用于进行向量运算的方法，它们基本被放在<code>Vector2</code>和<code>Vector3</code>类里。</p>
+<h2 id="游戏对象、组件，及其开关"><a href="#游戏对象、组件，及其开关" class="headerlink" title="游戏对象、组件，及其开关"></a>游戏对象、组件，及其开关</h2><p>一个游戏对象（GameObject）可以拥有多个组件（Component）。</p>
+<p>比如一个简单的点光源，其本身是一个<code>GameObject</code>。首先它有一个<code>Transform</code>组件标示其位置、旋转、缩放等信息，还得有一个<code>Light</code>组件让它发光。也许，还有若干用于控制这个点光源的脚本组件。</p>
+<p>如果我们关闭这个游戏对象（我们把它叫做激活/停用），那么这个灯整个就从场景中消失了。用游戏对象的<code>SetActive(bool value)</code>方法来实现这一点。</p>
+<p>需要注意的是，如果游戏对象有多层结构，将一个父对象停用并不会使其子对象停用（虽然效果上，子对象也消失了）。查看一个对象到底是在层级中被激活还是本身确实在场景里激活了，可以用游戏对象的activeInHierarchy()和activeSelf()方法来确定。</p>
+<p>要关掉灯，除了让灯凭空消失，我们当然还有更正常的做法。每一个组件都有一个bool类型的<code>enabled</code>标志位，只要把这个标志位设为<code>false</code>，就能去使能（禁用）这个组件。如将点光源的<code>Light</code>组件禁用，光是没了，但灯依然还在原处。</p>
 <blockquote>
-<p>暂时就记到这里了。</p>
+<p>今天先记到这里好了。</p>
 </blockquote>
 
     </div>
@@ -280,21 +265,27 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag"># 游戏</a>
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/tags/Unity/" rel="tag"># Unity</a>
+              <a href="/tags/c/" rel="tag"># c#</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E9%9A%8F%E8%AE%B0-%E5%A3%B9/" rel="next" title="Unity脚本开发学习随记 壹">
-                  <i class="fa fa-chevron-left"></i> Unity脚本开发学习随记 壹
+                <a href="/2019/11/02/191102/" rel="next" title="191102">
+                  <i class="fa fa-chevron-left"></i> 191102
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/20/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/" rel="prev" title="游戏分析框架学习笔记 壹">
-                  游戏分析框架学习笔记 壹 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0/" rel="prev" title="Unity脚本开发学习笔记 贰">
+                  Unity脚本开发学习笔记 贰 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -335,7 +326,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#按键控制"><span class="nav-number">1.</span> <span class="nav-text">按键控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#摇杆控制"><span class="nav-number">2.</span> <span class="nav-text">摇杆控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重写和成员隐藏"><span class="nav-number">3.</span> <span class="nav-text">重写和成员隐藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#委托和事件"><span class="nav-number">4.</span> <span class="nav-text">委托和事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协程和生成器"><span class="nav-number">5.</span> <span class="nav-text">协程和生成器</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Awake-和-Start"><span class="nav-number">1.</span> <span class="nav-text">Awake() 和 Start()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Update-和-FixedUpdate"><span class="nav-number">2.</span> <span class="nav-text">Update() 和 FixedUpdate()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坐标与向量"><span class="nav-number">3.</span> <span class="nav-text">坐标与向量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游戏对象、组件，及其开关"><span class="nav-number">4.</span> <span class="nav-text">游戏对象、组件，及其开关</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -354,6 +345,12 @@
           <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -502,7 +499,7 @@
       repo: 'Macyrate.github.io',
       owner: 'macyrate',
       admin: ['macyrate'],
-      id: '4e6dff845d04805e299fce229737937b',
+      id: '977a58aed89e2549b1cbdf363609f20a',
         language: 'zh-CN',
       distractionFreeMode: 'true'
     });

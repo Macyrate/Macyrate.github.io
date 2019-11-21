@@ -52,6 +52,7 @@
 </script>
 
   <meta name="description" content="配置Gitalk在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？ 当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行hexo g却永远都是： next disqus">
+<meta name="keywords" content="Hexo,前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为Hexo配置Gitalk，并更改主题颜色">
 <meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2019&#x2F;10&#x2F;20&#x2F;%E4%B8%BAHexo%E9%85%8D%E7%BD%AEGitalk%EF%BC%8C%E5%B9%B6%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2&#x2F;index.html">
@@ -69,7 +70,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E5%9D%9A%E6%9E%9C%E6%89%8B%E6%9C%BA%E9%85%8D%E8%89%B2.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;gtalk%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;gitalkvendors.jpg">
-<meta property="og:updated_time" content="2019-10-22T02:48:31.541Z">
+<meta property="og:updated_time" content="2019-11-21T03:42:16.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E4%B8%8D%E6%94%AF%E6%8C%81Disqus.jpg">
   <link rel="canonical" href="https://hakurei.red/2019/10/20/%E4%B8%BAHexo%E9%85%8D%E7%BD%AEGitalk%EF%BC%8C%E5%B9%B6%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/">
@@ -301,6 +302,10 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
 
         
 
@@ -375,6 +380,12 @@
           <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>

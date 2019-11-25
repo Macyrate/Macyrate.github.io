@@ -97,3 +97,7 @@ deploy:
   repo:
     github: https://github.com/Macyrate/Macyrate.github.io.git
   branch: rebirth
+
+# aplayer
+aplayer:
+  meting: true

@@ -2,11 +2,6 @@
 <html lang="zh-CN">
 <!-- require JQuery -->
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<!-- require APlayer -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<!-- require MetingJS -->
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -67,7 +62,7 @@
 <meta property="og:description" content="书接上文。 按键控制Input.GetKey和Input.GetButton两种方法用于获取按键情况。 区别在于，Key有确定的KeyCode。KeyCode是Unity内置的枚举类，内含各种键盘、手柄按键，如空格键就由KeyCode.Space表示。 而Button是可以自定义详细配置的。在Edit-ProjectSettings-Input中可以对输入进行详细配置，为一种操作提供一个字符串别名">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AE%AE%E7%9A%84%E5%B9%BB%E6%83%B3%E4%B9%A1.png">
-<meta property="og:updated_time" content="2019-11-21T03:44:53.039Z">
+<meta property="og:updated_time" content="2019-11-25T13:08:30.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AE%AE%E7%9A%84%E5%B9%BB%E6%83%B3%E4%B9%A1.png">
   <link rel="canonical" href="https://hakurei.red/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0/">
@@ -120,6 +115,22 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
+  <!-- MetingJS start -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  <div class="aplayer" 
+  data-id="2465890057" 
+  data-server="netease" 
+  data-type="playlist" 
+  data-fixed="true" 
+  data-autoplay="true" 
+  data-order="random" 
+  data-volume="0.55" 
+  data-theme="#cc543a" 
+  date-preload="auto" 
+  ></div>
+  <!-- MetingJS end -->
   <div class="container use-motion">
     <div class="headband"></div>
 
@@ -525,19 +536,4 @@
 </script>
 
 </body>
-
-<!-- MetingJS start -->
-<div class="aplayer" 
-data-id="2465890057" 
-data-server="netease" 
-data-type="playlist" 
-data-fixed="true" 
-data-autoplay="true"
-data-theme="#cc543a"
-data-order="random"
-data-volume="0.55"
-data-preload="auto"
-
-></div>
-<!-- MetingJS end -->
 </html>

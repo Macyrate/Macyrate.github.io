@@ -60,7 +60,7 @@
 <meta property="og:description" content="这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。 这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。 我所阅览的是由风农发布在bilibili的翻译版。 Awake() 和 Start()这两个函数用于做一些前置性工作。 不同之处在于，Awake()只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而Start()则在Aw">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E5%B7%A6%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg">
-<meta property="og:updated_time" content="2019-11-25T13:08:30.709Z">
+<meta property="og:updated_time" content="2019-11-27T13:24:13.876Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E5%B7%A6%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg">
   <link rel="canonical" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
@@ -254,6 +254,7 @@
 <h2 id="坐标与向量"><a href="#坐标与向量" class="headerlink" title="坐标与向量"></a>坐标与向量</h2><p>Unity使用左手坐标系，三轴的相对位置依照下图所示。与数学立体几何中的一般表示不同，在这里Z轴代表的是“深度”而不是“高度”。</p>
 <p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E5%B7%A6%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg" alt="左手坐标系"></p>
 <p>Unity包含了一些用于进行向量运算的方法，它们基本被放在<code>Vector2</code>和<code>Vector3</code>类里。</p>
+<p><code>Vector3</code>里包含了一些常用向量，以(0,0,1)为<code>forward</code>（依照上面的坐标手势，中指指向前面），有<code>up</code>、<code>down</code>、<code>left</code>、<code>right</code>、<code>back</code>，以及(0,0,0)的<code>zero</code>和(1,1,1)的<code>one</code>。<code>Vector2</code>里没有z轴，故没有<code>forward</code>和<code>back</code>。</p>
 <h2 id="游戏对象、组件，及其开关"><a href="#游戏对象、组件，及其开关" class="headerlink" title="游戏对象、组件，及其开关"></a>游戏对象、组件，及其开关</h2><p>一个游戏对象（GameObject）可以拥有多个组件（Component）。</p>
 <p>比如一个简单的点光源，其本身是一个<code>GameObject</code>。首先它有一个<code>Transform</code>组件标示其位置、旋转、缩放等信息，还得有一个<code>Light</code>组件让它发光。也许，还有若干用于控制这个点光源的脚本组件。</p>
 <p>如果我们关闭这个游戏对象（我们把它叫做激活/停用），那么这个灯整个就从场景中消失了。用游戏对象的<code>SetActive(bool value)</code>方法来实现这一点。</p>
@@ -379,7 +380,7 @@
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-sa.svg" alt="Creative Commons"></a>
   </div>
 
 

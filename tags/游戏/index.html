@@ -115,10 +115,6 @@
   <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
   <!-- MetingJS end -->
 
-  <script>
-    $(document).pjax('a[target!=_blank]', '#contentleft', {fragment:'#contentleft', timeout:8000});
-  </script>
-
   <div class="container use-motion">
     <div class="headband"></div>
 
@@ -206,6 +202,26 @@
     <div class="collection-year">
       <h2 class="collection-header">2019</h2>
     </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2019-12-03T21:37:06+08:00"
+              content="2019-12-03">
+          12-03
+        </time>
+      </div>
+
+      <h3 class="post-title">
+          <a class="post-title-link" href="/2019/12/03/Aseprite%E5%92%8CPhotoshop%E5%85%A5%E9%97%A8%E6%88%90%E6%9E%9C/" itemprop="url">
+            <span itemprop="name">Aseprite和Photoshop入门成果</span>
+          </a>
+      </h3>
+
+    </header>
+  </article>
 
   <article itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -421,7 +437,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -636,5 +652,11 @@ window.addEventListener('pjax:success', () => {
   data-theme="#cc543a" 
   date-preload="auto" 
   ></div>
+  <meting-js
+	server="netease"
+	type="playlist"
+	id="60198">
+</meting-js>
+
 </div>
 </html>

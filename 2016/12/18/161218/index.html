@@ -119,10 +119,6 @@
   <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
   <!-- MetingJS end -->
 
-  <script>
-    $(document).pjax('a[target!=_blank]', '#contentleft', {fragment:'#contentleft', timeout:8000});
-  </script>
-
   <div class="container use-motion">
     <div class="headband"></div>
 
@@ -332,7 +328,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -564,5 +560,11 @@ window.addEventListener('pjax:success', () => {
   data-theme="#cc543a" 
   date-preload="auto" 
   ></div>
+  <meting-js
+	server="netease"
+	type="playlist"
+	id="60198">
+</meting-js>
+
 </div>
 </html>

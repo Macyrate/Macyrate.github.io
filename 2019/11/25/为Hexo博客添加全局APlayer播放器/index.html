@@ -65,7 +65,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;APlayer%E5%85%A5%E9%97%A8.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E8%99%9A%E5%81%87%E7%9A%84MetingJS%E6%96%87%E6%A1%A3.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E4%BD%BF%E7%94%A8pjax.jpg">
-<meta property="og:updated_time" content="2019-11-26T06:39:27.283Z">
+<meta property="og:updated_time" content="2019-12-03T14:47:01.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;site-nav%E4%B8%AD%E7%9A%84iframe.jpg">
   <link rel="canonical" href="https://hakurei.red/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/">
@@ -123,10 +123,6 @@
   <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
   <!-- MetingJS end -->
-
-  <script>
-    $(document).pjax('a[target!=_blank]', '#contentleft', {fragment:'#contentleft', timeout:8000});
-  </script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -264,6 +260,8 @@
 
 <p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/site-nav%E4%B8%AD%E7%9A%84iframe.jpg" alt="site-nav中的iframe.jpg"></p>
 <p>这个效果属实🍔🍔。并且在桌面版视图下还会把sidebar压下去，不太理想。</p>
+<a id="more"></a>
+
 <h2 id="明月浩空音乐"><a href="#明月浩空音乐" class="headerlink" title="明月浩空音乐"></a>明月浩空音乐</h2><p>有没有悬浮式的播放器呢？有的。随便查一查就看到了这篇文章：<a href="https://leafjame.github.io/posts/2636059693.html" target="_blank" rel="noopener">一款炫丽的网页播放器插件</a>，这里介绍了<code>绚丽彩虹播放器</code>，确实是够绚丽的，点进去一看还是个东方二次元，连域名都叫<code>badapple.top</code>，爱了。</p>
 <p>一阵操作之后，预览的效果确实挺理想的，可是到我网站上就只能播放第一首曲子了，和上面那篇文章的评论区里一位老哥说的一模一样：</p>
 <p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E5%87%BA%E7%8E%B0%E4%BA%86%E7%BB%9A%E4%B8%BD%E7%9A%84%E9%97%AE%E9%A2%98.jpg" alt="出现了绚丽的问题"></p>
@@ -353,6 +351,9 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/2019/12/03/Aseprite%E5%92%8CPhotoshop%E5%85%A5%E9%97%A8%E6%88%90%E6%9E%9C/" rel="prev" title="Aseprite和Photoshop入门成果">
+                  Aseprite和Photoshop入门成果 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -408,7 +409,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -640,5 +641,11 @@ window.addEventListener('pjax:success', () => {
   data-theme="#cc543a" 
   date-preload="auto" 
   ></div>
+  <meting-js
+	server="netease"
+	type="playlist"
+	id="60198">
+</meting-js>
+
 </div>
 </html>

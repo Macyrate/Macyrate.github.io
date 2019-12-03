@@ -60,7 +60,7 @@
 <meta property="og:description" content="书接上文。 按键控制Input.GetKey和Input.GetButton两种方法用于获取按键情况。 区别在于，Key有确定的KeyCode。KeyCode是Unity内置的枚举类，内含各种键盘、手柄按键，如空格键就由KeyCode.Space表示。 而Button是可以自定义详细配置的。在Edit-ProjectSettings-Input中可以对输入进行详细配置，为一种操作提供一个字符串别名">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AE%AE%E7%9A%84%E5%B9%BB%E6%83%B3%E4%B9%A1.png">
-<meta property="og:updated_time" content="2019-11-25T13:08:30.710Z">
+<meta property="og:updated_time" content="2019-12-03T14:48:24.918Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AE%AE%E7%9A%84%E5%B9%BB%E6%83%B3%E4%B9%A1.png">
   <link rel="canonical" href="https://hakurei.red/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0/">
@@ -118,10 +118,6 @@
   <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
   <!-- MetingJS end -->
-
-  <script>
-    $(document).pjax('a[target!=_blank]', '#contentleft', {fragment:'#contentleft', timeout:8000});
-  </script>
 
   <div class="container use-motion">
     <div class="headband"></div>
@@ -250,6 +246,8 @@
 <p>而Button是可以自定义详细配置的。在<code>Edit-ProjectSettings-Input</code>中可以对输入进行详细配置，为一种操作提供一个字符串别名。只要使用<code>GetBotton(string str)</code>就可以监测对应的输入了。</p>
 <p>除了知道按键是否被按下之外，我们还需要确切地知道按键在哪一帧被按下，哪一帧被松开。 因此，这两个方法都有衍生的<code>GetxxxDown</code>和<code>GetxxxUp</code>。在对应按键被按下后的第一帧，<code>GetKeyDown</code>返回true，而到了第二帧，它就再次返回false了。同理，<code>GetKeyUp</code>也仅在松开按键后的第一帧返回true。</p>
 <p>当然，这些方法都应该被放在Update()函数里，这样才能在每一帧对按键进行监测。</p>
+<a id="more"></a>
+
 <h2 id="摇杆控制"><a href="#摇杆控制" class="headerlink" title="摇杆控制"></a>摇杆控制</h2><p>确切地讲，这里应该是“轴”而不是摇杆。不过比起按键，摇杆更能体现“轴”的涵义，虽然按键确实也可以作为轴。</p>
 <p>摇杆控制就比较麻烦了，因为按键只有按下与没按下两个状态，可以简单地用bool值表示，但摇杆有推移的距离，只能用浮点数表示。而且摇杆还有反向。</p>
 <p>对于这些特性，GetKey之类的方法显然无法处理，所以需要使用<code>Input.GetAxis</code>。</p>
@@ -368,7 +366,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -600,5 +598,11 @@ window.addEventListener('pjax:success', () => {
   data-theme="#cc543a" 
   date-preload="auto" 
   ></div>
+  <meting-js
+	server="netease"
+	type="playlist"
+	id="60198">
+</meting-js>
+
 </div>
 </html>

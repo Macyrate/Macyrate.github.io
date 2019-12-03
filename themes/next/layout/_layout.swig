@@ -16,10 +16,6 @@
   <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
   <!-- MetingJS end -->
 
-  <script>
-    $(document).pjax('a[target!=_blank]', '#contentleft', {fragment:'#contentleft', timeout:8000});
-  </script>
-
   <div class="container{%- if theme.motion.enable %} use-motion{%- endif %}">
     <div class="headband"></div>
 
@@ -82,5 +78,11 @@
   data-theme="#cc543a" 
   date-preload="auto" 
   ></div>
+  <meting-js
+	server="netease"
+	type="playlist"
+	id="60198">
+</meting-js>
+
 </div>
 </html>

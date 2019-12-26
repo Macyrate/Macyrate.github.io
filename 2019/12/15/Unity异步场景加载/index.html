@@ -60,7 +60,7 @@
 <meta property="og:description" content="在游戏中，场景加载是很常用的功能。如果要在加载的时候让当前的场景还能正常运行，或者加载时能有一个包含进度条之类组件的加载界面，就应该采取异步的场景加载方式。 同步加载在讲异步加载以前，先说同步加载。 当执行同步加载时，正在运行的场景会被阻塞，产生卡顿，这种方法适合小型的、不怎么需要获取读取进度的场景的加载。如在地牢中切换到另一个房间，读取完成之前当前房间中的一切都静止不动，这种情况应该是用同步加载">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E7%BA%A4%E7%A8%8B%EF%BC%9F.png">
-<meta property="og:updated_time" content="2019-12-19T15:31:50.500Z">
+<meta property="og:updated_time" content="2019-12-24T10:20:24.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E7%BA%A4%E7%A8%8B%EF%BC%9F.png">
   <link rel="canonical" href="https://hakurei.red/2019/12/15/Unity%E5%BC%82%E6%AD%A5%E5%9C%BA%E6%99%AF%E5%8A%A0%E8%BD%BD/">
@@ -243,10 +243,10 @@
         <p>在游戏中，场景加载是很常用的功能。如果要在加载的时候让当前的场景还能正常运行，或者加载时能有一个包含进度条之类组件的加载界面，就应该采取异步的场景加载方式。</p>
 <h1 id="同步加载"><a href="#同步加载" class="headerlink" title="同步加载"></a>同步加载</h1><p>在讲异步加载以前，先说同步加载。</p>
 <p>当执行同步加载时，正在运行的场景会被阻塞，产生卡顿，这种方法适合小型的、不怎么需要获取读取进度的场景的加载。如在地牢中切换到另一个房间，读取完成之前当前房间中的一切都静止不动，这种情况应该是用同步加载实现的。</p>
-<a id="more"></a>
-
 <p>Unity使用<code>SceneManager</code>类的静态方法<a href="https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html" target="_blank" rel="noopener">LoadScene</a>实现同步的场景加载。由于是静态方法，不需要对<code>SceneManager</code>类进行实例化，只要使用命名空间<code>using UnityEngine.SceneManagement;</code>就可直接通过<code>SceneManager.LoadSceneAsync</code>访问。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法原型：</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="keyword">int</span> sceneBuildIndex, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="keyword">string</span> sceneName, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <p>其中，第一个参数可以是场景的编号<code>sceneBuildIndex</code>，也可以是场景的名称<code>sceneName</code>。</p>
 <div class="note info">
@@ -303,6 +303,9 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/2019/12/26/191226/" rel="prev" title="191226">
+                  191226 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -358,7 +361,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -232,13 +232,13 @@
       
           <p>策划着要制作游戏的时候，就想着大概需要弄一些立绘。对于东方同人游戏，最好的立绘莫过于<del>ZUN绘</del>黄昏风了。黄昏边境的立绘画师早为Alphes，后为春河萌，现在又拉出了TOKIAME，不过由于非想天则的巅峰，资源最多的应该还是Alphes风格，这也是长期以来俗称的“黄昏风”。</p>
 <p>《东方萃梦想》的Alphes妖梦：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/Alphes%E5%A6%96%E6%A2%A6.png" alt="Alphes妖梦"></p>
+<p><img src="https://i.loli.net/2020/01/12/h7VEtAqfgsz1YkC.png" alt="Alphes妖梦"></p>
 <p>《东方深秘录》的春河萌秦心：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E6%98%A5%E6%B2%B3%E8%90%8C%E7%A7%A6%E5%BF%83.png" alt="春河萌秦心"></p>
+<p><img src="https://i.loli.net/2020/01/12/MCnbfwBgiDke3ur.png" alt="春河萌秦心"></p>
 <p>TOKIAME绘制的蓬莱山辉夜：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E7%BA%AF%E7%B1%B3%E5%A4%A7%E5%90%9F%E9%85%BF%E8%93%AC%E8%8E%B1%E6%B3%89%E8%BE%89%E5%A4%9C.jpg" alt="纯米大吟酿 蓬莱泉辉夜"></p>
+<p><img src="https://i.loli.net/2020/01/12/UyJcEqauVIt28C5.jpg" alt="纯米大吟酿 蓬莱泉辉夜"></p>
 <p>为了寻找Alphes风立绘，我最初是在Pixiv搜索<code>東方　立ち絵</code>，然后就发现了<a href="https://www.pixiv.net/member_illust.php?id=743845" target="_blank" rel="noopener">kaoru</a>这个作者，他绘制了大量不错的Alphes风格立绘，并且全都可以自由进行非商业使用。依照说明我来到了他的站点<a href="http://gensoukyou.1000.tv/" target="_blank" rel="noopener">幻想幽玄庵</a>，这里有几乎所有正作角色的立绘素材，绝大部分还带有<code>.psd</code>文件，这可太有用了。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/kaoru%20pixiv.jpg" alt="kaoru id=743845"></p>
+<p><img src="https://i.loli.net/2020/01/12/8mSVtWT4jq5vEaY.jpg" alt="kaoru id=743845"></p>
 <p>依照幻想幽玄庵这个大概是社团名的名称，我又在THBWiki上找到了<a href="https://thwiki.cc/Alphes%E9%A3%8E%E7%AB%8B%E7%BB%98%E7%B4%A0%E6%9D%90" target="_blank" rel="noopener">Alphes风立绘素材</a>页面，这里给出了<code>CharacterNentoka机</code>这个软件，可以在不用PS的情况下更加方便地生成立绘。我暂时就不用这个了，虽然没有Photoshop，但我装了Krita，试着熟悉一下操作好了。</p>
 <p>另外，Pixiv还有一位大量绘制Alphes风立绘的画师<a href="https://www.pixiv.net/member_illust.php?id=4920496" target="_blank" rel="noopener">dairi</a>，甚至其画风更加精致，也有更多的新人物素材（看得出来他的画技是在逐步提高的）。结合这两位dalao的资源，凑齐一套立绘应该是不成问题的了。</p>
 <p>目前暂时想到要使用的角色有这么几位，立绘都已经能够找齐了：</p>
@@ -459,7 +459,7 @@
 <h2 id="Update-和-FixedUpdate"><a href="#Update-和-FixedUpdate" class="headerlink" title="Update() 和 FixedUpdate()"></a>Update() 和 FixedUpdate()</h2><p><code>Update()</code>很简单，每一帧调用一次。但显然，每一帧的渲染时间不会是一致的，即调用<code>Update()</code>的间隔时间不确定，这就导致如果我们把物理效果放到<code>Update()</code>里，会导致物理效果不太流畅。</p>
 <p>为了保证物理运动与时间之间的紧密联系，应该使用<code>FixedUpdate()</code>。顾名思义，这是“固定的”Update，即间隔时间可以保持一致。间隔时间由<code>Time.fixedDeltaTime</code>决定，默认的时间是<code>0.02s</code>，一秒钟调用50次。</p>
 <h2 id="坐标与向量"><a href="#坐标与向量" class="headerlink" title="坐标与向量"></a>坐标与向量</h2><p>Unity使用左手坐标系，三轴的相对位置依照下图所示。与数学立体几何中的一般表示不同，在这里Z轴代表的是“深度”而不是“高度”。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E5%B7%A6%E6%89%8B%E5%9D%90%E6%A0%87%E7%B3%BB.jpg" alt="左手坐标系"></p>
+<p><img src="https://i.loli.net/2020/01/12/Y3NegGcqRf1EUOM.jpg" alt="左手坐标系"></p>
 <p>Unity包含了一些用于进行向量运算的方法，它们基本被放在<code>Vector2</code>和<code>Vector3</code>类里。</p>
 <p><code>Vector3</code>里包含了一些常用向量，以(0,0,1)为<code>forward</code>（依照上面的坐标手势，中指指向前面），有<code>up</code>、<code>down</code>、<code>left</code>、<code>right</code>、<code>back</code>，以及(0,0,0)的<code>zero</code>和(1,1,1)的<code>one</code>。<code>Vector2</code>里没有z轴，故没有<code>forward</code>和<code>back</code>。</p>
 <h2 id="游戏对象、组件，及其开关"><a href="#游戏对象、组件，及其开关" class="headerlink" title="游戏对象、组件，及其开关"></a>游戏对象、组件，及其开关</h2><p>一个游戏对象（GameObject）可以拥有多个组件（Component）。</p>
@@ -528,7 +528,7 @@
 
       
           <p>这一周，我开始了在华科<a href="http://ifpr.hust.edu.cn/" target="_blank" rel="noopener">聚变与等离子体研究所</a>的实习。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/J-TEXT.jpg" alt="J-TEXT"></p>
+<p><img src="https://i.loli.net/2020/01/12/IGZg3wHjUOtp9TE.jpg" alt="J-TEXT"></p>
 <p>其实我完全不明白自己应该干什么。八月底退出考研大军之后，我捡起大一没能坚持看下去的廖雪峰Python教程读了个大概（在这期间，Python 3甚至已经普及了），半懂不懂地接触了些之前所学的语言里没有讲过的“迭代器、生成器、装饰器”一类玩意，就去投秋招简历了。</p>
 <p>可想而知，一个数据结构、算法、操作系统、计算机网络统统没复习，没有刷LeetCode，工程实践基本靠课程设计（甚至还有不少是东拼西凑）的学生，哪家公司会收留就有鬼了。何况，我投的岗位还是数据研发，但在这之前我对数据研发的了解还真的是仅限<code>Hadoop</code>和<code>Spark</code>的拼写……</p>
 <p>因此，笔试直接挂是理所当然的了。可是投字节跳动实习的时候，我这个铁憨憨还是投了数据研发。好歹实习不用笔试，不过面试当然还是挂了——一个小时的面试里，全是灵魂拷问，“人，有实力，是不怕的”，但是没有实力的话就算冷静镇定也不会带来更好的结果。</p>
@@ -666,7 +666,7 @@
           <h1 id="配置Gitalk"><a href="#配置Gitalk" class="headerlink" title="配置Gitalk"></a>配置Gitalk</h1><p>在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？</p>
 <p>当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行<code>hexo g</code>却永远都是：</p>
 <pre><code>next disqus TypeError: Cannot read property &apos;replace&apos; of null</code></pre><p>在我感到阵阵窒息之后，我看到了这样的issue：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E4%B8%8D%E6%94%AF%E6%8C%81Disqus.jpg" alt="不支持Disqus"></p>
+<p><img src="https://i.loli.net/2020/01/12/fkE8JSxeo4pjmu7.jpg" alt="不支持Disqus.jpg"></p>
 <p>我人傻了，3月份就不支持了咋现在还在配置文件里？</p>
 <blockquote>
 <p>显然，当时匆匆扫过的我并没明白 <code>暂时的解决方案是 count: false</code> 是什么意思。</p>
@@ -746,8 +746,8 @@
 <p>站长万年不变的QQ：624629073</p>
 </blockquote>
 <p>这是2016年末写在原网站<a href="http://macyrate.site" target="_blank" rel="noopener">macyrate.site</a>的关于页面的话。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E6%97%A7%E7%AB%99-2.jpg" alt="WordPress旧站" title="WordPress旧站"></p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E6%97%A7%E7%AB%99.jpg" alt="当时用的Flash插件导致手机端出现问题" title="当时用的Flash插件导致手机端出现问题"></p>
+<p><img src="https://i.loli.net/2020/01/12/5bhSOmliTf4vUR7.jpg" alt="WordPress旧站"></p>
+<p><img src="https://i.loli.net/2020/01/12/PkKrectW9o4GnAf.jpg" alt="当时用的Flash插件导致手机端出现问题"></p>
 <p>由于后来有科学上网的需求，我在vultr租用了一台位于美帝的云虚拟机。为了统一管理，我作死地把站点也从阿里云迁移到了那里，结果没过多久，在一场腥风血雨的不知何故后，我的服务器当场白给，而我竟然没有备份源码，只在github上留了一份甚至还未调试完全的Hexo静态页面。</p>
 <p>这太令人窒息了。</p>
 <p>三年过去，当年没折腾完的Hexo，现在是时候好好用用了。</p>
@@ -810,13 +810,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E6%90%9E%E4%B8%8D%E5%AE%9A%E6%8A%A0%E5%9B%BE.jpg" alt=""></p>
+          <p><img src="https://i.loli.net/2020/01/12/TLnEIjlPvA8V6fe.jpg" alt="搞不定抠图.jpg"></p>
 <p>今天有仙交同学在空间发自己抠图的苦逼经历</p>
 <p>当时我就坐不住了，MDZZ，都什么年代了去个底还要手动PS？</p>
 <p>之前为了做答辩PPT（没错，就是为了那次作业我才做了这个破站），是找过纯色图片去底的方法的，结果最简单易用的果然永远是在线工具！！</p>
 <p>干货：<a href="http://www.aigei.com/bgremover" target="_blank" rel="noopener">BgRemover - 在线图片去底工具</a></p>
 <p>10秒后的成果：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E5%8E%BB%E5%BA%95%E6%A0%A1%E5%BE%BD.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2020/01/12/DQq1RFeETnkP9or.jpg" alt="去底校徽.jpg"></p>
 <p>这个工具所属的<a href="http://www.aigei.com/" target="_blank" rel="noopener">爱给网</a>里还有大量的蜜汁素材和视频教程，相当实用。</p>
 
       
@@ -876,7 +876,7 @@
 
       
           <p>祖国神仿的英梨梨终于在我的书桌上找到了自己的工作：</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E8%8B%B1%E6%A2%A8%E6%A2%A8.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2020/01/12/qLInJ2OEl1cspUT.jpg" alt="英梨梨.jpg"></p>
 
       
     </div>

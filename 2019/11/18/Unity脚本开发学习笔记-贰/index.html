@@ -59,10 +59,10 @@
 <meta property="og:site_name" content="博丽吹笛分社 | Macyrate">
 <meta property="og:description" content="书接上文。 按键控制Input.GetKey和Input.GetButton两种方法用于获取按键情况。 区别在于，Key有确定的KeyCode。KeyCode是Unity内置的枚举类，内含各种键盘、手柄按键，如空格键就由KeyCode.Space表示。 而Button是可以自定义详细配置的。在Edit-ProjectSettings-Input中可以对输入进行详细配置，为一种操作提供一个字符串别名">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AE%AE%E7%9A%84%E5%B9%BB%E6%83%B3%E4%B9%A1.png">
-<meta property="og:updated_time" content="2019-12-03T14:48:24.918Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;12&#x2F;DIymHzGMqFd2kUu.png">
+<meta property="og:updated_time" content="2020-01-12T13:30:17.821Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Macyrate&#x2F;Macyrate.github.io&#x2F;photo&#x2F;%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AE%AE%E7%9A%84%E5%B9%BB%E6%83%B3%E4%B9%A1.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;12&#x2F;DIymHzGMqFd2kUu.png">
   <link rel="canonical" href="https://hakurei.red/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0/">
 
 
@@ -256,7 +256,7 @@
 <p>此外还有<code>Dead</code>值，这使得可以不对较小幅度的摇杆活动进行处理，一定程度上能够防止误触。<code>Snap</code>选项，其为true时如果同时触发了<code>Positive Botton</code>和<code>Negative Botton</code>，就返回0。</p>
 <p>以上说的，是比较“完备”的摇杆控制，但是在很多时候我们并不需要这个“轴”返回浮点值。举个例子，《刺客信条：起源》中并没有以往的“奔跑”键，而是用摇杆推移的幅度决定移动速度，这就非常<code>GetAxis</code>。如果用键盘操作，WASD控制方向，是没有推移幅度这一说的，我们就当按下按键就是摇杆直接推到底，这就是<code>Type</code>属性为<code>Key or Mouse Button</code>而不是<code>Joystick Axis</code>的轴。无论如何，巴耶克并不是弹射起步，而是有gravity和sensitivity的作用。</p>
 <p>但是，在东方的STG里就没有这些玩意，大家的运动都像加速度不存在一样。这种情况下，应当使用<code>Input.GetAxisRaw</code>方法，按键后返回的是1和-1这两个整数而非浮点数。</p>
-<p><img src="https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AE%AE%E7%9A%84%E5%B9%BB%E6%83%B3%E4%B9%A1.png" alt="不可思议的幻想乡"></p>
+<p><img src="https://i.loli.net/2020/01/12/DIymHzGMqFd2kUu.png" alt="不可思议的幻想乡"></p>
 <h2 id="重写和成员隐藏"><a href="#重写和成员隐藏" class="headerlink" title="重写和成员隐藏"></a>重写和成员隐藏</h2><p>关于这一点，可以看看微软文档：<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/knowing-when-to-use-override-and-new-keywords" target="_blank" rel="noopener">了解何时使用 Override 和 New 关键字</a>。</p>
 <p>以前我以为“重写覆盖”是一个词，但今天发现似乎并非如此。</p>
 <p>重写（Overriding，有人称为覆盖）是在派生类中重新实现基类中已有的方法和属性等，为了安全，基类中被重写的方法/属性需要有<code>virtual</code>修饰符（或者abstract、override），派生类重写的方法/属性需要有<code>override</code>修饰符。由于是重新“实现”，重写的方法签名/属性类型和名称必须和之前保持一致，也不能改变访问性，重写方法相当于只是重新编写了方法的函数体。</p>

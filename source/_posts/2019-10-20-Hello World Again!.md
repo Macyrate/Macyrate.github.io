@@ -19,9 +19,9 @@ tags:
 
 这是2016年末写在原网站[macyrate.site](http://macyrate.site)的关于页面的话。
 
-![WordPress旧站](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/旧站-2.jpg "WordPress旧站")
+![WordPress旧站](https://i.loli.net/2020/01/12/5bhSOmliTf4vUR7.jpg)
 
-![当时用的Flash插件导致手机端出现问题](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/旧站.jpg "当时用的Flash插件导致手机端出现问题")
+![当时用的Flash插件导致手机端出现问题](https://i.loli.net/2020/01/12/PkKrectW9o4GnAf.jpg)
 
 由于后来有科学上网的需求，我在vultr租用了一台位于美帝的云虚拟机。为了统一管理，我作死地把站点也从阿里云迁移到了那里，结果没过多久，在一场腥风血雨的不知何故后，我的服务器当场白给，而我竟然没有备份源码，只在github上留了一份甚至还未调试完全的Hexo静态页面。
 

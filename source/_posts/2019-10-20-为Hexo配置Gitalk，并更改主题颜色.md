@@ -15,7 +15,7 @@ tags:
 
 在我感到阵阵窒息之后，我看到了这样的issue：
 
-![不支持Disqus](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/不支持Disqus.jpg)
+![不支持Disqus.jpg](https://i.loli.net/2020/01/12/fkE8JSxeo4pjmu7.jpg)
 
 我人傻了，3月份就不支持了咋现在还在配置文件里？
 
@@ -31,13 +31,13 @@ tags:
 
 给出我的配置以供参考：
 
-![gitalk块配置](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalk块配置.jpg)
+![gitalk块配置](https://i.loli.net/2020/01/12/jPw6frglHAW52ME.jpg)
 
 到这里，理论上你基本就能看到和gitalk官网上一样的效果了。
 
 然而，坑爹的事情不会就此停止，如果你在本地`hexo s`，然后打开一篇文章，你应该确实会看到“Gitalk加载中”，然后 * 噔  噔  咚 * ，出现了这样的场景：
 
-![未找到相关的Issues](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/未找到相关的Issues.jpg)
+![未找到相关的Issues](https://i.loli.net/2020/01/12/VmbrWfpDMNute5O.jpg)
 
 你会试着点击`使用GitHub登录`，然而什么也没有发生，这大概是因为GitHub的登陆结果传不回本机的Hexo server。不必奇怪，尽管`hexo d`将它部署上去，访问你的站点再次点击它就好了。
 
@@ -45,11 +45,11 @@ tags:
 
 举个栗子，这是我用于测试Gitalk的几个留言在站点上的样子：
 
-![gitalk在站点上](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalkinsite.jpg)
+![gitalk在站点上](https://i.loli.net/2020/01/12/62GCSo1yZp3ixRW.jpg)
 
 而这是repo里对应的issue：
 
-![gitalk在issue中](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalkinissue.jpg)
+![gitalk在issue中](https://i.loli.net/2020/01/12/l7pDt8vaf1gKdmk.jpg)
 
 注意到红线标出的这一行，Gitalk就是用这两个标签来对应issue和文章的。
 
@@ -62,11 +62,10 @@ tags:
 
 F12，审查元素，可以看到默认的色号是`#6190E8`。
 
-![默认配色](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalkcolor.jpg)
-
+![默认配色](https://i.loli.net/2020/01/12/mjACFTl8et5hfwp.jpg)
 既然如此，我们去Gitalk的repo，找找这个色号出现在哪些地方。
 
-![repo中的位置](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalkrepocolor.jpg)
+![repo中的位置](https://i.loli.net/2020/01/12/EAkaJT7sGz8jcC1.jpg)
 
 可以看到，这个色号出现在`dist/gitalk.css`和`src/style/index.styl`中。而真正决定Gitalk颜色的，应当是`dist`（Distribution，分发）中的`gitalk.css`。
 
@@ -74,21 +73,21 @@ F12，审查元素，可以看到默认的色号是`#6190E8`。
 
 康康初音浅葱色？
 
-![浅葱](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/日本传统色.jpg)
+![浅葱](https://i.loli.net/2020/01/12/rzUKvqA5SIT7tPG.jpg)
 
 这套色彩也是锤子的坚果手机“文青版”那几个骚气配色名称：远州鼠、落栗、苏芳、石竹、枯草、柳煤竹茶、锖青磁、鸠羽紫的来源。
 
-![坚果手机文青版](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/坚果手机配色.jpg)
+![坚果手机文青版](https://i.loli.net/2020/01/12/7p1J9MOtAChDqyi.jpg)
 
 当然，这还不算完，我们得让NexT主题用上我们修改过的`gitalk.css`。
 
 我们可以在next文件夹里搜索gitalk，看看它是如何被加载的。
 
-![gitalk搜索结果](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gtalk搜索结果.jpg)
+![gtalk搜索结果](https://i.loli.net/2020/01/12/UiRWDco3Tr6IAls.jpg)
 
 显然，第2、4行的`gitalk_css_uri`和`gitalk_js_uri`就是关键。它说明gitalk的文件可以从两个地方加载：一个是`theme.vendors`，也就是主题配置文件`_config.yml`的`vendors`块中的记录，一个是`jsdelivr`这个CDN。
 
-![gitalk vendors](https://raw.githubusercontent.com/Macyrate/Macyrate.github.io/photo/gitalkvendors.jpg)
+![gitalk vendors](https://i.loli.net/2020/01/12/FpBQKzJZhqjdtmY.jpg)
 
 以上两张截图里的CDN已经被我改成了我修改后的分支中对应的文件。关于这个CDN地址的格式，可以参看[jsDelivr官网](https://www.jsdelivr.com)的说明。
 

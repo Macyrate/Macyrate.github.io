@@ -242,9 +242,79 @@
 <p>最后的效果：</p>
 <p><img src="https://i.loli.net/2020/01/12/lPeLST9Rt4iHQr7.gif" alt=""></p>
 <blockquote>
-<p>发布地址：<br><a href="https://amazfitwatchfaces.com/mi-band-4/view/11723" target="_blank" rel="noopener">amazfitwatchfaces</a><br><a href="https://github.com/Macyrate/EVA_font_watchface" target="_blank" rel="noopener">GitHub</a></p>
+<p>发布地址：<br><a href="https://amazfitwatchfaces.com/mi-band-4/view/11723" target="_blank" rel="noopener">amazfitwatchfaces</a><br><a href="https://github.com/Macyrate/EVA_font_watchface" target="_blank" rel="noopener">GitHub</a><br><a href="http://watchface.pingx.tech/h5/#/pages/detail/detail?id=1058400" target="_blank" rel="noopener">米坛</a></p>
 </blockquote>
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/" class="post-title-link" itemprop="url">从C++里的一大堆字符串说起</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-30 18:19:09" itemprop="dateCreated datePublished" datetime="2019-12-30T18:19:09+08:00">2019-12-30</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。</p>
+<h1 id="char-foo-bar-和-char-foo"><a href="#char-foo-bar-和-char-foo" class="headerlink" title="char foo[bar] 和 char* foo"></a>char foo[bar] 和 char* foo</h1><p><code>char foo[bar]</code>这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这两行都定义了相同的字符串"Hello"</span></span><br><span class="line"><span class="keyword">char</span> foo1[] = <span class="string">"Hello"</span>;      <span class="comment">//末尾有隐藏的'\0'</span></span><br><span class="line"><span class="keyword">char</span> foo2[<span class="number">6</span>] = &#123;<span class="string">'H'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'\0'</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>char* foo</code>是声明了一个字符指针，指向单个字符，可以将其当作以<code>&#39;\0&#39;</code>为末尾的字符串的首字符地址。如果要把字符串赋给它，需要先申请内存空间，再使用<code>memcpy()</code>或<code>strcpy()</code>。当然，也可以不分配空间，直接用<strong>十分危险的指针赋值</strong>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* foo1 = (<span class="keyword">char</span>*)<span class="built_in">calloc</span>(<span class="number">6</span>, <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line"><span class="built_in">strcpy</span>(foo1, <span class="string">"Hello"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* foo2 = <span class="string">"Hello"</span>;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -852,89 +922,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/21/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0-%E5%88%86%E5%B1%82%E5%9B%9B%E5%85%83%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/21/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0-%E5%88%86%E5%B1%82%E5%9B%9B%E5%85%83%E6%B3%95/" class="post-title-link" itemprop="url">游戏分析框架学习笔记 贰</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-21 09:39:16" itemprop="dateCreated datePublished" datetime="2019-11-21T09:39:16+08:00">2019-11-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本节讲述<code>分层四元法</code>框架。</p>
-<p>从这里开始，内容十分庞杂，我只将值得记录的部分记下来。</p>
-<h1 id="内嵌层"><a href="#内嵌层" class="headerlink" title="内嵌层"></a>内嵌层</h1><p>游戏的最终目标也许是“为了赢”，但这是最“长期”的目标，为了实现长期目标，许多个短期、中期目标必不可少。这些目标有轻重缓急，其间也许还会有互相冲突。</p>
-<p>游戏的视觉与听觉是最能被直观感受到的美学内嵌，也比机制对情绪的影响力有效得多。</p>
-<p>叙事内嵌需要着重讲讲。</p>
-<h2 id="叙事内嵌"><a href="#叙事内嵌" class="headerlink" title="叙事内嵌"></a>叙事内嵌</h2><h3 id="传统戏剧"><a href="#传统戏剧" class="headerlink" title="传统戏剧"></a>传统戏剧</h3><p><strong>五幕结构：</strong></p>
-<ol>
-<li>铺垫：介绍前情、设置、重要角色</li>
-<li>情节上行：发生故事，使重要角色与戏剧间的张力上升</li>
-<li>高潮：汇集前面的所有剧情，矛盾达到顶点</li>
-<li>情节下行：高潮引发的后果，剧情向结尾发展</li>
-<li>结局：故事的结末</li>
-</ol>
-<p><strong>三幕结构：</strong></p>
-<ol>
-<li>第一幕：铺垫<br>首先以“钩子”开头，足够刺激以迅速勾起观众注意；<br>然后引发事件，让事件进入主角生活，主角开始启程；<br>第一幕与第二幕之间是第一戏剧点，自此真正的故事开始。 </li>
-<li>第二幕：对抗<br>第二幕是故事的主要发展，主角经历一系列坎坷，情节推进到第二戏剧点。<br>第二戏剧点使主角作出重大决定，由此走向结局。   </li>
-<li>第三幕：结局<br>故事的高潮往往接近尾声，所有冲突汇集，悬念落下之后不久，故事即结束。</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/21/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0-%E5%88%86%E5%B1%82%E5%9B%9B%E5%85%83%E6%B3%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -985,14 +972,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

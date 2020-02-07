@@ -51,17 +51,21 @@
   };
 </script>
 
-  <meta name="description" content="写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。 char foo[bar] 和 char* foochar foo[bar]这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”： 123&#x2F;&#x2F;这两行都定义了相同的字符串&quot;Hello">
-<meta name="keywords" content="Cpp,数据结构,考古">
+  <meta name="description" content="也很有些时间没更新博客了。在我没反应过来的时候，时间依旧飞速地流逝。 这近一个月来发生的事太多又太少，无非绕不开“新型冠状肺炎感染的肺炎疫情”一事。截至今日我已经有半个多月未尝出过门了，站在阳台上看着除了人以外什么都还存在着的大街，感到有些荒诞。“末日之后”的感觉却又不是那么浓烈，也许是我度过几次独自在寝室的大学假期，已经习惯了在杳无人烟的氛围里，抬头看着漏下日光的翠绿梧桐叶子发呆的生活吧。 大学">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从C++里的一大堆字符串说起">
-<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2019&#x2F;12&#x2F;30&#x2F;%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7&#x2F;index.html">
+<meta property="og:title" content="20200207">
+<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2020&#x2F;02&#x2F;07&#x2F;20200207&#x2F;index.html">
 <meta property="og:site_name" content="博丽吹笛分社 | Macyrate">
-<meta property="og:description" content="写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。 char foo[bar] 和 char* foochar foo[bar]这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”： 123&#x2F;&#x2F;这两行都定义了相同的字符串&quot;Hello">
+<meta property="og:description" content="也很有些时间没更新博客了。在我没反应过来的时候，时间依旧飞速地流逝。 这近一个月来发生的事太多又太少，无非绕不开“新型冠状肺炎感染的肺炎疫情”一事。截至今日我已经有半个多月未尝出过门了，站在阳台上看着除了人以外什么都还存在着的大街，感到有些荒诞。“末日之后”的感觉却又不是那么浓烈，也许是我度过几次独自在寝室的大学假期，已经习惯了在杳无人烟的氛围里，抬头看着漏下日光的翠绿梧桐叶子发呆的生活吧。 大学">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-24T03:12:57.598Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;07&#x2F;CRgwvaHt1qonkpN.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;07&#x2F;P5poIKaDeCj8mSt.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;07&#x2F;hwvXZ6KmbzTtA4k.jpg">
+<meta property="og:updated_time" content="2020-02-07T16:02:44.442Z">
 <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="https://hakurei.red/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;07&#x2F;CRgwvaHt1qonkpN.jpg">
+  <link rel="canonical" href="https://hakurei.red/2020/02/07/20200207/">
 
 
 <script id="page-configurations">
@@ -75,7 +79,7 @@
   };
 </script>
 
-  <title>从C++里的一大堆字符串说起 | 博丽吹笛分社 | Macyrate</title>
+  <title>20200207 | 博丽吹笛分社 | Macyrate</title>
   
 
 
@@ -194,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/07/20200207/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
@@ -207,7 +211,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          从C++里的一大堆字符串说起
+          20200207
         </h2>
 
         <div class="post-meta">
@@ -217,7 +221,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-12-30 18:19:09" itemprop="dateCreated datePublished" datetime="2019-12-30T18:19:09+08:00">2019-12-30</time>
+              <time title="创建时间：2020-02-07 23:00:07" itemprop="dateCreated datePublished" datetime="2020-02-07T23:00:07+08:00">2020-02-07</time>
             </span>
 
           
@@ -238,41 +242,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。</p>
-<h1 id="char-foo-bar-和-char-foo"><a href="#char-foo-bar-和-char-foo" class="headerlink" title="char foo[bar] 和 char* foo"></a>char foo[bar] 和 char* foo</h1><p><code>char foo[bar]</code>这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这两行都定义了相同的字符串"Hello"</span></span><br><span class="line"><span class="keyword">char</span> foo1[] = <span class="string">"Hello"</span>;      <span class="comment">//末尾有隐藏的'\0'</span></span><br><span class="line"><span class="keyword">char</span> foo2[<span class="number">6</span>] = &#123;<span class="string">'H'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'\0'</span>&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><code>char* foo</code>是声明了一个字符指针，指向单个字符，可以将其当作以<code>&#39;\0&#39;</code>为末尾的字符串的首字符地址。如果要把字符串赋给它，需要先申请内存空间，再使用<code>memcpy()</code>或<code>strcpy()</code>。当然，也可以不分配空间，直接用<strong>十分危险的指针赋值</strong>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* foo1 = (<span class="keyword">char</span>*)<span class="built_in">calloc</span>(<span class="number">6</span>, <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line"><span class="built_in">strcpy</span>(foo1, <span class="string">"Hello"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* foo2 = <span class="string">"Hello"</span>;</span><br></pre></td></tr></table></figure>
-
+        <p>也很有些时间没更新博客了。在我没反应过来的时候，时间依旧飞速地流逝。</p>
+<p>这近一个月来发生的事太多又太少，无非绕不开“新型冠状肺炎感染的肺炎疫情”一事。截至今日我已经有半个多月未尝出过门了，站在阳台上看着除了人以外什么都还存在着的大街，感到有些荒诞。“末日之后”的感觉却又不是那么浓烈，也许是我度过几次独自在寝室的大学假期，已经习惯了在杳无人烟的氛围里，抬头看着漏下日光的翠绿梧桐叶子发呆的生活吧。</p>
+<p>大学的最后一个假期也将要过去，我大抵是不会再有体验这种生活的机会了——这种莫名有点感慨的心态，就像当年高考前最后的一次晚自习——以后不会再有晚自习了，也不会再有晚自习上小心回避着老师而听的歌、看的闲书了。“大学四年顶个球”，留下的东西实在不多，而我才刚刚开始认识这个世界。</p>
+<p>身边参加了考研的朋友们，面对前途大多迷茫，苦笑着一年努力八成喂了狗。往往是越学越了解自己的浅薄，就像现在看看6年前入宅不久时自己写的、自己得意的东西，显得与2020年的网络那么格格不入，像mikufans时期的弹幕乃至古早时期猫扑大杂烩里的帖子，没有经过思考的吐槽、没有经过考证的论调中，真挚与弱智三七分成。</p>
+<p>不过网络变化其实不大，至少真挚与弱智的三七分成还是没变。谁都没有上帝视角，哪一方都太容易被现实愚弄，绕来绕去才发现大家其实都有同一种病，没有谁就高人一等。</p>
 <a id="more"></a>
 
-<h1 id="CString"><a href="#CString" class="headerlink" title="CString"></a>CString</h1><p><code>CString</code>是<code>MFC</code>的类，使用它需要包含<code>afx.h</code>。</p>
-<p><strong>什么是MFC？</strong></p>
+<p>要说高中的基调是怎样，我想起来的就是大一时初次在华科见到的——其实直到如今也一样——在黑糊糊树影的簇拥之上那个圆月。只是高中所见的月被“黄冈中学”的明亮红色灯牌和教学楼上缠着的黄色灯带烘托着，再被些许我可能叫得出名字的星点围绕着，似乎要黯淡些。说来也怪，这么些年，每有了要去观察月亮的心时，偏偏就是“天心月圆”。或者，就是在远远的远方，薄薄的渐变色里浮着的一勾新月。新月，它总让我想起伊斯兰世界，那个世界似乎比这新月还要遥远。</p>
+<p>新月，新月沃地，那里的印象就是天方、阿萨辛和游侠纳斯列金。文化与瘟疫最早的起源之一在这里。</p>
+<p><img src="https://i.loli.net/2020/02/07/CRgwvaHt1qonkpN.jpg" alt="新月"></p>
+<p>说回瘟疫，短短半个多月的肺炎时期见到的荒诞比过去几年加起来还多。元旦八勇士之后，那由于湖北“两会”而消失的半个月且不说，之后的封城，武汉病毒所，上海药物所，N95口罩，双黄连，无人机，唱国歌，火神山，雷神山，方舱，一直到今天以自己的逝去让全国人民更加地哀痛的李文亮医生，这个阵仗早已比2003年的非典高了许多等级。那时候我应该还在上学前班，记忆尤其模糊，只记得曾造访过江家巷的筒子楼，还怎的学习过英语，那一带的炸酱面相当不错。唯一可以确信的，就是没有像如今这样严格的隔离，大家的生活似乎照常。</p>
+<p>隔离之前，好在为了预备不发快递的新年，我预先购入了《塞尔达传说：旷野之息》。这看来是极为英明的决定，这段时间若没有这张卡带作我随时跳到海拉鲁大陆的传送门，世界就太过于枯燥了。50多个小时的跋山涉水，好像是我自己在经历，也许这就是21世纪最伟大的游戏吧。</p>
+<p><img src="https://i.loli.net/2020/02/07/P5poIKaDeCj8mSt.jpg" alt="米法"></p>
+<p>就这么玩下去当然不是办法，虽然原定2月16日的开学时间肯定是推迟了，春招想必也是推迟了，可我要做的事情是一点也没有减少。前几天Unity发来一封电邮，为了大家在家有学可上，给大中华区用户送来了4个月的Unity Learn Premium会员，我可真是谢谢您（诚挚）。跟着弄了几天，写出一个与自己的毕设没啥关联的Demo，对Unity的了解是从兔毛顶端摸到了兔子皮。今天是成功Deploy出来的快乐日子，倒是不想多学了。</p>
+<p>明天呢？明天做什么？总得迎来明天的，不管怎么“Ready perfectly”，「東方珀露澗 ~ Aurora of Dragon Lore.」它总得继续动笔。</p>
+<p>翻翻To Do？哦，我的ANSI编码还没讲呢。就连已经写完一个多月的C++字符串也还留在待办里没划掉，我是有多久没打开这玩意了？这个主界面的待办创建于去年12月10日，我的毕设积了两个月的灰啊。</p>
+<p><img src="https://i.loli.net/2020/02/07/hwvXZ6KmbzTtA4k.jpg" alt="主界面ToDo"></p>
+<p>好，明天就先花一点时间来写ANSI编码吧，这个应该挺快的。主界面……我想基本UI也许可以弄出来，至于AudioClip，我想还得了解了解同人音乐方面的利用规约，总不能真就靠自己作曲吧——如果我勤奋一点，其实现在应该已经学会做Arrange了，懒狗要不得啊。</p>
+<p>啊，还有八字没一撇的开题报告呢。我不应该继续上微博跟着他们群情激愤或者痛哭流涕了，我的人生是自己的。春招的命运都暂且不谈了，我如今最想做的就是完成《東方珀露澗》，然后顺利毕业。</p>
 <blockquote>
-<p>微软基础类库（英语：<strong>M</strong>icrosoft <strong>F</strong>oundation <strong>C</strong>lasses，简称<strong>MFC</strong>）是一个微软公司提供的类库（class libraries），以C++类的形式封装了Windows API，并且包含一个（也是微软产品的唯一一个）应用程序框架，以减少应用程序开发人员的工作量。其中包含的类包含大量Windows句柄封装类和很多Windows的内建控件和组件的封装类。</p>
-</blockquote>
-<p>总之，作为Visual C++的一部分，这是一个上古遗留之物。不愧是十年前的课设……</p>
-<p>CString是MFC中最常用的字符串类。其数据成员只有一个，那就是字符串在内存中的起始地址。它还有许多方法，如多种构造函数、用于连接和比较的运算符重载、用于格式化的<code>Format</code>，以及各种用于对字符串进行替换、查找、删除的方法。这个类将C++中极为复杂、包含大量内存操作的字符串操作简化了不少。</p>
-<h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1><p>string之前一直弄不太明白。这明明是每个语言都应该有的基本东西，但是鉴于C和C++之间乱七八糟的关系以及错综复杂的各种标准，就连这种“基本”也轮廓模糊到让人难以提起兴趣探索。</p>
-<p>需要知道的是，<strong>string是C++标准库中的类。</strong>确切地说，string类定义于C++标准库的<code>&lt;string&gt;</code>头文件。</p>
-<p>关键的问题是，什么是<a href="https://zh.cppreference.com/w/cpp/header" target="_blank" rel="noopener">C++标准库</a>？这个名字很容易和标准模板库（Standard Template Libraries, STL）混淆，但实际上它们最开始是不同的东西。C++被标准化最早是1998年的<code>ISO/IEC 14882:1998</code>，即所谓的C++98。而STL始于C++尚未被标准化的1993年，它很大程度上影响了几年后C++标准中标准库的制定，因此其内容与C++标准库有非常大的重合。但需要注意的是，<strong>STL不完全是C++标准库的一部分</strong>，C++标准里也从来没有“STL”这一说法。C++标准库中的“STL”可以说是STL的一个“Fork”。</p>
-<p>C++标准库包含一系列不带<code>.h</code>后缀的头文件，用尖括号引用。其中除宏定义以外的内容包含在名称空间<code>std</code>中，这也是许多C++程序都有一句<code>using namespace std;</code>的原因。</p>
-<p>这是<a href="https://en.cppreference.com/w/cpp/algorithm/qsort" target="_blank" rel="noopener">cppreference</a>上对<code>std::qsort</code>的一段示例：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;     //C++输入/输出流标准头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;      //C++标准库中来自C标准库的部分，去掉.h并在前面加c</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;      //同上</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">-2</span>, <span class="number">99</span>, <span class="number">0</span>, <span class="number">-743</span>, <span class="number">2</span>, INT_MIN, <span class="number">4</span>&#125;;</span><br><span class="line">    <span class="keyword">constexpr</span> <span class="built_in">std</span>::<span class="keyword">size_t</span> size = <span class="keyword">sizeof</span> a / <span class="keyword">sizeof</span> *a;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">std</span>::qsort(a, size, <span class="keyword">sizeof</span> *a, [](<span class="keyword">const</span> <span class="keyword">void</span>* a, <span class="keyword">const</span> <span class="keyword">void</span>* b)     <span class="comment">//指定名称空间std</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> arg1 = *<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">int</span>*&gt;(a);</span><br><span class="line">        <span class="keyword">int</span> arg2 = *<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">int</span>*&gt;(b);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span>(arg1 &lt; arg2) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(arg1 &gt; arg2) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//  return (arg1 &gt; arg2) - (arg1 &lt; arg2); // possible shortcut</span></span><br><span class="line">    <span class="comment">//  return arg1 - arg2; // erroneous shortcut (fails if INT_MIN is present)</span></span><br><span class="line">    &#125;);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> ai : a)</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; ai &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="LPSTR，以及各种乱七八糟的"><a href="#LPSTR，以及各种乱七八糟的" class="headerlink" title="LPSTR，以及各种乱七八糟的"></a>LPSTR，以及各种乱七八糟的</h1><p>这就是较为难以理解的东西了，名字让人一头雾水。<code>LPSTR</code>算是最简单的形式，还有什么<code>LPCTSTR</code>,<code>PCTSTR</code>等等，这都是些啥？</p>
-<p>其实这些全大写的神秘数据类型依然来自MFC，它们都是Windows特色数据类型。STR显然代表的是字符串，重要的是它们的前缀。</p>
-<p>前缀中主要包含这么几个字母：</p>
-<ul>
-<li>LP：长指针Long Pointer，代表这是一个32位指针。说是Long是因为上古Windows中的Pointer还是16位。</li>
-<li>C：常量Const，代表这是一个常量。</li>
-<li>T：代表使用<code>_T</code>宏，这个宏是用于动态支持Unicode这样的宽字节编码（即用多个字节代表一个字符）的。如果Unicode有定义，那么带T前缀的字符串就是Unicode编码的，否则依然是窄字节编码ANSI。</li>
-<li>W：宽Wide，代表使用宽字节编码，如Unicode。</li>
-</ul>
-<p>此外，MFC中还有神秘的<code>BYTE</code>、<code>WORD</code>、<code>DWORD</code>，其实就是分别对应<code>unsigned char</code>、<code>unsigned short</code>、<code>unsigned long</code>。</p>
-<blockquote>
-<p>关于ANSI和Unicode，另外再开一篇文章讲好了。</p>
+<p>庚子正月十四。</p>
 </blockquote>
 
     </div>
@@ -288,26 +278,21 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Cpp/" rel="tag"># Cpp</a>
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
-              <a href="/tags/%E8%80%83%E5%8F%A4/" rel="tag"># 考古</a>
+              <a href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag"># 随笔</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/12/26/191226/" rel="next" title="191226">
-                  <i class="fa fa-chevron-left"></i> 191226
+                <a href="/2020/02/07/%E8%A2%AB%E7%A6%81%E9%94%A2%E7%9A%84%E8%87%AA%E7%94%B1-%E5%AF%B9%E4%B8%AD%E5%9B%BD%E5%8A%A8%E6%BC%AB%E7%9A%84%E5%87%A0%E7%82%B9%E7%9C%8B%E6%B3%95/" rel="next" title="被禁锢的自由——对中国动漫的几点看法">
+                  <i class="fa fa-chevron-left"></i> 被禁锢的自由——对中国动漫的几点看法
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2020/01/05/HustBase%E5%AE%8C%E6%88%90/" rel="prev" title="HustBase完成">
-                  HustBase完成 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -347,7 +332,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#char-foo-bar-和-char-foo"><span class="nav-number">1.</span> <span class="nav-text">char foo[bar] 和 char* foo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CString"><span class="nav-number">2.</span> <span class="nav-text">CString</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#string"><span class="nav-number">3.</span> <span class="nav-text">string</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LPSTR，以及各种乱七八糟的"><span class="nav-number">4.</span> <span class="nav-text">LPSTR，以及各种乱七八糟的</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -573,7 +557,7 @@ window.addEventListener('pjax:success', () => {
       repo: 'Macyrate.github.io',
       owner: 'macyrate',
       admin: ['macyrate'],
-      id: '3a3d4e1e85859d24563a040df34ab42f',
+      id: '2f85528052b8ec8aec6acffb1b3bc09f',
         language: 'zh-CN',
       distractionFreeMode: 'true'
     });

@@ -1,11 +1,12 @@
 .posts-expand .post-header {
-  font-size: $font-size-large;
+  font-size: $font-size-largest;
 }
 
 .posts-expand .post-title {
   word-wrap();
-  font-weight: $font-weight-normal;
+  font-weight: $font-weight-bolder;
   margin: initial;
+  color: $cpc;
   text-align: center;
 
   if (hexo-config('post_edit.enable')) {
@@ -31,13 +32,13 @@
 
 .posts-expand .post-title-link {
   border-bottom: none;
-  color: $black-light;
+  color: $cpc;
   display: inline-block;
   position: relative;
   vertical-align: top;
 
   &::before {
-    background: black;
+    background $cpc;
     bottom: 0;
     content: '';
     height: 2px;

@@ -455,7 +455,7 @@ font:
   # Font settings for site title (.site-title).
   title:
     external: true
-    family:
+    family: 
     size:
 
   # Font settings for headlines (<h1> to <h6>).

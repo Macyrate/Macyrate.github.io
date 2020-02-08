@@ -1213,7 +1213,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #53ffba;
+  background: #94ff2e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1840,13 +1840,13 @@ pre .javascript .function {
 .posts-expand .post-title {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-weight: 400;
+  font-weight: 700;
   margin: initial;
   text-align: center;
 }
 .posts-expand .post-title-link {
   border-bottom: none;
-  color: #555;
+  color: #cc543a;
   display: inline-block;
   position: relative;
   vertical-align: top;

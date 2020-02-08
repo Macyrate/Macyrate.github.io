@@ -1213,7 +1213,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #a4ffe4;
+  background: #2df07e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1835,7 +1835,7 @@ pre .javascript .function {
   display: table-row;
 }
 .posts-expand .post-header {
-  font-size: 1.375em;
+  font-size: 1.125em;
 }
 .posts-expand .post-title {
   overflow-wrap: break-word;

@@ -231,7 +231,7 @@ hr {
   margin: 40px 0;
 }
 blockquote {
-  border-left: 4px solid #ddd;
+  border-left: 4px solid #cc543a;
   color: #666;
   margin: 0;
   padding: 0 15px;
@@ -1213,7 +1213,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #94ff2e;
+  background: #a4ffe4;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1835,24 +1835,25 @@ pre .javascript .function {
   display: table-row;
 }
 .posts-expand .post-header {
-  font-size: 1.125em;
+  font-size: 1.375em;
 }
 .posts-expand .post-title {
   overflow-wrap: break-word;
   word-wrap: break-word;
   font-weight: 700;
   margin: initial;
+  color: #d02e2e;
   text-align: center;
 }
 .posts-expand .post-title-link {
   border-bottom: none;
-  color: #cc543a;
+  color: #d02e2e;
   display: inline-block;
   position: relative;
   vertical-align: top;
 }
 .posts-expand .post-title-link::before {
-  background: #000;
+  background: #d02e2e;
   bottom: 0;
   content: '';
   height: 2px;

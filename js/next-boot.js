@@ -11,6 +11,7 @@ NexT.boot.registerEvents = function() {
   document.querySelector('.site-nav-toggle .toggle').addEventListener('click', () => {
     event.currentTarget.classList.toggle('toggle-close');
     var siteNav = document.querySelector('.site-nav');
+    // var sideBar = document.querySelector('.sidebar');
     var animateAction = siteNav.classList.contains('site-nav-on') ? 'slideUp' : 'slideDown';
 
     if (typeof Velocity === 'function') {
@@ -20,6 +21,12 @@ NexT.boot.registerEvents = function() {
           siteNav.classList.toggle('site-nav-on');
         }
       });
+      // Velocity(sideBar, animateAction, {
+      //   duration: 200,
+      //   complete: function() {
+      //     sideBar.classList.toggle('sidebar');
+      //   }
+      // });
     } else {
       siteNav.classList.toggle('site-nav-on');
     }

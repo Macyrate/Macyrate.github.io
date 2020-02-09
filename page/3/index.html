@@ -192,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/10/24/191024/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/15/Unity%E5%BC%82%E6%AD%A5%E5%9C%BA%E6%99%AF%E5%8A%A0%E8%BD%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
@@ -206,7 +206,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/24/191024/" class="post-title-link" itemprop="url">191024</a>
+            <a href="/2019/12/15/Unity%E5%BC%82%E6%AD%A5%E5%9C%BA%E6%99%AF%E5%8A%A0%E8%BD%BD/" class="post-title-link" itemprop="url">Unity异步场景加载</a>
         </h2>
 
         <div class="post-meta">
@@ -216,7 +216,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-24 00:34:56" itemprop="dateCreated datePublished" datetime="2019-10-24T00:34:56+08:00">2019-10-24</time>
+              <time title="创建时间：2019-12-15 17:17:11" itemprop="dateCreated datePublished" datetime="2019-12-15T17:17:11+08:00">2019-12-15</time>
             </span>
 
           
@@ -230,12 +230,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>对于所谓“现充”，我一向是不屑一顾的。对于所谓人人趋之若鹜的“潮流”，我更是嗤之以鼻的。</p>
-<p>毕竟这种东西，和他们自己说的一样，“流行是个圈”，有甚么意思呢？</p>
-<p>是故在根本没有校服的高中时代，同学们——只要有条件的，个个汪洋恣肆泼洒青春时，我常常以和我心象般灰暗，似我体重般深沉的军夹克、牛仔裤、徒步鞋示人：一种自我麻痹式的超然放逐。那时的我只是一个丢不掉过去的失魂人，或者说，是过去的“什么”拉扯着我的魂魄，将它的一端钉在了2013年那个该死春季的墓碑上。</p>
+          <p>在游戏中，场景加载是很常用的功能。如果要在加载的时候让当前的场景还能正常运行，或者加载时能有一个包含进度条之类组件的加载界面，就应该采取异步的场景加载方式。</p>
+<h1 id="同步加载"><a href="#同步加载" class="headerlink" title="同步加载"></a>同步加载</h1><p>在讲异步加载以前，先说同步加载。</p>
+<p>当执行同步加载时，正在运行的场景会被阻塞，产生卡顿，这种方法适合小型的、不怎么需要获取读取进度的场景的加载。如在地牢中切换到另一个房间，读取完成之前当前房间中的一切都静止不动，这种情况应该是用同步加载实现的。</p>
+<p>Unity使用<code>SceneManager</code>类的静态方法<a href="https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html" target="_blank" rel="noopener">LoadScene</a>实现同步的场景加载。由于是静态方法，不需要对<code>SceneManager</code>类进行实例化，只要使用命名空间<code>using UnityEngine.SceneManagement;</code>就可直接通过<code>SceneManager.LoadSceneAsync</code>访问。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法原型：</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="keyword">int</span> sceneBuildIndex, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="keyword">string</span> sceneName, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/24/191024/#more" rel="contents">
+              <a class="btn" href="/2019/12/15/Unity%E5%BC%82%E6%AD%A5%E5%9C%BA%E6%99%AF%E5%8A%A0%E8%BD%BD/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -259,7 +261,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/10/20/%E4%B8%BAHexo%E9%85%8D%E7%BD%AEGitalk%EF%BC%8C%E5%B9%B6%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/07/191207/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
@@ -273,7 +275,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/20/%E4%B8%BAHexo%E9%85%8D%E7%BD%AEGitalk%EF%BC%8C%E5%B9%B6%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/" class="post-title-link" itemprop="url">为Hexo配置Gitalk，并更改主题颜色</a>
+            <a href="/2019/12/07/191207/" class="post-title-link" itemprop="url">191207</a>
         </h2>
 
         <div class="post-meta">
@@ -283,7 +285,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-20 21:01:35" itemprop="dateCreated datePublished" datetime="2019-10-20T21:01:35+08:00">2019-10-20</time>
+              <time title="创建时间：2019-12-07 22:11:09" itemprop="dateCreated datePublished" datetime="2019-12-07T22:11:09+08:00">2019-12-07</time>
             </span>
 
           
@@ -297,19 +299,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="配置Gitalk"><a href="#配置Gitalk" class="headerlink" title="配置Gitalk"></a>配置Gitalk</h1><p>在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？</p>
-<p>当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行<code>hexo g</code>却永远都是：</p>
-<pre><code>next disqus TypeError: Cannot read property &apos;replace&apos; of null</code></pre><p>在我感到阵阵窒息之后，我看到了这样的issue：</p>
-<p><img src="https://i.loli.net/2020/01/12/fkE8JSxeo4pjmu7.jpg" alt="不支持Disqus.jpg"></p>
-<p>我人傻了，3月份就不支持了咋现在还在配置文件里？</p>
-<blockquote>
-<p>显然，当时匆匆扫过的我并没明白 <code>暂时的解决方案是 count: false</code> 是什么意思。</p>
-</blockquote>
-<p>于是我转而尝试其他的评论系统，好么，国内的一个赛一个麻烦，又是实名认证又是人脸信息的，还是别了。而国外的又时刻有被河蟹的风险。</p>
-<p>终于我看到了Gitalk，它基于GitHub的issue，只要有GitHub账号就可以评论，看来同性交友网站不倒，这玩意就能用下去。</p>
+          <p>12月4日中午，腾讯代理的国行版Nintendo Switch发布，这也是我所一直等待的。</p>
+<p>果不其然，锁服不锁区，eshop只能用国服，外区游戏能用实体卡但无法联机，并没能在索尼和微软之上更进一步，和当年的神游相比倒是略有放开。</p>
+<p>虽然将来可能会爆出“后门”，但没个一年半载很难说。对我而言，虽然错过了双十一和黑五，但已经没有再等下去的必要了。未来的游戏从业者没有一台本世代的家用机，成何体统？于是当天下午，就以1888+310元的价格入手了日版续航增强Switch以及《宝可梦 剑》。</p>
+<p><img src="https://i.loli.net/2020/01/12/M2IrfnixCdL4TRj.jpg" alt="Switch开箱"></p>
+<p>其实本来准备遵照传统从荒野之息开始，奈何店主没有，就买了宝可梦。说起来，虽然“神奇宝贝、宠物小精灵、口袋妖怪、精灵宝可梦”地过了这么多年，我却没有完整通关过任何一作，也算是童年一桩憾事。去年买到NDSL之后，也有一小段时间曾试着玩过著名的同人作品《口袋妖怪 漆黑的魅影》，不过也只打过两个道馆，然后就去《大航海时代》里开船了。因此，这次从拿到卡带的第一刻起，我就开始了近乎废寝忘食的攻略。</p>
+<p><img src="https://i.loli.net/2020/01/12/qnLSlNHK9fYB1Jj.jpg" alt="漆黑的魅影 剑"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/20/%E4%B8%BAHexo%E9%85%8D%E7%BD%AEGitalk%EF%BC%8C%E5%B9%B6%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/#more" rel="contents">
+              <a class="btn" href="/2019/12/07/191207/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -333,7 +331,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/10/20/Hello%20World%20Again!/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/03/Aseprite%E5%92%8CPhotoshop%E5%85%A5%E9%97%A8%E6%88%90%E6%9E%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
@@ -347,7 +345,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/20/Hello%20World%20Again!/" class="post-title-link" itemprop="url">Hello World Again!</a>
+            <a href="/2019/12/03/Aseprite%E5%92%8CPhotoshop%E5%85%A5%E9%97%A8%E6%88%90%E6%9E%9C/" class="post-title-link" itemprop="url">Aseprite和Photoshop入门成果</a>
         </h2>
 
         <div class="post-meta">
@@ -357,7 +355,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-20 16:01:17" itemprop="dateCreated datePublished" datetime="2019-10-20T16:01:17+08:00">2019-10-20</time>
+              <time title="创建时间：2019-12-03 21:37:06" itemprop="dateCreated datePublished" datetime="2019-12-03T21:37:06+08:00">2019-12-03</time>
             </span>
 
           
@@ -371,214 +369,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>我又回来了。</p>
-<blockquote>
-<p>最早是为了交计算机基础作业而制作的网站，从此走上不归之路……</p>
-<p>想到用WordPress很大程度上是受老司机<a href="https://www.saber.我爱你" target="_blank" rel="noopener"> @雪见仙尊（https://saber.我爱你）</a>影响。</p>
-<p><em>↑这个站的域名已经改为 <a href="https://saber.love" target="_blank" rel="noopener">saber.love</a></em></p>
-<p>什么时候自己也能把网站建的那样好啊……</p>
-<p>站长万年不变的QQ：624629073</p>
-</blockquote>
-<p>这是2016年末写在原网站<a href="http://macyrate.site" target="_blank" rel="noopener">macyrate.site</a>的关于页面的话。</p>
-<p><img src="https://i.loli.net/2020/01/12/5bhSOmliTf4vUR7.jpg" alt="WordPress旧站"></p>
-<p><img src="https://i.loli.net/2020/01/12/PkKrectW9o4GnAf.jpg" alt="当时用的Flash插件导致手机端出现问题"></p>
-<p>由于后来有科学上网的需求，我在vultr租用了一台位于美帝的云虚拟机。为了统一管理，我作死地把站点也从阿里云迁移到了那里，结果没过多久，在一场腥风血雨的不知何故后，我的服务器当场白给，而我竟然没有备份源码，只在github上留了一份甚至还未调试完全的Hexo静态页面。</p>
-<p>这太令人窒息了。</p>
-<p>三年过去，当年没折腾完的Hexo，现在是时候好好用用了。</p>
-<p>回想起来，我还真是什么都浅尝辄止：就连GitHub亦是。直到大四领悟到自己是个彩笔，这样混下去将会失学又失业的事实，我才开始老老实实系统地学习这些堪称“基础设施”的东西。</p>
-<p>Hello World Again，希望这次我能坚持得久一点。</p>
+          <p>由于准备solo操作，美工大部分就得自己搞定了。</p>
+<h1 id="Aseprite"><a href="#Aseprite" class="headerlink" title="Aseprite"></a>Aseprite</h1><p>Pixel Art其实很早就想玩一玩，不过之前一直没有找到合适的工具。如今因为要做游戏的任务驱动，终于开始尝试了。也因此，认真搜索资料之下就知道了<code>Aseprite</code>这个🐂🍺到爆炸的像素画制作软件，Steam售价38元，非常划算。</p>
+<iframe src="https://store.steampowered.com/widget/431730/" frameborder="0" width="646" height="190"></iframe>
 
-      
-    </div>
+<p>我学习的是Youtube上MortMort这位小哥的教学视频，讲得非常清晰：</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLR3Ra9cf8aV06i2jKmgKvcYVHI86-4K_b" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+<p>如果没有代理，可以在bilibili观看该系列视频的<a href="https://www.bilibili.com/video/av14603015" target="_blank" rel="noopener">第一部分</a>：</p>
+<iframe src="//player.bilibili.com/player.html?aid=14603015&cid=23810173&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2016/12/30/%E4%B8%80%E4%B8%AA%E4%B8%8D%E9%94%99%E7%9A%84%E7%B4%A0%E6%9D%90%E7%BD%91%E7%AB%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/30/%E4%B8%80%E4%B8%AA%E4%B8%8D%E9%94%99%E7%9A%84%E7%B4%A0%E6%9D%90%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">一个不错的素材网站</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-30 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-30T00:00:00+08:00">2016-12-30</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://i.loli.net/2020/01/12/TLnEIjlPvA8V6fe.jpg" alt="搞不定抠图.jpg"></p>
-<p>今天有仙交同学在空间发自己抠图的苦逼经历</p>
-<p>当时我就坐不住了，MDZZ，都什么年代了去个底还要手动PS？</p>
-<p>之前为了做答辩PPT（没错，就是为了那次作业我才做了这个破站），是找过纯色图片去底的方法的，结果最简单易用的果然永远是在线工具！！</p>
-<p>干货：<a href="http://www.aigei.com/bgremover" target="_blank" rel="noopener">BgRemover - 在线图片去底工具</a></p>
-<p>10秒后的成果：</p>
-<p><img src="https://i.loli.net/2020/01/12/DQq1RFeETnkP9or.jpg" alt="去底校徽.jpg"></p>
-<p>这个工具所属的<a href="http://www.aigei.com/" target="_blank" rel="noopener">爱给网</a>里还有大量的蜜汁素材和视频教程，相当实用。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2016/12/18/161218/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/18/161218/" class="post-title-link" itemprop="url">161218</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-18 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-18T00:00:00+08:00">2016-12-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>祖国神仿的英梨梨终于在我的书桌上找到了自己的工作：</p>
-<p><img src="https://i.loli.net/2020/01/12/qLInJ2OEl1cspUT.jpg" alt="英梨梨.jpg"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2016/12/17/Steam%E6%B8%B8%E8%A7%88%E8%AE%B0%E5%BD%95%EF%BC%9AEternal%20Senia%EF%BC%88%E6%B0%B8%E6%81%92%E7%9A%84%E8%B5%9B%E5%A6%AE%E4%BA%9A%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/17/Steam%E6%B8%B8%E8%A7%88%E8%AE%B0%E5%BD%95%EF%BC%9AEternal%20Senia%EF%BC%88%E6%B0%B8%E6%81%92%E7%9A%84%E8%B5%9B%E5%A6%AE%E4%BA%9A%EF%BC%89/" class="post-title-link" itemprop="url">Steam游览记录：Eternal Senia（永恒的赛妮亚）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-17 00:00:00" itemprop="dateCreated datePublished" datetime="2016-12-17T00:00:00+08:00">2016-12-17</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://i.loli.net/2020/01/12/VvuFk1lsjyEWmOQ.jpg" alt="senia-1.jpg"></p>
-<p>台湾独立开发者做的免费ARPG，好顶赞！</p>
-<p>鬼知道我是怎么看到这个游戏的，反正大概是因为被封面上的赛妮亚萌杀了戳进来的。</p>
-<p>像素风ARPG，好评如潮，还免费【想起了手机上曾经玩过的《勇士的黎明》（神TM人物选择界面还有迷之东方梗）】，果断下载。仅仅300MB不到的体积，如果设置中文也只需数十MB的数据包，实在是个小游戏。</p>
-<p>游戏开局强烈的魔塔既视感，主角带着神器冲进塔里救人，被套路之后神器损坏，从零开始。后面的剧情也比较狗血，三个大章节都是一个套路：刷怪，打小BOSS，疯狂收集材料，合成一套神器，顺便收集属性书，然后打大BOSS。</p>
-<p>但是，不知道为什么就是这么带感啊！！！一口气刷过去根本停不下来啊！！！</p>
-<p>大概我享受着这种见证赛妮亚从一个脆弱胆怯的少女逐渐成长为真正的勇者的过程吧。</p>
-<p>我玩着感觉还是比较投入的。后期赛妮亚会觉醒R技能，爆发出“永（hei）恒（hua）”的力量，威力巨大，但是除非为了保命，我完全不愿意用这个技能。因为一旦使用，一段时间内赛妮亚都会黑化，在菜单里看着十分揪心。</p>
+<p>这是我在还没有看教学视频之前，自己胡乱尝试下摸索了将近一整天完成的<a href="https://www.pixiv.net/artworks/78095634" target="_blank" rel="noopener">第一幅作品</a>：</p>
+<p><img src="https://i.loli.net/2020/01/12/rWmnCw9V1uBeDH6.gif" alt="youmu"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2016/12/17/Steam%E6%B8%B8%E8%A7%88%E8%AE%B0%E5%BD%95%EF%BC%9AEternal%20Senia%EF%BC%88%E6%B0%B8%E6%81%92%E7%9A%84%E8%B5%9B%E5%A6%AE%E4%BA%9A%EF%BC%89/#more" rel="contents">
+              <a class="btn" href="/2019/12/03/Aseprite%E5%92%8CPhotoshop%E5%85%A5%E9%97%A8%E6%88%90%E6%9E%9C/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -602,7 +407,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2016/12/13/%E5%9B%9E%E4%B9%A1%E8%A7%81%E9%97%BB/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
@@ -616,7 +421,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2016/12/13/%E5%9B%9E%E4%B9%A1%E8%A7%81%E9%97%BB/" class="post-title-link" itemprop="url">回乡见闻</a>
+            <a href="/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/" class="post-title-link" itemprop="url">为Hexo博客添加全局APlayer播放器</a>
         </h2>
 
         <div class="post-meta">
@@ -626,7 +431,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-13 21:15:42" itemprop="dateCreated datePublished" datetime="2016-12-13T21:15:42+08:00">2016-12-13</time>
+              <time title="创建时间：2019-11-25 21:57:48" itemprop="dateCreated datePublished" datetime="2019-11-25T21:57:48+08:00">2019-11-25</time>
             </span>
 
           
@@ -640,208 +445,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>前两日回老家，参加了曾外祖母的葬礼。我对曾外祖母完全没有印象，似乎十几年来确凿未曾见过一面（大概是我见过时还小，早已忘了）。但是葬礼还是要认真对待，于是穿了从头到脚的一身黑。</p>
-<p>我原本觉得葬礼是庄严肃穆，套路很深的，结果大家根本不按套路来啊。</p>
-<p>戴上代表曾孙辈的红头巾我就进了场。对着曾外祖母的棺材磕了三个头后，我才发现气氛很违和。场内相当喧闹，主要音源来自一个临时搭建的舞台。大概是丧葬公司搞的吧，舞台上挂着一个大红色LED显示屏，滚动播出着孝子孝孙们的……点歌金额？</p>
-<p>原来这个舞台是点歌用的吗。</p>
-<p>再看台上，一个中年妇女捏着话筒搞事，大概是类似于主持人的吧。她宣读“送行点歌单”时，声音抑扬顿挫，细细一听就发现原来交钱越多的便被喊得越有气势，有个砸了一千元的来宾名字叫的震天响，而那些只点了一两百元的就给含糊地混过去了。</p>
-<p>这倒没什么，你们爱唱便唱罢，葬礼庆典、坟头蹦迪也就算了。</p>
+          <div class="note info">
+            <p>如果你只是想要在自己站点的左下角加一个极其Stable的音乐播放器，而不想听我废话自己踩的坑，请直接跳转：<br><a href="/2019/11/25/为Hexo博客添加全局APlayer播放器/#Show-me-the-CODE">“Show me the CODE!”</a></p>
+          </div>
+
+<h1 id="早期尝试"><a href="#早期尝试" class="headerlink" title="早期尝试"></a>早期尝试</h1><h2 id="网易云iframe"><a href="#网易云iframe" class="headerlink" title="网易云iframe"></a>网易云iframe</h2><p>今天，我试图解决一个历史遗留问题。</p>
+<p>之前我博客上的音乐播放器一直都是网易云的外链iframe，就这个样式的：</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1384318412&auto=0&height=66"></iframe>
+
+<p>我一直把这个玩意放在sidebar里。但是问题是，移动版视图下sidebar是不展示的，只有header能够显示出来，而且还需要用toggle展开。我使用的主题是<code>NexT</code>，试验了一下，需要修改的地方是：</p>
+<p><code>\themes\next\layout\_partials\header\index.swig</code></p>
+<p>由于toggle展开的是<code>site-nav</code>，将源码修改如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; partial('_partials/header/brand.swig', &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"site-nav"</span>&gt;</span></span><br><span class="line">  &#123;&#123; partial('_partials/header/menu.swig', &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line">  <span class="comment">&lt;!--网易云iframe--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">src</span>=<span class="string">"//music.163.com/outchain/player?type=2&amp;id=1384318412&amp;auto=0&amp;height=66"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--网易云iframe end--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;%- if theme.algolia_search.enable or theme.local_search.enable %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"site-search"</span>&gt;</span></span><br><span class="line">    &#123;&#123; partial('_partials/search/index.swig', &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;- next_inject('header') &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/01/12/Dmhzxi8XFIQK7np.jpg" alt="site-nav中的iframe.jpg"></p>
+<p>这个效果属实🍔🍔。并且在桌面版视图下还会把sidebar压下去，不太理想。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2016/12/13/%E5%9B%9E%E4%B9%A1%E8%A7%81%E9%97%BB/#more" rel="contents">
+              <a class="btn" href="/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/" class="post-title-link" itemprop="url">Flash暴力膜-说明</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-08 19:01:52" itemprop="dateCreated datePublished" datetime="2016-12-08T19:01:52+08:00">2016-12-08</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这篇文章是对“Flash暴力膜”一文的说明。</p>
-<blockquote>
-<p>“所以×××同志同我讲话，说‘中央都决定了，你来当总书记’。我说另请高明吧，我实在也不是谦虚。我一个上海市委书记怎么到北京来了呢？但是，×××同志讲‘大家已经研究决定了’。后来我念了两首诗，叫‘苟利国家生死以，岂因祸福避趋之’。”</p>
-<p><em>—— 长者</em></p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C/" class="post-title-link" itemprop="url">Flash暴力膜</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-08 18:01:52" itemprop="dateCreated datePublished" datetime="2016-12-08T18:01:52+08:00">2016-12-08</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://i.loli.net/2020/01/12/uIR1rUVtanXyz7H.gif" alt="暴力膜.gif"></p>
-<p>本应是Flash的，但时间已过3年，Flash成了时代眼泪中的时代眼泪，拿gif凑数好了（这抖动频率有点太快了）</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2016/11/23/Hello%20World!/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/11/23/Hello%20World!/" class="post-title-link" itemprop="url">Hello World!</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-11-23 18:01:43" itemprop="dateCreated datePublished" datetime="2016-11-23T18:01:43+08:00">2016-11-23</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>迈向web世界的第一步。</p>
-<p>今后也要努力学习科学技术，做一个对社会有用的新世纪大好青年！</p>
-<p><img src="https://i.loli.net/2020/01/12/FA5mlze3Bs9bIQG.jpg" alt="辉夜"></p>
-
       
     </div>
 
@@ -860,7 +486,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -906,14 +532,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

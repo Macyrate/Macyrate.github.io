@@ -192,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/01/11/%E4%B8%BA%E5%B0%8F%E7%B1%B3%E6%89%8B%E7%8E%AF4%E5%88%B6%E4%BD%9C%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E7%9B%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
@@ -206,7 +206,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/" class="post-title-link" itemprop="url">为Hexo博客添加全局APlayer播放器</a>
+            <a href="/2020/01/11/%E4%B8%BA%E5%B0%8F%E7%B1%B3%E6%89%8B%E7%8E%AF4%E5%88%B6%E4%BD%9C%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E7%9B%98/" class="post-title-link" itemprop="url">为小米手环4制作自定义表盘</a>
         </h2>
 
         <div class="post-meta">
@@ -216,7 +216,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-11-25 21:57:48" itemprop="dateCreated datePublished" datetime="2019-11-25T21:57:48+08:00">2019-11-25</time>
+              <time title="创建时间：2020-01-11 22:10:43" itemprop="dateCreated datePublished" datetime="2020-01-11T22:10:43+08:00">2020-01-11</time>
             </span>
 
           
@@ -230,252 +230,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <div class="note info">
-            <p>如果你只是想要在自己站点的左下角加一个极其Stable的音乐播放器，而不想听我废话自己踩的坑，请直接跳转：<br><a href="/2019/11/25/为Hexo博客添加全局APlayer播放器/#Show-me-the-CODE">“Show me the CODE!”</a></p>
-          </div>
+          <p><img src="https://i.loli.net/2020/01/12/uMehFaU86boClZL.jpg" alt="小米手环4"></p>
+<p>在以100元的低价将Pebble Time转让给同学之后，今天买到了小米手环4NFC版。说实话Pebble是真的好用，可惜反射屏带来的续航依旧不是那么完美，而且人在国内，这些东西还是与国内的“生态”接轨比较好。</p>
+<p>拿到新电子产品，当然得瞎折腾一阵。首先就得换个表盘。但可惜，小米运动APP里的自定义表盘仅仅支持3种预置布局下的背景图自定义，这显然不够酷。</p>
+<p>不过，在<a href="https://www.bandbbs.cn/" target="_blank" rel="noopener">米坛</a>这个网站我找到了真正意义上自定义表盘的方法，而且<a href="https://amazfitwatchfaces.com/" target="_blank" rel="noopener">amazfitwatchfaces</a>上已经有了相当多的自定义表盘。但是我想要继续使用曾经在Pebble上用的<a href="https://apps.rebble.io/zh_CN/application/529ab1b6d17b5033ba000033" target="_blank" rel="noopener">EVA表盘</a>，发现网上并没有现成资源后我决定自己制作。</p>
+<p>简单地说，小米手环4的表盘是由一个<code>json</code>文件控制布局的一系列图片构成的。这个<a href="https://www.bandbbs.cn/threads/533/" target="_blank" rel="noopener">注释版万能json</a>展示了该json文件的形式。将自定义的json文件与资源文件，即要显示的一系列图片，经过<a href="https://geekdoing.com/threads/mb4-resource-pack-unpack.1383/" target="_blank" rel="noopener">MB4 Resource pack/unpack</a>工具打包后就能生成表盘<code>bin</code>文件了。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">"Time": &#123;</span><br><span class="line">    "Hours": &#123;</span><br><span class="line">      "Tens": &#123;</span><br><span class="line">        "X": 70,</span><br><span class="line">        "Y": 10,</span><br><span class="line">        "ImageIndex": 23,</span><br><span class="line">        "ImagesCount": 3</span><br><span class="line">      &#125;,</span><br><span class="line">      "Ones": &#123;</span><br><span class="line">        "X": 70,</span><br><span class="line">        "Y": 60,</span><br><span class="line">        "ImageIndex": 11,</span><br><span class="line">        "ImagesCount": 10</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
-<h1 id="早期尝试"><a href="#早期尝试" class="headerlink" title="早期尝试"></a>早期尝试</h1><h2 id="网易云iframe"><a href="#网易云iframe" class="headerlink" title="网易云iframe"></a>网易云iframe</h2><p>今天，我试图解决一个历史遗留问题。</p>
-<p>之前我博客上的音乐播放器一直都是网易云的外链iframe，就这个样式的：</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1384318412&auto=0&height=66"></iframe>
-
-<p>我一直把这个玩意放在sidebar里。但是问题是，移动版视图下sidebar是不展示的，只有header能够显示出来，而且还需要用toggle展开。我使用的主题是<code>NexT</code>，试验了一下，需要修改的地方是：</p>
-<p><code>\themes\next\layout\_partials\header\index.swig</code></p>
-<p>由于toggle展开的是<code>site-nav</code>，将源码修改如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; partial('_partials/header/brand.swig', &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"site-nav"</span>&gt;</span></span><br><span class="line">  &#123;&#123; partial('_partials/header/menu.swig', &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line">  <span class="comment">&lt;!--网易云iframe--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">src</span>=<span class="string">"//music.163.com/outchain/player?type=2&amp;id=1384318412&amp;auto=0&amp;height=66"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--网易云iframe end--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;%- if theme.algolia_search.enable or theme.local_search.enable %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"site-search"</span>&gt;</span></span><br><span class="line">    &#123;&#123; partial('_partials/search/index.swig', &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;- next_inject('header') &#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://i.loli.net/2020/01/12/Dmhzxi8XFIQK7np.jpg" alt="site-nav中的iframe.jpg"></p>
-<p>这个效果属实🍔🍔。并且在桌面版视图下还会把sidebar压下去，不太理想。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/24/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/24/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/" class="post-title-link" itemprop="url">游戏设计理论学习笔记 壹</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-24 14:04:11" itemprop="dateCreated datePublished" datetime="2019-11-24T14:04:11+08:00">2019-11-24</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="迭代设计"><a href="#迭代设计" class="headerlink" title="迭代设计"></a>迭代设计</h1><p><strong>游戏设计由1%的灵感和99%的重复组成。</strong></p>
-<p>分析-&gt;设计-&gt;实现-&gt;测试-&gt;分析……</p>
-<p>这就是迭代设计的流程。</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><strong>面向的玩家群体？</strong> 这决定了游戏里应该有哪些要素。无论，做这个游戏的目的是毕业设计，面向的群体就是<del>评审老师</del>我自己了。如果能有些弹幕爱好者玩就更好了。</p>
-<p>这么一想，应该像STG一样有多难度级别，还要有计分系统给人刷。但是我向来都不在意分数。或者像《东方梦想曲》那样做得极难但不限重试次数，这就很亲民——其实更符合的应该是绀珠传。</p>
-<p><strong>我有什么资源？</strong> 当然，只有我自己的一百天左右时间，以及网络上配布的相关素材。</p>
-<p><strong>现有技术有什么？</strong> 现有技术指与要设计的作品相关联的<strong>现存游戏及其他媒介</strong>。对我来讲，具体的是Unity引擎，东方Project的大量官方以及同人游戏。同人游戏中可以着重参考的是登陆steam的几部作品，《东方红辉心》、《永远消失的幻想乡》、《东方华彩乱战》。还有些不属于东方但类型相似的游戏，比如《Enter the Gungeon》和其模仿者《元气骑士》等。</p>
-<p><strong>如何尽快制作原型？</strong> 高效利用时间，优先开发<strong>核心机制</strong>并进行测试。美工、音乐等外观要素可以在后期进行处理。</p>
-<p>设计、实现和测试，此处不必多讲。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/24/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/23/%E5%85%B3%E4%BA%8E%E2%80%9C%E6%B6%8C%E7%8E%B0%E2%80%9D%E7%9A%84%E6%80%9D%E8%80%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/23/%E5%85%B3%E4%BA%8E%E2%80%9C%E6%B6%8C%E7%8E%B0%E2%80%9D%E7%9A%84%E6%80%9D%E8%80%83/" class="post-title-link" itemprop="url">关于“涌现”的思考</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-23 17:24:50" itemprop="dateCreated datePublished" datetime="2019-11-23T17:24:50+08:00">2019-11-23</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>“涌现”可以说是相当重要，我认为它是一个与重复游玩密切相关的概念。涌现导致不同的游戏体验，而单个玩家感受不同游戏体验的方法就是换种思路重复游玩。这可以说是游戏可玩性的一种代表。</p>
-<p>我需要着重参考的非东方游戏中有《Enter the Gungeon》和《元气骑士》。想到这里我发现了一个共同点，它们都用多样的自机天赋、武器、技能、Buff实现了“涌现”。   </p>
-<p>但我是否需要这样做呢？以上两个游戏都是Rougelike类型，甚至连随机生成的地图都高度体现着“涌现”，具有高度的重复游玩性，但我想要做的是一个拥有线性叙事的游戏。 </p>
-<p>枪牢用“杀死过去的枪”这个线索巧妙地把重复的游玩变成一定程度上的线性叙事，元气骑士则完全不在意这个，剧情只是随口一说，花式推地牢才是其核心。</p>
-<p>其他游戏是怎么做的呢？如果是自由度高的大型游戏，极长的主线首先就无须让人进行重复游玩。如果要体现“涌现”，无数的支线任务、收集要素、角色养成就能体现作用。</p>
-<p>《战地1》这种游戏，其单人模式根本就是多人竞技模式的新手教学，而多人竞技模式中的涌现是由多名玩家的行为共同构建的。</p>
-<p>还有《黑暗之魂》、《只狼》这样的，虽然剧情趋于线性，但提供多结局且难度极高，多周目还能继续提高难度，专供想要挑战自己的玩家食用。</p>
-<p>想来想去，我要做的游戏可能在内嵌层上更接近于STG游戏（或者说，和STG一样古老的形式？）。STG是怎么做的呢？</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/23/%E5%85%B3%E4%BA%8E%E2%80%9C%E6%B6%8C%E7%8E%B0%E2%80%9D%E7%9A%84%E6%80%9D%E8%80%83/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/22/191122/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/22/191122/" class="post-title-link" itemprop="url">191122</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-22 23:18:23" itemprop="dateCreated datePublished" datetime="2019-11-22T23:18:23+08:00">2019-11-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>10月24日之后又过了快一个月，这一个月我干了些什么？</p>
-<ul>
-<li>进入IFPR研究所实习，写了一点点代码；</li>
-<li>从完全不会C#到现在理解了基本概念的水平；</li>
-<li>对Unity有了初步的了解；</li>
-<li>Markdown的写作进一步熟练；</li>
-<li>联系到了不错的毕业设计导师；</li>
-<li>拿到了感兴趣的毕业设计课题；</li>
-<li>开始学习游戏设计理论；</li>
-<li>同人ARPG「東方珀露澗 ~ Aurora of Dragon Lore.」立项。（就在刚才）</li>
-</ul>
-<p>最重要的是没那么丧了，因为得以去实验室搬搬砖，看到自己的代码在体量庞大的系统里运转还是略有成就感的。也正是因为这里曾经热衷于独立游戏开发，如今只以“巨神”之号流传江湖的实验室导师，让我开始走上这条邪路。</p>
-<p>下午着实是焦虑不堪，乃至去空间发了条动态。</p>
+<p>以这段json代码为例，它控制表盘中时间部分的小时显示。</p>
+<p>X和Y是图片左上角的坐标。这里的<code>ImageIndex</code>是指资源图片的起始编号，是其4位数字的文件名。而<code>ImageCount</code>是从起始图片开始向后有多少张图片被此处使用。由于是24小时制——12小时制也许也可以，但我不知道如何设置——小时需要用到表示<code>0</code>、<code>1</code>、<code>2</code>的3张图片。需要注意的是，资源图片的编号必须从<code>0000</code>开始连续，且所有的图片都要在json中被使用到，否则无法正常生成。</p>
+<p>最后的效果：</p>
+<p><img src="https://i.loli.net/2020/01/12/lPeLST9Rt4iHQr7.gif" alt=""></p>
 <blockquote>
-<p>log_191122<br>焦虑，焦虑永远是学习路上最大的障碍。<br>得知身边的人一个个已经或即将上岸，得到了飞升一般的进化，而自己还在走一条看不到还有多远，更不知通向何处的道路，想不焦虑都难！<br>我可太需要休息和放空思想了，但光阴似箭，deadline不我待，停下来的一时一刻都是愧疚的煎熬。<br>功不唐捐…功不唐捐！为何要妄自菲薄呢？<br>明明要吃饱穿暖，在这个时代还并不是那么难。<br>我又在胡乱分析些什么呢。真正的进取之人会有无病呻吟的闲情逸致吗？喝口水，Keep Calm and Carry On。    </p>
-</blockquote>
-<p>今天虽然没有设计理论上的学习进度，但经过一整天的查文献和开脑洞，总算是有了个大致的背景设计思路，然后又“咬文嚼字”地定了个标题。万事开头难，这算是开了个头？不过这个标题现在看来总感觉过于直白，甚至一下就能看出许多端倪——果然ZUN的“起名字程度的能力”令人无法望其项背。</p>
-<p>这几年为了“考据”陆陆续续购买的民俗学资料，如今也能派上一点用场了。</p>
-<p>那么明天就继续学习游戏设计理论，接下来仔细打磨我的构想，能在十二月到来前正式开工就太好了。然后在寒假前弄出基本的框架……害，越说越远了，开发计划应该等理论基础充实一点再订。</p>
-<p>再过两个节气即是冬至，一个我似乎有很多印象又似乎没有的时间点。那时我能不能有更现实的进步呢？</p>
-<blockquote>
-<p>己亥小雪。</p>
+<p>发布地址：<br><a href="https://amazfitwatchfaces.com/mi-band-4/view/11723" target="_blank" rel="noopener">amazfitwatchfaces</a><br><a href="https://github.com/Macyrate/EVA_font_watchface" target="_blank" rel="noopener">GitHub</a><br><a href="http://watchface.pingx.tech/h5/#/pages/detail/detail?id=1058400" target="_blank" rel="noopener">米坛</a></p>
 </blockquote>
 
       
@@ -496,7 +263,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/21/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0-%E5%88%86%E5%B1%82%E5%9B%9B%E5%85%83%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/01/05/HustBase%E5%AE%8C%E6%88%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
@@ -510,7 +277,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/21/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0-%E5%88%86%E5%B1%82%E5%9B%9B%E5%85%83%E6%B3%95/" class="post-title-link" itemprop="url">游戏分析框架学习笔记 贰</a>
+            <a href="/2020/01/05/HustBase%E5%AE%8C%E6%88%90/" class="post-title-link" itemprop="url">HustBase完成</a>
         </h2>
 
         <div class="post-meta">
@@ -520,7 +287,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-11-21 09:39:16" itemprop="dateCreated datePublished" datetime="2019-11-21T09:39:16+08:00">2019-11-21</time>
+              <time title="创建时间：2020-01-05 19:37:45" itemprop="dateCreated datePublished" datetime="2020-01-05T19:37:45+08:00">2020-01-05</time>
             </span>
 
           
@@ -534,28 +301,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本节讲述<code>分层四元法</code>框架。</p>
-<p>从这里开始，内容十分庞杂，我只将值得记录的部分记下来。</p>
-<h1 id="内嵌层"><a href="#内嵌层" class="headerlink" title="内嵌层"></a>内嵌层</h1><p>游戏的最终目标也许是“为了赢”，但这是最“长期”的目标，为了实现长期目标，许多个短期、中期目标必不可少。这些目标有轻重缓急，其间也许还会有互相冲突。</p>
-<p>游戏的视觉与听觉是最能被直观感受到的美学内嵌，也比机制对情绪的影响力有效得多。</p>
-<p>叙事内嵌需要着重讲讲。</p>
-<h2 id="叙事内嵌"><a href="#叙事内嵌" class="headerlink" title="叙事内嵌"></a>叙事内嵌</h2><h3 id="传统戏剧"><a href="#传统戏剧" class="headerlink" title="传统戏剧"></a>传统戏剧</h3><p><strong>五幕结构：</strong></p>
-<ol>
-<li>铺垫：介绍前情、设置、重要角色</li>
-<li>情节上行：发生故事，使重要角色与戏剧间的张力上升</li>
-<li>高潮：汇集前面的所有剧情，矛盾达到顶点</li>
-<li>情节下行：高潮引发的后果，剧情向结尾发展</li>
-<li>结局：故事的结末</li>
+          <p><img src="https://i.loli.net/2020/01/24/PgJko6yGmOHnYqW.png" alt="HustBase结构"></p>
+<p>经过一个月的胡乱操作，这个数据库总算是按照预期地跑了起来。</p>
+<h1 id="主要工作"><a href="#主要工作" class="headerlink" title="主要工作"></a>主要工作</h1><ol>
+<li>提供了数据定义功能：定义数据库、系统表、数据表、索引。</li>
+<li>提供了数据库操作功能：创建、打开、关闭、删除数据库。</li>
+<li>提供了数据表操作功能：创建、删除数据表。</li>
+<li>提供了索引操作功能：（部分）创建、删除索引。</li>
+<li>提供了按条件记录操作功能：插入、修改、删除数据表中的记录。</li>
+<li>为查询模块提供部分语义分析功能。</li>
+<li>编写部分用户界面模块功能。</li>
 </ol>
-<p><strong>三幕结构：</strong></p>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>编写模块的过程中，主要出现了以下几个问题：</p>
 <ol>
-<li>第一幕：铺垫<br>首先以“钩子”开头，足够刺激以迅速勾起观众注意；<br>然后引发事件，让事件进入主角生活，主角开始启程；<br>第一幕与第二幕之间是第一戏剧点，自此真正的故事开始。 </li>
-<li>第二幕：对抗<br>第二幕是故事的主要发展，主角经历一系列坎坷，情节推进到第二戏剧点。<br>第二戏剧点使主角作出重大决定，由此走向结局。   </li>
-<li>第三幕：结局<br>故事的高潮往往接近尾声，所有冲突汇集，悬念落下之后不久，故事即结束。</li>
+<li><p>对MFC、Windows API的不熟悉</p>
+<p> MFC实在是极其古老的东西，可以说早就停止支持，但本沿袭了十年的工程中仍然大量使用，尤其是HustBase.cpp中不得不使用。关于MFC的文档缺乏系统性和本地化，阅读起来较为困难。</p>
+<p> 如今的Windows开发基本上是用.NET Framework和C#进行的，C++的实现非常佶屈聱牙，仅仅是启动一个选择路径的窗口就要耗去一整天时间搜集资料。类似的过程，加上对C++遗忘较多，让我在开发初期花费了大量时间。</p>
+</li>
 </ol>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/21/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0-%E5%88%86%E5%B1%82%E5%9B%9B%E5%85%83%E6%B3%95/#more" rel="contents">
+              <a class="btn" href="/2020/01/05/HustBase%E5%AE%8C%E6%88%90/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -579,7 +345,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/21/%E6%94%B6%E9%9B%86%E4%B8%9C%E6%96%B9Alphes%E9%A3%8E%E7%AB%8B%E7%BB%98%E7%B4%A0%E6%9D%90/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
@@ -593,7 +359,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/21/%E6%94%B6%E9%9B%86%E4%B8%9C%E6%96%B9Alphes%E9%A3%8E%E7%AB%8B%E7%BB%98%E7%B4%A0%E6%9D%90/" class="post-title-link" itemprop="url">收集东方Alphes风立绘素材</a>
+            <a href="/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/" class="post-title-link" itemprop="url">从C++里的一大堆字符串说起</a>
         </h2>
 
         <div class="post-meta">
@@ -603,7 +369,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-11-21 00:47:35" itemprop="dateCreated datePublished" datetime="2019-11-21T00:47:35+08:00">2019-11-21</time>
+              <time title="创建时间：2019-12-30 18:19:09" itemprop="dateCreated datePublished" datetime="2019-12-30T18:19:09+08:00">2019-12-30</time>
             </span>
 
           
@@ -617,316 +383,94 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>策划着要制作游戏的时候，就想着大概需要弄一些立绘。对于东方同人游戏，最好的立绘莫过于<del>ZUN绘</del>黄昏风了。黄昏边境的立绘画师早为Alphes，后为春河萌，现在又拉出了TOKIAME，不过由于非想天则的巅峰，资源最多的应该还是Alphes风格，这也是长期以来俗称的“黄昏风”。</p>
-<p>《东方萃梦想》的Alphes妖梦：</p>
-<p><img src="https://i.loli.net/2020/01/12/h7VEtAqfgsz1YkC.png" alt="Alphes妖梦"></p>
-<p>《东方深秘录》的春河萌秦心：</p>
-<p><img src="https://i.loli.net/2020/01/12/MCnbfwBgiDke3ur.png" alt="春河萌秦心"></p>
-<p>TOKIAME绘制的蓬莱山辉夜：</p>
-<p><img src="https://i.loli.net/2020/01/12/UyJcEqauVIt28C5.jpg" alt="纯米大吟酿 蓬莱泉辉夜"></p>
-<p>为了寻找Alphes风立绘，我最初是在Pixiv搜索<code>東方　立ち絵</code>，然后就发现了<a href="https://www.pixiv.net/member_illust.php?id=743845" target="_blank" rel="noopener">kaoru</a>这个作者，他绘制了大量不错的Alphes风格立绘，并且全都可以自由进行非商业使用。依照说明我来到了他的站点<a href="http://gensoukyou.1000.tv/" target="_blank" rel="noopener">幻想幽玄庵</a>，这里有几乎所有正作角色的立绘素材，绝大部分还带有<code>.psd</code>文件，这可太有用了。</p>
-<p><img src="https://i.loli.net/2020/01/12/8mSVtWT4jq5vEaY.jpg" alt="kaoru id=743845"></p>
-<p>依照幻想幽玄庵这个大概是社团名的名称，我又在THBWiki上找到了<a href="https://thwiki.cc/Alphes%E9%A3%8E%E7%AB%8B%E7%BB%98%E7%B4%A0%E6%9D%90" target="_blank" rel="noopener">Alphes风立绘素材</a>页面，这里给出了<code>CharacterNentoka机</code>这个软件，可以在不用PS的情况下更加方便地生成立绘。我暂时就不用这个了，虽然没有Photoshop，但我装了Krita，试着熟悉一下操作好了。</p>
-<p>另外，Pixiv还有一位大量绘制Alphes风立绘的画师<a href="https://www.pixiv.net/member_illust.php?id=4920496" target="_blank" rel="noopener">dairi</a>，甚至其画风更加精致，也有更多的新人物素材（看得出来他的画技是在逐步提高的）。结合这两位dalao的资源，凑齐一套立绘应该是不成问题的了。</p>
-<p>目前暂时想到要使用的角色有这么几位，立绘都已经能够找齐了：</p>
-<ul>
-<li>魂魄妖梦</li>
-<li>鬼人正邪</li>
-<li>秦心</li>
-<li>西行寺幽幽子</li>
-<li>博丽灵梦</li>
-<li>魂魄妖忌</li>
-<li>……</li>
-</ul>
+          <p>写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。</p>
+<h1 id="char-foo-bar-和-char-foo"><a href="#char-foo-bar-和-char-foo" class="headerlink" title="char foo[bar] 和 char* foo"></a>char foo[bar] 和 char* foo</h1><p><code>char foo[bar]</code>这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这两行都定义了相同的字符串"Hello"</span></span><br><span class="line"><span class="keyword">char</span> foo1[] = <span class="string">"Hello"</span>;      <span class="comment">//末尾有隐藏的'\0'</span></span><br><span class="line"><span class="keyword">char</span> foo2[<span class="number">6</span>] = &#123;<span class="string">'H'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'\0'</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>char* foo</code>是声明了一个字符指针，指向单个字符，可以将其当作以<code>&#39;\0&#39;</code>为末尾的字符串的首字符地址。如果要把字符串赋给它，需要先申请内存空间，再使用<code>memcpy()</code>或<code>strcpy()</code>。当然，也可以不分配空间，直接用<strong>十分危险的指针赋值</strong>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* foo1 = (<span class="keyword">char</span>*)<span class="built_in">calloc</span>(<span class="number">6</span>, <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line"><span class="built_in">strcpy</span>(foo1, <span class="string">"Hello"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* foo2 = <span class="string">"Hello"</span>;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/26/191226/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/26/191226/" class="post-title-link" itemprop="url">191226</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-26 19:46:43" itemprop="dateCreated datePublished" datetime="2019-12-26T19:46:43+08:00">2019-12-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>冬至已经过了好几天，这次我没能在节气当天写随笔了——也许是一个危险的信号，象征着“持之以恒”依然不存在于我的字典中？</p>
+<p>近期在做本科阶段最后的课程设计：综合能力培养。选择的是数据库方向（这算是几个月前“大数据开发”的历史遗留），三人一组用C++编写一个数据库系统。C++对我几乎是“未曾设想的道路”了。</p>
+<p>啊，思绪繁杂。不过既然叫随笔，也不该讲求甚么“章法”，就依照“随笔”其名，想一出是一出地写吧。</p>
+<p>首先还是在做数据库系统时遇到了海量的问题。这回是不怎么能“倚靠大佬”，相互借鉴交融并包了，所以基本上除了在一筹莫展时从GitHub上稍微看看往届学长的思路之外，都是自己老老实实写出来的东西。这个时候就能体现出“亲力亲为”太少的问题了，功夫是真的不行：一天可能摸不出50行代码，而且逻辑混乱，调试痛苦，维护困难。要说这水平是大二时候的我，倒也勉强可以接受，但是大学四年差不多就剩一个学期了，就连差强人意都算不上。</p>
 <blockquote>
-<p>啊——社区这种东西果然还是便利啊。</p>
+<p>“我并不想变强，也并不想解决问题，只是想表达自己并非坐以待毙，想表达自己在努力，只是摆出这样一个明显的姿态将自己正当化。我想说自己没办法，我想说自己束手无策，只是为了放弃，我才会做出拼命努力的表象……”<br>——《Re：从零开始的异世界生活》 第18话</p>
 </blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/20/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/20/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/" class="post-title-link" itemprop="url">游戏分析框架学习笔记 壹</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-20 10:25:17" itemprop="dateCreated datePublished" datetime="2019-11-20T10:25:17+08:00">2019-11-20</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="游戏学的常用框架"><a href="#游戏学的常用框架" class="headerlink" title="游戏学的常用框架"></a>游戏学的常用框架</h1><h2 id="MDA"><a href="#MDA" class="headerlink" title="MDA"></a>MDA</h2><blockquote>
-<p>M：Mechanics，机制——数据层面上的组件与算法。<br>D：Dynamics ，动态——对输入输出的实时响应。<br>A：Aethetics，美学——交互唤起的情绪反应。</p>
-</blockquote>
-<p>需要注意的是，由于游戏机制上的一点点变化就会在动态上引发动态上的大变化，进而在美学上引发巨大变化，因此游戏机制的调整是应该慎之又慎的。  </p>
-<p>对于设计者，<strong>首先应该敲定想要玩家体会到的美学，据此来创造动态和机制。</strong> 怎样的动态能展现这样的美学？怎样的机制能产生这样的动态？</p>
-<p>而对于玩家，首先接触到的是机制，即游戏的规则，由此产生动态，在动态中体会到设计者预想的美学。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/20/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0/" class="post-title-link" itemprop="url">Unity脚本开发学习笔记 贰</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-18 12:21:58" itemprop="dateCreated datePublished" datetime="2019-11-18T12:21:58+08:00">2019-11-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>书接上文。</p>
-<h2 id="按键控制"><a href="#按键控制" class="headerlink" title="按键控制"></a>按键控制</h2><p><code>Input.GetKey</code>和<code>Input.GetButton</code>两种方法用于获取按键情况。</p>
-<p>区别在于，Key有确定的KeyCode。KeyCode是Unity内置的枚举类，内含各种键盘、手柄按键，如空格键就由<code>KeyCode.Space</code>表示。</p>
-<p>而Button是可以自定义详细配置的。在<code>Edit-ProjectSettings-Input</code>中可以对输入进行详细配置，为一种操作提供一个字符串别名。只要使用<code>GetBotton(string str)</code>就可以监测对应的输入了。</p>
-<p>除了知道按键是否被按下之外，我们还需要确切地知道按键在哪一帧被按下，哪一帧被松开。 因此，这两个方法都有衍生的<code>GetxxxDown</code>和<code>GetxxxUp</code>。在对应按键被按下后的第一帧，<code>GetKeyDown</code>返回true，而到了第二帧，它就再次返回false了。同理，<code>GetKeyUp</code>也仅在松开按键后的第一帧返回true。</p>
-<p>当然，这些方法都应该被放在Update()函数里，这样才能在每一帧对按键进行监测。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/" class="post-title-link" itemprop="url">Unity脚本开发学习笔记 壹</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-17 22:03:38" itemprop="dateCreated datePublished" datetime="2019-11-17T22:03:38+08:00">2019-11-17</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。</p>
-<p>这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。</p>
-<p>我所阅览的是由<a href="https://space.bilibili.com/7647261" target="_blank" rel="noopener">风农</a>发布在bilibili的翻译版。</p>
-<h2 id="Awake-和-Start"><a href="#Awake-和-Start" class="headerlink" title="Awake() 和 Start()"></a>Awake() 和 Start()</h2><p>这两个函数用于做一些前置性工作。</p>
-<p>不同之处在于，<code>Awake()</code>只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而<code>Start()</code>则在<code>Awake()</code>之后执行，且脚本必须被使能。</p>
-<h2 id="Update-和-FixedUpdate"><a href="#Update-和-FixedUpdate" class="headerlink" title="Update() 和 FixedUpdate()"></a>Update() 和 FixedUpdate()</h2><p><code>Update()</code>很简单，每一帧调用一次。但显然，每一帧的渲染时间不会是一致的，即调用<code>Update()</code>的间隔时间不确定，这就导致如果我们把物理效果放到<code>Update()</code>里，会导致物理效果不太流畅。</p>
-<p>为了保证物理运动与时间之间的紧密联系，应该使用<code>FixedUpdate()</code>。顾名思义，这是“固定的”Update，即间隔时间可以保持一致。间隔时间由<code>Time.fixedDeltaTime</code>决定，默认的时间是<code>0.02s</code>，一秒钟调用50次。</p>
-<h2 id="坐标与向量"><a href="#坐标与向量" class="headerlink" title="坐标与向量"></a>坐标与向量</h2><p>Unity使用左手坐标系，三轴的相对位置依照下图所示。与数学立体几何中的一般表示不同，在这里Z轴代表的是“深度”而不是“高度”。</p>
-<p><img src="https://i.loli.net/2020/01/12/Y3NegGcqRf1EUOM.jpg" alt="左手坐标系"></p>
-<p>Unity包含了一些用于进行向量运算的方法，它们基本被放在<code>Vector2</code>和<code>Vector3</code>类里。</p>
-<p><code>Vector3</code>里包含了一些常用向量，以(0,0,1)为<code>forward</code>（依照上面的坐标手势，中指指向前面），有<code>up</code>、<code>down</code>、<code>left</code>、<code>right</code>、<code>back</code>，以及(0,0,0)的<code>zero</code>和(1,1,1)的<code>one</code>。<code>Vector2</code>里没有z轴，故没有<code>forward</code>和<code>back</code>。</p>
-<h2 id="游戏对象、组件，及其开关"><a href="#游戏对象、组件，及其开关" class="headerlink" title="游戏对象、组件，及其开关"></a>游戏对象、组件，及其开关</h2><p>一个游戏对象（GameObject）可以拥有多个组件（Component）。</p>
-<p>比如一个简单的点光源，其本身是一个<code>GameObject</code>。首先它有一个<code>Transform</code>组件标示其位置、旋转、缩放等信息，还得有一个<code>Light</code>组件让它发光。也许，还有若干用于控制这个点光源的脚本组件。</p>
-<p>如果我们关闭这个游戏对象（我们把它叫做激活/停用），那么这个灯整个就从场景中消失了。用游戏对象的<code>SetActive(bool value)</code>方法来实现这一点。</p>
-<p>需要注意的是，如果游戏对象有多层结构，将一个父对象停用并不会使其子对象停用（虽然效果上，子对象也消失了）。查看一个对象到底是在层级中被激活还是本身确实在场景里激活了，可以用游戏对象的activeInHierarchy()和activeSelf()方法来确定。</p>
-<p>要关掉灯，除了让灯凭空消失，我们当然还有更正常的做法。每一个组件都有一个bool类型的<code>enabled</code>标志位，只要把这个标志位设为<code>false</code>，就能去使能（禁用）这个组件。如将点光源的<code>Light</code>组件禁用，光是没了，但灯依然还在原处。</p>
+<p>这是我觉得十分危险的一种状态，这段话也时常被我用来反省。实际上这几个月，乃至这几年我还真有点这个意思，表面看起来并不算是“堕落”，却也说不上是在真正“努力”。</p>
+<p>努力……难道人必须要努力才能存在吗？显然不是，往往带恶人活得同样滋润。</p>
+<p>成年以后，年龄似乎就失去了意义，特别是知识爆炸的这个年代。我们往往把自己与年长自己许多岁的人，或者同龄人中抛头露脸的最顶尖的那一小撮进行比较，然后得出自己一无是处的结论。也许这结论有一半是真，但另一半大抵是十余年“挫折教育”的延续。</p>
+<p>内卷，内卷，依然是内卷——东亚几乎要在这梦魇下失去未来。如今不会有人幻想“皇帝的金锄头”，天国和地狱一样空空荡荡，因它们都降临到了地上。成功了的人总是相似，仰视他们的人则各有各的痛处，并且知道自己几乎不可摆脱。些许人已经淡漠，但多数人仍要挣扎，他们的结果并没有太大不同。</p>
+<p>我憎恶冬天。冬天总是阴云密布的，却总不下雨——下雨亦是一阵寒过一阵。偶然见了太阳，也是如同吸干了血的尸体，连同被这阳光照射的人物，都成了干尸了。寒冷麻痹思考，逐渐放弃思考。</p>
+<p>极简。极简并非以致无欲。与其说是降低饱和度，不如说是增高对比度。</p>
+<p>小小寰球。“我们并不孤独。”让我在天文台倒下！</p>
 <blockquote>
-<p>今天先记到这里好了。</p>
+<p>己亥腊月朔日。</p>
 </blockquote>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/02/191102/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/01/29/feNBSPmoR7H2dbs.png">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/02/191102/" class="post-title-link" itemprop="url">191102</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-02 09:49:17" itemprop="dateCreated datePublished" datetime="2019-11-02T09:49:17+08:00">2019-11-02</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这一周，我开始了在华科<a href="http://ifpr.hust.edu.cn/" target="_blank" rel="noopener">聚变与等离子体研究所</a>的实习。</p>
-<p><img src="https://i.loli.net/2020/01/12/IGZg3wHjUOtp9TE.jpg" alt="J-TEXT"></p>
-<p>其实我完全不明白自己应该干什么。八月底退出考研大军之后，我捡起大一没能坚持看下去的廖雪峰Python教程读了个大概（在这期间，Python 3甚至已经普及了），半懂不懂地接触了些之前所学的语言里没有讲过的“迭代器、生成器、装饰器”一类玩意，就去投秋招简历了。</p>
-<p>可想而知，一个数据结构、算法、操作系统、计算机网络统统没复习，没有刷LeetCode，工程实践基本靠课程设计（甚至还有不少是东拼西凑）的学生，哪家公司会收留就有鬼了。何况，我投的岗位还是数据研发，但在这之前我对数据研发的了解还真的是仅限<code>Hadoop</code>和<code>Spark</code>的拼写……</p>
-<p>因此，笔试直接挂是理所当然的了。可是投字节跳动实习的时候，我这个铁憨憨还是投了数据研发。好歹实习不用笔试，不过面试当然还是挂了——一个小时的面试里，全是灵魂拷问，“人，有实力，是不怕的”，但是没有实力的话就算冷静镇定也不会带来更好的结果。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/02/191102/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -945,7 +489,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -991,14 +535,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

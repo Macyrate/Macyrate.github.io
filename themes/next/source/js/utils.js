@@ -314,7 +314,7 @@ NexT.utils = {
   },
 
   isTablet: function() {
-    return window.screen.width < 992 && window.screen.width > 767 && this.hasMobileUA();
+    return window.screen.width < 900 && window.screen.width > 767 && this.hasMobileUA();
   },
 
   isMobile: function() {

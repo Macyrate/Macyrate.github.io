@@ -51,15 +51,20 @@
   };
 </script>
 
-  <meta name="description" content="&amp;nbsp;&amp;nbsp;氣霽風梳新柳髮，&amp;nbsp;&amp;nbsp;冰消浪洗舊苔須。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博丽吹笛分社 | Macyrate">
-<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;archives&#x2F;2016&#x2F;11&#x2F;index.html">
+  <meta name="description" content="此前虽然接触过C#中的一些较为高级的操作，但基本是只知其有，不知在哪些场景下可以应用。这几天写着代码就顿觉冗杂不堪，虽然能跑但看起来十分难受，希望寻求一些函数式编程之类的魔法来简化流程。 那首先要理解的还是委托和事件。虽然学完了也不一定会用，但看懂一点总是好的。 委托如之前所说，委托类似于函数指针。或者说，委托是一种存储函数引用的类型。由于函数的参数须是变量&#x2F;常量&#x2F;表达式，只要把函数变成一种引用类">
+<meta name="keywords" content="笔记,C Sharp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#杂记之壹：委托入门">
+<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2020&#x2F;02&#x2F;27&#x2F;C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9&#x2F;index.html">
 <meta property="og:site_name" content="博丽吹笛分社 | Macyrate">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;氣霽風梳新柳髮，&amp;nbsp;&amp;nbsp;冰消浪洗舊苔須。">
+<meta property="og:description" content="此前虽然接触过C#中的一些较为高级的操作，但基本是只知其有，不知在哪些场景下可以应用。这几天写着代码就顿觉冗杂不堪，虽然能跑但看起来十分难受，希望寻求一些函数式编程之类的魔法来简化流程。 那首先要理解的还是委托和事件。虽然学完了也不一定会用，但看懂一点总是好的。 委托如之前所说，委托类似于函数指针。或者说，委托是一种存储函数引用的类型。由于函数的参数须是变量&#x2F;常量&#x2F;表达式，只要把函数变成一种引用类">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;27&#x2F;xVONQiE1hJIrWf2.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;27&#x2F;yb6g3GTIoA1rB4R.jpg">
+<meta property="og:updated_time" content="2020-02-27T14:53:45.513Z">
 <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="https://hakurei.red/archives/2016/11/">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;27&#x2F;xVONQiE1hJIrWf2.jpg">
+  <link rel="canonical" href="https://hakurei.red/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/">
 
 
 <script id="page-configurations">
@@ -67,13 +72,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>归档 | 博丽吹笛分社 | Macyrate</title>
+  <title>C#杂记之壹：委托入门 | 博丽吹笛分社 | Macyrate</title>
   
 
 
@@ -223,54 +228,128 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">还行! 目前共计 33 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          C#杂记之壹：委托入门
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-27 12:25:36" itemprop="dateCreated datePublished" datetime="2020-02-27T12:25:36+08:00">2020-02-27</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h2 class="collection-header">2016</h2>
+        <p>此前虽然接触过C#中的一些较为高级的操作，但基本是只知其有，不知在哪些场景下可以应用。这几天写着代码就顿觉冗杂不堪，虽然能跑但看起来十分难受，希望寻求一些函数式编程之类的魔法来简化流程。</p>
+<p>那首先要理解的还是委托和事件。虽然学完了也不一定会用，但看懂一点总是好的。</p>
+<h1 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h1><p>如之前所说，委托类似于函数指针。或者说，委托是一种存储函数引用的<strong>类型</strong>。由于函数的参数须是变量/常量/表达式，只要把函数变成一种引用类型的变量，就可以让一个函数作为其它函数的参数了。同样，也可以通过直接调用委托变量来调用委托变量所引用的函数。</p>
+<p>为什么要把<strong>类型</strong>加粗？因为声明一个委托类型并不是声明一个委托变量，而是一类委托的<strong>模板</strong>，说明了这类委托应具有的的返回值类型与参数列表。委托类型与具体的委托变量之关系，类似于“类”和“对象”的关系。</p>
+<p>委托类型声明和函数类似，拥有返回值类型和参数列表，但没有函数体，并且在前面用<code>delegate</code>关键字声明这是一个委托类型，再声明这个委托类型的变量：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明委托类型和委托变量</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">double</span> <span class="title">ProcessDelegate</span>(<span class="params"><span class="keyword">double</span> param1, <span class="keyword">double</span> param2</span>)</span>;</span><br><span class="line">ProcessDelegate process;</span><br><span class="line"></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将函数Multiply注册到ProcessDelegate类型的委托变量process</span></span><br><span class="line">process = <span class="keyword">new</span> ProcessDelegate(Multiply);</span><br><span class="line"></span><br><span class="line"><span class="comment">//也可以简写</span></span><br><span class="line">process = Multiply;</span><br><span class="line"></span><br><span class="line"><span class="comment">//多播委托(虽然这里没什么用)</span></span><br><span class="line">process += Divide;</span><br><span class="line">process += Add;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用委托</span></span><br><span class="line">System.Console.WriteLine(<span class="string">$"Result:<span class="subst">&#123;process(<span class="number">12.1</span>, <span class="number">22.4</span>)&#125;</span>"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>实际上，委托确实是一种“类”。上面所展示的委托变量声明，其形式就和类的实例化完全一致。在委托变量后面打个点，你甚至能看到一堆委托类型包含的方法和属性：</p>
+<p><img src="https://i.loli.net/2020/02/27/xVONQiE1hJIrWf2.jpg" alt="委托也是类"></p>
+<a id="more"></a>
+
+<h2 id="何时用委托？"><a href="#何时用委托？" class="headerlink" title="何时用委托？"></a>何时用委托？</h2><p><strong>委托的一个有趣且有用的属性是，它不知道也不关心所引用的方法的类；只关心引用的方法是否具有与委托相同的参数和返回类型。</strong> </p>
+<p>这就像是当你饿了的时候，并不是非得去哪家特定的饭店吃饭，而是只要你给钱（参数）能得到食物（返回类型）就行了。这样，就无需先通过继承<code>建筑</code>类来构建一个<code>店铺</code>类，再实现一个<code>厨房</code>接口之类的东西，让其成为<code>饭店</code>——而是就算是大街上一个路人你能从TA那买到吃的，也算是能满足你的需求。</p>
+<p>因此，委托的大用处在于解耦。一个典型的例子是用在<code>LINQ</code>中：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> smallNumbers = numbers.Where(n =&gt; n &lt; <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<p>LINQ的详细介绍留至以后，这可以说是C#中最为变态的武器之一，这里只说说Where方法。</p>
+<p>首先，Where方法是接口<code>IEnumerable</code>和<code>IEnumerable&lt;T&gt;</code>中的方法，也只有实现了这两个接口之一或它们的派生接口（如<code>IQueryable&lt;T&gt;</code>）的类可以使用LINQ，这种类被称为<strong>可查询类型</strong>。Where方法的原型：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> IEnumerable&lt;TSource&gt; Where&lt;TSource&gt; (<span class="keyword">this</span> IEnumerable&lt;TSource&gt; source, Func&lt;TSource, <span class="keyword">bool</span>&gt; predicate);</span><br></pre></td></tr></table></figure>
+
+<p>分析一下。</p>
+<p>首先，这个方法是一个<code>static</code>方法，并且参数列表第一个被<code>this</code>修饰，这是<strong>扩展方法</strong>的特征。这是因为Where方法之类的LINQ内容并不是直接定义在<code>IEnumerable&lt;T&gt;</code>接口里，而是在<code>System.Linq</code>中定义的扩展方法。扩展方法的第一个，被<code>this</code>所修饰的参数指明了这个扩展方法扩展的是什么类型。</p>
+<p><img src="https://i.loli.net/2020/02/27/yb6g3GTIoA1rB4R.jpg" alt="Where是扩展方法.jpg"></p>
+<p>可以看到，如果注释掉<code>using System.Linq</code>，</p>
+<p>因此，方法原型中的<code>this IEnumerable&lt;TSource&gt; source</code>，指的就是Where方法所扩展的是<code>IEnumerable&lt;TSource&gt;</code>接口。</p>
+<p>而后面的<code>Func&lt;TSource, bool&gt; predicate</code>就是一个委托，并且是泛型委托，关系到“协变和逆变”之类的高深操作，详细的下次再说。</p>
+<p>这个委托用于对每个元素进行测试，看它们是否满足条件。自然，如果满足条件，这个委托将返回bool型的<code>true</code>。泛型委托的泛型参数中，最后一个即为委托的返回类型，故而是bool型。而前面的<code>TSource</code>指示了所封装的方法的参数类型。</p>
+<p>因此，这个<code>Func&lt;TSource, bool&gt; predicate</code>可以看作是：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">bool</span> <span class="title">FooDelegate</span>(<span class="params">TSource foo</span>)</span>;     <span class="comment">//这里的TSource是某个类型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">FooFunc</span>(<span class="params">TSource foo</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">FooDelegate predicate = <span class="keyword">new</span> FooDelegate(FooFunc);</span><br></pre></td></tr></table></figure>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="Macyrate wechat" style="width: 200px; max-width: 100%;">
+  <div>唯一指定微信</div>
+</div>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2016-11-23T18:01:43+08:00"
-              content="2016-11-23">
-          11-23
-        </time>
-      </div>
 
-      <h3 class="post-title">
-          <a class="post-title-link" href="/2016/11/23/Hello%20World!/" itemprop="url">
-            <span itemprop="name">Hello World!</span>
-          </a>
-      </h3>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/tags/C-Sharp/" rel="tag"># C Sharp</a>
+          </div>
 
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/02/23/200223/" rel="next" title="200223：890 Errors创立">
+                  <i class="fa fa-chevron-left"></i> 200223：890 Errors创立
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
         </div>
           
@@ -295,6 +374,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#委托"><span class="nav-number">1.</span> <span class="nav-text">委托</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#何时用委托？"><span class="nav-number">1.1.</span> <span class="nav-text">何时用委托？</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -535,6 +615,23 @@ window.addEventListener('pjax:success', () => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'aa2288c6cbb5322cac6b',
+      clientSecret: '63492ee584a83a8479f1408f33e2ca04e3ef9f82',
+      repo: 'Macyrate.github.io',
+      owner: 'macyrate',
+      admin: ['macyrate'],
+      id: '1f11e059a5cd2dbcad49e1fa78295c99',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
     </div>
 </body>

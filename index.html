@@ -273,8 +273,8 @@
 <h1 id="逆变"><a href="#逆变" class="headerlink" title="逆变"></a>逆变</h1><h2 id="神秘的问题"><a href="#神秘的问题" class="headerlink" title="神秘的问题"></a>神秘的问题</h2><p>比较难以理解的是逆变。与协变相反，这是对派生程度更小的类型的支持。比如在要求<code>string</code>的地方支持使用<code>object</code>。什么地方会出现这种看似违反里氏替换原则的“危险”操作呢？</p>
 <p>在翻阅了许多文档之后，我反而是在<a href="https://github.com/jkchao/typescript-book-chinese/blob/master/docs/tips/covarianceAndContravariance.md" target="_blank" rel="noopener">《深入理解 TypeScript》</a>中找到了较为明白的解释，下面我试着用C#的方式叙述一下。</p>
 <p>假设<code>Greyhound</code> （灰狗）是 <code>Dog</code> （狗）的子类，而 <code>Dog</code> 则是 <code>Animal</code> （动物）的子类。由于子类型通常是可传递的，因此我们也称 <code>Greyhound</code> 是 <code>Animal</code> 的子类。这是显然的。</p>
-<p>一个问题出现了：</p>
-<p><strong>那么，如果我们有一个委托<code>Func&lt;Dog, Dog&gt;</code>，是不是真的只能分配那些接受<code>Dog</code>为参数，并返回<code>Dog</code>的方法呢？</strong></p>
+<p>那么，一个问题出现了：</p>
+<p><strong>如果我们有一个委托<code>Func&lt;Dog, Dog&gt;</code>，是不是真的只能分配那些接受<code>Dog</code>为参数，并返回<code>Dog</code>的方法呢？</strong></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/#more" rel="contents">

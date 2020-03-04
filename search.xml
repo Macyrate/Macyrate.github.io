@@ -1,6 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>200305</title>
+    <url>/2020/03/05/200305/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这一篇虽记于3月4日，但一看日历，明日惊蛰，四舍五入等我写完便也是依照惯例的特殊日随笔了，那就把时间改为明天的第一帧吧。</p>
+<p>写这篇的主要目的是作毕业设计工作进度的报告，因为昨天接到10号便要开题答辩的通知，依照要求我应在两天之内联系导师汇报工作进度。回过神来已是晚上八点，再不总结一下就要来不及了。</p>
+<h1 id="干了些什么？"><a href="#干了些什么？" class="headerlink" title="干了些什么？"></a>干了些什么？</h1><p>太长不看，上列表：</p>
+<ul>
+<li>决定转向游戏制作</li>
+<li>学习C#和游戏学基础</li>
+<li>学习Aseprite和Photoshop</li>
+<li>TextMesh Pro和UGUI</li>
+<li>DanmakU类库，弹幕的生成</li>
+<li>Pixel Perfect效果</li>
+<li>实现基本的游戏逻辑</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="决定转向游戏制作"><a href="#决定转向游戏制作" class="headerlink" title="决定转向游戏制作"></a>决定转向游戏制作</h2><p>从<a href="https://hakurei.red/2019/11/02/191102/">191102</a>起，我由于开始接触C#这门与大数据开发关系不太深的语言，更由于自己一直以来的一些爱好与愿望，决定转向游戏制作。</p>
+<p>那时的计划是先系统性学习C#，然后逐步了解Unity引擎，尝试在实验室工作之外制作一个东方同人游戏，既贴合毕业所需，也可作为日后求职的材料。</p>
+<h2 id="学习C-和游戏学基础"><a href="#学习C-和游戏学基础" class="headerlink" title="学习C#和游戏学基础"></a>学习C#和游戏学基础</h2><p>计划刚一开始，接下来的半个月就在实验室的忙碌中度过，常常是晚上回家还需要继续研究到深夜，系统性的学习就暂且推迟了。期间我也听从一些建议，购入了《C#入门经典》和《游戏设计、原型与开发》。这两本书的确值得一读，明晰的思路和通俗的语言往往能让我从文档的苦海中挣脱，也能纠正我许多先入为主的错误思想。</p>
+<p>于是11月17日，在去向导师报到之前，我花了几天学习Unity官方发布的脚本开发视频教程，对C#这门语言的总体有了一定的认识。</p>
+<p>既然在此之前学习过C++、Java和Python，按理说对面向对象程序设计已经轻车熟路，但C++和Java我实在是面向考试学习，所剩下来的只有那些马光志老师所曰“静态成员指针，析构过程，虚基类……”云云的诘屈聱牙，还有Eclipse那丑陋不堪、摇摇欲坠的界面。至于OOP的思想么，是一点也没学到，更没能掌握其全貌。</p>
+<p>Python亦是门乱七八糟的语言，从GitHub上弄下来的代码十页里有两页能跑就该念安拉至大了。我仅仅是囫囵吞枣，了解到了一门编程语言的语法可以这么精简，性能也可以这么低下。切实的好处也是有的：我仰仗着Python胡写一气考完了CSP，而如果当时用的是C++，那分数恐怕得打对折。</p>
+<p>C#则不同。也不知道是不是因为学习的是英文课程，老外讲这些东西尤其有天分，许多一团乱麻的地方变得直观了起来。除了C#的基础之外，还讲解了一些Unity的重要概念，这下我稍微有了一点信心，也产生了自己很快就能上手的“错觉”。</p>
+<p>从导师那里回来之后，我要做的事只剩下了一件：基本完全独立的游戏开发。想到自己即将开始做和ZUN当年相同的事，不觉有些热血上涌。第一步当然是策划，不过既然只有我一个人，我当时认为可能没必要弄得这么“正式”。当然这是错误的，比如现在我就深受没有早些写策划案之害，需要从零开始与开题报告的Deadline斗争了。</p>
+<p>不过我还是开始读那本《游戏设计、原型与开发》，看了些游戏分析框架与“涌现”概念、设计思路的内容。在这个过程中，我虽没有完整的策划案，总算是从零碎的思绪中揪出了个大致方向——庚子之灾。《東方珀露澗 ~ Aurora of Dragon Lore.》的名字就是在这时取的。</p>
+<p>这段时间也是我2019年学习最为狂热的几天，博客完全是日更，以至于某位少女都为此表示了认可。</p>
+<h2 id="学习Aseprite和Photoshop"><a href="#学习Aseprite和Photoshop" class="headerlink" title="学习Aseprite和Photoshop"></a>学习Aseprite和Photoshop</h2><p>十二月初，我意识到自己必须得做一些中等意思的美术工作。由于《东方月神夜》和《幻想乡萃夜祭》给我带来的极大冲击和传统美术风格的较高门槛，我选择尝试创作像素艺术风格的美术素材。</p>
+<p>因此，开始接触专用于像素艺术的Aseprite和美工万能的Photoshop。Photoshop是被我用得不如PowerPoint，Aseprite倒是掌握了些。最初的像素作品显然是不忍直视，尽管花去了一整天：</p>
+<p><img src="https://i.loli.net/2020/01/12/rWmnCw9V1uBeDH6.gif" alt="第一幅妖梦"></p>
+<p>寒假回家之后，我又花了一段时间学习Aseprite的使用以及创作像素艺术的技巧，对于明暗和比例有了基本的概念。这是2月15日，作为测试用敌机而绘制的鬼人正邪，比起上面有了明显的进步：</p>
+<p><img src="https://i.loli.net/2020/03/04/kd1UyB28NIfcCtl.png" alt="正邪"></p>
+<p>之后，关注已久的国行Switch发布了，看完发布会失望的我当即去买了日版Switch，度过了一段没日没夜的日子——终于是成为了“高贵的主机玩家”。</p>
+<h2 id="消失的两个月"><a href="#消失的两个月" class="headerlink" title="消失的两个月"></a>消失的两个月</h2><p>最初的开发工作进行后不久，综合能力培养课程设计就开始了，我也久违地参与到有一定复杂度和体量的工程中去。这段时间长达一个月，很忙，也很迷茫，有种“刚起跑就跌倒”的感觉。中途也仅仅是探求了Unity异步场景加载这一个问题。</p>
+<p>不过十二月的某个下午，恭听了一位资深.NET巨佬对C#的演示讲解，许多之前没有深入接触的概念涌现出来——静态、异步、接口、转型、委托、事件、集合、LINQ……堪称“一日看尽长安花”。这些内容，我直到现在都在试着慢慢消化理解，最近一周写的C#杂记也正是为了这一点。</p>
+<p>一月初，课设和大四上学期一起结束，其中留下的一些坑让我后来又进行了两次考据。放假之后，家里大小杂事，加上我好不容易有了前往海拉鲁大陆的机会，就此一直忙到快过年。</p>
+<p>接下来的事大家都明白，一月底，新冠肺炎来了。瘟疫撞上新年，这下又有了可忙的事。一直到2月11日，我才时隔两个月再次打开Unity。</p>
+<h2 id="TextMesh-Pro和UGUI"><a href="#TextMesh-Pro和UGUI" class="headerlink" title="TextMesh Pro和UGUI"></a>TextMesh Pro和UGUI</h2><p>接续开发进度的第一件事是完善之前只有背景图片的主菜单。</p>
+<p>这里用到了Unity的UGUI工具集，主要是用Event控制的一系列GameObject：Canvas，Image，Button，Text等等。为了实现不同分辨率下的有层次的布局，又接触了多摄像机和锚点等UI设计的知识。</p>
+<p>为了更加接近东方正作主菜单的逻辑，完全用键盘控制菜单、实现按钮的动画和音效，中间也进行了许多折腾。</p>
+<p>不得不吐槽的是UGUI中的Text组件，渲染效果十分感人：</p>
+<p><img src="https://i.loli.net/2020/02/17/AgXQhHJ9CUlykEs.jpg" alt="模糊的Text"></p>
+<p>公认的对策是“曲线救国”：先把字号调得巨大，再把缩放调得极小，强行让显示效果变得清晰。这里我得将缩放调整为0.2，字号调到159才有了较为锐利的效果：</p>
+<p><img src="https://i.loli.net/2020/02/17/5hdfeoBDHNJvjUI.jpg" alt="曲线救国"></p>
+<p>为此，完美的解决方案是使用TextMesh Pro，其实Unity已经收编了这个第三方工具，放在了新版本Unity的Package Manager里。</p>
+<p>这个基本成型的主界面虽简陋得很，背景也是<a href="https://www.pixiv.net/artworks/42856952" target="_blank" rel="noopener">从Pixiv上拉来的</a>，但勉强能用，看得过去。</p>
+<p><img src="https://i.loli.net/2020/03/04/kjJHdAK6FUepgv7.jpg" alt="主菜单"></p>
+<p>即使是320*240的极低分辨率，也能较好（？）地显示。</p>
+<p><img src="https://i.loli.net/2020/03/04/a9u57DCd2oLTxAV.jpg" alt="低分辨率主菜单"></p>
+<p>读取文档界面：</p>
+<p><img src="https://i.loli.net/2020/03/04/UeLpRQ9yuvdW4YT.jpg" alt="文档界面"></p>
+<h2 id="DanmakU类库，弹幕的生成"><a href="#DanmakU类库，弹幕的生成" class="headerlink" title="DanmakU类库，弹幕的生成"></a>DanmakU类库，弹幕的生成</h2><p>（糟，要写不完了，省着点，详细的还是报告里补充吧）</p>
+<p>制作弹幕是既困难又简单的部分，这个部分的设计在后面的工作中可能会花去我的主要时间。纯粹的的“Bullet Hell”实现起来可能相对简单，而要制作包含一定意蕴的“符卡”，其复杂度就需要为之慎重考量了。</p>
+<p>以前玩过用东方弹幕风和LuaSTG制作的弹幕射击游戏，Unity引擎里有没有能辅助制作弹幕的工具呢？无论如何，至少在Unity上实现极复杂的符卡是可以的，SlimeSmile团队的作品就是很好的例子。</p>
+<p>GitHub上一找还真的有，是Google的工程师开发的开源类库<a href="https://github.com/james7132/DanmakU" target="_blank" rel="noopener">DanmakU</a>，想来这个大写的U所代表的应当是Unity。这个库容量不大，开发时间跨度却已长达5年，还有着天坑遍地、语焉不详的要命文档，但它确实是个不错的选择——大不了我Fork过来自己改就是了。</p>
+<p><img src="https://i.loli.net/2020/03/04/KnzCNdg9b5TVWZB.png" alt="DanmakU"></p>
+<p>DanmakU的思想是重点处理那些占绝大部分的“fire and forget”的子弹，将1023个子弹一同进行GPU绘制请求，而不是将每个子弹视作独立的个体，同时使用尽量多的线程处理。这可以极大地降低垃圾回收的开销，保持CPU低占用，充分使用GPU加速。</p>
+<p>以下是一个使用DanmakU绘制的，简单的单发射点弹幕示例：</p>
+<p><img src="https://i.loli.net/2020/03/04/I1pSQHZWwL7FbEh.png" alt="DanmakU绘制弹幕"></p>
+<h2 id="Pixel-Perfect效果"><a href="#Pixel-Perfect效果" class="headerlink" title="Pixel Perfect效果"></a>Pixel Perfect效果</h2><p>Unity起初是个面向3D游戏的引擎，对2D的支持也是近年来才逐步完善。对于像素游戏而言，如果希望做到尽善尽美，Unity就存在一些不足。可能出现的问题在这篇文章里有很好的分析：<a href="https://zhuanlan.zhihu.com/p/55367765" target="_blank" rel="noopener">制作传统风格像素游戏时的几个陷阱 - Aya Magician</a></p>
+<p>其中较为重要的问题就是像素对齐。</p>
+<p><img src="https://i.loli.net/2020/03/04/V9dc4qHm1AoKt6D.jpg" alt="像素对齐"></p>
+<p>另外就是Unity中可能出现的像素大小不均，不知道是否有相应的专业术语：</p>
+<p><img src="https://i.loli.net/2020/03/04/vYGFLB15dmbolKJ.jpg" alt="像素大小不均"></p>
+<p>这些问题被Pixel Perfect Camera部分解决了。这是使用之后的效果，像素大小均匀统一，边缘非常清晰锐利，且完美对齐。</p>
+<p><img src="https://i.loli.net/2020/03/04/mYIKiA8jLSJnlhv.jpg" alt="Pixel_Perfect_Camera.jpg"></p>
+<p>但实际上，完全对齐的像素会降低游戏在观感上的帧率，移动过程中还会有锯齿感，不适合对帧率要求高的弹幕游戏，故我在游戏设置中提供了像素对齐的开关选项。</p>
+<h2 id="实现基本的游戏逻辑"><a href="#实现基本的游戏逻辑" class="headerlink" title="实现基本的游戏逻辑"></a>实现基本的游戏逻辑</h2><p>这里主要涉及到的是用户操作和碰撞检测。</p>
+<p>用户操作大体上无需赘述，但有一个细节是需要注意的：</p>
+<p>对于斜方向的移动，如果只是简单地将水平速度和垂直速度叠加，会造成沿对角线1.414倍速的移动，导致不连续的操作手感，增大失误的可能性。因此，当检测到同时存在Horizontal和Vertical的输入时，应当将横纵速度均削减为0.707倍，这样对角线上的合速度就能与横纵方向上的速度保持一致。</p>
+<p>Unity引擎的碰撞由Rigidbody（刚体）和Collider（碰撞体）引发，但DanmakU由于其原理上的特殊性，处理起来稍显麻烦。更要命的是，文档里涉及到碰撞处理的部分居然是一片空白！</p>
+<p><img src="https://i.loli.net/2020/03/04/okdhyMnRmuNcFzw.png" alt="空白的DanmakU文档"></p>
+<p>于是我只好在读了半天源码，并且在Visual Studio里调试之后，才初步明白碰撞检测和处理的方法。</p>
+<h1 id="最后……“随笔”的部分"><a href="#最后……“随笔”的部分" class="headerlink" title="最后……“随笔”的部分"></a>最后……“随笔”的部分</h1><p>在写这篇文章前不久，接到了米哈游的策划笔试题。</p>
+<p>原本想着我大概不能算是一个合格的开发，便打消了投开发岗的念头，且看到各公司关于策划的说明好像与我十分符合，竟“一时兴起”地改了改简历投了策划。学开发出身的策划——也许还是有其价值的吧？</p>
+<p>看到题目的时候，我就惊了。虽不能透露，总之是在我的知识范围之外，也明白那些要求是实打实的有用。两周的期限，我还得先用一个星期准备开题答辩，真有点悬。</p>
+<p>不过所谓“努力”，就是克服困难去做想做的事。无论旁人看来的结果如何，对于自己来说，只要为之付出过，就永远是成功的。</p>
+<blockquote>
+<p>庚子惊蛰。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>Unity</tag>
+        <tag>随笔</tag>
+        <tag>游戏</tag>
+        <tag>C Sharp</tag>
+        <tag>东方Project</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C#杂记之贰：协变与逆变</title>
     <url>/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>昨天费力把上一篇中的“事件”章节给写完了，弄明白的确实不少（发现弄不明白的更多了）。</p>
@@ -661,8 +750,8 @@
 ]]></content>
       <tags>
         <tag>动画</tag>
-        <tag>图像</tag>
         <tag>游戏</tag>
+        <tag>图像</tag>
       </tags>
   </entry>
   <entry>

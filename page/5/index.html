@@ -228,6 +228,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/" class="post-title-link" itemprop="url">为Hexo博客添加全局APlayer播放器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-25 21:57:48" itemprop="dateCreated datePublished" datetime="2019-11-25T21:57:48+08:00">2019-11-25</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <div class="note info">
+            <p>如果你只是想要在自己站点的左下角加一个极其Stable的音乐播放器，而不想听我废话自己踩的坑，请直接跳转：<br><a href="/2019/11/25/为Hexo博客添加全局APlayer播放器/#Show-me-the-CODE">“Show me the CODE!”</a></p>
+          </div>
+
+<h1 id="早期尝试"><a href="#早期尝试" class="headerlink" title="早期尝试"></a>早期尝试</h1><h2 id="网易云iframe"><a href="#网易云iframe" class="headerlink" title="网易云iframe"></a>网易云iframe</h2><p>今天，我试图解决一个历史遗留问题。</p>
+<p>之前我博客上的音乐播放器一直都是网易云的外链iframe，就这个样式的：</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1384318412&auto=0&height=66"></iframe>
+
+<p>我一直把这个玩意放在sidebar里。但是问题是，移动版视图下sidebar是不展示的，只有header能够显示出来，而且还需要用toggle展开。我使用的主题是<code>NexT</code>，试验了一下，需要修改的地方是：</p>
+<p><code>\themes\next\layout\_partials\header\index.swig</code></p>
+<p>由于toggle展开的是<code>site-nav</code>，将源码修改如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; partial('_partials/header/brand.swig', &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"site-nav"</span>&gt;</span></span><br><span class="line">  &#123;&#123; partial('_partials/header/menu.swig', &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line">  <span class="comment">&lt;!--网易云iframe--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">src</span>=<span class="string">"//music.163.com/outchain/player?type=2&amp;id=1384318412&amp;auto=0&amp;height=66"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--网易云iframe end--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;%- if theme.algolia_search.enable or theme.local_search.enable %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"site-search"</span>&gt;</span></span><br><span class="line">    &#123;&#123; partial('_partials/search/index.swig', &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;- next_inject('header') &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/01/12/Dmhzxi8XFIQK7np.jpg" alt="site-nav中的iframe.jpg"></p>
+<p>这个效果属实🍔🍔。并且在桌面版视图下还会把sidebar压下去，不太理想。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/24/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -449,89 +528,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/21/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0-%E5%88%86%E5%B1%82%E5%9B%9B%E5%85%83%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/21/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0-%E5%88%86%E5%B1%82%E5%9B%9B%E5%85%83%E6%B3%95/" class="post-title-link" itemprop="url">游戏分析框架学习笔记 贰</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-21 09:39:16" itemprop="dateCreated datePublished" datetime="2019-11-21T09:39:16+08:00">2019-11-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本节讲述<code>分层四元法</code>框架。</p>
-<p>从这里开始，内容十分庞杂，我只将值得记录的部分记下来。</p>
-<h1 id="内嵌层"><a href="#内嵌层" class="headerlink" title="内嵌层"></a>内嵌层</h1><p>游戏的最终目标也许是“为了赢”，但这是最“长期”的目标，为了实现长期目标，许多个短期、中期目标必不可少。这些目标有轻重缓急，其间也许还会有互相冲突。</p>
-<p>游戏的视觉与听觉是最能被直观感受到的美学内嵌，也比机制对情绪的影响力有效得多。</p>
-<p>叙事内嵌需要着重讲讲。</p>
-<h2 id="叙事内嵌"><a href="#叙事内嵌" class="headerlink" title="叙事内嵌"></a>叙事内嵌</h2><h3 id="传统戏剧"><a href="#传统戏剧" class="headerlink" title="传统戏剧"></a>传统戏剧</h3><p><strong>五幕结构：</strong></p>
-<ol>
-<li>铺垫：介绍前情、设置、重要角色</li>
-<li>情节上行：发生故事，使重要角色与戏剧间的张力上升</li>
-<li>高潮：汇集前面的所有剧情，矛盾达到顶点</li>
-<li>情节下行：高潮引发的后果，剧情向结尾发展</li>
-<li>结局：故事的结末</li>
-</ol>
-<p><strong>三幕结构：</strong></p>
-<ol>
-<li>第一幕：铺垫<br>首先以“钩子”开头，足够刺激以迅速勾起观众注意；<br>然后引发事件，让事件进入主角生活，主角开始启程；<br>第一幕与第二幕之间是第一戏剧点，自此真正的故事开始。 </li>
-<li>第二幕：对抗<br>第二幕是故事的主要发展，主角经历一系列坎坷，情节推进到第二戏剧点。<br>第二戏剧点使主角作出重大决定，由此走向结局。   </li>
-<li>第三幕：结局<br>故事的高潮往往接近尾声，所有冲突汇集，悬念落下之后不久，故事即结束。</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/21/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0-%E5%88%86%E5%B1%82%E5%9B%9B%E5%85%83%E6%B3%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -582,7 +578,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -820,9 +816,9 @@ window.addEventListener('pjax:success', () => {
   data-order="random" 
   data-volume="0.55" 
   data-theme="#cc543a" 
-  date-preload="auto" 
+  data-preload="auto" 
   ></div>
-  <meting-js
+<meting-js
 	server="netease"
 	type="playlist"
 	id="60198">

@@ -87,9 +87,9 @@
   data-order="random" 
   data-volume="0.55" 
   data-theme="#cc543a" 
-  date-preload="auto" 
+  data-preload="auto" 
   ></div>
-  <meting-js
+<meting-js
 	server="netease"
 	type="playlist"
 	id="60198">

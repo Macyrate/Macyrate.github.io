@@ -148,7 +148,7 @@ tags:
   data-order="random" 
   data-volume="0.55" 
   data-theme="#cc543a" 
-  date-preload="auto" >
+  data-preload="auto" >
   </div>
 <!--如果将本体放在body里面导致页面加载出现问题，请尝试放到body体后面-->
   ```

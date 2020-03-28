@@ -79,7 +79,7 @@
 </body>
 <div id="contentleft">
   <div class="aplayer" 
-  data-id="2465890057" 
+  data-id="31128857" 
   data-server="netease" 
   data-type="playlist" 
   data-fixed="true" 
@@ -89,10 +89,5 @@
   data-theme="#cc543a" 
   data-preload="auto" 
   ></div>
-<meting-js
-	server="netease"
-	type="playlist"
-	id="60198">
-</meting-js>
 </div>
 </html>

@@ -157,13 +157,48 @@ while (allTasks.Any())
 
 以上就是一种基于任务的异步模式（TAP）：把多个任务一齐启动，记录在任务列表里，然后用循环和`await`来等待所有的任务完成。对于每个任务本身，如果具有一些前置条件，就依然用`await`来等待前置条件的完成。
 
-# 深入理解
+# 更进一步
 
 至此，虽然我们知道了怎么把同步代码改造成异步的，但其中的原理是什么呢？
 
-异步的关键是定义`async`异步方法和用`await`进行必要的流程控制，而这两个关键字都是围绕`Task<TResult>`展开的。因此要更深入地理解异步，就要了解`Task<TResult>`的结构。
+异步的关键是定义`async`异步方法和用`await`进行必要的流程控制，而这两个关键字都是围绕`Task<TResult>`展开的。因此要更深入地理解异步，就要了解`Task<TResult>`。
+
+## 线程池
+
+Task的工作基础是线程池，C#中的线程池是命名空间`System.Threading`中的`ThreadPool`静态类。关于线程池和多线程又可以事无巨细地写一篇长文，这里先作简要的记录。
+
+每一个进程都可以拥有一个线程池，里面有预先创建好的一大堆空闲线程。当一个任务需要用线程处理的时候，就无需临时单独创建一个线程，可以直接从线程池里找一个空闲的来跑。跑完也不用费劲将线程销毁，它会被线程池回收，等待其它任务来利用。假如要处理的任务太多，导致线程池里所有的线程都在忙碌，线程池可能会创建新线程，也可能让任务等待空闲线程的出现。
+
+线程池也有缺点。由于池里线程的一切工作都是由CLR托管的（这又是一个天坑），虽然用起来是简单了，但你无法对这些线程进行具体的操作，一旦把任务加进队列里也没法取消（不要停下来啊！）。不过都要用上线程池了，那不是一把梭跑就完事了嘛，谁还希望让任务停下来呢？
+
+使用线程池的方法是利用`QueueUserWorkItem()`方法：
+
+```CSharp
+//ThreadPool.QueueUserWorkItem 方法
+
+public static bool QueueUserWorkItem (System.Threading.WaitCallback callBack);
+
+public static bool QueueUserWorkItem (System.Threading.WaitCallback callBack, object state);
+```
+
+这个方法把一项工作添加到线程池的工作队列中，一旦线程池有空闲线程，就会从队列里取出工作来执行。
+
+其中，`WaitCallback`是一个委托，它接收`object`作为参数，并返回`void`，类似`Action<object>`。
+
+```CSharp
+[System.Runtime.InteropServices.ComVisible(true)]
+public delegate void WaitCallback(object state);
+```
+
+注意，由于委托参数的[逆变性](https://hakurei.red/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/)（我靠，居然在这里用上了前面学的逆变），这里仅能使用`object`或派生程度更低的类型的参数。由于`object`已经是最终基类，故只能用它。
+
+但`object`可是啥都没有啊？如果要安排一个带有任务信息的委托作为任务，怎么把信息封在里面？
+
+为了解答这个问题，我们可以先看`QueueUserWorkItem`的后一个重载。参数除了`WaitCallback`类型的委托`callBack`之外，还有一个`object state`，它就是委托调用时使用的参数。由于协变性，你可以把任何类型视作`object`，也就可以在调用委托时传入任意类型的参数。而前一个重载的参数列表中没有`object state`，是给无需在调用时传入参数的委托使用的，类似`Action`。
+
+**如此一来就很明白了，支持添加到线程池工作队列里的工作是这样的函数：返回类型为`void`，参数列表中有0或1个任意类型的参数。**
 
 ## Task
 
-
+接下来回到`Task`。Task据说是由“史诗级优化”后的线程池通过特殊的神秘算法提供支持，至于是如何的“史诗级”，
 

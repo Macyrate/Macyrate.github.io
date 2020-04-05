@@ -52,7 +52,7 @@
 </script>
 
   <meta name="description" content="此前虽然接触过C#中的一些较为高级的操作，但基本是只知其有，不知在哪些场景下可以应用。这几天写着代码就顿觉冗杂不堪，虽然能跑但看起来十分难受，希望寻求一些函数式编程之类的魔法来简化流程。 那首先要理解的还是委托和事件。虽然学完了也不一定会用，但看懂一点总是好的。 委托定义如之前所说，委托类似于函数指针。或者说，委托是一种存储函数引用的类型。由于函数的参数须是变量&#x2F;常量&#x2F;表达式，只要把函数变成一种引">
-<meta name="keywords" content="笔记,C Sharp">
+<meta name="keywords" content="C Sharp,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#杂记之壹：委托与事件">
 <meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2020&#x2F;02&#x2F;27&#x2F;C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9&#x2F;index.html">
@@ -114,11 +114,38 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <!-- MetingJS start -->
+  <!-- APlayer start -->
+  
+  <!-- Native Mode-->
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/js/music.js"></script>
+
+  <!--MetingJS Mode
+
+  <div class="aplayer" 
+  data-id="2465890057" 
+  data-server="netease" 
+  data-type="playlist" 
+  data-fixed="true" 
+  data-autoplay="true" 
+  data-order="random" 
+  data-volume="0.55" 
+  data-theme="#cc543a" 
+  data-preload="auto" >
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
-  <!-- MetingJS end -->
+  <meting-js
+    server="netease"
+    type="playlist"
+    id="60198">
+  </meting-js>
+
+  -->
+
+  <!-- APlayer end -->
 
 <script>
   (function(d) {
@@ -362,8 +389,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
               <a href="/tags/C-Sharp/" rel="tag"># C Sharp</a>
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
           </div>
 
         
@@ -556,7 +583,7 @@
 
   
   <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
@@ -683,9 +710,6 @@ window.addEventListener('pjax:success', () => {
 </body>
 <div id="contentleft">
   <div class="aplayer" 
-  data-id="31128857" 
-  data-server="netease" 
-  data-type="playlist" 
   data-fixed="true" 
   data-autoplay="true" 
   data-order="random" 

@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;04&#x2F;04&#x2F;LS6WIcNkAsH4VeJ.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;04&#x2F;04&#x2F;y4Kbm9ZWDV8Fxd2.jpg">
-<meta property="og:updated_time" content="2020-04-04T15:22:51.308Z">
+<meta property="og:updated_time" content="2020-04-05T00:09:19.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;04&#x2F;04&#x2F;LS6WIcNkAsH4VeJ.jpg">
   <link rel="canonical" href="https://hakurei.red/2020/04/04/200404/">
@@ -114,11 +114,38 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <!-- MetingJS start -->
+  <!-- APlayer start -->
+  
+  <!-- Native Mode-->
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/js/music.js"></script>
+
+  <!--MetingJS Mode
+
+  <div class="aplayer" 
+  data-id="2465890057" 
+  data-server="netease" 
+  data-type="playlist" 
+  data-fixed="true" 
+  data-autoplay="true" 
+  data-order="random" 
+  data-volume="0.55" 
+  data-theme="#cc543a" 
+  data-preload="auto" >
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
-  <!-- MetingJS end -->
+  <meting-js
+    server="netease"
+    type="playlist"
+    id="60198">
+  </meting-js>
+
+  -->
+
+  <!-- APlayer end -->
 
 <script>
   (function(d) {
@@ -282,7 +309,7 @@
 <blockquote>
 <p>新华社北京4月3日电 为表达全国各族人民对抗击新冠肺炎疫情斗争牺牲烈士和逝世同胞的深切哀悼，国务院今天发布公告，决定2020年4月4日举行全国性哀悼活动。在此期间，全国和驻外使领馆下半旗志哀，全国停止公共娱乐活动。4月4日10时起，全国人民默哀3分钟，汽车、火车、舰船鸣笛，防空警报鸣响。</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/04/LS6WIcNkAsH4VeJ.jpg" alt="清明追思.jpg"></p>
+<p><img src="https://i.loli.net/2020/04/04/LS6WIcNkAsH4VeJ.jpg" alt="清明追思"></p>
 <a id="more"></a>
 
 <p>“躲进小楼成一统”的这两个多月，我的情绪依然常常通过社交平台与外界牵连着，随着疫情通报和人间冷暖而波动。从武汉F4的操作秀到“全境封锁”再到李文亮医生的逝世，整个中国天翻地覆。但那之后似乎一切都终于走上正轨，那两天很是发了一番牢骚之后，我也就不再那么关注了。记得中途的某一天，我爸问我：你们计算机专业可以为抗击疫情做什么呢？是啊，我做得了什么呢？</p>
@@ -512,7 +539,7 @@
 
   
   <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
@@ -639,9 +666,6 @@ window.addEventListener('pjax:success', () => {
 </body>
 <div id="contentleft">
   <div class="aplayer" 
-  data-id="31128857" 
-  data-server="netease" 
-  data-type="playlist" 
   data-fixed="true" 
   data-autoplay="true" 
   data-order="random" 

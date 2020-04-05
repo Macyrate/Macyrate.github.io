@@ -109,11 +109,38 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <!-- MetingJS start -->
+  <!-- APlayer start -->
+  
+  <!-- Native Mode-->
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/js/music.js"></script>
+
+  <!--MetingJS Mode
+
+  <div class="aplayer" 
+  data-id="2465890057" 
+  data-server="netease" 
+  data-type="playlist" 
+  data-fixed="true" 
+  data-autoplay="true" 
+  data-order="random" 
+  data-volume="0.55" 
+  data-theme="#cc543a" 
+  data-preload="auto" >
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
-  <!-- MetingJS end -->
+  <meting-js
+    server="netease"
+    type="playlist"
+    id="60198">
+  </meting-js>
+
+  -->
+
+  <!-- APlayer end -->
 
 <script>
   (function(d) {
@@ -271,7 +298,7 @@
 <blockquote>
 <p>新华社北京4月3日电 为表达全国各族人民对抗击新冠肺炎疫情斗争牺牲烈士和逝世同胞的深切哀悼，国务院今天发布公告，决定2020年4月4日举行全国性哀悼活动。在此期间，全国和驻外使领馆下半旗志哀，全国停止公共娱乐活动。4月4日10时起，全国人民默哀3分钟，汽车、火车、舰船鸣笛，防空警报鸣响。</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/04/LS6WIcNkAsH4VeJ.jpg" alt="清明追思.jpg"></p>
+<p><img src="https://i.loli.net/2020/04/04/LS6WIcNkAsH4VeJ.jpg" alt="清明追思"></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/04/04/200404/#more" rel="contents">
@@ -683,7 +710,7 @@
 
   
   <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
@@ -793,9 +820,6 @@ window.addEventListener('pjax:success', () => {
 </body>
 <div id="contentleft">
   <div class="aplayer" 
-  data-id="31128857" 
-  data-server="netease" 
-  data-type="playlist" 
   data-fixed="true" 
   data-autoplay="true" 
   data-order="random" 

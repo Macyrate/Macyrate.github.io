@@ -1,9 +1,12 @@
+//当MetingJS爆炸时使用的Plan B
+//目前还没想好怎么解析网易云歌单，暂时“拿来主义”吧
+
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     fixed: true,
     autoplay: false,
     lrcType: 3,
-    random: true,
+    order: random,
     audio: 
 	[
  {

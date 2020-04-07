@@ -4,6 +4,11 @@ tags:
 - CSharp
 - 笔记
 ---
+{% note warning %}
+**前方高能！**      
+这篇笔记断断续续花了近10天完成，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。
+（其实就是我写完实在不愿审阅）
+{% endnote %}
 
 首先说明，异步是**极为高深**的高级编程技术，这篇文章只是才疏学浅的我阅读文档之后的一些思考与理解，可能有极多描述不准确乃至完全错误之处，还望批评指导。顺便吐槽，C#文档翻译得实在是太烂了，很多地方一看就是机翻的，却没有机翻警告。很多地方百思不得其解的词，切换到英语就发现其实很简单，翻译的用词完全错误，难受啊！
 
@@ -20,6 +25,8 @@ tags:
 从C# 5开始，编写异步程序变得比较容易。
 
 C#的异步编程模型主要通过两个关键字来使用：`async`和`await`。
+
+## 用早餐毁掉美好的一天
 
 先来一段同步的憨憨代码，这描述了一个“做早餐”的流程：
 
@@ -50,7 +57,9 @@ static void Main(string[] args)
 }
 ```
 
-线性的逻辑很简单，但有大问题。煎蛋、煎培根和烤面包都要花很长时间，其实完全可以在做煎蛋和培根的同时，让面包自己在面包机里烤。不然还没等面包烤完，别的东西早凉透了。甚至煎蛋和煎培根也没必要一前一后——谁还没有两个锅呢？或者找个大点的锅来一起煎也行啊。
+线性的逻辑很简单，但有大问题。煎蛋、煎培根和烤面包都要花很长时间，其实完全可以在做煎蛋和培根的同时，让面包自己在面包机里烤。不然还没等面包烤完，别的东西早凉透了，吃了可能还会引起肠胃不适。煎蛋和煎培根甚至也没必要一前一后——谁家还没有两个锅呢？或者找个大点的锅来一起煎也行啊。
+
+## 异步做早餐
 
 来看看一个近乎完美的“做早餐解决方案”是怎样的。下面是C#文档里的示范异步代码，我擅自添加了些方便理解的沙雕注释：
 
@@ -83,13 +92,13 @@ static async Task Main(string[] args)
     }
     Juice oj = PourOJ();    //最后再来杯橙汁，完事
     Console.WriteLine("oj is ready");
-    Console.WriteLine("Breakfast is ready!");
+    Console.WriteLine("Breakfast is ready!");   //爽到
 
     async Task<Toast> MakeToastWithButterAndJamAsync(int number)
     {
-        var toast = await ToastBreadAsync(number);      //先等面包烤好
-        ApplyButter(toast);     //涂黄油
-        ApplyJam(toast);        //涂果酱
+        var toast = await ToastBreadAsync(number);      //要处理面包得先等面包烤好
+        ApplyButter(toast);     //涂点黄油
+        ApplyJam(toast);        //涂点果酱
         return toast;
     }
 }
@@ -97,12 +106,14 @@ static async Task Main(string[] args)
 
 粗略一看，握草，感觉魔改成异步之后复杂了好多。其实不然，我慢慢来分析。
 
-```CSharp
-var eggsTask = FryEggsAsync(2);
-var baconTask = FryBaconAsync(3);
-var toastTask = MakeToastWithButterAndJamAsync(2);
+### 定义异步方法
 
-var allTasks = new List<Task>{eggsTask, baconTask, toastTask};
+```CSharp
+var eggsTask = FryEggsAsync(2);     //得煎俩鸡蛋，开整！
+var baconTask = FryBaconAsync(3);   //得煎仨培根，开整！
+var toastTask = MakeToastWithButterAndJamAsync(2);  //得搞两片涂黄油和果酱的面包，开整！
+
+var allTasks = new List<Task>{eggsTask, baconTask, toastTask};  //列个任务清单吧
 ```
 
 可以注意到，这一段使用的几个方法，其名称都在后面加了个“Async”，这是异步方法的命名规范。调用三个异步方法，就是设置了三个任务（Task）。那谁谁，照这个任务去执行吧！我要接着跑后面的代码了。
@@ -112,9 +123,9 @@ var allTasks = new List<Task>{eggsTask, baconTask, toastTask};
 ```CSharp
 async Task<Toast> MakeToastWithButterAndJamAsync(int number)
 {
-    var toast = await ToastBreadAsync(number);
-    ApplyButter(toast);
-    ApplyJam(toast);
+    var toast = await ToastBreadAsync(number);      //要处理面包得先等面包烤好
+    ApplyButter(toast);     //涂点黄油
+    ApplyJam(toast);        //涂点果酱
     return toast;
 }
 ```
@@ -125,9 +136,32 @@ async Task<Toast> MakeToastWithButterAndJamAsync(int number)
 
 **`async`异步方法的存在，要依靠包含`await`运算符的表达式或语句。反过来说，异步方法里必须得有`await`的存在。** 上面的代码里，`Main`方法本身也是被`async`修饰的，就是因为Main方法里也用到了`await`语句。
 
-`async`是用来定义异步方法的，那`await`是干什么的呢？按照字面意思来理解就好，“等待”。异步方法运行到这里就开始等待，直到`await`的操作数所表示的异步操作（一个`Task<TResult>`）执行完毕。**一旦异步操作完成，`await`运算符就从`Task<TResult>`的任务里，获取任务的最终结果，以`TResult`类型返回，然后再继续运行后续代码。** 这说明`await`所等待的任务的结果是后续操作的前置条件。
+### 设置前置条件
 
-回过头来看上面这个异步方法，第一句就在`await`，这是因为后面抹黄油和果酱的流程都必须建立在“烤完面包”的前置条件上。
+`async`是用来定义异步方法的，那`await`是干什么的呢？按照字面意思来理解就好，“等待”。异步方法运行到这里就开始等待，直到`await`的操作数所表示的异步操作（一个`Task<TResult>`）执行完毕。**一旦异步操作完成，`await`运算符就从`Task<TResult>`的任务里，获取任务的最终结果，以`TResult`类型返回，然后再继续运行后续代码。** 这说明`await`所等待的任务的结果是后续操作的前置条件。上面这个异步方法第一句就在`await`，这是因为后面抹黄油和果酱的流程都必须建立在“烤完面包”的前置条件上。
+
+然而，我们希望优化的耗时操作往往本身不是异步的。`await`只能接异步操作，怎么和非异步的耗时操作结合呢？比如说有这样一个“根正苗红”的同步函数：
+
+```CSharp
+string Foo(int bar){
+    Wtf();
+}
+```
+
+要让它的执行完成作为前置条件，就得把它改造成一个返回`Task<string>`的函数。但是如果原函数是不允许修改的呢？依然有办法，只要用`Task.Run(() => Foo(bar))`来调用就好了。
+
+`Task.Run()`可以把以下四种委托包装成任务，其中常用的是前两种：
+
+1. `Action`
+2. `Func<TResult>`
+3. `Func<Task>`
+4. `Func<Task<TResult>>`
+
+由于Lambda表达式也是委托，完全可以构造一个符合上述种类的Lambda表达式。`() => Foo(bar)`没有参数，返回类型为`string`，是一个受到支持的`Func<string>`委托。因此在被`Task.Run()`包装之后，它就能成为一个`Task<string>`，作为异步过程中的前置条件。
+
+### 使用连接符
+
+再来看中间的这一段。
 
 ```CSharp
 while (allTasks.Any())
@@ -149,13 +183,13 @@ while (allTasks.Any())
 }
 ```
 
-再来看中间的这一段。`allTasks.Any()`使用`List<T>`的`Any()`方法检查列表里是否还有剩余的元素，即当还有未完成的任务时，令程序一直在此循环，这实际上类似于一个消息循环机制。
+`allTasks.Any()`使用`List<T>`的`Any()`方法检查列表里是否还有剩余的元素，即当还有未完成的任务时，令程序一直在此循环，这实际上类似于一个消息循环机制。
 
-`Task.WhenAny(allTasks)`有点儿特殊，它是一个`Task<Task>`，即“结果是任务”的任务——在`allTasks`里的某一个任务完成时，它把这个刚刚完成的任务作为自己的结果。这样，`await`运算符就提取出了那个刚刚完成的任务，将它赋给`finished`，接下来就可以作出相应的反应了。
+`Task.WhenAny(allTasks)`有点儿特殊，它是一个`Task<Task>`，即“结果是任务”的任务——在`allTasks`里的某一个任务完成时，它把这个刚刚完成的任务作为自己的结果。这样，`await`运算符就提取出了那个刚刚完成的任务，将它赋给`finished`，接下来就可以作出相应的反应了。别忘了在任务处理完之后，把这个完成了的任务从任务列表里删去。
 
-别忘了在任务处理完之后，把这个完成了的任务从任务列表里删去。
+另有一个类似的方法是`Task.WhenAll()`，它所创建的任务在参数所表示的一系列任务都完成时才完成。命名空间`System.Threading.Tasks`里的这类辅助处理多个任务的方法被称为“连接符”。
 
-以上就是一种基于任务的异步模式（TAP）：把多个任务一齐启动，记录在任务列表里，然后用循环和`await`来等待所有的任务完成。对于每个任务本身，如果具有一些前置条件，就依然用`await`来等待前置条件的完成。
+以上就是一种基于任务的异步模式（TAP）：把多个任务一齐启动，记录在任务列表里，然后用`await`、循环和连接符来等待所有任务的完成。对于每个任务本身，如果具有一些前置条件，就依然用`await`来等待其前置条件的完成。
 
 # 更进一步
 
@@ -200,5 +234,5 @@ public delegate void WaitCallback(object state);
 
 ## Task
 
-接下来回到`Task`。Task据说是由“史诗级优化”后的线程池通过特殊的神秘算法提供支持，至于是如何的“史诗级”，
+终于，我们回到`Task`。Task据说是由“史诗级优化”后的线程池通过特殊的神秘算法提供支持，至于是如何的“史诗级”，
 

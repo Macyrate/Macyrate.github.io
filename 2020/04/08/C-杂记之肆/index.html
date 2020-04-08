@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#CC543A">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#CC543A">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#CC543A","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="前方高能！这篇笔记断断续续花了近10天，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。（其实就是我写完实在不愿审阅）             首先说明，异步是极为高深的高级编程技术，这篇文章只是才疏学浅的我阅读文档之后的一些思考与理解，可能有极多描述不准确乃至完全错误之处，还望批评指导。顺便吐槽，C#文档翻译得实在是太烂了，很多地方一看就是机翻的，却没有">
+<meta name="keywords" content="笔记,CSharp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#杂记之肆：异步">
+<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2020&#x2F;04&#x2F;08&#x2F;C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86&#x2F;index.html">
+<meta property="og:site_name" content="博丽吹笛分社 | Macyrate">
+<meta property="og:description" content="前方高能！这篇笔记断断续续花了近10天，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。（其实就是我写完实在不愿审阅）             首先说明，异步是极为高深的高级编程技术，这篇文章只是才疏学浅的我阅读文档之后的一些思考与理解，可能有极多描述不准确乃至完全错误之处，还望批评指导。顺便吐槽，C#文档翻译得实在是太烂了，很多地方一看就是机翻的，却没有">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;04&#x2F;08&#x2F;7TIPufG6oAm2cOd.png">
+<meta property="og:updated_time" content="2020-04-08T14:58:53.193Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;04&#x2F;08&#x2F;7TIPufG6oAm2cOd.png">
+  <link rel="canonical" href="https://hakurei.red/2020/04/08/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>C#杂记之肆：异步 | 博丽吹笛分社 | Macyrate</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- APlayer start -->
+
+  <!-- Native Mode
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/js/music.js"></script>
+
+  -->
+
+  <!--MetingJS Mode-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div class="aplayer" 
+  data-id="31128857" 
+  data-server="netease" 
+  data-type="playlist" 
+  data-fixed="true" 
+  data-autoplay="true" 
+  data-order="random" 
+  data-volume="0.55" 
+  data-theme="#cc543a" 
+  data-preload="auto" >
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  <meting-js
+    server="netease"
+    type="playlist"
+    id="60198">
+  </meting-js>
+
+  <!---->
+
+  <!-- APlayer end -->
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'tzu7ura',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta custom-logo">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span> 
+        <img src="/images/custom-logo-ei.png" > 
+        </span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    <!--
+      <a>
+        <img class="custom-logo-image" src="/images/custom-logo-ei.png" alt="博丽吹笛分社 | Macyrate">
+      </a>
+    -->
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/04/08/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽吹笛分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          C#杂记之肆：异步
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-08 22:58:53" itemprop="dateCreated datePublished" datetime="2020-04-08T22:58:53+08:00">2020-04-08</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="note warning">
+            <p><strong>前方高能！</strong><br>这篇笔记断断续续花了近10天，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。<br>（其实就是我写完实在不愿审阅）</p>
+          </div>
+
+<p>首先说明，异步是<strong>极为高深</strong>的高级编程技术，这篇文章只是才疏学浅的我阅读文档之后的一些思考与理解，可能有极多描述不准确乃至完全错误之处，还望批评指导。顺便吐槽，C#文档翻译得实在是太烂了，很多地方一看就是机翻的，却没有机翻警告。很多地方百思不得其解的词，切换到英语就发现其实很简单，翻译的用词完全错误，难受啊！</p>
+<h1 id="何为异步"><a href="#何为异步" class="headerlink" title="何为异步"></a>何为异步</h1><p>与异步相对的是“同步”，代表着一句代码的执行结束是其后一句代码的执行开始，整个流程是按照固定的顺序进行的，这是一般程序的逻辑。然而，某些语句可能需要花较长时间才能得到结果——比如网络通信和文件读写——这些语句的执行并不怎么占用CPU，但会阻塞整个线程，后续的语句需要等待这些语句执行完成，造成大量的浪费。特别是如果网络环境很不好、读取的文件好几个G，那可是尤其要命，可能整个程序都会出现肉眼可见的卡顿甚至崩溃。</p>
+<p>为了解决这种飞快的CPU与龟爬的IO之间的不平衡，传统的方案是单独开个线程让它去执行耗时的操作，让主线程继续运行与耗时操作的结果无关的代码。但是线程操作很麻烦、开销很高，线程数量也有限，不是能随便使用的，所以依然不是个完美的方法。</p>
+<p>异步就是为了解决这个问题而存在的。当代码需要执行一个耗时的操作时，它只发出指令，并不等待结果，然后就去执行其他代码了。一段时间后，当耗时操作返回结果时，再通知CPU进行处理。</p>
+<a id="more"></a>
+
+<h1 id="怎么使用"><a href="#怎么使用" class="headerlink" title="怎么使用"></a>怎么使用</h1><p>从C# 5开始，编写异步程序变得比较容易。</p>
+<p>C#的异步编程模型主要通过两个关键字来使用：<code>async</code>和<code>await</code>。</p>
+<h2 id="用早餐毁掉美好的一天"><a href="#用早餐毁掉美好的一天" class="headerlink" title="用早餐毁掉美好的一天"></a>用早餐毁掉美好的一天</h2><p>先来一段同步的憨憨代码，这描述了一个“做早餐”的流程：</p>
+<ol>
+<li>倒一杯咖啡。</li>
+<li>加热平底锅，然后煎两个鸡蛋。</li>
+<li>煎三片培根。</li>
+<li>烤两片面包。</li>
+<li>在烤面包上加黄油和果酱。</li>
+<li>倒一杯橙汁。</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Coffee cup = PourCoffee();          <span class="comment">//倒咖啡</span></span><br><span class="line">    Console.WriteLine(<span class="string">"coffee is ready"</span>);</span><br><span class="line">    Egg eggs = FryEggs(<span class="number">2</span>);              <span class="comment">//煎蛋</span></span><br><span class="line">    Console.WriteLine(<span class="string">"eggs are ready"</span>);</span><br><span class="line">    Bacon bacon = FryBacon(<span class="number">3</span>);          <span class="comment">//煎培根</span></span><br><span class="line">    Console.WriteLine(<span class="string">"bacon is ready"</span>);</span><br><span class="line">    Toast toast = ToastBread(<span class="number">2</span>);        <span class="comment">//烤面包</span></span><br><span class="line">    ApplyButter(toast);                 <span class="comment">//涂黄油</span></span><br><span class="line">    ApplyJam(toast);                    <span class="comment">//涂果酱</span></span><br><span class="line">    Console.WriteLine(<span class="string">"toast is ready"</span>);</span><br><span class="line">    Juice oj = PourOJ();                <span class="comment">//倒橙汁</span></span><br><span class="line">    Console.WriteLine(<span class="string">"oj is ready"</span>);</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(<span class="string">"Breakfast is ready!"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>线性的逻辑很简单，但有大问题。煎蛋、煎培根和烤面包都要花很长时间，其实完全可以在做煎蛋和培根的同时，让面包自己在面包机里烤。不然还没等面包烤完，别的东西早凉透了，吃了可能还会引起肠胃不适。煎蛋和煎培根甚至也没必要一前一后——谁家还没有两个锅呢？或者找个大点的锅来一起煎也行啊。</p>
+<h2 id="异步做早餐"><a href="#异步做早餐" class="headerlink" title="异步做早餐"></a>异步做早餐</h2><p>来看看一个近乎完美的“做早餐解决方案”是怎样的。下面是C#文档里的示范异步代码，我擅自添加了些方便理解的沙雕注释：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">async</span> Task <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Coffee cup = PourCoffee();          <span class="comment">//倒杯咖啡</span></span><br><span class="line">    Console.WriteLine(<span class="string">"coffee is ready"</span>);</span><br><span class="line">    <span class="keyword">var</span> eggsTask = FryEggsAsync(<span class="number">2</span>);     <span class="comment">//得煎俩鸡蛋，开整！</span></span><br><span class="line">    <span class="keyword">var</span> baconTask = FryBaconAsync(<span class="number">3</span>);   <span class="comment">//得煎仨培根，开整！</span></span><br><span class="line">    <span class="keyword">var</span> toastTask = MakeToastWithButterAndJamAsync(<span class="number">2</span>);  <span class="comment">//得搞两片涂黄油和果酱的面包，开整！</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> allTasks = <span class="keyword">new</span> List&lt;Task&gt;&#123;eggsTask, baconTask, toastTask&#125;;  <span class="comment">//列个任务清单吧</span></span><br><span class="line">    <span class="keyword">while</span> (allTasks.Any())  <span class="comment">//看来清单里还有任务没搞完</span></span><br><span class="line">    &#123;</span><br><span class="line">        Task finished = <span class="keyword">await</span> Task.WhenAny(allTasks);   <span class="comment">//下一个完成的任务是啥？</span></span><br><span class="line">        <span class="keyword">if</span> (finished == eggsTask)   <span class="comment">//噢，是鸡蛋煎好了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"eggs are ready"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (finished == baconTask)     <span class="comment">//噢，是培根煎好了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"bacon is ready"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (finished == toastTask)     <span class="comment">//噢，是面包做完了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"toast is ready"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        allTasks.Remove(finished);      <span class="comment">//行，把完成的任务从清单里划了</span></span><br><span class="line">    &#125;</span><br><span class="line">    Juice oj = PourOJ();    <span class="comment">//最后再来杯橙汁，完事</span></span><br><span class="line">    Console.WriteLine(<span class="string">"oj is ready"</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">"Breakfast is ready!"</span>);   <span class="comment">//爽到</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">async</span> Task&lt;Toast&gt; <span class="title">MakeToastWithButterAndJamAsync</span>(<span class="params"><span class="keyword">int</span> number</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> toast = <span class="keyword">await</span> ToastBreadAsync(number);      <span class="comment">//要处理面包得先等面包烤好</span></span><br><span class="line">        ApplyButter(toast);     <span class="comment">//涂点黄油</span></span><br><span class="line">        ApplyJam(toast);        <span class="comment">//涂点果酱</span></span><br><span class="line">        <span class="keyword">return</span> toast;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>粗略一看，握草，感觉魔改成异步之后复杂了好多。其实不然，我慢慢来分析。</p>
+<h3 id="定义异步方法"><a href="#定义异步方法" class="headerlink" title="定义异步方法"></a>定义异步方法</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> eggsTask = FryEggsAsync(<span class="number">2</span>);     <span class="comment">//得煎俩鸡蛋，开整！</span></span><br><span class="line"><span class="keyword">var</span> baconTask = FryBaconAsync(<span class="number">3</span>);   <span class="comment">//得煎仨培根，开整！</span></span><br><span class="line"><span class="keyword">var</span> toastTask = MakeToastWithButterAndJamAsync(<span class="number">2</span>);  <span class="comment">//得搞两片涂黄油和果酱的面包，开整！</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> allTasks = <span class="keyword">new</span> List&lt;Task&gt;&#123;eggsTask, baconTask, toastTask&#125;;  <span class="comment">//列个任务清单吧</span></span><br></pre></td></tr></table></figure>
+
+<p>可以注意到，这一段使用的几个方法，其名称都在后面加了个“Async”，这是异步方法的命名规范。调用三个异步方法，就是设置了三个任务（Task）。那谁谁，照这个任务去执行吧！我要接着跑后面的代码了。</p>
+<p>那么，怎么定义一个异步方法呢？来看上面示例中的这个方法：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">async</span> Task&lt;Toast&gt; <span class="title">MakeToastWithButterAndJamAsync</span>(<span class="params"><span class="keyword">int</span> number</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> toast = <span class="keyword">await</span> ToastBreadAsync(number);      <span class="comment">//要处理面包得先等面包烤好</span></span><br><span class="line">    ApplyButter(toast);     <span class="comment">//涂点黄油</span></span><br><span class="line">    ApplyJam(toast);        <span class="comment">//涂点果酱</span></span><br><span class="line">    <span class="keyword">return</span> toast;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先，方法定义的前面有<code>async</code>修饰符，这直接说明了此方法是异步（<strong>async</strong>hronous）的。</p>
+<p>异步方法返回的是<code>Task&lt;TResult&gt;</code>类型，代表着这个任务（Task）的结果是<code>TResult</code>所代表的类型。比如一个返回类型为<code>Toast</code>的同步方法，其异步版本的返回类型就应该是<code>Task&lt;Toast&gt;</code>，代表着一个“烤面包（Toast）”的任务（Task）。</p>
+<p><strong><code>async</code>异步方法的存在，要依靠包含<code>await</code>运算符的表达式或语句。反过来说，异步方法里必须得有<code>await</code>的存在。</strong> 上面的代码里，<code>Main</code>方法本身也是被<code>async</code>修饰的，就是因为Main方法里也用到了<code>await</code>语句。</p>
+<h3 id="设置前置条件"><a href="#设置前置条件" class="headerlink" title="设置前置条件"></a>设置前置条件</h3><p><code>async</code>是用来定义异步方法的，那<code>await</code>是干什么的呢？按照字面意思来理解就好，“等待”。异步方法运行到这里就开始等待，直到<code>await</code>的操作数所表示的异步操作（一个<code>Task&lt;TResult&gt;</code>）执行完毕。<strong>一旦异步操作完成，<code>await</code>运算符就从<code>Task&lt;TResult&gt;</code>的任务里，获取任务的最终结果，以<code>TResult</code>类型返回，然后再继续运行后续代码。</strong> 这说明<code>await</code>所等待的任务的结果是后续操作的前置条件。上面这个异步方法第一句就在<code>await</code>，这是因为后面抹黄油和果酱的流程都必须建立在“烤完面包”的前置条件上。</p>
+<p>然而，我们希望优化的耗时操作往往本身不是异步的。<code>await</code>只能接异步操作，怎么和非异步的耗时操作结合呢？比如说有这样一个“根正苗红”的同步函数：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">string</span> <span class="title">Foo</span>(<span class="params"><span class="keyword">int</span> bar</span>)</span>&#123;</span><br><span class="line">    Wtf();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要让它的执行完成作为前置条件，就得把它改造成一个返回<code>Task&lt;string&gt;</code>的函数。但是如果原函数是不允许修改的呢？依然有办法，只要用<code>Task.Run(() =&gt; Foo(bar))</code>来调用就好了。</p>
+<p><code>Task.Run()</code>可以把以下四种委托包装成任务，其中常用的是前两种：</p>
+<ol>
+<li><code>Action</code></li>
+<li><code>Func&lt;TResult&gt;</code></li>
+<li><code>Func&lt;Task&gt;</code></li>
+<li><code>Func&lt;Task&lt;TResult&gt;&gt;</code></li>
+</ol>
+<p>由于Lambda表达式也是委托，完全可以构造一个符合上述种类的Lambda表达式。<code>() =&gt; Foo(bar)</code>没有参数，返回类型为<code>string</code>，是一个受到支持的<code>Func&lt;string&gt;</code>委托。因此在被<code>Task.Run()</code>包装之后，它就能成为一个<code>Task&lt;string&gt;</code>，作为异步过程中的前置条件。</p>
+<h3 id="使用连接符"><a href="#使用连接符" class="headerlink" title="使用连接符"></a>使用连接符</h3><p>再来看中间的这一段。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (allTasks.Any())</span><br><span class="line">&#123;</span><br><span class="line">    Task finished = <span class="keyword">await</span> Task.WhenAny(allTasks);</span><br><span class="line">    <span class="keyword">if</span> (finished == eggsTask)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">"eggs are ready"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (finished == baconTask)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">"bacon is ready"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (finished == toastTask)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">"toast is ready"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    allTasks.Remove(finished);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>allTasks.Any()</code>使用<code>List&lt;T&gt;</code>的<code>Any()</code>方法检查列表里是否还有剩余的元素，即当还有未完成的任务时，令程序一直在此循环，这实际上类似于一个消息循环机制。</p>
+<p><code>Task.WhenAny(allTasks)</code>有点儿特殊，它是一个<code>Task&lt;Task&gt;</code>，即“结果是任务”的任务——在<code>allTasks</code>里的某一个任务完成时，它把这个刚刚完成的任务作为自己的结果。这样，<code>await</code>运算符就提取出了那个刚刚完成的任务，将它赋给<code>finished</code>，接下来就可以作出相应的反应了。别忘了在任务处理完之后，把这个完成了的任务从任务列表里删去。</p>
+<p>另有一个类似的方法是<code>Task.WhenAll()</code>，它所创建的任务在参数所表示的一系列任务都完成时才完成。命名空间<code>System.Threading.Tasks</code>里的这类辅助处理多个任务的方法被称为“连接符”。</p>
+<p>以上就是一种基于任务的异步模式（TAP）：把多个任务一齐启动，记录在任务列表里，然后用<code>await</code>、循环和连接符来等待所有任务的完成。对于每个任务本身，如果具有一些前置条件，就依然用<code>await</code>来等待其前置条件的完成。</p>
+<h1 id="扩展：线程池"><a href="#扩展：线程池" class="headerlink" title="扩展：线程池"></a>扩展：线程池</h1><p>至此，虽然我们知道了怎么把同步代码改造成异步的，但其中的原理是什么呢？</p>
+<p>异步的关键是定义<code>async</code>异步方法和用<code>await</code>进行必要的流程控制，而这两个关键字都是围绕<code>Task&lt;TResult&gt;</code>展开的。因此要更深入地理解异步，就要了解<code>Task&lt;TResult&gt;</code>的工作机制。</p>
+<p>Task工作的基础是线程池，C#中的线程池是命名空间<code>System.Threading</code>中的<code>ThreadPool</code>静态类。关于线程池和多线程又可以事无巨细地写一篇长文，这里先作简要的记录。</p>
+<p>每一个进程都可以拥有一个线程池，里面有预先创建好的一大堆空闲线程。当一个任务需要用线程处理的时候，就无需临时单独创建一个线程，可以直接从线程池里找一个空闲的来跑。跑完也不用费劲将线程销毁，它会被线程池回收，等待其它任务来利用。假如要处理的任务太多，导致线程池里所有的线程都在忙碌，线程池可能会创建新线程，也可能让任务等待空闲线程的出现。</p>
+<p>线程池也有缺点。由于池里线程的一切工作都是由CLR托管的（这又是一个天坑），虽然用起来是简单了，但你无法对这些线程进行具体的操作，一旦把任务加进队列里也没法取消（不要停下来啊！）。不过都要用上线程池了，那不是一把梭跑就完事了嘛，谁还希望让任务停下来呢？</p>
+<p>使用线程池的方法是利用<code>QueueUserWorkItem()</code>方法：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ThreadPool.QueueUserWorkItem 方法</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">QueueUserWorkItem</span> (<span class="params">System.Threading.WaitCallback callBack</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">QueueUserWorkItem</span> (<span class="params">System.Threading.WaitCallback callBack, <span class="keyword">object</span> state</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这个方法把一项工作添加到线程池的工作队列中，一旦线程池有空闲线程，就会从队列里取出工作来执行。</p>
+<p>其中，<code>WaitCallback</code>是一个委托，它接收<code>object</code>作为参数，并返回<code>void</code>，类似<code>Action&lt;object&gt;</code>。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">System.Runtime.InteropServices.ComVisible(true)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">WaitCallback</span>(<span class="params"><span class="keyword">object</span> state</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>注意，由于委托参数的<a href="https://hakurei.red/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/">逆变性</a>（我靠，居然在这里用上了前面学的逆变），这里仅能使用<code>object</code>或派生程度更低的类型的参数。由于<code>object</code>已经是最终基类，故只能用它。</p>
+<p>但<code>object</code>可是啥都没有啊？如果要安排一个带有任务信息的委托作为任务，怎么把信息封在里面？</p>
+<p>为了解答这个问题，我们可以先看<code>QueueUserWorkItem</code>的后一个重载。参数除了<code>WaitCallback</code>类型的委托<code>callBack</code>之外，还有一个<code>object state</code>，它就是委托调用时使用的参数。由于协变性，你可以把任何类型视作<code>object</code>，也就可以在调用委托时传入任意类型的参数。而前一个重载的参数列表中没有<code>object state</code>，是给无需在调用时传入参数的委托使用的，类似<code>Action</code>。</p>
+<p><strong>如此一来就很明白了，支持添加到线程池工作队列里的工作是这样的函数：返回类型为<code>void</code>，参数列表中有0或1个任意类型的参数。</strong></p>
+<h1 id="未竟之旅"><a href="#未竟之旅" class="headerlink" title="未竟之旅"></a>未竟之旅</h1><p>原本这里应该有更多关于Task和await工作原理的内容，但当我在C#文档的迷宫中走得愈发深入时，我发现我的理解被不断推翻，比如说用async和await实现的异步实际上是单线程的，但它们所围绕的Task又和用线程池实现的多线程密不可分。</p>
+<p>我试图理清这一切到底是如何工作的，这时回调函数、消息循环、线程调度、编译原理这几只怪物都跑了出来，甚至将一切都指向了JavaScript，告诉我是时候敬而远之了。</p>
+<p>因此，目前这篇笔记是十分没有深度的一篇，它有太多可以写也需要写的内容了。C#我还有更多的东西一知半解，目前在此考据技术细节是不明智的。但过段时间我还会继续刨根究底，现在将非常具有参考价值的一篇StackOverflow问题链接贴在这里：</p>
+<p><a href="https://stackoverflow.com/questions/37419572/if-async-await-doesnt-create-any-additional-threads-then-how-does-it-make-appl" target="_blank" rel="noopener">If async-await doesn’t create any additional threads, then how does it make applications responsive?</a></p>
+<p>以及之前我画的<strong>理解错误</strong>的示意图：</p>
+<p><img src="https://i.loli.net/2020/04/08/7TIPufG6oAm2cOd.png" alt="BreakfastAsync.png"></p>
+<blockquote>
+<p>下一步，应该是回过头去搞清楚集合、列表、数组，还有相关的接口和索引器啥的。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="Macyrate wechat" style="width: 200px; max-width: 100%;">
+  <div>唯一指定微信</div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/tags/CSharp/" rel="tag"># CSharp</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/04/04/200404/" rel="next" title="200404：清明追思">
+                  <i class="fa fa-chevron-left"></i> 200404：清明追思
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#何为异步"><span class="nav-number">1.</span> <span class="nav-text">何为异步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怎么使用"><span class="nav-number">2.</span> <span class="nav-text">怎么使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用早餐毁掉美好的一天"><span class="nav-number">2.1.</span> <span class="nav-text">用早餐毁掉美好的一天</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步做早餐"><span class="nav-number">2.2.</span> <span class="nav-text">异步做早餐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义异步方法"><span class="nav-number">2.2.1.</span> <span class="nav-text">定义异步方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置前置条件"><span class="nav-number">2.2.2.</span> <span class="nav-text">设置前置条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用连接符"><span class="nav-number">2.2.3.</span> <span class="nav-text">使用连接符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扩展：线程池"><span class="nav-number">3.</span> <span class="nav-text">扩展：线程池</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#未竟之旅"><span class="nav-number">4.</span> <span class="nav-text">未竟之旅</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Macyrate"
+    src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+  <p class="site-author-name" itemprop="name">Macyrate</p>
+  <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Macyrate" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:macyrate@foxmail.com" title="E-Mail &amp;rarr; mailto:macyrate@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6010944415" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;6010944415" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://steamcommunity.com/profiles/76561198313695590/" title="Steam &amp;rarr; https:&#x2F;&#x2F;steamcommunity.com&#x2F;profiles&#x2F;76561198313695590&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-steam"></i>Steam</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.viseator.com/" title="https:&#x2F;&#x2F;www.viseator.com&#x2F;" rel="noopener" target="_blank">viseator</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://touhoudog.net/" title="http:&#x2F;&#x2F;touhoudog.net&#x2F;" rel="noopener" target="_blank">充满魔力的土地下</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kourindou.exblog.jp/" title="https:&#x2F;&#x2F;kourindou.exblog.jp&#x2F;" rel="noopener" target="_blank">博麗幻想書譜</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Macyrate & Hakurei Reimu</span>
+</div>
+  <div class="powered-by">由 <a href="https://thwiki.cc/%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6/%E4%B8%80%E8%AE%BE%E8%B5%84%E6%96%99" class="theme-link" rel="noopener" target="_blank">博麗大結界</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'aa2288c6cbb5322cac6b',
+      clientSecret: '63492ee584a83a8479f1408f33e2ca04e3ef9f82',
+      repo: 'Macyrate.github.io',
+      owner: 'macyrate',
+      admin: ['macyrate'],
+      id: '1ef7529969a4f7a843ad0e8ac3597c69',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+    </div>
+</body>
+<div id="contentleft">
+  <div class="aplayer" 
+  data-fixed="true" 
+  data-autoplay="true" 
+  data-order="random" 
+  data-volume="0.55" 
+  data-theme="#cc543a" 
+  data-preload="auto" 
+  ></div>
+</div>
+</html>

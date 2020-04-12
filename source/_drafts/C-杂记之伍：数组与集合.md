@@ -70,7 +70,7 @@ element-type this[int index]
 
 为了支持无数种类型，非泛型集合把所有的元素都装箱成`object`类的对象来存储。元素的读写总要涉及到装箱与拆箱，在性能上有一定损失。
 
-因此，在引入对泛型的支持后，更好的选择是使用泛型集合来存储数据。以下是几种非泛型和泛型集合：
+因此，在引入对泛型的支持后，更好的选择是使用命名空间`System.Collection.Genreric`里的泛型集合来存储数据。以下是几种非泛型和泛型集合：
 
 | 非泛型集合类        | 泛型集合类                         | 描述                   |
 | :------------------ | :--------------------------------- | :--------------------- |
@@ -80,6 +80,62 @@ element-type this[int index]
 | 队列 Queue          | 队列 Queue\<T\>                    | 先进先出（FIFO）队列   |
 | 堆栈 Stack          | 堆栈Stack\<T\>                     | 后进先出（LIFO）队列   |
 
+而泛型集合中，最常用的是List\<T\>和Dictionary\<T\>，其它的集合基本都建立在其基础上。
+
 ## List<T>
 
-泛型集合中最常用的就是`List<T>`了。
+```CSharp
+//要创建一种类型的列表，依然需要用new：
+List<Animal> animalCollection = new List<Animal>();
+
+//增
+//Add()方法在末尾动态加入元素
+animalCollection.Add(dog);
+//Insert()方法在指定索引处插入元素
+animalCollection.Insert(0,cat);
+
+//删
+//Remove()方法删掉第一个结果
+
+//依然可以用下标索引访问
+var firstAnimal = animalCollection[0];
+```
+
+### 创建
+
+要创建一种类型的列表，依然需要用new：
+
+```CSharp
+List<Animal> animalCollection = new List<Animal>();
+```
+
+### 增
+
+- Add() 在末尾动态加入元素
+- Insert(int index, T item) 在指定索引处插入元素
+
+### 删
+
+- Remove() 删除第一个内容匹配的元素
+- RemoveAt() 删除指定索引处的元素
+- RemoveAll() 删除所有条件匹配的元素
+- Clear() 直接清空
+
+### 改
+
+依然可以直接用下标索引访问：
+
+```CSharp
+animalCollection[0] = cat;
+```
+
+其原理是List类用Item()方法作索引器。
+
+但要注意，List的长度是其Capacity属性的值。如果
+
+```CSharp
+List<Animal> animalCollection = new List<Animal>();
+```
+
+### 查
+

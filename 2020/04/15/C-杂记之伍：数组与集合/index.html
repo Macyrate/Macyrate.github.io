@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#CC543A">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#CC543A">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#CC543A","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="数组可以说是在任何语言中都非常基本的数据结构了。这篇笔记以C#中的数组为引，再延伸到C#的几种集合类(Collections)以及一些相关的基本概念。 数组 Array概述数组存储相同种类的元素，其大小固定，且是顺序存储的，即在内存中占据一段连续的地址。 数组作为一种引用类型(其基类是System.Array)，需要用new来创建实例。 12345&#x2F;&#x2F;初始化时指定大小double[] balanc">
+<meta name="keywords" content="笔记,CSharp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#杂记之伍：数组与集合">
+<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2020&#x2F;04&#x2F;15&#x2F;C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88&#x2F;index.html">
+<meta property="og:site_name" content="博丽寿昌分社 | Macyrate">
+<meta property="og:description" content="数组可以说是在任何语言中都非常基本的数据结构了。这篇笔记以C#中的数组为引，再延伸到C#的几种集合类(Collections)以及一些相关的基本概念。 数组 Array概述数组存储相同种类的元素，其大小固定，且是顺序存储的，即在内存中占据一段连续的地址。 数组作为一种引用类型(其基类是System.Array)，需要用new来创建实例。 12345&#x2F;&#x2F;初始化时指定大小double[] balanc">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;04&#x2F;13&#x2F;iIOaP5s24YgMCpX.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;04&#x2F;13&#x2F;iOIcSNkACBZKDPa.png">
+<meta property="og:updated_time" content="2020-04-14T16:10:35.871Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;04&#x2F;13&#x2F;iIOaP5s24YgMCpX.png">
+  <link rel="canonical" href="https://hakurei.red/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>C#杂记之伍：数组与集合 | 博丽寿昌分社 | Macyrate</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- APlayer start -->
+
+  <!-- Native Mode
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/js/music.js"></script>
+
+  -->
+
+  <!--MetingJS Mode-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div class="aplayer" 
+  data-id="31128857" 
+  data-server="netease" 
+  data-type="playlist" 
+  data-fixed="true" 
+  data-autoplay="true" 
+  data-order="random" 
+  data-volume="0.55" 
+  data-theme="#cc543a" 
+  data-preload="auto" >
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  <meting-js
+    server="netease"
+    type="playlist"
+    id="60198">
+  </meting-js>
+
+  <!---->
+
+  <!-- APlayer end -->
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'tzu7ura',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta custom-logo">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span> 
+        <img src="/images/custom-logo-shouchang.png" > 
+        </span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    <!--
+      <a>
+        <img class="custom-logo-image" src="/images/custom-logo-shouchang.png" alt="博丽寿昌分社 | Macyrate">
+      </a>
+    -->
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽寿昌分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          C#杂记之伍：数组与集合
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-15 00:08:01" itemprop="dateCreated datePublished" datetime="2020-04-15T00:08:01+08:00">2020-04-15</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>数组可以说是在任何语言中都非常基本的数据结构了。这篇笔记以C#中的数组为引，再延伸到C#的几种集合类(Collections)以及一些相关的基本概念。</p>
+<h1 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>数组存储相同种类的元素，其大小固定，且是顺序存储的，即在内存中占据一段连续的地址。</p>
+<p>数组作为一种引用类型(其基类是System.Array)，需要用<code>new</code>来创建实例。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化时指定大小</span></span><br><span class="line"><span class="keyword">double</span>[] balance = <span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以直接赋值来初始化</span></span><br><span class="line"><span class="keyword">int</span>[] marks = &#123;<span class="number">99</span>, <span class="number">98</span>, <span class="number">92</span>, <span class="number">97</span>, <span class="number">95</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>初始化而尚未赋值的数组，编译器会根据其类型隐式地将所有元素设置为默认值。</p>
+<p>数组最大的特点还是能够用下标索引来随机访问其中的元素：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> salary = balance[<span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下是C# 8.0引入的好东西！</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//末尾运算符 ^ </span></span><br><span class="line"><span class="comment">//[^n]表示[length-n]，类似Python用负数索引[-n]表示[length-n]</span></span><br><span class="line"><span class="keyword">double</span> salary = balance[^<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//范围运算符 ..</span></span><br><span class="line"><span class="comment">//[a..b]表示从[a]到[b]的范围，类似Python的切片[a:b]，a、b均可省略以表示首尾</span></span><br><span class="line"><span class="keyword">double</span>[] salaries = balance[..^<span class="number">3</span>];</span><br><span class="line"><span class="comment">//如果a比b还大，会抛出异常(Python中则是返回空列表)</span></span><br><span class="line"><span class="keyword">double</span>[] salaries = balance[<span class="number">3.</span><span class="number">.2</span>];     <span class="comment">//ArgumentOutOfRangeException</span></span><br></pre></td></tr></table></figure>
+
+<p>由于实现了<code>IEnumerable</code>接口，数组可以使用<code>foreach...in...</code>的方式进行迭代访问，还可以使用LINQ，这样就无需获取数组长度再用for循环迭代了。关于这个接口及其相关的内容，我在本文稍后的部分记述。</p>
+<a id="more"></a>
+
+<h2 id="索引器-Indexer"><a href="#索引器-Indexer" class="headerlink" title="索引器 Indexer"></a>索引器 Indexer</h2><p>索引器（Indexer）可以让各种类、结构、接口实现数组的这种能够用下标索引来访问的功能。</p>
+<p>索引器就像一个名为<code>this</code>的属性，可以用访问器进行定义。</p>
+<blockquote>
+<p>访问器是可在属性上定义的两个方法。其中get方法在读属性时执行；set方法隐含一个传入的<code>value</code>参数，在写属性时执行。一个常见的用途是用公开属性的访问器来对私有属性进行读/写。另外也可以在set访问器里对传入值进行范围检查等操作。</p>
+</blockquote>
+<p>索引器的一般定义示例：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">element-type <span class="keyword">this</span>[<span class="keyword">int</span> index]</span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">// get 访问器</span></span><br><span class="line">   <span class="keyword">get</span></span><br><span class="line">   &#123;</span><br><span class="line">      <span class="comment">// 返回 index 指定的值</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// set 访问器</span></span><br><span class="line">   <span class="keyword">set</span></span><br><span class="line">   &#123;</span><br><span class="line">      <span class="comment">// 设置 index 指定的值</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>比较神奇的是，索引器的索引下标并不是只能使用int，还可以用string。同时索引器又像是一个方法，甚至可以重载，这意味着你可以同时定义以int和string作为索引下标的索引器。</p>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>C#的多维数组在定义时，维度之间用逗号隔开。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//三维数组</span></span><br><span class="line"><span class="keyword">int</span>[, ,] array3Da = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>] &#123; &#123; &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> &#125; &#125;, </span><br><span class="line">                                        &#123; &#123; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span> &#125;, &#123; <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span> &#125; &#125; &#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="交错数组"><a href="#交错数组" class="headerlink" title="交错数组"></a>交错数组</h2><p>交错数组是<strong>数组的数组</strong>。当我们说“数组”的时候，说的是一个引用类型。因此交错数组与多维数组的不同之处在于，它本质上是个一维数组，其元素为引用类型，且被初始化为null。</p>
+<p>也正因此，交错数组中的元素只需要是规定的数组类型即可，不需要具有一致的长度：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//包含大小不同的三个二维数组元素的一维交错数组：</span></span><br><span class="line"><span class="keyword">int</span>[][,] jaggedArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][,] </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="keyword">int</span>[,] &#123; &#123;<span class="number">1</span>,<span class="number">3</span>&#125;, &#123;<span class="number">5</span>,<span class="number">7</span>&#125; &#125;,</span><br><span class="line">    <span class="keyword">new</span> <span class="keyword">int</span>[,] &#123; &#123;<span class="number">0</span>,<span class="number">2</span>&#125; &#125;,</span><br><span class="line">    <span class="keyword">new</span> <span class="keyword">int</span>[,] &#123; &#123;<span class="number">11</span>,<span class="number">22</span>&#125;, &#123;<span class="number">99</span>,<span class="number">88</span>&#125;, &#123;<span class="number">0</span>,<span class="number">9</span>&#125; &#125; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">System.Console.Write(<span class="string">"&#123;0&#125;"</span>, jaggedArray4[<span class="number">0</span>][<span class="number">1</span>, <span class="number">0</span>]);   <span class="comment">//输出：5</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="集合-Collections"><a href="#集合-Collections" class="headerlink" title="集合 Collections"></a>集合 Collections</h1><h2 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h2><p>集合类是定义在<code>System.Collection</code>命名空间里的几种类。比起数组，它们实现了几个接口，能更方便用于存储和检索数据。</p>
+<p>为了支持无数种类型，非泛型集合把所有的元素都装箱成<code>object</code>类的对象来存储。元素的读写总要涉及到装箱与拆箱，在性能上有一定损失；而且也因为装箱，你可以把任意不同类型的元素装进同一个集合，这是危险的，相当不妙。</p>
+<p>因此，在引入对泛型的支持后，更好的选择是使用命名空间<code>System.Collection.Genreric</code>里的泛型集合来存储数据。以下是几种非泛型和泛型集合：</p>
+<table>
+<thead>
+<tr>
+<th align="left">非泛型集合类</th>
+<th align="left">泛型集合类</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">动态数组 ArrayList</td>
+<td align="left">列表 List&lt;T&gt;</td>
+<td align="left">具有动态大小的数组</td>
+</tr>
+<tr>
+<td align="left">哈希表 Hashtable</td>
+<td align="left">字典 Dictionary&lt;Tkey,Tvalue&gt;</td>
+<td align="left">由键-值对组成的集合</td>
+</tr>
+<tr>
+<td align="left">排序列表 SortedList</td>
+<td align="left">排序列表 SortedList&lt;Tkey,Tvalue&gt;</td>
+<td align="left">和字典相似但有排序功能</td>
+</tr>
+<tr>
+<td align="left">队列 Queue</td>
+<td align="left">队列 Queue&lt;T&gt;</td>
+<td align="left">先进先出（FIFO）队列</td>
+</tr>
+<tr>
+<td align="left">堆栈 Stack</td>
+<td align="left">堆栈Stack&lt;T&gt;</td>
+<td align="left">后进先出（LIFO）队列</td>
+</tr>
+</tbody></table>
+<p>而泛型集合中，最常用的是List&lt;T&gt;和Dictionary&lt;Tkey,Tvalue&gt;，其它的集合基本都建立在其基础上。</p>
+<h2 id="列表-List-lt-T-gt"><a href="#列表-List-lt-T-gt" class="headerlink" title="列表 List&lt;T&gt;"></a>列表 List&lt;T&gt;</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>要创建一种类型的列表，依然需要用new：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Animal&gt; animalCollection = <span class="keyword">new</span> List&lt;Animal&gt;();</span><br></pre></td></tr></table></figure>
+
+<h3 id="容量"><a href="#容量" class="headerlink" title="容量"></a>容量</h3><p>List中有两个int属性：Count和Capacity。</p>
+<p>Count代表List中现有的元素数量，而Capacity代表List的容量。当Count达到Capacity的值，再试图加入元素时，Capacity就会自动进行调整。下面是在一个List&lt;int&gt;中加入600个元素的结果，其中白色数字代表现有元素数量Count，绿色数字代表List容量Capacity：</p>
+<p><img src="https://i.loli.net/2020/04/13/iIOaP5s24YgMCpX.png" alt="动态调整Capacity"></p>
+<p>可以看出，加入第一个元素时，Capacity从0被调整到4。之后每次Count要超过Capacity时，Capacity就会翻倍，以容纳更多元素。这个容量调整算法不是固定的，比如对于Dictionary&lt;Tkey,Tvalue&gt;来说，每次调整增加的容量都是质数。虽然不知道为什么要这样设计，但奇怪的知识增加了！</p>
+<p>除了让其自动增长之外，还可以直接访问Capacity，手动设置为不小于当前Count的值；也可以调用List的<code>TrimExcess()</code>方法，将Capacity直接削至Count的值。不过考虑到开销，如果未使用的容量小于总容量的10%，则不会对容量进行调整。下面是在加入了300个元素后，调用<code>TrimExcess()</code>（用黄色字体表示），再加入300个元素的效果：</p>
+<p><img src="https://i.loli.net/2020/04/13/iOIcSNkACBZKDPa.png" alt="TrimExcess"></p>
+<p>手动设置Capacity有什么用呢？毕竟就算设置了，由于Capacity的自动调整机制，还是能不受限制地往里添加元素。而且在调整Capacity时，还会有复杂度为O(n)的计算。关于这一点我依然存疑，如果你知道手动设置Capacity的意义，请告诉我！</p>
+<h3 id="增"><a href="#增" class="headerlink" title="增"></a>增</h3><ul>
+<li>Add() 在末尾动态加入元素</li>
+<li>AddRange() 在末尾添加一个集合中的元素</li>
+<li>Insert() 在指定索引处插入元素</li>
+<li>InsertRange() 在指定索引处插入一个集合的元素</li>
+</ul>
+<h3 id="删"><a href="#删" class="headerlink" title="删"></a>删</h3><ul>
+<li>Remove() 删除第一个内容匹配的元素</li>
+<li>RemoveAt() 删除指定索引处的元素</li>
+<li>RemoveRange() 删除一定范围内的元素</li>
+<li>RemoveAll() 删除所有条件匹配的元素</li>
+<li>Clear() 直接清空</li>
+</ul>
+<h3 id="改"><a href="#改" class="headerlink" title="改"></a>改</h3><p>依然可以直接用下标索引访问：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">animalCollection[<span class="number">0</span>] = cat;</span><br></pre></td></tr></table></figure>
+
+<p>其原理是List类用Item()方法作索引器。</p>
+<p>但要注意，List的长度是其Count属性的值。对于新建的List，没有任何元素，Count为0，甚至不能用0号索引来访问并赋值。应该先用一些方法让索引对应的位置可用。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Animal&gt; animalCollection = <span class="keyword">new</span> List&lt;Animal&gt;();</span><br><span class="line">animalCollection[<span class="number">0</span>] = cat;    <span class="comment">//这是错误的，0号元素还不存在</span></span><br><span class="line"></span><br><span class="line">List&lt;Animal&gt; animalCollection = <span class="keyword">new</span> List&lt;Animal&gt;(<span class="keyword">new</span> Animal[<span class="number">10</span>]);</span><br><span class="line">animalCollection[<span class="number">0</span>] = cat;    <span class="comment">//这是可以的，创建List时填入了10个null</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查"><a href="#查" class="headerlink" title="查"></a>查</h3><ul>
+<li>Contains() 判断List内是否有内容匹配的元素</li>
+<li>Exists() 判断List内是否有条件匹配的元素</li>
+<li>Find() 查找并返回第一个条件匹配元素</li>
+<li>FindAll() 查找并以List的形式返回所有条件匹配元素</li>
+<li>IndexOf() 查找第一个内容匹配的元素，返回其索引(可以用重载指定搜索范围)</li>
+<li>LastIndexOf() 查找倒数第一个内容匹配的元素，返回其索引(可以用重载指定搜索范围)</li>
+<li>BinarySearch() 用指定的比较器在一定范围内二分查找元素，返回其索引</li>
+</ul>
+<h2 id="字典-Dictionary-lt-Tkey-Tvalue-gt"><a href="#字典-Dictionary-lt-Tkey-Tvalue-gt" class="headerlink" title="字典 Dictionary&lt;Tkey,Tvalue&gt;"></a>字典 Dictionary&lt;Tkey,Tvalue&gt;</h2><p>C#中的字典是泛型的哈希表（HashTable），存储的是键值对<code>KeyValuePair&lt;TKey, TValue&gt;</code>。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">string</span>&gt; mydict = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">string</span>&gt;();</span><br><span class="line"><span class="comment">//仍然是Add()添加元素</span></span><br><span class="line">mydict.Add(<span class="string">"lang1"</span>, <span class="string">"C++"</span>);</span><br><span class="line">mydict.Add(<span class="string">"lang2"</span>, <span class="string">"C#"</span>);</span><br><span class="line">mydict.Add(<span class="string">"lang3"</span>, <span class="string">"Python"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//CotainsKey()判断是否有该键，也有ContainsValue()判断是否有值</span></span><br><span class="line"><span class="keyword">if</span>(mydict.ContainsKey(<span class="string">"lang3"</span>))</span><br><span class="line">      mydict.Remove(<span class="string">"lang3"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//根据TKey使用索引器，但访问前不检查可能会爆炸(KeyNotFoundException)</span></span><br><span class="line"><span class="comment">//WriteLine(mydict["lang3"]);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//TryGetValue()尝试用key获取value，没获取到的话传出null，本身返回False</span></span><br><span class="line">WriteLine(mydict.TryGetValue(<span class="string">"lang4"</span>, <span class="keyword">out</span> <span class="keyword">string</span> test));</span><br><span class="line">WriteLine(test);</span><br></pre></td></tr></table></figure>
+
+<h2 id="队列-Queue-lt-T-gt-和堆栈-Stack-lt-T-gt"><a href="#队列-Queue-lt-T-gt-和堆栈-Stack-lt-T-gt" class="headerlink" title="队列 Queue&lt;T&gt;和堆栈 Stack&lt;T&gt;"></a>队列 Queue&lt;T&gt;和堆栈 Stack&lt;T&gt;</h2><p>这两个就更没什么值得说的了，基本上是List&lt;T&gt;的“阉割”版。</p>
+<p>对于它们而言，添加、删除元素并不是用Add()方法和Remove()方法。队列Queue&lt;T&gt;中，使用入队Enqueue()和出队Dequeue()；队列Stack&lt;T&gt;中，使用压入Push()和弹出Pop()。</p>
+<p>你也无法再使用索引随机访问Queue和Stack中的元素，必须遵守这两种数据结构的规则。能进行的操作非常有限，比如用Peek()访问队首/栈顶元素。</p>
+<h1 id="枚举器"><a href="#枚举器" class="headerlink" title="枚举器"></a>枚举器</h1><p>说到枚举器，必须了解的是两个接口：<code>IEnumerator</code>和<code>IEnumerable</code>。</p>
+<h2 id="IEnumerable"><a href="#IEnumerable" class="headerlink" title="IEnumerable"></a>IEnumerable</h2><p>所有的数组和集合都实现了这个接口，它们被称为可枚举类型。这也是数组和集合能进行各种操作，乃至使用LINQ的基础。这个接口里只有一个方法：</p>
+<p><code>GetEnumerator()</code>。</p>
+<p>方法名很易懂，获取枚举器。C#中的“枚举器”，指的就是实现了接口<code>IEnumerator</code>的类型。</p>
+<p>LINQ为IEnumerable接口添加了许多扩展方法，这一点在第C#杂记的壹和叁中我都有提到。其实由于LINQ用查询表达式写可读性更强，这些扩展方法里我觉得最有用的是<code>ToList()</code>方法，它可以把各种数组和集合都转换为万能的List&lt;T&gt;。特别地，对Stack&lt;T&gt;来说，调用<code>ToList()</code>后得到的列表是根据“后进先出”的出栈顺序排列的。</p>
+<h2 id="IEnumerator"><a href="#IEnumerator" class="headerlink" title="IEnumerator"></a>IEnumerator</h2><p>如上所说，实现了这个接口的类型被称为枚举器。</p>
+<p>枚举器的工作就是把元素一个个地吐出来（枚举）。这个接口用三个成员共同实现了类似链表的数据结构：</p>
+<ul>
+<li>Current：序列中当前位置项的属性，以<code>object?</code>可空类型表示，故可以为任何类型。原始状态下这个属性不可用，访问时会抛出异常：<blockquote>
+<p>System.InvalidOperationException:“Enumeration has not started. Call MoveNext.”</p>
+</blockquote>
+</li>
+<li>MoveNext()：将枚举器位置指向下一项，如果下一项是无效的，则返回False，表示枚举已经完成。</li>
+<li>Reset()：把位置重置为原始状态。</li>
+</ul>
+<p>实现了<code>IEnumerable</code>的可枚举类型，其能够使用foreach语句进行迭代的原理就是运用了枚举器：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">int</span>[] myArray = &#123; <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span> &#125;;		<span class="comment">// 创建数组</span></span><br><span class="line">        <span class="keyword">var</span> ie = myArray.GetEnumerator();	<span class="comment">// 获取枚举器</span></span><br><span class="line">        <span class="keyword">while</span> (ie.MoveNext())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> i = (<span class="keyword">int</span>)ie.Current;	<span class="comment">// 获取当前项</span></span><br><span class="line">            Console.WriteLine(<span class="string">"&#123;0&#125;"</span>, i);	<span class="comment">// 输出</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//用foreach进行同样的迭代</span></span><br><span class="line">        <span class="keyword">foreach</span>(<span class="keyword">var</span> i <span class="keyword">in</span> myArray)</span><br><span class="line">            Console.WriteLine(<span class="string">"&#123;0&#125;"</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="比较与排序"><a href="#比较与排序" class="headerlink" title="比较与排序"></a>比较与排序</h1><p>众所周知，一切排序算法的基础都是<strong>比较</strong>。不同排序算法的复杂度之差异，就在于它们比较元素的次数。</p>
+<p>C#中有两个接口用于实现比较：<code>IComparable</code>和<code>IComparer</code>。</p>
+<p>看这两个接口的名字，就可以会猜测它们和上面在枚举器里说到的两个接口的关系一样。事实上它们之间有很大不同，但也有相似之处。</p>
+<h2 id="IComparable"><a href="#IComparable" class="headerlink" title="IComparable"></a>IComparable</h2><p>实现了这个接口的类型是可比较类型，由它们组成的数组、集合是可以进行排序的。C#中有很多内置类型已经实现了这个接口，比如各种值类型、字符串、时间日期等等。</p>
+<p>这个接口也只有一个方法：<code>CompareTo()</code>。</p>
+<p>CompareTo()接收一个用于和<code>this</code>比较的参数，并返回一个<code>int</code>作为比较的结果。举个例子，如果定义了<code>Person</code>类，且为其实现IComparable接口：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Person</span> : <span class="title">IComparable</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">int</span> Age &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Person</span>(<span class="params"></span>)</span> &#123; &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Person</span>(<span class="params"><span class="keyword">string</span> name, <span class="keyword">int</span> age</span>) </span></span><br><span class="line"><span class="function"></span>   &#123; </span><br><span class="line">      <span class="keyword">this</span>.Name = name; </span><br><span class="line">      <span class="keyword">this</span>.Age = age; </span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//实现IComparable接口</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">CompareTo</span>(<span class="params"><span class="keyword">object</span> obj</span>)</span></span><br><span class="line"><span class="function"></span>   &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.Age == obj.Age)</span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.Age &gt; obj.Age)</span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>在此基础上，比较两个Person：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(person1.CompareTo(person2) == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">   WriteLine(<span class="string">"Same Age."</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(person1.CompareTo(person2) &gt; <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">   WriteLine(<span class="string">"Person 1 is older."</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(person1.CompareTo(person2) &lt; <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">   WriteLine(<span class="string">"Person 1 is younger."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="IComparer-lt-T-gt"><a href="#IComparer-lt-T-gt" class="headerlink" title="IComparer&lt;T&gt;"></a>IComparer&lt;T&gt;</h2><p>Comparer是“比较器”，对于那些没有实现IComparable接口的类，可以为其单独定义一个实现IComparer&lt;T&gt;的类。</p>
+<p>接口中包含一个方法<code>Compare()</code>。它对两个<code>T</code>类型的对象进行比较，返回<code>int</code>作为比较的结果。这个接口也有非泛型版本，它能支持不同类型的对象之间的比较，这很神秘，可能一般不会用到。</p>
+<p>用实现了IComparer&lt;Person&gt;的比较器对两个Person进行比较：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   Person person1 = <span class="keyword">new</span> Person(<span class="string">"张三"</span>, <span class="number">24</span>);</span><br><span class="line">   Person person2 = <span class="keyword">new</span> Person(<span class="string">"罗翔"</span>, <span class="number">42</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">int</span> n = <span class="keyword">new</span> PersonComparer().Compare(person1, person2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Sort-方法"><a href="#Sort-方法" class="headerlink" title="Sort()方法"></a>Sort()方法</h2><p>Sort()方法运用集合中元素所属类型的默认比较方法，或指定的某种比较方法进行<strong>升序排序</strong>。</p>
+<p>这个方法有四种重载：</p>
+<ul>
+<li>Sort()<br>无参形式，在元素对象实现了IComparable接口时可以使用。</li>
+<li>Sort(IComparer&lt;T&gt;)<br>以比较器为参数，需要定义比较器，并<code>new</code>一个传入。</li>
+<li>Sort(Int32, Int32, IComparer<T>)<br>在指定范围用比较器排序。</li>
+<li>Sort(Comparison<T>)<br>用委托进行排序，其中委托Comparison&lt;T&gt;接受两个同类型参数，返回int。原型： <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">int</span> Comparison&lt;<span class="keyword">in</span> T&gt;(T x, T y);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>这看起来并不够优雅，直接用LINQ的<code>OrderBy()</code>配合Lambda表达式来排序它不香吗？</p>
+<p>据说OrderBy没法在Unity构建的iOS游戏上运行，所以必须得用Sort()。不过去它妹的，等真的踩了这个坑再说吧，现在先记在这里（笑）。</p>
+<blockquote>
+<p>原本以为数组和集合是极为简单的东西，计划着能在一天内写完，结果坑越挖越多，中途也写了不少代码进行测试和验证，竟然也花了快一个星期。至此，C#入门级别最大的几块拼图几乎完成了。后面的坑还有装箱拆箱、特性、堆区与栈区内存、对象的构造与析构过程、垃圾回收机制、异步流式处理等等，慢慢填吧。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="Macyrate wechat" style="width: 200px; max-width: 100%;">
+  <div>唯一指定微信</div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/tags/CSharp/" rel="tag"># CSharp</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/04/08/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/" rel="next" title="C#杂记之肆：异步">
+                  <i class="fa fa-chevron-left"></i> C#杂记之肆：异步
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数组-Array"><span class="nav-number">1.</span> <span class="nav-text">数组 Array</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引器-Indexer"><span class="nav-number">1.2.</span> <span class="nav-text">索引器 Indexer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多维数组"><span class="nav-number">1.3.</span> <span class="nav-text">多维数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交错数组"><span class="nav-number">1.4.</span> <span class="nav-text">交错数组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合-Collections"><span class="nav-number">2.</span> <span class="nav-text">集合 Collections</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述-1"><span class="nav-number">2.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表-List-lt-T-gt"><span class="nav-number">2.2.</span> <span class="nav-text">列表 List&lt;T&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-number">2.2.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容量"><span class="nav-number">2.2.2.</span> <span class="nav-text">容量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增"><span class="nav-number">2.2.3.</span> <span class="nav-text">增</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删"><span class="nav-number">2.2.4.</span> <span class="nav-text">删</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改"><span class="nav-number">2.2.5.</span> <span class="nav-text">改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查"><span class="nav-number">2.2.6.</span> <span class="nav-text">查</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典-Dictionary-lt-Tkey-Tvalue-gt"><span class="nav-number">2.3.</span> <span class="nav-text">字典 Dictionary&lt;Tkey,Tvalue&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列-Queue-lt-T-gt-和堆栈-Stack-lt-T-gt"><span class="nav-number">2.4.</span> <span class="nav-text">队列 Queue&lt;T&gt;和堆栈 Stack&lt;T&gt;</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#枚举器"><span class="nav-number">3.</span> <span class="nav-text">枚举器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IEnumerable"><span class="nav-number">3.1.</span> <span class="nav-text">IEnumerable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IEnumerator"><span class="nav-number">3.2.</span> <span class="nav-text">IEnumerator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较与排序"><span class="nav-number">4.</span> <span class="nav-text">比较与排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IComparable"><span class="nav-number">4.1.</span> <span class="nav-text">IComparable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IComparer-lt-T-gt"><span class="nav-number">4.2.</span> <span class="nav-text">IComparer&lt;T&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sort-方法"><span class="nav-number">4.3.</span> <span class="nav-text">Sort()方法</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Macyrate"
+    src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+  <p class="site-author-name" itemprop="name">Macyrate</p>
+  <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Macyrate" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:macyrate@foxmail.com" title="E-Mail &amp;rarr; mailto:macyrate@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6010944415" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;6010944415" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://steamcommunity.com/profiles/76561198313695590/" title="Steam &amp;rarr; https:&#x2F;&#x2F;steamcommunity.com&#x2F;profiles&#x2F;76561198313695590&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-steam"></i>Steam</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.viseator.com/" title="https:&#x2F;&#x2F;www.viseator.com&#x2F;" rel="noopener" target="_blank">viseator</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://touhoudog.net/" title="http:&#x2F;&#x2F;touhoudog.net&#x2F;" rel="noopener" target="_blank">充满魔力的土地下</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kourindou.exblog.jp/" title="https:&#x2F;&#x2F;kourindou.exblog.jp&#x2F;" rel="noopener" target="_blank">博麗幻想書譜</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Macyrate & Hakurei Reimu</span>
+</div>
+  <div class="powered-by">由 <a href="https://thwiki.cc/%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6/%E4%B8%80%E8%AE%BE%E8%B5%84%E6%96%99" class="theme-link" rel="noopener" target="_blank">博麗大結界</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'aa2288c6cbb5322cac6b',
+      clientSecret: '63492ee584a83a8479f1408f33e2ca04e3ef9f82',
+      repo: 'Macyrate.github.io',
+      owner: 'macyrate',
+      admin: ['macyrate'],
+      id: 'f5c9905628255d58c152f1e18c605bdc',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+    </div>
+</body>
+<div id="contentleft">
+  <div class="aplayer" 
+  data-fixed="true" 
+  data-autoplay="true" 
+  data-order="random" 
+  data-volume="0.55" 
+  data-theme="#cc543a" 
+  data-preload="auto" 
+  ></div>
+</div>
+</html>

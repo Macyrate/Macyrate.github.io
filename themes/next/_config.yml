@@ -288,7 +288,7 @@ tag_icon: false
 # Wechat Subscriber
 wechat_subscriber:
   enable: true
-  qcode: /images/wechat-qcode.png
+  qcode: https://i.loli.net/2020/04/15/glvwN8eEY3MHiTS.png
   description: 唯一指定微信
 
 # Reward (Donate)

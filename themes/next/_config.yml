@@ -381,7 +381,7 @@ safari_rainbow: false
 custom_scrollbar: false
 
 # Custom Logo (Do not support scheme Mist)
-custom_logo: /images/custom-logo-shouchang.png
+custom_logo: https://i.loli.net/2020/04/15/2svCYdAjM41cNgp.png
 
 codeblock:
   # Code Highlight theme

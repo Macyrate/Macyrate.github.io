@@ -19,7 +19,7 @@ tags:
 
 这是2016年末写在原网站[macyrate.site](http://macyrate.site)的关于页面的话。
 
-![WordPress旧站](https://i.loli.net/2020/01/12/5bhSOmliTf4vUR7.jpg)
+![WordPress旧站](https://i.loli.net/2020/04/15/SGHbnmTzjqXRsDh.png)
 
 ![当时用的Flash插件导致手机端出现问题](https://i.loli.net/2020/01/12/PkKrectW9o4GnAf.jpg)
 

@@ -69,7 +69,9 @@
 </tr>
 </tbody></table>
 <p>而泛型集合中，最常用的是List&lt;T&gt;和Dictionary&lt;Tkey,Tvalue&gt;，其它的集合基本都建立在其基础上。</p>
-<h2 id="列表-List-lt-T-gt"><a href="#列表-List-lt-T-gt" class="headerlink" title="列表 List&lt;T&gt;"></a>列表 List&lt;T&gt;</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>要创建一种类型的列表，依然需要用new：</p>
+<h2 id="列表-List-lt-T-gt"><a href="#列表-List-lt-T-gt" class="headerlink" title="列表 List&lt;T&gt;"></a>列表 List&lt;T&gt;</h2><h3 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h3><p>上面的表格里写到，List&lt;T&gt;是泛型版本的ArrayList，是具有动态大小的<strong>数组</strong>。也就是说，其原理依然是<strong>顺序存储</strong>的数组，具有随机访问快但插入删除较慢的特点。</p>
+<p>C#里有没有用双向链表实现的链式存储数据结构呢？也是有的，它就是LinkedList&lt;T&gt;，只不过很少有人会用到，毕竟随机访问速度在大多数场景下更加重要。</p>
+<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>要创建一种类型的列表，依然需要用new：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">List&lt;Animal&gt; animalCollection = <span class="keyword">new</span> List&lt;Animal&gt;();</span><br></pre></td></tr></table></figure>
 
 <h3 id="容量"><a href="#容量" class="headerlink" title="容量"></a>容量</h3><p>List中有两个int属性：Count和Capacity。</p>
@@ -78,7 +80,7 @@
 <p>可以看出，加入第一个元素时，Capacity从0被调整到4。之后每次Count要超过Capacity时，Capacity就会翻倍，以容纳更多元素。这个容量调整算法不是固定的，比如对于Dictionary&lt;Tkey,Tvalue&gt;来说，每次调整增加的容量都是质数。虽然不知道为什么要这样设计，但奇怪的知识增加了！</p>
 <p>除了让其自动增长之外，还可以直接访问Capacity，手动设置为不小于当前Count的值；也可以调用List的<code>TrimExcess()</code>方法，将Capacity直接削至Count的值。不过考虑到开销，如果未使用的容量小于总容量的10%，则不会对容量进行调整。下面是在加入了300个元素后，调用<code>TrimExcess()</code>（用黄色字体表示），再加入300个元素的效果：</p>
 <p><img src="https://i.loli.net/2020/04/13/iOIcSNkACBZKDPa.png" alt="TrimExcess"></p>
-<p>手动设置Capacity有什么用呢？毕竟就算设置了，由于Capacity的自动调整机制，还是能不受限制地往里添加元素。而且在调整Capacity时，还会有复杂度为O(n)的计算。关于这一点我依然存疑，如果你知道手动设置Capacity的意义，请告诉我！</p>
+<p>手动设置Capacity有什么用呢？毕竟就算设置了，由于Capacity的自动调整机制，还是能不受限制地往里添加元素。而且在调整Capacity时，还会有复杂度为O(n)的计算，这是因为List&lt;T&gt;仍然基于顺序存储，调整Capacity必须在内存中重新划分一块区域，再把元素复制进去。关于手动调整Capacity的意义我依然存疑，如果你知道，请告诉我！</p>
 <h3 id="增"><a href="#增" class="headerlink" title="增"></a>增</h3><ul>
 <li>Add() 在末尾动态加入元素</li>
 <li>AddRange() 在末尾添加一个集合中的元素</li>

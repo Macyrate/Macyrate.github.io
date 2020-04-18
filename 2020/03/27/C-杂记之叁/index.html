@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;03&#x2F;27&#x2F;CPuc8SVgWGXTkEA.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;03&#x2F;27&#x2F;OCPcmBo3hr4zkt5.jpg">
-<meta property="og:updated_time" content="2020-04-17T10:18:10.888Z">
+<meta property="og:updated_time" content="2020-04-17T14:16:32.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;03&#x2F;27&#x2F;CPuc8SVgWGXTkEA.jpg">
   <link rel="canonical" href="https://hakurei.red/2020/03/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%8F%81/">
@@ -326,6 +326,9 @@
 <p>除了上述的构造查询表达式之外，还可以用LINQ支持的一系列扩展方法实现类似的功能。比如在<a href="https://hakurei.red/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/">C#杂记之壹：委托与事件</a>里我曾写到的，当引用<code>System.Linq</code>命名空间后，<code>IEnumerable&lt;T&gt;</code>接口中就会多出一些扩展方法，比如其中的<code>Where()</code>方法，它接受一个<code>Func&lt;TSource, bool&gt;</code>委托作为参数，用于筛选数据源中的元素，类似于查询表达式中的查询条件。这行代码里，用到两个Lambda表达式作为委托：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> queryResults = numList.Where(i =&gt; i &lt; <span class="number">5</span>).Select(i =&gt; i * <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//上面的方法语法等同于以下的查询表达式：</span></span><br><span class="line"><span class="keyword">var</span> queryResults = </span><br><span class="line">    <span class="keyword">from</span> i <span class="keyword">in</span> numList</span><br><span class="line">    <span class="keyword">where</span> i &lt; <span class="number">5</span></span><br><span class="line">    <span class="keyword">select</span> i * <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>用了几次LINQ之后，我发现用扩展方法写反而更常见，甚至也更方便。</p>
+</blockquote>
 <h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><p>在查询表达式中使用<code>orderby</code>子句，可以对查询结果进行排序。该子句默认按照排序依据升序，如果在子句末尾使用<code>descending</code>关键字就可改为降序。下面的例子里，<code>orderby</code>子句依据字符串元素的最后一个字符，对查询结果进行降序排序：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> queryResults = </span><br><span class="line">    <span class="keyword">from</span> n <span class="keyword">in</span> names</span><br><span class="line">    <span class="keyword">where</span> n.StartWith(<span class="string">"S"</span>)</span><br><span class="line">    <span class="keyword">orderby</span> n.Substring(n.length<span class="number">-1</span>) <span class="keyword">descending</span></span><br><span class="line">    <span class="keyword">select</span> n ;</span><br></pre></td></tr></table></figure>
 

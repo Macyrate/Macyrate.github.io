@@ -133,6 +133,7 @@ menu:
   #schedule: /schedule/ || calendar
   # sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
+  lab: /lab/ || flask
 
 # Enable / Disable menu icons / item badges.
 menu_settings:

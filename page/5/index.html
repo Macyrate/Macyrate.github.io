@@ -264,6 +264,77 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/01/11/%E4%B8%BA%E5%B0%8F%E7%B1%B3%E6%89%8B%E7%8E%AF4%E5%88%B6%E4%BD%9C%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E7%9B%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/11/%E4%B8%BA%E5%B0%8F%E7%B1%B3%E6%89%8B%E7%8E%AF4%E5%88%B6%E4%BD%9C%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E7%9B%98/" class="post-title-link" itemprop="url">为小米手环4制作自定义表盘</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-11 22:10:43" itemprop="dateCreated datePublished" datetime="2020-01-11T22:10:43+08:00">2020-01-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://i.loli.net/2020/01/12/uMehFaU86boClZL.jpg" alt="小米手环4"></p>
+<p>在以100元的低价将Pebble Time转让给同学之后，今天买到了小米手环4NFC版。说实话Pebble是真的好用，可惜反射屏带来的续航依旧不是那么完美，而且人在国内，这些东西还是与国内的“生态”接轨比较好。</p>
+<p>拿到新电子产品，当然得瞎折腾一阵。首先就得换个表盘。但可惜，小米运动APP里的自定义表盘仅仅支持3种预置布局下的背景图自定义，这显然不够酷。</p>
+<p>不过，在<a href="https://www.bandbbs.cn/" target="_blank" rel="noopener">米坛</a>这个网站我找到了真正意义上自定义表盘的方法，而且<a href="https://amazfitwatchfaces.com/" target="_blank" rel="noopener">amazfitwatchfaces</a>上已经有了相当多的自定义表盘。但是我想要继续使用曾经在Pebble上用的<a href="https://apps.rebble.io/zh_CN/application/529ab1b6d17b5033ba000033" target="_blank" rel="noopener">EVA表盘</a>，发现网上并没有现成资源后我决定自己制作。</p>
+<p>简单地说，小米手环4的表盘是由一个<code>json</code>文件控制布局的一系列图片构成的。这个<a href="https://www.bandbbs.cn/threads/533/" target="_blank" rel="noopener">注释版万能json</a>展示了该json文件的形式。将自定义的json文件与资源文件，即要显示的一系列图片，经过<a href="https://geekdoing.com/threads/mb4-resource-pack-unpack.1383/" target="_blank" rel="noopener">MB4 Resource pack/unpack</a>工具打包后就能生成表盘<code>bin</code>文件了。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">"Time": &#123;</span><br><span class="line">    "Hours": &#123;</span><br><span class="line">      "Tens": &#123;</span><br><span class="line">        "X": 70,</span><br><span class="line">        "Y": 10,</span><br><span class="line">        "ImageIndex": 23,</span><br><span class="line">        "ImagesCount": 3</span><br><span class="line">      &#125;,</span><br><span class="line">      "Ones": &#123;</span><br><span class="line">        "X": 70,</span><br><span class="line">        "Y": 60,</span><br><span class="line">        "ImageIndex": 11,</span><br><span class="line">        "ImagesCount": 10</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>以这段json代码为例，它控制表盘中时间部分的小时显示。</p>
+<p>X和Y是图片左上角的坐标。这里的<code>ImageIndex</code>是指资源图片的起始编号，是其4位数字的文件名。而<code>ImageCount</code>是从起始图片开始向后有多少张图片被此处使用。由于是24小时制——12小时制也许也可以，但我不知道如何设置——小时需要用到表示<code>0</code>、<code>1</code>、<code>2</code>的3张图片。需要注意的是，资源图片的编号必须从<code>0000</code>开始连续，且所有的图片都要在json中被使用到，否则无法正常生成。</p>
+<p>最后的效果：</p>
+<p><img src="https://i.loli.net/2020/01/12/lPeLST9Rt4iHQr7.gif" alt=""></p>
+<blockquote>
+<p>发布地址：<br><a href="https://amazfitwatchfaces.com/mi-band-4/view/11723" target="_blank" rel="noopener">amazfitwatchfaces</a><br><a href="https://github.com/Macyrate/EVA_font_watchface" target="_blank" rel="noopener">GitHub</a><br><a href="http://watchface.pingx.tech/h5/#/pages/detail/detail?id=1058400" target="_blank" rel="noopener">米坛</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/01/05/HustBase%E5%AE%8C%E6%88%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -486,75 +557,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/15/Unity%E5%BC%82%E6%AD%A5%E5%9C%BA%E6%99%AF%E5%8A%A0%E8%BD%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/15/Unity%E5%BC%82%E6%AD%A5%E5%9C%BA%E6%99%AF%E5%8A%A0%E8%BD%BD/" class="post-title-link" itemprop="url">Unity异步场景加载</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-15 17:17:11" itemprop="dateCreated datePublished" datetime="2019-12-15T17:17:11+08:00">2019-12-15</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在游戏中，场景加载是很常用的功能。如果要在加载的时候让当前的场景还能正常运行，或者加载时能有一个包含进度条之类组件的加载界面，就应该采取异步的场景加载方式。</p>
-<h1 id="同步加载"><a href="#同步加载" class="headerlink" title="同步加载"></a>同步加载</h1><p>在讲异步加载以前，先说同步加载。</p>
-<p>当执行同步加载时，正在运行的场景会被阻塞，产生卡顿，这种方法适合小型的、不怎么需要获取读取进度的场景的加载。如在地牢中切换到另一个房间，读取完成之前当前房间中的一切都静止不动，这种情况应该是用同步加载实现的。</p>
-<p>Unity使用<code>SceneManager</code>类的静态方法<a href="https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html" target="_blank" rel="noopener">LoadScene</a>实现同步的场景加载。由于是静态方法，不需要对<code>SceneManager</code>类进行实例化，只要使用命名空间<code>using UnityEngine.SceneManagement;</code>就可直接通过<code>SceneManager.LoadSceneAsync</code>访问。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法原型：</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="keyword">int</span> sceneBuildIndex, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="keyword">string</span> sceneName, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/15/Unity%E5%BC%82%E6%AD%A5%E5%9C%BA%E6%99%AF%E5%8A%A0%E8%BD%BD/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -605,7 +607,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

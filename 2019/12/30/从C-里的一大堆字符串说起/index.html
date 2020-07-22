@@ -52,7 +52,7 @@
 </script>
 
   <meta name="description" content="写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。 char foo[bar] 和 char* foochar foo[bar]这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”： 123&#x2F;&#x2F;这两行都定义了相同的字符串&quot;Hello">
-<meta name="keywords" content="Cpp,数据结构,考古,标准">
+<meta name="keywords" content="考古,Cpp,数据结构,标准">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从C++里的一大堆字符串说起">
 <meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2019&#x2F;12&#x2F;30&#x2F;%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7&#x2F;index.html">
@@ -360,9 +360,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/%E8%80%83%E5%8F%A4/" rel="tag"># 考古</a>
               <a href="/tags/Cpp/" rel="tag"># Cpp</a>
               <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
-              <a href="/tags/%E8%80%83%E5%8F%A4/" rel="tag"># 考古</a>
               <a href="/tags/%E6%A0%87%E5%87%86/" rel="tag"># 标准</a>
           </div>
 
@@ -558,13 +558,57 @@
   </div>
 
   
+
+
+  
+  <style>
+  
+  button.darkmode-toggle, .darkmode-layer {
+  z-index: 500;
+  }
+
+  
+  img, .darkmode-ignore {
+    isolation: isolate;
+    display: block;
+  }
+  </style>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+  <script src="/lib/darkmode-js/lib/darkmode-js.min.js"></script>
+
+
+
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#f5f7f9',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: false, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: false // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+// window.onload = function(){
+//   setTimeout(
+//     function() {
+//       document.getElementsByClassName('darkmode-toggle')[0].click();
+//     },
+//     550,
+//   );
+//   document.getElementsByClassName('darkmode-toggle')[0].click();
+// }
+</script><script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
 <script src="/js/schemes/pisces.js?v=7.4.1"></script>
 <script src="/js/next-boot.js?v=7.4.1"></script>
   <script>

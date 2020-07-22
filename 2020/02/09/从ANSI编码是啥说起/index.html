@@ -52,7 +52,7 @@
 </script>
 
   <meta name="description" content="在 Windows 记事本的语境中：所谓的「ANSI」指的是对应当前系统 locale 的遗留（legacy）编码。梁海的回答 - 知乎  所谓编码也许你曾试着购买东方Project正作游戏，或别的什么非英语内容：  扔进光驱，兴冲冲安装之后，点开附带的omake.txt文档，你会发现和安装时就遇到的一样，大部分成了乱码：  奇怪的是，英文、数字、以及一些符号部分并没有变成乱码，这时你就明白，该">
-<meta name="keywords" content="东方Project,考古,标准">
+<meta name="keywords" content="考古,东方Project,标准">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从ANSI编码是啥说起">
 <meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2020&#x2F;02&#x2F;09&#x2F;%E4%BB%8EANSI%E7%BC%96%E7%A0%81%E6%98%AF%E5%95%A5%E8%AF%B4%E8%B5%B7&#x2F;index.html">
@@ -67,7 +67,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;09&#x2F;EoOatu1m9DdIgLB.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;09&#x2F;psfVuZoHL2ST1Oc.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;09&#x2F;SXHxidJQBRwMWqt.png">
-<meta property="og:updated_time" content="2020-02-09T14:02:35.680Z">
+<meta property="og:updated_time" content="2020-06-06T12:49:06.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;02&#x2F;09&#x2F;SOd1FeGDNHx9iLt.jpg">
   <link rel="canonical" href="https://hakurei.red/2020/02/09/%E4%BB%8EANSI%E7%BC%96%E7%A0%81%E6%98%AF%E5%95%A5%E8%AF%B4%E8%B5%B7/">
@@ -455,8 +455,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E4%B8%9C%E6%96%B9Project/" rel="tag"># 东方Project</a>
               <a href="/tags/%E8%80%83%E5%8F%A4/" rel="tag"># 考古</a>
+              <a href="/tags/%E4%B8%9C%E6%96%B9Project/" rel="tag"># 东方Project</a>
               <a href="/tags/%E6%A0%87%E5%87%86/" rel="tag"># 标准</a>
           </div>
 
@@ -652,13 +652,57 @@
   </div>
 
   
+
+
+  
+  <style>
+  
+  button.darkmode-toggle, .darkmode-layer {
+  z-index: 500;
+  }
+
+  
+  img, .darkmode-ignore {
+    isolation: isolate;
+    display: block;
+  }
+  </style>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+  <script src="/lib/darkmode-js/lib/darkmode-js.min.js"></script>
+
+
+
+<script>
+var options = {
+  bottom: '64px', // default: '32px'
+  right: '32px', // default: '32px'
+  left: 'unset', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#f5f7f9',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: false, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: false // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
+// window.onload = function(){
+//   setTimeout(
+//     function() {
+//       document.getElementsByClassName('darkmode-toggle')[0].click();
+//     },
+//     550,
+//   );
+//   document.getElementsByClassName('darkmode-toggle')[0].click();
+// }
+</script><script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
 <script src="/js/schemes/pisces.js?v=7.4.1"></script>
 <script src="/js/next-boot.js?v=7.4.1"></script>
   <script>

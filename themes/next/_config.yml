@@ -1136,4 +1136,4 @@ js: js
 images: images
 
 # darkmode.js
-darkmode_js: true
+darkmode_js: false

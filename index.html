@@ -125,13 +125,13 @@
   
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
   <div class="aplayer" 
-  data-id="31128857" 
+  data-id="90998883" 
   data-server="netease" 
   data-type="playlist" 
   data-fixed="true" 
   data-autoplay="true" 
   data-order="random" 
-  data-volume="0.55" 
+  data-volume="0.40" 
   data-theme="#cc543a" 
   data-preload="auto" >
   </div>
@@ -260,6 +260,136 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/" class="post-title-link" itemprop="url">能不能好好上网-壹：搭建IPv6私有云盘</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-09 02:54:46" itemprop="dateCreated datePublished" datetime="2020-08-09T02:54:46+08:00">2020-08-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>能不能好好上网？</strong></p>
+<p>在中国，很难。</p>
+<h1 id="故事背景"><a href="#故事背景" class="headerlink" title="故事背景"></a>故事背景</h1><p>我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。</p>
+<p><img src="https://i.loli.net/2020/08/05/FcrqSmxuBWz9e8a.png" alt="远程桌面连接"></p>
+<p>到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？</p>
+<p>以此为契机，我了解到了局域网，IP和3389端口的概念——巧合的是，我目前的手机尾号就是<code>3389</code>，而前半部分则恰好可以写作一个IPv4地址。那时，中国的网络用户数量远不如今天，大部分设备都有公网IP。可能也正因如此，诸如CS1.6，War3和东方非想天则一类基于IP联机的游戏能够风靡一时。</p>
+<p>时代变了。匮乏的IPv4地址资源遇上万物互联的爆发式增长势头，NAT一层套一层，再也没法畅快地IP直连，人们在网络里也像居住于水泥丛林间的鸽子笼，失却了那种田间地头吆喝一嗓子的快意。</p>
+<p>在演变到今天状况的前两年，大家还有动态的公网IPv4地址，而不是被圈养在运营商的“大内网”里，那段时间我还能进行一些“叠床架屋”的操作来胡作非为。</p>
+<p>我在树莓派上弄了一个简单的Python脚本，每隔一小时检查路由器的公网IP，如果发生了变动就用邮件形式发出通知。再配合路由器上配置的IP-MAC绑定和端口转发，我就能在外访问到局域网里某台设备的具体端口。虽然后来改用了更方便的TeamViewer，但很长一段时间里，我就是这样在实验课机房里连接寝室中的台式机来写代码的。如今看来，我这操作基本就是实现了一个“低配版”的DDNS服务。</p>
+<p>那么，说回现在。</p>
+<h1 id="无源光网络PON"><a href="#无源光网络PON" class="headerlink" title="无源光网络PON"></a>无源光网络PON</h1><p>这半个多月的培训期间我虽然挺摸，但也不是白学的。</p>
+<p>首先，要从网络的宏观结构讲起。放到可能是最宏观的角度，整个通信网络就分为三层：</p>
+<ol>
+<li>核心层</li>
+<li>汇聚层</li>
+<li>接入层</li>
+</ol>
+<p><code>PON</code>(Passive Optical Network)所在的就是接入层。简而言之，它不用电，而是用完全的光线路将终端设备与“局端”，即运营商的机房连接起来。</p>
+<p>这个过程中，运营商机房里的终端设备叫做光线路终端<code>OLT</code>(Optical Line Terminal)。</p>
+<p><img src="https://i.loli.net/2020/08/06/H6TtIV3QYKRnZek.jpg" alt="烽火OLT AN6000"></p>
+<p>从OLT延伸出其的线路则称为光分配网<code>ODN</code>(Optical Distribution Network)，由光纤光缆和光缆交接箱、光分路器等各种设备组成，最终把机房的光纤连入千家万户。</p>
+<p><img src="https://i.loli.net/2020/08/06/pWMHZyJ2tDA8Sua.jpg" alt="光交箱"></p>
+<p>你家弱电箱里连接光纤的“光猫”属于光网络单元<code>ONU</code>(Optical Network Unit)。它最重要的功能就是拨号，并将接收到的光信号转换成电信号，再通过以太网线连接其他设备。不过，现在的ONU大多还集成了无线路由器，就如下图所示，它甚至能使用双频WiFi兼顾穿墙和大带宽的功能。</p>
+<p><img src="https://i.loli.net/2020/08/08/zCWKXgnjQtHGDm2.jpg" alt="ONU"></p>
+<h1 id="路由？桥接？"><a href="#路由？桥接？" class="headerlink" title="路由？桥接？"></a>路由？桥接？</h1><p>光猫有两种工作模式：“路由”与“桥接”。</p>
+<p>默认情况下，光猫以“路由”模式工作。此时它身兼数职，有些“融合终端”类型的设备甚至还要充当IPTV机顶盒。可它毕竟是办宽带的时候100块钱就给你装上的玩意，其无线热点质量当然没法和专职的无线路由器媲美。现在的无线路由器大多也内置了拨号能力，如果我们让专业的设备做专业的事，即让路由器负责拨号和无线热点，而仅仅将光猫作为一个无情的光电转换器，二者的负载会平衡许多。</p>
+<p>这就是光猫的“桥接”模式。除了性能上的考虑，更重要的是，这样做可以少去光猫上的一层NAT，让你的局域网设备可以通过路由器直接接入广域网，而不是被光猫再设一道卡。如果要像我曾经做的那样在外访问家中的局域网设备，改桥接是必不可少的。</p>
+<p>那么，怎么改呢？</p>
+<p>关于这一点其实已经有很多讨论，搜一搜“光猫 改桥接”就能出来一大堆。实际情况虽然根据运营商和设备型号的区别会有些许不同，但总体流程上依然大同小异。</p>
+<p>关键是要拿到配置页面的超级管理员密码：移动写在设备背面铭牌上，联通直接就是<code>CUAdmin</code>，电信则比较麻烦，可能得用Telnet从光猫里获取一个配置文件才能找到。</p>
+<p>改好桥接，光猫就失去了拨号上网的功能。接下来就需要插上无线路由器，在路由器的配置页面里设置宽带账号和密码，进行PPPoE拨号。</p>
+<p><img src="https://i.loli.net/2020/08/09/4cAU1RgiLjKJamB.png" alt="路由器拨号"></p>
+<h1 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h1><p>按说现在就可以故技重施，为路由器配置IP-MAC绑定和端口转发，然后用公网IP来搞事了。可正如我之前所说，现在哪还有什么公网IP，你能查到的不过是运营商“大内网”里的IP罢了。</p>
+<p>我不信邪，要试试前几年被网友实践过无数次的法子：打电话给运营商人工客服，宣称家里需要装摄像头/远程办公，希望分配动态公网IP。然后，再补上万能的“财富密码”——<strong>工、信、部</strong>。</p>
+<p>然而依然是搞不定，到v2ex上一查也发现湖北联通确实早就弄不到公网IP了。</p>
+<p><img src="https://i.loli.net/2020/08/09/rb1OJq4QTuMNzvf.jpg" alt="无公网IP"></p>
+<p>但是，真的就没有了吗？既然分不到IPv4的资源，那就用IPv6。</p>
+<p>IPv4的地址分为4段，每一段都是<code>0</code>到<code>255</code>之间的256个数之一，能表示的数量才四十多亿个；而IPv6则足足分了8段，每段甚至可以是<code>0x0000</code>到<code>0xffff</code>之间的65535个数之一。IPv6能表示的数量多得不可想象，完全不需要使用NAT这种饱受诟病的东西，大家是切实地连接在同一张网上。</p>
+<p>建设基于IPv6的下一代互联网早已是一项重要任务，虽由于各种历史遗留问题推进得比较缓慢，发展到今天也已小有成果。大部分的4G/5G移动网络完全支持IPv6；固网宽带基本实现了IPv6/v4的双协议栈共存，只要将拨号设备的IPv6功能开启，就能得到两个地址，而那个IPv6地址可就是“正真正銘”的公网IP了。</p>
+<p>正好，我使用的小米路由器就支持开启IPv6。</p>
+<p><img src="https://i.loli.net/2020/08/09/7wRjS3lHJ1OgyvL.png" alt="IPv6设置"></p>
+<p><a href="https://www.test-ipv6.com/" target="_blank" rel="noopener">IPv6连接测试</a>全绿，爽到！你甚至可以现在就用手机流量/WiFi环境试一试能否接入IPv6网络。</p>
+<p><img src="https://i.loli.net/2020/08/09/5SJeWwB8DVXquh6.png" alt="测试结果"></p>
+<h1 id="DDNS"><a href="#DDNS" class="headerlink" title="DDNS"></a>DDNS</h1><p>这下公网IP也有了，可我在外怎么知道自己的IP呢？难道还像以前一样自动定时检查然后发邮件通知？</p>
+<p>对了，合理的方法就是使用动态域名服务DDNS(Dynamic Domain Name Server)。</p>
+<p>网络建立在IP地址的基础上，它虽然适合计算机处理运算，但不方便人类记忆，所以才引入了域名。当我们用域名(网址)访问一个网站时，其实要先找DNS服务器将域名转换成IP地址，这类似于打114查号台进行电话导航。也许你还知道hosts文件，它相当于一本“私人通讯录”，假如你要去的网站在hosts里有对应的IP，就没必要费事去DNS查了。</p>
+<p>而DDNS是这样的：张三是一个法外狂徒，每隔几天就要换新手机号，但又希望同伙能找到他。所以，张三一换号就告诉查号台自己的新号码。想联系的人只管对查号台说“我找张三”，虽然每次得到的号码可能都不一样，但接电话的肯定是张三本人。</p>
+<p>这个例子中，查号台是DNS服务器，张三本人是网站，“张三”这个名字是域名，而张三的手机号就是IP地址——很容易理解吧？</p>
+<p>所以，如果要实现DDNS，还需要一个域名。这个网站的域名“hakurei.red”正是我去年花16元在阿里云上注册的，主域名已经拿来做了博客，用子域名“shrine.hakurei.red”做DDNS正合适。</p>
+<p>我使用的工具是GitHub上开源的<a href="https://github.com/xuchao1213/AliyunDdnsCSharp" target="_blank" rel="noopener">xuchao1213/AliyunDdnsCSharp</a>。看名字就知道它由C#开发，干净得不得了，只要在配置文件里简单填上几项就能生成一个Windows服务，自动实现DDNS的功能。最棒的是，它支持IPv6。</p>
+<h1 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h1><p>IP有了，域名也绑上了——接下来就测试下能不能从外网连接上吧。用Live Server把网站弄到890端口上试试？</p>
+<p><code>ERR_CONNECTION_REFUSED</code></p>
+<p>这是典型的防火墙问题。</p>
+<p>在Windows防火墙里打开了对应端口的TCP和UDP连接——问题依旧。</p>
+<p>在小米WiFi App的安全中心里关闭了各种防火墙——问题依旧。</p>
+<p>没辙了。上网一查，原来小米路由器还有针对IPv6的防火墙，可是目前并没有界面给用户调。唯一的办法，是破解路由器的SSH连接，再连入路由器的Linux系统手动修改位于<code>/ect/config/firewall</code>的配置文件。类似的操作我曾经还真的做过好多次，那时是为了让路由器连接在纽约搭建的V2Ray服务器实现科学上网，因此这次也是驾轻就熟。</p>
+<p>由于80等默认的WEB服务端口被运营商封锁，我选择了使用890端口。开启IPv6协议890端口的入站规则配置如下：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">config <span class="keyword">rule</span></span><br><span class="line">	<span class="keyword">option</span> src <span class="string">'wan'</span></span><br><span class="line">	<span class="keyword">option</span> <span class="keyword">family</span> <span class="string">'ipv6'</span></span><br><span class="line">	<span class="keyword">option</span> target <span class="string">'ACCEPT'</span></span><br><span class="line">	<span class="keyword">option</span> dest <span class="string">'lan'</span></span><br><span class="line">	<span class="keyword">option</span> <span class="type">name</span> <span class="string">'Allow-890'</span></span><br><span class="line">	<span class="keyword">option</span> dest_port <span class="string">'890'</span></span><br></pre></td></tr></table></figure>
+
+<p>随后重新加载一下，让新规则生效：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/firewall reload</span><br></pre></td></tr></table></figure>
+
+<p>接下来，只要我电脑上的服务器开着，就能通过<a href="http://shrine.hakurei.red:890" target="_blank" rel="noopener">shrine.hakurei.red:890</a>访问到它了。</p>
+<h1 id="Cloudreve"><a href="#Cloudreve" class="headerlink" title="Cloudreve"></a>Cloudreve</h1><p>端口已经成功打开，放点什么上去呢？</p>
+<p>一开始，我尝试了最简单的静态文件服务器<a href="https://github.com/JacksonTian/anywhere" target="_blank" rel="noopener">JacksonTian/anywhere</a>，把一些漫画和动画放了进去。但文件服务器毕竟是为了获取文件，不方便在线浏览，比如没法给漫画翻页，得一张张地打开；PDF文件更是必须完整下载然后在本地阅读。</p>
+<p>还是整点复杂的吧——比如很多神秘网站使用的网盘系统<a href="https://github.com/cloudreve/Cloudreve" target="_blank" rel="noopener">cloudreve/Cloudreve</a>。这个国产项目完全采用Material Design风格，几个月前还用Go语言重构，如今开箱即用，体验十分优良。</p>
+<p><img src="https://i.loli.net/2020/08/09/HRexs5kK2mGfo9n.png" alt="Cloudreve.png"></p>
+<p>由于没有公共文件夹功能，我将自己上传的<a href="http://shrine.hakurei.red:890/#/s/EDHD" target="_blank" rel="noopener">书库</a>通过分享链接贴在这里。能连上的话说明你运气不错，毕竟谁知道我啥时候会开服务器呢？</p>
+<p>还是要说句：能不能好好上网？</p>
+<p>下面这句话写于1987年，它其实并不是中国的第一封电子邮件，但它所代表的精神永远值得传承：</p>
+<blockquote>
+<p>Across the Great Wall we can reach every corner in the world.<br>（越过长城，走向世界。）</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -468,80 +598,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">C#杂记之伍：数组与集合</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-15 00:08:01" itemprop="dateCreated datePublished" datetime="2020-04-15T00:08:01+08:00">2020-04-15</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>数组可以说是在任何语言中都非常基本的数据结构了。这篇笔记以C#中的数组为引，再延伸到C#的几种集合类(Collections)以及一些相关的基本概念。</p>
-<h1 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>数组存储相同种类的元素，其大小固定，且是顺序存储的，即在内存中占据一段连续的地址。</p>
-<p>数组作为一种引用类型(其基类是System.Array)，需要用<code>new</code>来创建实例。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化时指定大小</span></span><br><span class="line"><span class="keyword">double</span>[] balance = <span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以直接赋值来初始化</span></span><br><span class="line"><span class="keyword">int</span>[] marks = &#123;<span class="number">99</span>, <span class="number">98</span>, <span class="number">92</span>, <span class="number">97</span>, <span class="number">95</span>&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>初始化而尚未赋值的数组，编译器会根据其类型隐式地将所有元素设置为默认值。</p>
-<p>数组最大的特点还是能够用下标索引来随机访问其中的元素：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> salary = balance[<span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下是C# 8.0引入的好东西！</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//末尾运算符 ^ </span></span><br><span class="line"><span class="comment">//[^n]表示[length-n]，类似Python用负数索引[-n]表示[length-n]</span></span><br><span class="line"><span class="keyword">double</span> salary = balance[^<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//范围运算符 ..</span></span><br><span class="line"><span class="comment">//[a..b]表示从[a]到[b]的范围(但不包含[b]！)，类似Python的切片[a:b]</span></span><br><span class="line"><span class="comment">//省略a代表0，省略b代表^0</span></span><br><span class="line"><span class="keyword">double</span>[] salaries1 = balance[..^<span class="number">3</span>];</span><br><span class="line"><span class="comment">//如果a比b还大，会抛出异常(Python中则是返回空列表)</span></span><br><span class="line"><span class="keyword">double</span>[] salaries2 = balance[<span class="number">3.</span><span class="number">.2</span>];     <span class="comment">//ArgumentOutOfRangeException</span></span><br><span class="line"><span class="comment">//a和b一样大时，返回长度为0的集合</span></span><br><span class="line"><span class="keyword">double</span>[] salaries3 = balance[<span class="number">3.</span><span class="number">.3</span>];</span><br><span class="line">Console.WriteLine(salaries3.Length);   <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
-
-<p>由于实现了<code>IEnumerable</code>接口，数组可以使用<code>foreach...in...</code>的方式进行迭代访问，还可以使用LINQ，这样就无需获取数组长度再用for循环迭代了。关于这个接口及其相关的内容，我在本文稍后的部分记述。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -592,14 +648,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

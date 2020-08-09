@@ -60,7 +60,7 @@
 <p>这是典型的防火墙问题。</p>
 <p>在Windows防火墙里打开了对应端口的TCP和UDP连接——问题依旧。</p>
 <p>在小米WiFi App的安全中心里关闭了各种防火墙——问题依旧。</p>
-<p>没辙了。上网一查，原来小米路由器还有针对IPv6的防火墙，可是目前并没有界面给用户调。唯一的办法，是破解路由器的SSH连接，再连入路由器的Linux系统手动修改位于<code>/ect/config/firewall</code>的配置文件。类似的操作我曾经还真的做过好多次，那时是为了让路由器连接在纽约搭建的V2Ray服务器实现科学上网，因此这次也是驾轻就熟。</p>
+<p>没辙了。上网一查，原来小米路由器还有针对IPv6的防火墙，可是目前并没有界面给用户调。唯一的办法，是破解路由器的SSH连接，再连入路由器的Linux系统手动修改位于<code>/etc/config/firewall</code>的配置文件。类似的操作我曾经还真的做过好多次，那时是为了让路由器连接在纽约搭建的V2Ray服务器实现科学上网，因此这次也是驾轻就熟。</p>
 <p>由于80等默认的WEB服务端口被运营商封锁，我选择了使用890端口。开启IPv6协议890端口的入站规则配置如下：</p>
 <figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">config <span class="keyword">rule</span></span><br><span class="line">	<span class="keyword">option</span> src <span class="string">'wan'</span></span><br><span class="line">	<span class="keyword">option</span> <span class="keyword">family</span> <span class="string">'ipv6'</span></span><br><span class="line">	<span class="keyword">option</span> target <span class="string">'ACCEPT'</span></span><br><span class="line">	<span class="keyword">option</span> dest <span class="string">'lan'</span></span><br><span class="line">	<span class="keyword">option</span> <span class="type">name</span> <span class="string">'Allow-890'</span></span><br><span class="line">	<span class="keyword">option</span> dest_port <span class="string">'890'</span></span><br></pre></td></tr></table></figure>
 
@@ -72,7 +72,7 @@
 <p>一开始，我尝试了最简单的静态文件服务器<a href="https://github.com/JacksonTian/anywhere" target="_blank" rel="noopener">JacksonTian/anywhere</a>，把一些漫画和动画放了进去。但文件服务器毕竟是为了获取文件，不方便在线浏览，比如没法给漫画翻页，得一张张地打开；PDF文件更是必须完整下载然后在本地阅读。</p>
 <p>还是整点复杂的吧——比如很多神秘网站使用的网盘系统<a href="https://github.com/cloudreve/Cloudreve" target="_blank" rel="noopener">cloudreve/Cloudreve</a>。这个国产项目完全采用Material Design风格，几个月前还用Go语言重构，如今开箱即用，体验十分优良。</p>
 <p><img src="https://i.loli.net/2020/08/09/HRexs5kK2mGfo9n.png" alt="Cloudreve.png"></p>
-<p>由于没有公共文件夹功能，我将自己上传的<a href="http://shrine.hakurei.red:890/#/s/EDHD" target="_blank" rel="noopener">书库</a>通过分享链接贴在这里。能连上的话说明你运气不错，毕竟谁知道我啥时候会开服务器呢？</p>
+<p>由于没有公共文件夹功能，我将自己上传的<a href="http://shrine.hakurei.red:890/#/s/EDHD" target="_blank" rel="noopener">书库</a>通过分享链接贴在这里。能连上的话说明你运气不错，毕竟我不会时刻开着服务器，DDNS的更新也并不总是及时。</p>
 <p>还是要说句：能不能好好上网？</p>
 <p>下面这句话写于1987年，它其实并不是中国的第一封电子邮件，但它所代表的精神永远值得传承：</p>
 <blockquote>

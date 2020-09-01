@@ -11,7 +11,6 @@ NexT.boot.registerEvents = function() {
   document.querySelector('.site-nav-toggle .toggle').addEventListener('click', () => {
     event.currentTarget.classList.toggle('toggle-close');
     var siteNav = document.querySelector('.site-nav');
-    // var sideBar = document.querySelector('.sidebar');
     var animateAction = siteNav.classList.contains('site-nav-on') ? 'slideUp' : 'slideDown';
 
     if (typeof Velocity === 'function') {
@@ -21,12 +20,6 @@ NexT.boot.registerEvents = function() {
           siteNav.classList.toggle('site-nav-on');
         }
       });
-      // Velocity(sideBar, animateAction, {
-      //   duration: 200,
-      //   complete: function() {
-      //     sideBar.classList.toggle('sidebar');
-      //   }
-      // });
     } else {
       siteNav.classList.toggle('site-nav-on');
     }
@@ -95,6 +88,7 @@ NexT.boot.refresh = function() {
   CONFIG.copycode.enable && NexT.utils.registerCopyCode();
   NexT.utils.registerTabsTag();
   NexT.utils.registerActiveMenuItem();
+  NexT.utils.registerLangSelect();
   NexT.utils.registerSidebarTOC();
   NexT.utils.wrapTableWithBox();
   NexT.utils.registerVideoIframe();
@@ -109,12 +103,11 @@ NexT.boot.motion = function() {
       .add(NexT.motion.middleWares.postList)
       .add(NexT.motion.middleWares.sidebar)
       .bootstrap();
-  } else {
-    NexT.utils.updateSidebarPosition();
   }
+  NexT.utils.updateSidebarPosition();
 };
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   NexT.boot.registerEvents();
   NexT.boot.refresh();
   NexT.boot.motion();

@@ -47,6 +47,7 @@
 
   <!-- APlayer end -->
 
+<!--TypeKit start-->
 <script>
   (function(d) {
     var config = {
@@ -57,6 +58,7 @@
     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
   })(document);
 </script>
+<!--TypeKit end-->
 
   <div class="container{%- if theme.motion.enable %} use-motion{%- endif %}">
     <div class="headband"></div>
@@ -71,7 +73,7 @@
       <div class="main-inner">
         <div class="content-wrap">
           {% include '_partials/header/sub-menu.swig' %}
-          <div class="content">
+          <div class="content {% block class %}{% endblock %}">
             {% block content %}{% endblock %}
           </div>
           {% include '_partials/comments.swig' %}
@@ -84,9 +86,9 @@
 
     <footer class="footer">
       <div class="footer-inner">
+        {% include '_partials/languages.swig' %}
         {{ partial('_partials/footer.swig', {}, {cache: theme.cache.enable}) }}
-        {{ partial('_partials/analytics/index.swig', {}, {cache: theme.cache.enable}) }}
-        {% block footer %}{% endblock %}
+        {{ partial('_third-party/statistics/index.swig', {}, {cache: theme.cache.enable}) }}
       </div>
     </footer>
   </div>
@@ -97,25 +99,12 @@
   {%- if theme.pjax %}
     <div id="pjax">
   {%- endif %}
-
   {% include '_third-party/math/index.swig' %}
   {% include '_third-party/quicklink.swig' %}
-  {% include '_third-party/vkontakte-api.swig' %}
 
   {{- next_inject('bodyEnd') }}
-
   {%- if theme.pjax %}
     </div>
   {%- endif %}
 </body>
-<div id="contentleft">
-  <div class="aplayer" 
-  data-fixed="true" 
-  data-autoplay="true" 
-  data-order="random" 
-  data-volume="0.55" 
-  data-theme="#cc543a" 
-  data-preload="auto" 
-  ></div>
-</div>
 </html>

@@ -3,11 +3,12 @@
 }
 
 .posts-expand .post-title {
-  word-wrap();
+  font-size: $font-size-largest;
   font-weight: $font-weight-bolder;
   margin: initial;
   color: $cpc;
   text-align: center;
+  word-wrap();
 
   if (hexo-config('post_edit.enable')) {
     .post-edit-link {
@@ -16,15 +17,15 @@
       display: inline-block;
       float: right;
       font-size: $font-size-larger;
-      the-transition-ease-in();
       margin-left: -1.2em;
+      the-transition-ease-in();
 
       +mobile-small() {
         margin-left: initial;
       }
 
       &:hover {
-        color: black;
+        color: $sidebar-highlight;
       }
     }
   }
@@ -38,7 +39,7 @@
   vertical-align: top;
 
   &::before {
-    background $cpc;
+    background: $cpc;
     bottom: 0;
     content: '';
     height: 2px;
@@ -55,7 +56,7 @@
     visibility: visible;
   }
 
-  .fa {
+  .fa-external-link-alt {
     font-size: $font-size-small;
     margin-left: 5px;
   }

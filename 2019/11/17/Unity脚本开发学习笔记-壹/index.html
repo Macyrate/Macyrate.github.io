@@ -4,76 +4,54 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#CC543A">
-<meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#CC543A">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#CC543A">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":true},
-    copycode: {"enable":true,"show_result":true,"style":"flat"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#CC543A","save":"auto"},
-    fancybox: true,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hakurei.red","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#CC543A","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
 
   <meta name="description" content="这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。 这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。 我所阅览的是由风农发布在bilibili的翻译版。 Awake() 和 Start()这两个函数用于做一些前置性工作。 不同之处在于，Awake()只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而Start()则在Aw">
-<meta name="keywords" content="Unity,C Sharp,游戏,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Unity脚本开发学习笔记 壹">
-<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2019&#x2F;11&#x2F;17&#x2F;Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9&#x2F;index.html">
+<meta property="og:url" content="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/index.html">
 <meta property="og:site_name" content="博丽流芳分社 | Macyrate">
 <meta property="og:description" content="这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。 这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。 我所阅览的是由风农发布在bilibili的翻译版。 Awake() 和 Start()这两个函数用于做一些前置性工作。 不同之处在于，Awake()只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而Start()则在Aw">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;12&#x2F;Y3NegGcqRf1EUOM.jpg">
-<meta property="og:updated_time" content="2020-01-24T03:13:44.765Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/01/12/Y3NegGcqRf1EUOM.jpg">
+<meta property="article:published_time" content="2019-11-17T14:03:38.000Z">
+<meta property="article:modified_time" content="2019-11-17T14:03:38.000Z">
+<meta property="article:author" content="Macyrate">
+<meta property="article:tag" content="Unity">
+<meta property="article:tag" content="游戏">
+<meta property="article:tag" content="C Sharp">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;12&#x2F;Y3NegGcqRf1EUOM.jpg">
-  <link rel="canonical" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
+<meta name="twitter:image" content="https://i.loli.net/2020/01/12/Y3NegGcqRf1EUOM.jpg">
 
 
-<script id="page-configurations">
+<link rel="canonical" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
+
+
+<script data-pjax class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -85,35 +63,45 @@
 
 
 
-
-
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <!-- APlayer start -->
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+ <!-- APlayer start -->
 
   <!-- Native Mode
 
@@ -150,6 +138,7 @@
 
   <!-- APlayer end -->
 
+<!--TypeKit start-->
 <script>
   (function(d) {
     var config = {
@@ -160,61 +149,60 @@
     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
   })(document);
 </script>
+<!--TypeKit end-->
 
   <div class="container use-motion">
-    <div class="headband"></div>
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta custom-logo">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span> 
-        <img src="https://i.loli.net/2020/07/16/efIqXZQjrg9n5hs.png" > 
-        </span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    <!--
-      <a>
-        <img class="custom-logo-image" src="https://i.loli.net/2020/07/16/efIqXZQjrg9n5hs.png" alt="博丽流芳分社 | Macyrate">
-      </a>
-    -->
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <img src="https://i.loli.net/2020/07/16/efIqXZQjrg9n5hs.png" > 
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-lab">
 
-    <a href="/lab/" rel="section"><i class="fa fa-fw fa-flask"></i>实验</a>
+    <a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>lab</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -222,179 +210,47 @@
         </a>
       </li>
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          Unity脚本开发学习笔记 壹
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-17 22:03:38" itemprop="dateCreated datePublished" datetime="2019-11-17T22:03:38+08:00">2019-11-17</time>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。</p>
-<p>这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。</p>
-<p>我所阅览的是由<a href="https://space.bilibili.com/7647261" target="_blank" rel="noopener">风农</a>发布在bilibili的翻译版。</p>
-<h2 id="Awake-和-Start"><a href="#Awake-和-Start" class="headerlink" title="Awake() 和 Start()"></a>Awake() 和 Start()</h2><p>这两个函数用于做一些前置性工作。</p>
-<p>不同之处在于，<code>Awake()</code>只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而<code>Start()</code>则在<code>Awake()</code>之后执行，且脚本必须被使能。</p>
-<h2 id="Update-和-FixedUpdate"><a href="#Update-和-FixedUpdate" class="headerlink" title="Update() 和 FixedUpdate()"></a>Update() 和 FixedUpdate()</h2><p><code>Update()</code>很简单，每一帧调用一次。但显然，每一帧的渲染时间不会是一致的，即调用<code>Update()</code>的间隔时间不确定，这就导致如果我们把物理效果放到<code>Update()</code>里，会导致物理效果不太流畅。</p>
-<p>为了保证物理运动与时间之间的紧密联系，应该使用<code>FixedUpdate()</code>。顾名思义，这是“固定的”Update，即间隔时间可以保持一致。间隔时间由<code>Time.fixedDeltaTime</code>决定，默认的时间是<code>0.02s</code>，一秒钟调用50次。</p>
-<h2 id="坐标与向量"><a href="#坐标与向量" class="headerlink" title="坐标与向量"></a>坐标与向量</h2><p>Unity使用左手坐标系，三轴的相对位置依照下图所示。与数学立体几何中的一般表示不同，在这里Z轴代表的是“深度”而不是“高度”。</p>
-<p><img src="https://i.loli.net/2020/01/12/Y3NegGcqRf1EUOM.jpg" alt="左手坐标系"></p>
-<p>Unity包含了一些用于进行向量运算的方法，它们基本被放在<code>Vector2</code>和<code>Vector3</code>类里。</p>
-<p><code>Vector3</code>里包含了一些常用向量，以(0,0,1)为<code>forward</code>（依照上面的坐标手势，中指指向前面），有<code>up</code>、<code>down</code>、<code>left</code>、<code>right</code>、<code>back</code>，以及(0,0,0)的<code>zero</code>和(1,1,1)的<code>one</code>。<code>Vector2</code>里没有z轴，故没有<code>forward</code>和<code>back</code>。</p>
-<h2 id="游戏对象、组件，及其开关"><a href="#游戏对象、组件，及其开关" class="headerlink" title="游戏对象、组件，及其开关"></a>游戏对象、组件，及其开关</h2><p>一个游戏对象（GameObject）可以拥有多个组件（Component）。</p>
-<p>比如一个简单的点光源，其本身是一个<code>GameObject</code>。首先它有一个<code>Transform</code>组件标示其位置、旋转、缩放等信息，还得有一个<code>Light</code>组件让它发光。也许，还有若干用于控制这个点光源的脚本组件。</p>
-<p>如果我们关闭这个游戏对象（我们把它叫做激活/停用），那么这个灯整个就从场景中消失了。用游戏对象的<code>SetActive(bool value)</code>方法来实现这一点。</p>
-<p>需要注意的是，如果游戏对象有多层结构，将一个父对象停用并不会使其子对象停用（虽然效果上，子对象也消失了）。查看一个对象到底是在层级中被激活还是本身确实在场景里激活了，可以用游戏对象的activeInHierarchy()和activeSelf()方法来确定。</p>
-<p>要关掉灯，除了让灯凭空消失，我们当然还有更正常的做法。每一个组件都有一个bool类型的<code>enabled</code>标志位，只要把这个标志位设为<code>false</code>，就能去使能（禁用）这个组件。如将点光源的<code>Light</code>组件禁用，光是没了，但灯依然还在原处。</p>
-<blockquote>
-<p>今天先记到这里好了。</p>
-</blockquote>
 
     </div>
-
-    
-    
-    
-        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
-  <img id="wechat_subscriber_qcode" src="https://i.loli.net/2020/04/15/glvwN8eEY3MHiTS.png" alt="Macyrate wechat" style="width: 200px; max-width: 100%;">
-  <div>唯一指定微信</div>
-</div>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Unity/" rel="tag"># Unity</a>
-              <a href="/tags/C-Sharp/" rel="tag"># C Sharp</a>
-              <a href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag"># 游戏</a>
-              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/02/191102/" rel="next" title="191102">
-                  <i class="fa fa-chevron-left"></i> 191102
-                </a>
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0/" rel="prev" title="Unity脚本开发学习笔记 贰">
-                  Unity脚本开发学习笔记 贰 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
   </div>
 
-
-          </div>
-          
-    <div class="comments" id="gitalk-container"></div>
-
-        </div>
-          
+</div>
+        
   
   <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
 
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -404,24 +260,24 @@
       </ul>
 
       <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Awake-和-Start"><span class="nav-number">1.</span> <span class="nav-text">Awake() 和 Start()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Update-和-FixedUpdate"><span class="nav-number">2.</span> <span class="nav-text">Update() 和 FixedUpdate()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坐标与向量"><span class="nav-number">3.</span> <span class="nav-text">坐标与向量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游戏对象、组件，及其开关"><span class="nav-number">4.</span> <span class="nav-text">游戏对象、组件，及其开关</span></a></li></ol></div>
-      </div>
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Awake-%E5%92%8C-Start"><span class="nav-number">1.</span> <span class="nav-text">Awake() 和 Start()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Update-%E5%92%8C-FixedUpdate"><span class="nav-number">2.</span> <span class="nav-text">Update() 和 FixedUpdate()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9D%90%E6%A0%87%E4%B8%8E%E5%90%91%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">坐标与向量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E3%80%81%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%8F%8A%E5%85%B6%E5%BC%80%E5%85%B3"><span class="nav-number">4.</span> <span class="nav-text">游戏对象、组件，及其开关</span></a></li></ol></div>
+      </section>
       <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Macyrate"
-    src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Macyrate"
+      src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
   <p class="site-author-name" itemprop="name">Macyrate</p>
   <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -433,28 +289,27 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/Macyrate" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/Macyrate" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:macyrate@foxmail.com" title="E-Mail &amp;rarr; mailto:macyrate@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:macyrate@foxmail.com" title="E-Mail → mailto:macyrate@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/6010944415" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;6010944415" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/6010944415" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;6010944415" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://steamcommunity.com/profiles/76561198313695590/" title="Steam &amp;rarr; https:&#x2F;&#x2F;steamcommunity.com&#x2F;profiles&#x2F;76561198313695590&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-steam"></i>Steam</a>
+        <a href="https://steamcommunity.com/profiles/76561198313695590/" title="Steam → https:&#x2F;&#x2F;steamcommunity.com&#x2F;profiles&#x2F;76561198313695590&#x2F;" rel="noopener" target="_blank"><i class="fab fa-steam fa-fw"></i>Steam</a>
       </span>
   </div>
-  <div class="cc-license motion-element" itemprop="license">
+  <div class="cc-license animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+  <div class="links-of-blogroll animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
@@ -479,21 +334,187 @@
     </ul>
   </div>
 
-      </div>
-
+      </section>
     </div>
   </aside>
-  <div id="sidebar-dimmer"></div>
+  <div class="sidebar-dimmer"></div>
 
 
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/17/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Unity脚本开发学习笔记 壹
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-11-17 22:03:38" itemprop="dateCreated datePublished" datetime="2019-11-17T22:03:38+08:00">2019-11-17</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>这两周，实验室并不是很忙，而且毕业设计也将要开始选题了，我终于开始如上次说的，开始学习C#和Unity。</p>
+<p>这篇日志是在学习了Unity的官方视频教程之后记录的一些理解。</p>
+<p>我所阅览的是由<a target="_blank" rel="noopener" href="https://space.bilibili.com/7647261">风农</a>发布在bilibili的翻译版。</p>
+<h2 id="Awake-和-Start"><a href="#Awake-和-Start" class="headerlink" title="Awake() 和 Start()"></a>Awake() 和 Start()</h2><p>这两个函数用于做一些前置性工作。</p>
+<p>不同之处在于，<code>Awake()</code>只要脚本被加载就会执行，即使脚本没有被使能（也就是勾上）。而<code>Start()</code>则在<code>Awake()</code>之后执行，且脚本必须被使能。</p>
+<h2 id="Update-和-FixedUpdate"><a href="#Update-和-FixedUpdate" class="headerlink" title="Update() 和 FixedUpdate()"></a>Update() 和 FixedUpdate()</h2><p><code>Update()</code>很简单，每一帧调用一次。但显然，每一帧的渲染时间不会是一致的，即调用<code>Update()</code>的间隔时间不确定，这就导致如果我们把物理效果放到<code>Update()</code>里，会导致物理效果不太流畅。</p>
+<p>为了保证物理运动与时间之间的紧密联系，应该使用<code>FixedUpdate()</code>。顾名思义，这是“固定的”Update，即间隔时间可以保持一致。间隔时间由<code>Time.fixedDeltaTime</code>决定，默认的时间是<code>0.02s</code>，一秒钟调用50次。</p>
+<h2 id="坐标与向量"><a href="#坐标与向量" class="headerlink" title="坐标与向量"></a>坐标与向量</h2><p>Unity使用左手坐标系，三轴的相对位置依照下图所示。与数学立体几何中的一般表示不同，在这里Z轴代表的是“深度”而不是“高度”。</p>
+<p><img src="https://i.loli.net/2020/01/12/Y3NegGcqRf1EUOM.jpg" alt="左手坐标系"></p>
+<p>Unity包含了一些用于进行向量运算的方法，它们基本被放在<code>Vector2</code>和<code>Vector3</code>类里。</p>
+<p><code>Vector3</code>里包含了一些常用向量，以(0,0,1)为<code>forward</code>（依照上面的坐标手势，中指指向前面），有<code>up</code>、<code>down</code>、<code>left</code>、<code>right</code>、<code>back</code>，以及(0,0,0)的<code>zero</code>和(1,1,1)的<code>one</code>。<code>Vector2</code>里没有z轴，故没有<code>forward</code>和<code>back</code>。</p>
+<h2 id="游戏对象、组件，及其开关"><a href="#游戏对象、组件，及其开关" class="headerlink" title="游戏对象、组件，及其开关"></a>游戏对象、组件，及其开关</h2><p>一个游戏对象（GameObject）可以拥有多个组件（Component）。</p>
+<p>比如一个简单的点光源，其本身是一个<code>GameObject</code>。首先它有一个<code>Transform</code>组件标示其位置、旋转、缩放等信息，还得有一个<code>Light</code>组件让它发光。也许，还有若干用于控制这个点光源的脚本组件。</p>
+<p>如果我们关闭这个游戏对象（我们把它叫做激活/停用），那么这个灯整个就从场景中消失了。用游戏对象的<code>SetActive(bool value)</code>方法来实现这一点。</p>
+<p>需要注意的是，如果游戏对象有多层结构，将一个父对象停用并不会使其子对象停用（虽然效果上，子对象也消失了）。查看一个对象到底是在层级中被激活还是本身确实在场景里激活了，可以用游戏对象的activeInHierarchy()和activeSelf()方法来确定。</p>
+<p>要关掉灯，除了让灯凭空消失，我们当然还有更正常的做法。每一个组件都有一个bool类型的<code>enabled</code>标志位，只要把这个标志位设为<code>false</code>，就能去使能（禁用）这个组件。如将点光源的<code>Light</code>组件禁用，光是没了，但灯依然还在原处。</p>
+<blockquote>
+<p>今天先记到这里好了。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>A1高闪来一个好吗</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://i.loli.net/2020/04/15/glvwN8eEY3MHiTS.png" alt="Macyrate 微信">
+        <span>微信</span>
       </div>
-    </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Unity/" rel="tag"># Unity</a>
+              <a href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag"># 游戏</a>
+              <a href="/tags/C-Sharp/" rel="tag"># C Sharp</a>
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+          </div>
+
         
 
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/11/02/191102/" rel="prev" title="191102">
+                  <i class="fa fa-chevron-left"></i> 191102
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/11/18/Unity%E8%84%9A%E6%9C%AC%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%B4%B0/" rel="next" title="Unity脚本开发学习笔记 贰">
+                  Unity脚本开发学习笔记 贰 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
 <div class="copyright">
+  
   &copy; 2016 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
@@ -501,12 +522,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Macyrate & Hakurei Reimu</span>
 </div>
-  <div class="powered-by">由 <a href="https://thwiki.cc/%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6/%E4%B8%80%E8%AE%BE%E8%B5%84%E6%96%99" class="theme-link" rel="noopener" target="_blank">博麗大結界</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
@@ -515,7 +531,6 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -525,99 +540,55 @@
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
+    </div>
+  </footer>
+
   
-
-
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
-    '#page-configurations',
-    '.content-wrap',
+    '.page-configurations',
+    '.main-inner',
     '.post-toc-wrap',
-    '#pjax'
+    '.languages',
+    '.pjax'
   ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
   analytics: false,
   cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
 });
 
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.getAttribute('pjax') !== null) {
-      element.setAttribute('pjax', '');
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
   NexT.boot.refresh();
   // Define Motion Sequence & Bootstrap Motion.
   if (CONFIG.motion.enable) {
     NexT.motion.integrator
       .init()
+      .add(NexT.motion.middleWares.subMenu)
       .add(NexT.motion.middleWares.postList)
       .bootstrap();
   }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
   NexT.utils.updateSidebarPosition();
 });
 </script>
 
 
-
-
   
-  <script pjax>
+  <script data-pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -630,10 +601,7 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -645,10 +613,18 @@ window.addEventListener('pjax:success', () => {
 
 
 
-    <div id="pjax">
 
   
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
+
+
+
+
+
+
+    <div class="pjax">
   
 
   
@@ -656,31 +632,23 @@ window.addEventListener('pjax:success', () => {
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.css">
 
 <script>
+NexT.utils.loadComments('#gitalk-container', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.min.js', () => {
     var gitalk = new Gitalk({
-      clientID: 'aa2288c6cbb5322cac6b',
+      clientID    : 'aa2288c6cbb5322cac6b',
       clientSecret: '63492ee584a83a8479f1408f33e2ca04e3ef9f82',
-      repo: 'Macyrate.github.io',
-      owner: 'macyrate',
-      admin: ['macyrate'],
-      id: '977a58aed89e2549b1cbdf363609f20a',
+      repo        : 'Macyrate.github.io',
+      owner       : 'macyrate',
+      admin       : ['macyrate'],
+      id          : 'bd20f572883c49c9e760a17fe2910195',
         language: 'zh-CN',
-      distractionFreeMode: 'true'
+      distractionFreeMode: true
     });
     gitalk.render('gitalk-container');
   }, window.Gitalk);
+});
 </script>
 
     </div>
 </body>
-<div id="contentleft">
-  <div class="aplayer" 
-  data-fixed="true" 
-  data-autoplay="true" 
-  data-order="random" 
-  data-volume="0.55" 
-  data-theme="#cc543a" 
-  data-preload="auto" 
-  ></div>
-</div>
 </html>

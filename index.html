@@ -4,72 +4,46 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#CC543A">
-<meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#CC543A">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#CC543A">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":true},
-    copycode: {"enable":true,"show_result":true,"style":"flat"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#CC543A","save":"auto"},
-    fancybox: true,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hakurei.red","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#CC543A","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
 
   <meta name="description" content="&amp;nbsp;&amp;nbsp;氣霽風梳新柳髮，&amp;nbsp;&amp;nbsp;冰消浪洗舊苔須。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="博丽流芳分社 | Macyrate">
-<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;index.html">
+<meta property="og:url" content="https://hakurei.red/index.html">
 <meta property="og:site_name" content="博丽流芳分社 | Macyrate">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;氣霽風梳新柳髮，&amp;nbsp;&amp;nbsp;冰消浪洗舊苔須。">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Macyrate">
 <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="https://hakurei.red/">
 
 
-<script id="page-configurations">
+<link rel="canonical" href="https://hakurei.red/">
+
+
+<script data-pjax class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -81,35 +55,45 @@
 
 
 
-
-
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <!-- APlayer start -->
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+ <!-- APlayer start -->
 
   <!-- Native Mode
 
@@ -146,6 +130,7 @@
 
   <!-- APlayer end -->
 
+<!--TypeKit start-->
 <script>
   (function(d) {
     var config = {
@@ -156,61 +141,60 @@
     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
   })(document);
 </script>
+<!--TypeKit end-->
 
   <div class="container use-motion">
-    <div class="headband"></div>
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta custom-logo">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span> 
-        <img src="https://i.loli.net/2020/07/16/efIqXZQjrg9n5hs.png" > 
-        </span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    <!--
-      <a>
-        <img class="custom-logo-image" src="https://i.loli.net/2020/07/16/efIqXZQjrg9n5hs.png" alt="博丽流芳分社 | Macyrate">
-      </a>
-    -->
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <img src="https://i.loli.net/2020/07/16/efIqXZQjrg9n5hs.png" > 
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-lab">
 
-    <a href="/lab/" rel="section"><i class="fa fa-fw fa-flask"></i>实验</a>
+    <a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>lab</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -218,355 +202,47 @@
         </a>
       </li>
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
-    </header>
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    </div>
   </div>
 
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
+</div>
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/" class="post-title-link" itemprop="url">能不能好好上网-壹：搭建IPv6私有云盘</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-09 02:54:46" itemprop="dateCreated datePublished" datetime="2020-08-09T02:54:46+08:00">2020-08-09</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>能不能好好上网？</strong></p>
-<p>在中国，很难。</p>
-<h1 id="故事背景"><a href="#故事背景" class="headerlink" title="故事背景"></a>故事背景</h1><p>我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。</p>
-<p><img src="https://i.loli.net/2020/08/05/FcrqSmxuBWz9e8a.png" alt="远程桌面连接"></p>
-<p>到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？</p>
-<p>以此为契机，我了解到了局域网，IP和3389端口的概念——巧合的是，我目前的手机尾号就是<code>3389</code>，而前半部分则恰好可以写作一个IPv4地址。那时，中国的网络用户数量远不如今天，大部分设备都有公网IP。可能也正因如此，诸如CS1.6，War3和东方非想天则一类基于IP联机的游戏能够风靡一时。</p>
-<p>时代变了。匮乏的IPv4地址资源遇上万物互联的爆发式增长势头，NAT一层套一层，再也没法畅快地IP直连，人们在网络里也像居住于水泥丛林间的鸽子笼，失却了那种田间地头吆喝一嗓子的快意。</p>
-<p>在演变到今天状况的前两年，大家还有动态的公网IPv4地址，而不是被圈养在运营商的“大内网”里，那段时间我还能进行一些“叠床架屋”的操作来胡作非为。</p>
-<p>我在树莓派上弄了一个简单的Python脚本，每隔一小时检查路由器的公网IP，如果发生了变动就用邮件形式发出通知。再配合路由器上配置的IP-MAC绑定和端口转发，我就能在外访问到局域网里某台设备的具体端口。虽然后来改用了更方便的TeamViewer，但很长一段时间里，我就是这样在实验课机房里连接寝室中的台式机来写代码的。如今看来，我这操作基本就是实现了一个“低配版”的DDNS服务。</p>
-<p>那么，说回现在。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/07/22/200722/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/22/200722/" class="post-title-link" itemprop="url">200722：中国移动与高跟鞋</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-22 23:35:44" itemprop="dateCreated datePublished" datetime="2020-07-22T23:35:44+08:00">2020-07-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>又是一个月，我还是没有写技术方面的博客，这两个月的状况恰如自己突然变得稀疏的GitHub页面：</p>
-<p><img src="https://i.loli.net/2020/07/22/ZHmG2KzgC4vMa95.png" alt="GitHub突然稀疏"></p>
-<p>再这么下去，我可真的要写不来代码了。</p>
-<p>最大的事儿，当然是入职了。这次加入的是成立不久的央企中国信科，由历史悠久的烽火通信和大唐电信合并而成，一言蔽之如今是在通信行业排在华为和中兴之后第三位的公司。</p>
-<p><img src="https://i.loli.net/2020/07/22/QadeXHJM6t8fyvD.png" alt="中国信科"></p>
-<p>说实话，以前我与烽火通信几乎没有什么交集，而大唐电信倒是早有耳闻，不仅仅是因为它那霸气侧漏的名字，最主要的是3G时代大唐电信给中国移动搞的那套备受吐槽的<code>TD-SCDMA</code>制式，让我这个当年的G3用户深切认识到了什么叫“如果G3就是3G，那么国美就是美国”。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/22/200722/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/06/23/200621/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/23/200621/" class="post-title-link" itemprop="url">200621：江湖再见</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-23 12:51:04" itemprop="dateCreated datePublished" datetime="2020-06-23T12:51:04+08:00">2020-06-23</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>距离上一次更新竟然过去了一个半月。倒也不是我不想写，每当念起时总有些“俗事缠身”。而当处理完这些事，我要么是没有安静的适合写作的环境，要么便是只想躺平刷微博，失却了敲键盘的热情。</p>
-<p>今天终于得闲，慢慢地来记几笔吧。</p>
-<p>五月初，我终于得知毕设deadline的确切日期已经不远，而且那时我的春招战果虽不算好，但总归拿到了保底的offer，唯一要做的就是赶进度了。To Do List上的待办事项随着Commit被勾掉一些，那时我充满热情，状态是相当理想的。我又满怀兴奋地购入一堆技术书籍——不必说，它们自然还是没有被翻过几页。</p>
-<p>我的Unity终于有了点入门的感觉，开发就像华科的施工队般“日新月异”。为了保持这种节奏，毕设所需要写的那些形式上的文书之类一度令我深恶痛绝，但很快我就从中感受到了回顾与总结既往工作的乐趣，这项杂务实际上是大有裨益的，让人能暂时跳出“此山中”，不至于沉迷于手头的问题而“不见庐山真面目”。</p>
-<p>到了线上答辩的时刻，大家的课题多是大型分布式系统或者机器学习等等非常“Computer Science”的内容，我的《基于Unity的东方Project同人ARPG游戏设计与开发》无论什么时候都那么格格不入。偏偏我的答辩排在最后几位，只好先接受了数个小时的天书洗礼。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/23/200621/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/05/05/200505/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/05/200505/" class="post-title-link" itemprop="url">200505：后浪</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-05 20:27:52" itemprop="dateCreated datePublished" datetime="2020-05-05T20:27:52+08:00">2020-05-05</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>不可避免地，这两天被《后浪》刷了屏。</p>
-<p>看到<strong>后浪</strong>二字，我一开始想到的是那家后浪出版公司。我还在读《vista看天下》时，这家出版公司就有许多存在感。虽然知乎上只看梵语原著的大佬们将其打为营销号的同类，但我至少认同他们在选书和装帧上的天分。对于一家出版公司，这好像也就是最重要的：把那些有趣有用的书以亲近可人的姿态送进大街小巷的书店，让那些或许仅仅是为刻奇所驱使，亦或许真正识文解意的爱书人，能够看到那个熟悉的图标就忍不住算算自己的余额。</p>
-<p>显然，我是属于前一种“爱书人”。也许上次去书店我抽出了《山海经校注》，这次我找来了一本《中国神话史》，下次还要考虑着把那套《火鸟》扛走……但是实际上堆在桌上，自己经常翻看的还是诸如《C#高级编程》和《Unity 5.x从入门到精通》之类，“科技类图书四大社”的俗套玩意。</p>
-<p>噢，不——在那堆东西里甚至还夹着一本没翻过几页的《日本书纪》。</p>
-<p><img src="https://i.loli.net/2020/05/05/Vna4JIWD3xKYSe5.jpg" alt="冠位十二阶 宪法十七条"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/05/200505/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  </div>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-        </div>
-          
   
   <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
 
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -576,23 +252,23 @@
       </ul>
 
       <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
       <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Macyrate"
-    src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Macyrate"
+      src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
   <p class="site-author-name" itemprop="name">Macyrate</p>
   <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -604,28 +280,27 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/Macyrate" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/Macyrate" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:macyrate@foxmail.com" title="E-Mail &amp;rarr; mailto:macyrate@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:macyrate@foxmail.com" title="E-Mail → mailto:macyrate@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/6010944415" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;6010944415" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/6010944415" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;6010944415" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://steamcommunity.com/profiles/76561198313695590/" title="Steam &amp;rarr; https:&#x2F;&#x2F;steamcommunity.com&#x2F;profiles&#x2F;76561198313695590&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-steam"></i>Steam</a>
+        <a href="https://steamcommunity.com/profiles/76561198313695590/" title="Steam → https:&#x2F;&#x2F;steamcommunity.com&#x2F;profiles&#x2F;76561198313695590&#x2F;" rel="noopener" target="_blank"><i class="fab fa-steam fa-fw"></i>Steam</a>
       </span>
   </div>
-  <div class="cc-license motion-element" itemprop="license">
+  <div class="cc-license animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+  <div class="links-of-blogroll animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
@@ -650,21 +325,379 @@
     </ul>
   </div>
 
-      </div>
-
+      </section>
     </div>
   </aside>
-  <div id="sidebar-dimmer"></div>
+  <div class="sidebar-dimmer"></div>
 
 
-      </div>
-    </main>
+    </header>
 
-    <footer class="footer">
-      <div class="footer-inner">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/09/01/VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/01/VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">VS Code C语言开发环境配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-01 13:08:05" itemprop="dateCreated datePublished" datetime="2020-09-01T13:08:05+08:00">2020-09-01</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>由于安全上的要求，我司的开发环境比较复杂，涉及到Citrix非涉密/涉密桌面和远程Linux编译服务器等等，在这样的环境下用VS Code需要经过一系列的折腾，这篇文章简要记录了我最初的配置流程。</p>
+<h1 id="安装VS-Code"><a href="#安装VS-Code" class="headerlink" title="安装VS Code"></a>安装VS Code</h1><p>首先，在非涉密桌面访问<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code官网</a>下载最新安装包，然后安装到<strong>Q盘中（重要！）</strong>。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件就没了。</p>
+<p>不要急着删除安装包，将它<strong>复制</strong>到T盘（直接剪切可能会报权限错误），转移到涉密桌面。如果之前你已经启动了涉密桌面，可以尝试用快捷键<code>Ctrl + Alt + Tab</code>进行切换。</p>
+<p>到涉密桌面环境后，安装VS Code——这次可以装在C盘里，涉密桌面的C盘是不会被重置的。注意，安装时会有几个选项，询问是否要加入右键菜单以及PATH等，请把所有的勾都勾上。</p>
+<h1 id="安装扩展"><a href="#安装扩展" class="headerlink" title="安装扩展"></a>安装扩展</h1><p>众所周知，VS Code最重要的是扩展。由于涉密桌面没有外网，我们要安装扩展只能先从非涉密桌面下载，再通过T盘转移。</p>
+<p>但是，VS Code默认存放扩展的目录在C盘，这导致非涉密桌面一旦重启，你的扩展就会全部消失。所以，装扩展之前要先更改非涉密桌面中VS Code存放扩展的目录。</p>
+<p>我没有在设置里找到直接修改的方法，但你可以通过以下的方法来间接修改。</p>
+<p>首先进入VS Code的安装目录（没忘记装在哪了吧），新建一个文件夹，命名为<code>extensions</code>。</p>
+<p>在桌面上VS Code的快捷方式上右键打开属性（假如桌面上没有，就去安装目录里找到code.exe，右键发送-&gt;桌面快捷方式），找到<code>目标(T)</code>一栏，在已有内容的后面添上:</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">--extensions-dir</span> <span class="string">&quot;(你刚才创建的extensions文件夹的完整路径)&quot;</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/01/VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/" class="post-title-link" itemprop="url">能不能好好上网-壹：搭建IPv6私有云盘</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-09 02:54:46" itemprop="dateCreated datePublished" datetime="2020-08-09T02:54:46+08:00">2020-08-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>能不能好好上网？</strong></p>
+<p>在中国，很难。</p>
+<h1 id="故事背景"><a href="#故事背景" class="headerlink" title="故事背景"></a>故事背景</h1><p>我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。</p>
+<p><img src="https://i.loli.net/2020/08/05/FcrqSmxuBWz9e8a.png" alt="远程桌面连接"></p>
+<p>到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？</p>
+<p>以此为契机，我了解到了局域网，IP和3389端口的概念——巧合的是，我目前的手机尾号就是<code>3389</code>，而前半部分则恰好可以写作一个IPv4地址。那时，中国的网络用户数量远不如今天，大部分设备都有公网IP。可能也正因如此，诸如CS1.6，War3和东方非想天则一类基于IP联机的游戏能够风靡一时。</p>
+<p>时代变了。匮乏的IPv4地址资源遇上万物互联的爆发式增长势头，NAT一层套一层，再也没法畅快地IP直连，人们在网络里也像居住于水泥丛林间的鸽子笼，失却了那种田间地头吆喝一嗓子的快意。</p>
+<p>在演变到今天状况的前两年，大家还有动态的公网IPv4地址，而不是被圈养在运营商的“大内网”里，那段时间我还能进行一些“叠床架屋”的操作来胡作非为。</p>
+<p>我在树莓派上弄了一个简单的Python脚本，每隔一小时检查路由器的公网IP，如果发生了变动就用邮件形式发出通知。再配合路由器上配置的IP-MAC绑定和端口转发，我就能在外访问到局域网里某台设备的具体端口。虽然后来改用了更方便的TeamViewer，但很长一段时间里，我就是这样在实验课机房里连接寝室中的台式机来写代码的。如今看来，我这操作基本就是实现了一个“低配版”的DDNS服务。</p>
+<p>那么，说回现在。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/07/22/200722/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/22/200722/" class="post-title-link" itemprop="url">200722：中国移动与高跟鞋</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-22 23:35:44" itemprop="dateCreated datePublished" datetime="2020-07-22T23:35:44+08:00">2020-07-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>又是一个月，我还是没有写技术方面的博客，这两个月的状况恰如自己突然变得稀疏的GitHub页面：</p>
+<p><img src="https://i.loli.net/2020/07/22/ZHmG2KzgC4vMa95.png" alt="GitHub突然稀疏"></p>
+<p>再这么下去，我可真的要写不来代码了。</p>
+<p>最大的事儿，当然是入职了。这次加入的是成立不久的央企中国信科，由历史悠久的烽火通信和大唐电信合并而成，一言蔽之如今是在通信行业排在华为和中兴之后第三位的公司。</p>
+<p><img src="https://i.loli.net/2020/07/22/QadeXHJM6t8fyvD.png" alt="中国信科"></p>
+<p>说实话，以前我与烽火通信几乎没有什么交集，而大唐电信倒是早有耳闻，不仅仅是因为它那霸气侧漏的名字，最主要的是3G时代大唐电信给中国移动搞的那套备受吐槽的<code>TD-SCDMA</code>制式，让我这个当年的G3用户深切认识到了什么叫“如果G3就是3G，那么国美就是美国”。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/22/200722/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/06/23/200621/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/23/200621/" class="post-title-link" itemprop="url">200621：江湖再见</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-06-23 12:51:04" itemprop="dateCreated datePublished" datetime="2020-06-23T12:51:04+08:00">2020-06-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>距离上一次更新竟然过去了一个半月。倒也不是我不想写，每当念起时总有些“俗事缠身”。而当处理完这些事，我要么是没有安静的适合写作的环境，要么便是只想躺平刷微博，失却了敲键盘的热情。</p>
+<p>今天终于得闲，慢慢地来记几笔吧。</p>
+<p>五月初，我终于得知毕设deadline的确切日期已经不远，而且那时我的春招战果虽不算好，但总归拿到了保底的offer，唯一要做的就是赶进度了。To Do List上的待办事项随着Commit被勾掉一些，那时我充满热情，状态是相当理想的。我又满怀兴奋地购入一堆技术书籍——不必说，它们自然还是没有被翻过几页。</p>
+<p>我的Unity终于有了点入门的感觉，开发就像华科的施工队般“日新月异”。为了保持这种节奏，毕设所需要写的那些形式上的文书之类一度令我深恶痛绝，但很快我就从中感受到了回顾与总结既往工作的乐趣，这项杂务实际上是大有裨益的，让人能暂时跳出“此山中”，不至于沉迷于手头的问题而“不见庐山真面目”。</p>
+<p>到了线上答辩的时刻，大家的课题多是大型分布式系统或者机器学习等等非常“Computer Science”的内容，我的《基于Unity的东方Project同人ARPG游戏设计与开发》无论什么时候都那么格格不入。偏偏我的答辩排在最后几位，只好先接受了数个小时的天书洗礼。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/23/200621/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
 
 <div class="copyright">
+  
   &copy; 2016 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
@@ -672,12 +705,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Macyrate & Hakurei Reimu</span>
 </div>
-  <div class="powered-by">由 <a href="https://thwiki.cc/%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6/%E4%B8%80%E8%AE%BE%E8%B5%84%E6%96%99" class="theme-link" rel="noopener" target="_blank">博麗大結界</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
@@ -686,7 +714,6 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -696,99 +723,55 @@
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
+    </div>
+  </footer>
+
   
-
-
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
-    '#page-configurations',
-    '.content-wrap',
+    '.page-configurations',
+    '.main-inner',
     '.post-toc-wrap',
-    '#pjax'
+    '.languages',
+    '.pjax'
   ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
   analytics: false,
   cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
 });
 
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.getAttribute('pjax') !== null) {
-      element.setAttribute('pjax', '');
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
   NexT.boot.refresh();
   // Define Motion Sequence & Bootstrap Motion.
   if (CONFIG.motion.enable) {
     NexT.motion.integrator
       .init()
+      .add(NexT.motion.middleWares.subMenu)
       .add(NexT.motion.middleWares.postList)
       .bootstrap();
   }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
   NexT.utils.updateSidebarPosition();
 });
 </script>
 
 
-
-
   
-  <script pjax>
+  <script data-pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -801,10 +784,7 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -816,10 +796,18 @@ window.addEventListener('pjax:success', () => {
 
 
 
-    <div id="pjax">
 
   
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
+
+
+
+
+
+
+    <div class="pjax">
   
 
   
@@ -827,14 +815,4 @@ window.addEventListener('pjax:success', () => {
 
     </div>
 </body>
-<div id="contentleft">
-  <div class="aplayer" 
-  data-fixed="true" 
-  data-autoplay="true" 
-  data-order="random" 
-  data-volume="0.55" 
-  data-theme="#cc543a" 
-  data-preload="auto" 
-  ></div>
-</div>
 </html>

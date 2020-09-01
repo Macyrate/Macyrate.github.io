@@ -4,84 +4,60 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#CC543A">
-<meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#CC543A">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#CC543A">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":true},
-    copycode: {"enable":true,"show_result":true,"style":"flat"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#CC543A","save":"auto"},
-    fancybox: true,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hakurei.red","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#CC543A","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
 
   <meta name="description" content="能不能好好上网？ 在中国，很难。 故事背景我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。  到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？ 以此为契机，我了解到了局域网，IP和3389端口的概">
-<meta name="keywords" content="折腾,计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="能不能好好上网-壹：搭建IPv6私有云盘">
-<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2020&#x2F;08&#x2F;09&#x2F;%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9&#x2F;index.html">
+<meta property="og:url" content="https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/index.html">
 <meta property="og:site_name" content="博丽流芳分社 | Macyrate">
 <meta property="og:description" content="能不能好好上网？ 在中国，很难。 故事背景我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。  到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？ 以此为契机，我了解到了局域网，IP和3389端口的概">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;08&#x2F;05&#x2F;FcrqSmxuBWz9e8a.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;08&#x2F;06&#x2F;H6TtIV3QYKRnZek.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;08&#x2F;06&#x2F;pWMHZyJ2tDA8Sua.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;08&#x2F;08&#x2F;zCWKXgnjQtHGDm2.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;08&#x2F;09&#x2F;4cAU1RgiLjKJamB.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;08&#x2F;09&#x2F;rb1OJq4QTuMNzvf.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;08&#x2F;09&#x2F;7wRjS3lHJ1OgyvL.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;08&#x2F;09&#x2F;5SJeWwB8DVXquh6.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;08&#x2F;09&#x2F;HRexs5kK2mGfo9n.png">
-<meta property="og:updated_time" content="2020-08-09T03:36:56.690Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/08/05/FcrqSmxuBWz9e8a.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/06/H6TtIV3QYKRnZek.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/08/06/pWMHZyJ2tDA8Sua.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/08/08/zCWKXgnjQtHGDm2.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/08/09/4cAU1RgiLjKJamB.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/09/rb1OJq4QTuMNzvf.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/08/09/7wRjS3lHJ1OgyvL.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/09/5SJeWwB8DVXquh6.png">
+<meta property="og:image" content="https://i.loli.net/2020/08/09/HRexs5kK2mGfo9n.png">
+<meta property="article:published_time" content="2020-08-08T18:54:46.000Z">
+<meta property="article:modified_time" content="2020-08-08T18:54:46.000Z">
+<meta property="article:author" content="Macyrate">
+<meta property="article:tag" content="折腾">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;08&#x2F;05&#x2F;FcrqSmxuBWz9e8a.png">
-  <link rel="canonical" href="https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/">
+<meta name="twitter:image" content="https://i.loli.net/2020/08/05/FcrqSmxuBWz9e8a.png">
 
 
-<script id="page-configurations">
+<link rel="canonical" href="https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/">
+
+
+<script data-pjax class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -93,35 +69,45 @@
 
 
 
-
-
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <!-- APlayer start -->
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+ <!-- APlayer start -->
 
   <!-- Native Mode
 
@@ -158,6 +144,7 @@
 
   <!-- APlayer end -->
 
+<!--TypeKit start-->
 <script>
   (function(d) {
     var config = {
@@ -168,61 +155,60 @@
     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
   })(document);
 </script>
+<!--TypeKit end-->
 
   <div class="container use-motion">
-    <div class="headband"></div>
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta custom-logo">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span> 
-        <img src="https://i.loli.net/2020/07/16/efIqXZQjrg9n5hs.png" > 
-        </span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    <!--
-      <a>
-        <img class="custom-logo-image" src="https://i.loli.net/2020/07/16/efIqXZQjrg9n5hs.png" alt="博丽流芳分社 | Macyrate">
-      </a>
-    -->
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <img src="https://i.loli.net/2020/07/16/efIqXZQjrg9n5hs.png" > 
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-lab">
 
-    <a href="/lab/" rel="section"><i class="fa fa-fw fa-flask"></i>实验</a>
+    <a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>lab</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -230,30 +216,136 @@
         </a>
       </li>
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">故事背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A0%E6%BA%90%E5%85%89%E7%BD%91%E7%BB%9CPON"><span class="nav-number">2.</span> <span class="nav-text">无源光网络PON</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%EF%BC%9F%E6%A1%A5%E6%8E%A5%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">路由？桥接？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IPv6"><span class="nav-number">4.</span> <span class="nav-text">IPv6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DDNS"><span class="nav-number">5.</span> <span class="nav-text">DDNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">6.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cloudreve"><span class="nav-number">7.</span> <span class="nav-text">Cloudreve</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Macyrate"
+      src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+  <p class="site-author-name" itemprop="name">Macyrate</p>
+  <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Macyrate" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:macyrate@foxmail.com" title="E-Mail → mailto:macyrate@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6010944415" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;6010944415" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://steamcommunity.com/profiles/76561198313695590/" title="Steam → https:&#x2F;&#x2F;steamcommunity.com&#x2F;profiles&#x2F;76561198313695590&#x2F;" rel="noopener" target="_blank"><i class="fab fa-steam fa-fw"></i>Steam</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.viseator.com/" title="https:&#x2F;&#x2F;www.viseator.com&#x2F;" rel="noopener" target="_blank">viseator</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://sukunahust.com/" title="http:&#x2F;&#x2F;sukunahust.com&#x2F;" rel="noopener" target="_blank">Sukuna</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://touhoudog.net/" title="http:&#x2F;&#x2F;touhoudog.net&#x2F;" rel="noopener" target="_blank">充满魔力的土地下</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kourindou.exblog.jp/" title="https:&#x2F;&#x2F;kourindou.exblog.jp&#x2F;" rel="noopener" target="_blank">博麗幻想書譜</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
     
@@ -262,20 +354,20 @@
     <span>0%</span>
   </div>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
 
-          <div class="content">
-            
-
-  <div class="posts-expand">
+    <div class="main-inner post posts-expand">
       
+
+      
+
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -287,29 +379,34 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="博丽流芳分社 | Macyrate">
     </span>
+
+    
+    
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">
           能不能好好上网-壹：搭建IPv6私有云盘
-        </h2>
+        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-08-09 02:54:46" itemprop="dateCreated datePublished" datetime="2020-08-09T02:54:46+08:00">2020-08-09</time>
-            </span>
+      <time title="创建时间：2020-08-09 02:54:46" itemprop="dateCreated datePublished" datetime="2020-08-09T02:54:46+08:00">2020-08-09</time>
+    </span>
 
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -318,8 +415,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
         <p><strong>能不能好好上网？</strong></p>
 <p>在中国，很难。</p>
 <h1 id="故事背景"><a href="#故事背景" class="headerlink" title="故事背景"></a>故事背景</h1><p>我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。</p>
@@ -363,7 +458,7 @@
 <p>建设基于IPv6的下一代互联网早已是一项重要任务，虽由于各种历史遗留问题推进得比较缓慢，发展到今天也已小有成果。大部分的4G/5G移动网络完全支持IPv6；固网宽带基本实现了IPv6/v4的双协议栈共存，只要将拨号设备的IPv6功能开启，就能得到两个地址，而那个IPv6地址可就是“正真正銘”的公网IP了。</p>
 <p>正好，我使用的小米路由器就支持开启IPv6。</p>
 <p><img src="https://i.loli.net/2020/08/09/7wRjS3lHJ1OgyvL.png" alt="IPv6设置"></p>
-<p><a href="https://www.test-ipv6.com/" target="_blank" rel="noopener">IPv6连接测试</a>全绿，爽到！你甚至可以现在就用手机流量/WiFi环境试一试能否接入IPv6网络。</p>
+<p><a target="_blank" rel="noopener" href="https://www.test-ipv6.com/">IPv6连接测试</a>全绿，爽到！你甚至可以现在就用手机流量/WiFi环境试一试能否接入IPv6网络。</p>
 <p><img src="https://i.loli.net/2020/08/09/5SJeWwB8DVXquh6.png" alt="测试结果"></p>
 <h1 id="DDNS"><a href="#DDNS" class="headerlink" title="DDNS"></a>DDNS</h1><p>这下公网IP也有了，可我在外怎么知道自己的IP呢？难道还像以前一样自动定时检查然后发邮件通知？</p>
 <p>对了，合理的方法就是使用动态域名服务DDNS(Dynamic Domain Name Server)。</p>
@@ -371,7 +466,7 @@
 <p>而DDNS是这样的：张三是一个法外狂徒，每隔几天就要换新手机号，但又希望同伙能找到他。所以，张三一换号就告诉查号台自己的新号码。想联系的人只管对查号台说“我找张三”，虽然每次得到的号码可能都不一样，但接电话的肯定是张三本人。</p>
 <p>这个例子中，查号台是DNS服务器，张三本人是网站，“张三”这个名字是域名，而张三的手机号就是IP地址——很容易理解吧？</p>
 <p>所以，如果要实现DDNS，还需要一个域名。这个网站的域名“hakurei.red”正是我去年花16元在阿里云上注册的，主域名已经拿来做了博客，用子域名“shrine.hakurei.red”做DDNS正合适。</p>
-<p>我使用的工具是GitHub上开源的<a href="https://github.com/xuchao1213/AliyunDdnsCSharp" target="_blank" rel="noopener">xuchao1213/AliyunDdnsCSharp</a>。看名字就知道它由C#开发，干净得不得了，只要在配置文件里简单填上几项就能生成一个Windows服务，自动实现DDNS的功能。最棒的是，它支持IPv6。</p>
+<p>我使用的工具是GitHub上开源的<a target="_blank" rel="noopener" href="https://github.com/xuchao1213/AliyunDdnsCSharp">xuchao1213/AliyunDdnsCSharp</a>。看名字就知道它由C#开发，干净得不得了，只要在配置文件里简单填上几项就能生成一个Windows服务，自动实现DDNS的功能。最棒的是，它支持IPv6。</p>
 <h1 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h1><p>IP有了，域名也绑上了——接下来就测试下能不能从外网连接上吧。用Live Server把网站弄到890端口上试试？</p>
 <p><code>ERR_CONNECTION_REFUSED</code></p>
 <p>这是典型的防火墙问题。</p>
@@ -379,17 +474,17 @@
 <p>在小米WiFi App的安全中心里关闭了各种防火墙——问题依旧。</p>
 <p>没辙了。上网一查，原来小米路由器还有针对IPv6的防火墙，可是目前并没有界面给用户调。唯一的办法，是破解路由器的SSH连接，再连入路由器的Linux系统手动修改位于<code>/etc/config/firewall</code>的配置文件。类似的操作我曾经还真的做过好多次，那时是为了让路由器连接在纽约搭建的V2Ray服务器实现科学上网，因此这次也是驾轻就熟。</p>
 <p>由于80等默认的WEB服务端口被运营商封锁，我选择了使用890端口。开启IPv6协议890端口的入站规则配置如下：</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">config <span class="keyword">rule</span></span><br><span class="line">	<span class="keyword">option</span> src <span class="string">'wan'</span></span><br><span class="line">	<span class="keyword">option</span> <span class="keyword">family</span> <span class="string">'ipv6'</span></span><br><span class="line">	<span class="keyword">option</span> target <span class="string">'ACCEPT'</span></span><br><span class="line">	<span class="keyword">option</span> dest <span class="string">'lan'</span></span><br><span class="line">	<span class="keyword">option</span> <span class="type">name</span> <span class="string">'Allow-890'</span></span><br><span class="line">	<span class="keyword">option</span> dest_port <span class="string">'890'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">config <span class="keyword">rule</span></span><br><span class="line">	<span class="keyword">option</span> src <span class="string">&#x27;wan&#x27;</span></span><br><span class="line">	<span class="keyword">option</span> <span class="keyword">family</span> <span class="string">&#x27;ipv6&#x27;</span></span><br><span class="line">	<span class="keyword">option</span> target <span class="string">&#x27;ACCEPT&#x27;</span></span><br><span class="line">	<span class="keyword">option</span> dest <span class="string">&#x27;lan&#x27;</span></span><br><span class="line">	<span class="keyword">option</span> <span class="type">name</span> <span class="string">&#x27;Allow-890&#x27;</span></span><br><span class="line">	<span class="keyword">option</span> dest_port <span class="string">&#x27;890&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p>随后重新加载一下，让新规则生效：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/firewall reload</span><br></pre></td></tr></table></figure>
 
-<p>接下来，只要我电脑上的服务器开着，就能通过<a href="http://shrine.hakurei.red:890" target="_blank" rel="noopener">shrine.hakurei.red:890</a>访问到它了。</p>
+<p>接下来，只要我电脑上的服务器开着，就能通过<a target="_blank" rel="noopener" href="http://shrine.hakurei.red:890/">shrine.hakurei.red:890</a>访问到它了。</p>
 <h1 id="Cloudreve"><a href="#Cloudreve" class="headerlink" title="Cloudreve"></a>Cloudreve</h1><p>端口已经成功打开，放点什么上去呢？</p>
-<p>一开始，我尝试了最简单的静态文件服务器<a href="https://github.com/JacksonTian/anywhere" target="_blank" rel="noopener">JacksonTian/anywhere</a>，把一些漫画和动画放了进去。但文件服务器毕竟是为了获取文件，不方便在线浏览，比如没法给漫画翻页，得一张张地打开；PDF文件更是必须完整下载然后在本地阅读。</p>
-<p>还是整点复杂的吧——比如很多神秘网站使用的网盘系统<a href="https://github.com/cloudreve/Cloudreve" target="_blank" rel="noopener">cloudreve/Cloudreve</a>。这个国产项目完全采用Material Design风格，几个月前还用Go语言重构，如今开箱即用，体验十分优良。</p>
+<p>一开始，我尝试了最简单的静态文件服务器<a target="_blank" rel="noopener" href="https://github.com/JacksonTian/anywhere">JacksonTian/anywhere</a>，把一些漫画和动画放了进去。但文件服务器毕竟是为了获取文件，不方便在线浏览，比如没法给漫画翻页，得一张张地打开；PDF文件更是必须完整下载然后在本地阅读。</p>
+<p>还是整点复杂的吧——比如很多神秘网站使用的网盘系统<a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve">cloudreve/Cloudreve</a>。这个国产项目完全采用Material Design风格，几个月前还用Go语言重构，如今开箱即用，体验十分优良。</p>
 <p><img src="https://i.loli.net/2020/08/09/HRexs5kK2mGfo9n.png" alt="Cloudreve.png"></p>
-<p>由于没有公共文件夹功能，我将自己上传的<a href="http://shrine.hakurei.red:890/#/s/EDHD" target="_blank" rel="noopener">书库</a>通过分享链接贴在这里。能连上的话说明你运气不错，毕竟我不会时刻开着服务器，DDNS的更新也并不总是及时。</p>
+<p>由于没有公共文件夹功能，我将自己上传的<a target="_blank" rel="noopener" href="http://shrine.hakurei.red:890/#/s/EDHD">书库</a>通过分享链接贴在这里。能连上的话说明你运气不错，毕竟我不会时刻开着服务器，DDNS的更新也并不总是及时。</p>
 <p>还是要说句：能不能好好上网？</p>
 <p>下面这句话写于1987年，它其实并不是中国的第一封电子邮件，但它所代表的精神永远值得传承：</p>
 <blockquote>
@@ -401,13 +496,22 @@
     
     
     
-        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
-  <img id="wechat_subscriber_qcode" src="https://i.loli.net/2020/04/15/glvwN8eEY3MHiTS.png" alt="Macyrate wechat" style="width: 200px; max-width: 100%;">
-  <div>唯一指定微信</div>
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>A1高闪来一个好吗</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://i.loli.net/2020/04/15/glvwN8eEY3MHiTS.png" alt="Macyrate 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
 </div>
 
-
-      <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%8A%98%E8%85%BE/" rel="tag"># 折腾</a>
               <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"># 计算机网络</a>
@@ -416,143 +520,61 @@
         
 
           <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-                <a href="/2020/07/22/200722/" rel="next" title="200722：中国移动与高跟鞋">
+            <div class="post-nav-item">
+                <a href="/2020/07/22/200722/" rel="prev" title="200722：中国移动与高跟鞋">
                   <i class="fa fa-chevron-left"></i> 200722：中国移动与高跟鞋
                 </a>
             </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
+            <div class="post-nav-item">
+                <a href="/2020/09/01/VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="next" title="VS Code C语言开发环境配置">
+                  VS Code C语言开发环境配置 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
-      </footer>
-    
+    </footer>
   </article>
   
   
   
 
-  </div>
 
 
-          </div>
-          
+      
     <div class="comments" id="gitalk-container"></div>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#故事背景"><span class="nav-number">1.</span> <span class="nav-text">故事背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无源光网络PON"><span class="nav-number">2.</span> <span class="nav-text">无源光网络PON</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#路由？桥接？"><span class="nav-number">3.</span> <span class="nav-text">路由？桥接？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IPv6"><span class="nav-number">4.</span> <span class="nav-text">IPv6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DDNS"><span class="nav-number">5.</span> <span class="nav-text">DDNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#防火墙"><span class="nav-number">6.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cloudreve"><span class="nav-number">7.</span> <span class="nav-text">Cloudreve</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Macyrate"
-    src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-  <p class="site-author-name" itemprop="name">Macyrate</p>
-  <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">44</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">24</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/Macyrate" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:macyrate@foxmail.com" title="E-Mail &amp;rarr; mailto:macyrate@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/6010944415" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;6010944415" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://steamcommunity.com/profiles/76561198313695590/" title="Steam &amp;rarr; https:&#x2F;&#x2F;steamcommunity.com&#x2F;profiles&#x2F;76561198313695590&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-steam"></i>Steam</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-sa.svg" alt="Creative Commons"></a>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://www.viseator.com/" title="https:&#x2F;&#x2F;www.viseator.com&#x2F;" rel="noopener" target="_blank">viseator</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://sukunahust.com/" title="http:&#x2F;&#x2F;sukunahust.com&#x2F;" rel="noopener" target="_blank">Sukuna</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://touhoudog.net/" title="http:&#x2F;&#x2F;touhoudog.net&#x2F;" rel="noopener" target="_blank">充满魔力的土地下</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://kourindou.exblog.jp/" title="https:&#x2F;&#x2F;kourindou.exblog.jp&#x2F;" rel="noopener" target="_blank">博麗幻想書譜</a>
-        </li>
-    </ul>
-  </div>
-
-      </div>
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      
 
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
+      
 
 <div class="copyright">
+  
   &copy; 2016 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
@@ -560,12 +582,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Macyrate & Hakurei Reimu</span>
 </div>
-  <div class="powered-by">由 <a href="https://thwiki.cc/%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6/%E4%B8%80%E8%AE%BE%E8%B5%84%E6%96%99" class="theme-link" rel="noopener" target="_blank">博麗大結界</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
@@ -574,7 +591,6 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -584,99 +600,55 @@
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
+    </div>
+  </footer>
+
   
-
-
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
-    '#page-configurations',
-    '.content-wrap',
+    '.page-configurations',
+    '.main-inner',
     '.post-toc-wrap',
-    '#pjax'
+    '.languages',
+    '.pjax'
   ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
   analytics: false,
   cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
 });
 
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.getAttribute('pjax') !== null) {
-      element.setAttribute('pjax', '');
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
   NexT.boot.refresh();
   // Define Motion Sequence & Bootstrap Motion.
   if (CONFIG.motion.enable) {
     NexT.motion.integrator
       .init()
+      .add(NexT.motion.middleWares.subMenu)
       .add(NexT.motion.middleWares.postList)
       .bootstrap();
   }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
   NexT.utils.updateSidebarPosition();
 });
 </script>
 
 
-
-
   
-  <script pjax>
+  <script data-pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -689,10 +661,7 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -704,10 +673,18 @@ window.addEventListener('pjax:success', () => {
 
 
 
-    <div id="pjax">
 
   
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
+
+
+
+
+
+
+    <div class="pjax">
   
 
   
@@ -715,31 +692,23 @@ window.addEventListener('pjax:success', () => {
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.css">
 
 <script>
+NexT.utils.loadComments('#gitalk-container', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.min.js', () => {
     var gitalk = new Gitalk({
-      clientID: 'aa2288c6cbb5322cac6b',
+      clientID    : 'aa2288c6cbb5322cac6b',
       clientSecret: '63492ee584a83a8479f1408f33e2ca04e3ef9f82',
-      repo: 'Macyrate.github.io',
-      owner: 'macyrate',
-      admin: ['macyrate'],
-      id: 'aaf1afdfd8e36ad1c35d7693494693d4',
+      repo        : 'Macyrate.github.io',
+      owner       : 'macyrate',
+      admin       : ['macyrate'],
+      id          : 'be357d1e52c6843034498328b6b2cc09',
         language: 'zh-CN',
-      distractionFreeMode: 'true'
+      distractionFreeMode: true
     });
     gitalk.render('gitalk-container');
   }, window.Gitalk);
+});
 </script>
 
     </div>
 </body>
-<div id="contentleft">
-  <div class="aplayer" 
-  data-fixed="true" 
-  data-autoplay="true" 
-  data-order="random" 
-  data-volume="0.55" 
-  data-theme="#cc543a" 
-  data-preload="auto" 
-  ></div>
-</div>
 </html>

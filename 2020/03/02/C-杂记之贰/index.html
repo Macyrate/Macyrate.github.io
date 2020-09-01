@@ -4,76 +4,52 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#CC543A">
-<meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#CC543A">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#CC543A">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":true},
-    copycode: {"enable":true,"show_result":true,"style":"flat"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#CC543A","save":"auto"},
-    fancybox: true,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hakurei.red","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#CC543A","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
 
   <meta name="description" content="昨天费力把上一篇中的“事件”章节给写完了，弄明白的确实不少（发现弄不明白的更多了）。 由于沉迷《饥荒》，并且也因为有点抗拒没听说过的概念，这一篇鸽到了现在。今天还是开始看吧。 协变（Covariance）和逆变（Contravariance）统称为变体（Variance）。 协变协变是指，对派生程度更大的类型的支持。也就是说，对于某处要求的类型，传入它的派生类也是没关系的。这是很容易理解的，因为子">
-<meta name="keywords" content="C Sharp,笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#杂记之贰：协变与逆变">
-<meta property="og:url" content="https:&#x2F;&#x2F;hakurei.red&#x2F;2020&#x2F;03&#x2F;02&#x2F;C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0&#x2F;index.html">
+<meta property="og:url" content="https://hakurei.red/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/index.html">
 <meta property="og:site_name" content="博丽流芳分社 | Macyrate">
 <meta property="og:description" content="昨天费力把上一篇中的“事件”章节给写完了，弄明白的确实不少（发现弄不明白的更多了）。 由于沉迷《饥荒》，并且也因为有点抗拒没听说过的概念，这一篇鸽到了现在。今天还是开始看吧。 协变（Covariance）和逆变（Contravariance）统称为变体（Variance）。 协变协变是指，对派生程度更大的类型的支持。也就是说，对于某处要求的类型，传入它的派生类也是没关系的。这是很容易理解的，因为子">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;03&#x2F;03&#x2F;osIJ72AYHXaKv6O.png">
-<meta property="og:updated_time" content="2020-03-03T06:16:21.238Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/03/03/osIJ72AYHXaKv6O.png">
+<meta property="article:published_time" content="2020-03-02T01:02:19.000Z">
+<meta property="article:modified_time" content="2020-03-02T01:02:19.000Z">
+<meta property="article:author" content="Macyrate">
+<meta property="article:tag" content="C Sharp">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;03&#x2F;03&#x2F;osIJ72AYHXaKv6O.png">
-  <link rel="canonical" href="https://hakurei.red/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/">
+<meta name="twitter:image" content="https://i.loli.net/2020/03/03/osIJ72AYHXaKv6O.png">
 
 
-<script id="page-configurations">
+<link rel="canonical" href="https://hakurei.red/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/">
+
+
+<script data-pjax class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -85,35 +61,45 @@
 
 
 
-
-
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <!-- APlayer start -->
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+ <!-- APlayer start -->
 
   <!-- Native Mode
 
@@ -150,6 +136,7 @@
 
   <!-- APlayer end -->
 
+<!--TypeKit start-->
 <script>
   (function(d) {
     var config = {
@@ -160,61 +147,60 @@
     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
   })(document);
 </script>
+<!--TypeKit end-->
 
   <div class="container use-motion">
-    <div class="headband"></div>
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta custom-logo">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span> 
-        <img src="https://i.loli.net/2020/07/16/efIqXZQjrg9n5hs.png" > 
-        </span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    <!--
-      <a>
-        <img class="custom-logo-image" src="https://i.loli.net/2020/07/16/efIqXZQjrg9n5hs.png" alt="博丽流芳分社 | Macyrate">
-      </a>
-    -->
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <img src="https://i.loli.net/2020/07/16/efIqXZQjrg9n5hs.png" > 
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-lab">
 
-    <a href="/lab/" rel="section"><i class="fa fa-fw fa-flask"></i>实验</a>
+    <a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>lab</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -222,208 +208,47 @@
         </a>
       </li>
   </ul>
-
 </nav>
-  <div class="site-search">
+
+
+
+  <div class="search-pop-overlay">
     <div class="popup search-popup">
-    <div class="search-header">
+        <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          C#杂记之贰：协变与逆变
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-02 09:02:19" itemprop="dateCreated datePublished" datetime="2020-03-02T09:02:19+08:00">2020-03-02</time>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>昨天费力把上一篇中的“事件”章节给写完了，弄明白的确实不少（发现弄不明白的更多了）。</p>
-<p>由于沉迷《饥荒》，并且也因为有点抗拒没听说过的概念，这一篇鸽到了现在。今天还是开始看吧。</p>
-<p><strong>协变</strong>（Covariance）和<strong>逆变</strong>（Contravariance）统称为变体（Variance）。</p>
-<h1 id="协变"><a href="#协变" class="headerlink" title="协变"></a>协变</h1><p>协变是指，对派生程度更大的类型的支持。也就是说，对于某处要求的类型，传入它的派生类也是没关系的。这是很容易理解的，因为子类可以隐式地转换为基类。协变体现的即是面向对象程序设计思想中，所谓的“<strong>里氏替换原则</strong>”（Liskov Substitution Principle）：任何基类可以出现的地方，子类一定可以出现。</p>
-<h1 id="逆变"><a href="#逆变" class="headerlink" title="逆变"></a>逆变</h1><h2 id="神秘的问题"><a href="#神秘的问题" class="headerlink" title="神秘的问题"></a>神秘的问题</h2><p>比较难以理解的是逆变。与协变相反，这是对派生程度更小的类型的支持。比如在要求<code>string</code>的地方支持使用<code>object</code>。什么地方会出现这种看似违反里氏替换原则的“危险”操作呢？</p>
-<p>在翻阅了许多文档之后，我反而是在<a href="https://github.com/jkchao/typescript-book-chinese/blob/master/docs/tips/covarianceAndContravariance.md" target="_blank" rel="noopener">《深入理解 TypeScript》</a>中找到了较为明白的解释，下面我试着用C#的方式叙述一下。</p>
-<p>假设<code>Greyhound</code> （灰狗）是 <code>Dog</code> （狗）的子类，而 <code>Dog</code> 则是 <code>Animal</code> （动物）的子类。由于子类型通常是可传递的，因此我们也称 <code>Greyhound</code> 是 <code>Animal</code> 的子类。这是显然的。</p>
-<p>那么，一个问题出现了：</p>
-<p><strong>如果我们有一个委托<code>Func&lt;Dog, Dog&gt;</code>，是不是真的只能分配那些接受<code>Dog</code>为参数，并返回<code>Dog</code>的方法呢？</strong></p>
-<a id="more"></a>
-
-<p>根据里氏替换原则，既然灰狗是狗的子类，似乎我们完全可以用灰狗来代替狗：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Dog类的DogBark()</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Dog <span class="title">DogBark</span>(<span class="params">Dog dog</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    WriteLine(<span class="string">"A Dog:"</span> + dog.dogMessage);</span><br><span class="line">    <span class="keyword">return</span> dog;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Greyhound类的GreyhoundBark()</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Greyhound <span class="title">GreyhoundBark</span>(<span class="params">Greyhound greyhound</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    WriteLine(<span class="string">"A Greyhound: "</span> + greyhound.greyhoundMessage);</span><br><span class="line">    <span class="keyword">return</span> greyhound;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Func&lt;Dog, Dog&gt; LetDogBark = <span class="keyword">new</span> Func&lt;Dog, Dog&gt;(dog.DogBark);</span><br><span class="line"></span><br><span class="line"><span class="comment">//CS0123: "GreyhoundBark"没有与委托"Func&lt;Dog,Dog&gt;"匹配的重载</span></span><br><span class="line">LetDogBark += greyhound.GreyhoundBark;</span><br></pre></td></tr></table></figure>
-
-<p><code>Greyhound</code>不是可以完全代替<code>Dog</code>吗？这里怎么会报错呢？这是因为当调用委托时，可能传入一个虽然是狗但不是灰狗的对象作为参数，比如德国牧羊犬<code>GermanShepherd</code>。德国牧羊犬当然没法执行灰狗的<code>GreyhoundBark()</code>方法。虽然子类可以代替基类，但子类之间是不一定能兼容的，这就是在委托里出现的特殊情况。</p>
-<p>解决的方法就是逆变，即委托所指定的参数类型为<code>Dog</code>时，只能分配参数类型为<code>Dog</code>或派生程度更小的<code>Animal</code>的方法。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在Greyhound类另定义GreyhoundBarkAlter()，以Animal为参数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Greyhound <span class="title">GreyhoundBarkAlter</span>(<span class="params">Animal animal</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    WriteLine(<span class="string">"A Greyhound: "</span> + animal.animalMessage);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment">//这回不报错了</span></span><br><span class="line">Func&lt;Dog, Dog&gt; LetDogBark = <span class="keyword">new</span> Func&lt;Animal, Greyhound&gt;(greyhound.GreyhoundBarkAlter);</span><br></pre></td></tr></table></figure>
-
-<h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>现在，我们可以回答上面提出的问题了。对于<code>Dog=&gt;Dog</code>的委托，哪些方法是可以分配的呢？</p>
-<p><strong>不仅可以将具有匹配签名的方法分配给委托（即Dog=&gt;Dog的方法）；</strong></p>
-<p><strong>还可以根据协变，分配与委托类型指定的派生类型相比，返回派生程度更大的类型的方法（即Dog=&gt;Greyhound的方法）；</strong></p>
-<p><strong>或根据逆变，接受具有派生程度更小的类型的参数的方法（即Animal=&gt;Dog的方法）。</strong></p>
-<p>这个规则初看起来很怪，让人感觉其中会存在漏洞，比如一个对象协变逆变几次之后可不可能被当成一个八竿子打不着的类的对象？举个例子，除了上述的<code>Animal</code>、<code>Dog</code>、<code>Greyhound</code>之外，我们再引入一个继承自<code>Animal</code>的<code>Fish</code>类。这样，这几个类的继承树就是如此：</p>
-<p><img src="https://i.loli.net/2020/03/03/osIJ72AYHXaKv6O.png" alt="继承树"></p>
-<p>如果我想捣点乱，比如试图把一只<code>Dog</code>传进去，经过一些变体操作后将它伪装成一条<code>Fish</code>，传进某个委托的参数里，引发崩溃。是否可能实现这一邪恶计划呢？</p>
-<p>假如现在有一个<code>Fish=&gt;Fish</code>的委托，是我们要下手的目标。根据委托参数的逆变性，我们只能传入<code>Animal</code>或<code>Fish</code>。那么，我们就先把<code>Dog</code>伪装成<code>Animal</code>。这好像很简单，只要用一个<code>Dog=&gt;Dog</code>的方法返回自己，再依照协变性将这个方法分配给<code>Dog=&gt;Animal</code>的委托就能做到，甚至直接<code>as Animal</code>都可以。</p>
-<p>但当我写下上面这一段之后，我意识到了我认知上的错误。</p>
-<blockquote>
-<p>根据委托参数的逆变性，我们只能传入<code>Animal</code>或<code>Fish</code>。</p>
-</blockquote>
-<p>这是不对的。必须强调，逆变性并不是指我们能实现“给<code>Fish=&gt;Fish</code>类型的委托传入<code>Animal</code>类型参数”这样的“基类代替子类”的操作，<strong>而是指我们能把<code>Animal=&gt;Fish</code>的方法封装进<code>Fish=&gt;Fish</code>类型的委托变量。</strong> 在这里<code>Animal</code>是<code>Fish</code>的父类，看起来就像是违反了里氏替换原则。但实际上，这恰恰是里氏替换原则的体现：</p>
-<p>当我们调用要求传入<code>Fish</code>的委托时，根据里氏替换原则，只能传入派生程度一致或更高的参数，比如<code>Fish</code>类自己的对象。而这个<code>Fish</code>类型的参数，相比起被封装在<code>Fish=&gt;Fish</code>委托里面的<code>Animal=&gt;Fish</code>方法所要求的<code>Animal</code>类型参数而言，其派生程度是更高的。换句话说，<strong>对于被封装的<code>Animal=&gt;Fish</code>方法，逆变恰恰使得<code>Fish</code>这个子类代替了<code>Animal</code>这个基类，这是符合里氏替换原则的！</strong></p>
-<blockquote>
-<p>另外还有一个概念是不变体（Invariance），这限定了只能使用原始指定的类型，无论是其基类还是子类还是别的类都不被接受。</p>
-</blockquote>
-<h1 id="自定义泛型委托中的变体"><a href="#自定义泛型委托中的变体" class="headerlink" title="自定义泛型委托中的变体"></a>自定义泛型委托中的变体</h1><p>上面说的支持变体的委托，是指<code>Func&lt;&gt;</code>和<code>Action&lt;&gt;</code>这两种C#预定义的泛型委托，它默认参数类型逆变，而返回类型协变。如果是自定义的泛型委托，则需要手动指定参数和返回类型的变体（不过很少会有需要自定义泛型委托的场景）。</p>
-<p>我们用<code>out</code>和<code>in</code>泛型修饰符来进行指定，<code>out</code>代表支持协变，<code>in</code>代表支持逆变：</p>
-<p>协变：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 支持协变的委托，out修饰符修饰的是返回类型</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">delegate</span> R DCovariant&lt;<span class="keyword">out</span> R&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 符合委托签名的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Control <span class="title">SampleControl</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> Control(); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Button <span class="title">SampleButton</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> Button(); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;            </span><br><span class="line">    <span class="comment">// 将委托实例化</span></span><br><span class="line">    DCovariant&lt;Control&gt; dControl = SampleControl;</span><br><span class="line">    DCovariant&lt;Button&gt; dButton = SampleButton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// dButton可以赋给dControl</span></span><br><span class="line">    <span class="comment">// 因为DCovariant委托是支持协变的</span></span><br><span class="line">    dControl = dButton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用委托</span></span><br><span class="line">    dControl(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>逆变：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 支持逆变的委托，in修饰符修饰的是参数</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> DContravariant&lt;<span class="keyword">in</span> A&gt;(A argument);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 符合委托签名的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SampleControl</span>(<span class="params">Control control</span>)</span></span><br><span class="line"><span class="function"></span>&#123; &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SampleButton</span>(<span class="params">Button button</span>)</span></span><br><span class="line"><span class="function"></span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 将委托实例化</span></span><br><span class="line">    DContravariant&lt;Control&gt; dControl = SampleControl;</span><br><span class="line">    DContravariant&lt;Button&gt; dButton = SampleButton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// dControl可以赋给dButton</span></span><br><span class="line">    <span class="comment">// 因为DContravariant委托是支持逆变的</span></span><br><span class="line">    dButton = dControl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用委托</span></span><br><span class="line">    dButton(<span class="keyword">new</span> Button()); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="泛型接口中的变体"><a href="#泛型接口中的变体" class="headerlink" title="泛型接口中的变体"></a>泛型接口中的变体</h1><p>除了泛型委托之外，泛型接口里也会运用到变体。</p>
-<p>非常常用的<code>IEnumerable&lt;T&gt;</code>、<code>IEnumerator&lt;T&gt;</code>、<code>IQueryable&lt;T&gt;</code> 和<code>IGrouping&lt;TKey,TElement&gt;</code>泛型接口，它们的所有类型参数都是协变类型参数，这些类型参数只用于成员的返回类型。</p>
-<p>另外还有<code>IComparer&lt;T&gt;</code>、<code>IComparable&lt;T&gt;</code>和<code>IEqualityComparer&lt;T&gt;</code>等接口，它们的所有类型参数都是逆变类型参数，只用于接口成员中的参数。</p>
-<p>关于接口我的理解还不够深入，这里就不展开讨论了。</p>
-<blockquote>
-<p>开题答辩即将开始，报告一笔未动，不知道最近还有没有机会写LINQ与异步，看情况吧。</p>
-</blockquote>
 
     </div>
-
-    
-    
-    
-        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
-  <img id="wechat_subscriber_qcode" src="https://i.loli.net/2020/04/15/glvwN8eEY3MHiTS.png" alt="Macyrate wechat" style="width: 200px; max-width: 100%;">
-  <div>唯一指定微信</div>
-</div>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/C-Sharp/" rel="tag"># C Sharp</a>
-              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-                <a href="/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/" rel="next" title="C#杂记之壹：委托与事件">
-                  <i class="fa fa-chevron-left"></i> C#杂记之壹：委托与事件
-                </a>
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-                <a href="/2020/03/05/200305/" rel="prev" title="200305：写在开题答辩之前">
-                  200305：写在开题答辩之前 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
   </div>
 
-
-          </div>
-          
-    <div class="comments" id="gitalk-container"></div>
-
-        </div>
-          
+</div>
+        
   
   <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
 
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -433,24 +258,24 @@
       </ul>
 
       <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#协变"><span class="nav-number">1.</span> <span class="nav-text">协变</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逆变"><span class="nav-number">2.</span> <span class="nav-text">逆变</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#神秘的问题"><span class="nav-number">2.1.</span> <span class="nav-text">神秘的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理解"><span class="nav-number">2.2.</span> <span class="nav-text">理解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义泛型委托中的变体"><span class="nav-number">3.</span> <span class="nav-text">自定义泛型委托中的变体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型接口中的变体"><span class="nav-number">4.</span> <span class="nav-text">泛型接口中的变体</span></a></li></ol></div>
-      </div>
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%8F%E5%8F%98"><span class="nav-number">1.</span> <span class="nav-text">协变</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%86%E5%8F%98"><span class="nav-number">2.</span> <span class="nav-text">逆变</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A5%9E%E7%A7%98%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">神秘的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%A7%A3"><span class="nav-number">2.2.</span> <span class="nav-text">理解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%9B%E5%9E%8B%E5%A7%94%E6%89%98%E4%B8%AD%E7%9A%84%E5%8F%98%E4%BD%93"><span class="nav-number">3.</span> <span class="nav-text">自定义泛型委托中的变体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E5%8F%98%E4%BD%93"><span class="nav-number">4.</span> <span class="nav-text">泛型接口中的变体</span></a></li></ol></div>
+      </section>
       <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="Macyrate"
-    src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Macyrate"
+      src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
   <p class="site-author-name" itemprop="name">Macyrate</p>
   <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -462,28 +287,27 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/Macyrate" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/Macyrate" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:macyrate@foxmail.com" title="E-Mail &amp;rarr; mailto:macyrate@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:macyrate@foxmail.com" title="E-Mail → mailto:macyrate@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/6010944415" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;6010944415" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://weibo.com/6010944415" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;6010944415" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://steamcommunity.com/profiles/76561198313695590/" title="Steam &amp;rarr; https:&#x2F;&#x2F;steamcommunity.com&#x2F;profiles&#x2F;76561198313695590&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-steam"></i>Steam</a>
+        <a href="https://steamcommunity.com/profiles/76561198313695590/" title="Steam → https:&#x2F;&#x2F;steamcommunity.com&#x2F;profiles&#x2F;76561198313695590&#x2F;" rel="noopener" target="_blank"><i class="fab fa-steam fa-fw"></i>Steam</a>
       </span>
   </div>
-  <div class="cc-license motion-element" itemprop="license">
+  <div class="cc-license animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+  <div class="links-of-blogroll animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
       Links
     </div>
     <ul class="links-of-blogroll-list">
@@ -508,21 +332,216 @@
     </ul>
   </div>
 
-      </div>
-
+      </section>
     </div>
   </aside>
-  <div id="sidebar-dimmer"></div>
+  <div class="sidebar-dimmer"></div>
 
 
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C#杂记之贰：协变与逆变
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-02 09:02:19" itemprop="dateCreated datePublished" datetime="2020-03-02T09:02:19+08:00">2020-03-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>昨天费力把上一篇中的“事件”章节给写完了，弄明白的确实不少（发现弄不明白的更多了）。</p>
+<p>由于沉迷《饥荒》，并且也因为有点抗拒没听说过的概念，这一篇鸽到了现在。今天还是开始看吧。</p>
+<p><strong>协变</strong>（Covariance）和<strong>逆变</strong>（Contravariance）统称为变体（Variance）。</p>
+<h1 id="协变"><a href="#协变" class="headerlink" title="协变"></a>协变</h1><p>协变是指，对派生程度更大的类型的支持。也就是说，对于某处要求的类型，传入它的派生类也是没关系的。这是很容易理解的，因为子类可以隐式地转换为基类。协变体现的即是面向对象程序设计思想中，所谓的“<strong>里氏替换原则</strong>”（Liskov Substitution Principle）：任何基类可以出现的地方，子类一定可以出现。</p>
+<h1 id="逆变"><a href="#逆变" class="headerlink" title="逆变"></a>逆变</h1><h2 id="神秘的问题"><a href="#神秘的问题" class="headerlink" title="神秘的问题"></a>神秘的问题</h2><p>比较难以理解的是逆变。与协变相反，这是对派生程度更小的类型的支持。比如在要求<code>string</code>的地方支持使用<code>object</code>。什么地方会出现这种看似违反里氏替换原则的“危险”操作呢？</p>
+<p>在翻阅了许多文档之后，我反而是在<a target="_blank" rel="noopener" href="https://github.com/jkchao/typescript-book-chinese/blob/master/docs/tips/covarianceAndContravariance.md">《深入理解 TypeScript》</a>中找到了较为明白的解释，下面我试着用C#的方式叙述一下。</p>
+<p>假设<code>Greyhound</code> （灰狗）是 <code>Dog</code> （狗）的子类，而 <code>Dog</code> 则是 <code>Animal</code> （动物）的子类。由于子类型通常是可传递的，因此我们也称 <code>Greyhound</code> 是 <code>Animal</code> 的子类。这是显然的。</p>
+<p>那么，一个问题出现了：</p>
+<p><strong>如果我们有一个委托<code>Func&lt;Dog, Dog&gt;</code>，是不是真的只能分配那些接受<code>Dog</code>为参数，并返回<code>Dog</code>的方法呢？</strong></p>
+<a id="more"></a>
+
+<p>根据里氏替换原则，既然灰狗是狗的子类，似乎我们完全可以用灰狗来代替狗：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Dog类的DogBark()</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Dog <span class="title">DogBark</span>(<span class="params">Dog dog</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    WriteLine(<span class="string">&quot;A Dog:&quot;</span> + dog.dogMessage);</span><br><span class="line">    <span class="keyword">return</span> dog;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Greyhound类的GreyhoundBark()</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Greyhound <span class="title">GreyhoundBark</span>(<span class="params">Greyhound greyhound</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    WriteLine(<span class="string">&quot;A Greyhound: &quot;</span> + greyhound.greyhoundMessage);</span><br><span class="line">    <span class="keyword">return</span> greyhound;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Func&lt;Dog, Dog&gt; LetDogBark = <span class="keyword">new</span> Func&lt;Dog, Dog&gt;(dog.DogBark);</span><br><span class="line"></span><br><span class="line"><span class="comment">//CS0123: &quot;GreyhoundBark&quot;没有与委托&quot;Func&lt;Dog,Dog&gt;&quot;匹配的重载</span></span><br><span class="line">LetDogBark += greyhound.GreyhoundBark;</span><br></pre></td></tr></table></figure>
+
+<p><code>Greyhound</code>不是可以完全代替<code>Dog</code>吗？这里怎么会报错呢？这是因为当调用委托时，可能传入一个虽然是狗但不是灰狗的对象作为参数，比如德国牧羊犬<code>GermanShepherd</code>。德国牧羊犬当然没法执行灰狗的<code>GreyhoundBark()</code>方法。虽然子类可以代替基类，但子类之间是不一定能兼容的，这就是在委托里出现的特殊情况。</p>
+<p>解决的方法就是逆变，即委托所指定的参数类型为<code>Dog</code>时，只能分配参数类型为<code>Dog</code>或派生程度更小的<code>Animal</code>的方法。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在Greyhound类另定义GreyhoundBarkAlter()，以Animal为参数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Greyhound <span class="title">GreyhoundBarkAlter</span>(<span class="params">Animal animal</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    WriteLine(<span class="string">&quot;A Greyhound: &quot;</span> + animal.animalMessage);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment">//这回不报错了</span></span><br><span class="line">Func&lt;Dog, Dog&gt; LetDogBark = <span class="keyword">new</span> Func&lt;Animal, Greyhound&gt;(greyhound.GreyhoundBarkAlter);</span><br></pre></td></tr></table></figure>
+
+<h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>现在，我们可以回答上面提出的问题了。对于<code>Dog=&gt;Dog</code>的委托，哪些方法是可以分配的呢？</p>
+<p><strong>不仅可以将具有匹配签名的方法分配给委托（即Dog=&gt;Dog的方法）；</strong></p>
+<p><strong>还可以根据协变，分配与委托类型指定的派生类型相比，返回派生程度更大的类型的方法（即Dog=&gt;Greyhound的方法）；</strong></p>
+<p><strong>或根据逆变，接受具有派生程度更小的类型的参数的方法（即Animal=&gt;Dog的方法）。</strong></p>
+<p>这个规则初看起来很怪，让人感觉其中会存在漏洞，比如一个对象协变逆变几次之后可不可能被当成一个八竿子打不着的类的对象？举个例子，除了上述的<code>Animal</code>、<code>Dog</code>、<code>Greyhound</code>之外，我们再引入一个继承自<code>Animal</code>的<code>Fish</code>类。这样，这几个类的继承树就是如此：</p>
+<p><img src="https://i.loli.net/2020/03/03/osIJ72AYHXaKv6O.png" alt="继承树"></p>
+<p>如果我想捣点乱，比如试图把一只<code>Dog</code>传进去，经过一些变体操作后将它伪装成一条<code>Fish</code>，传进某个委托的参数里，引发崩溃。是否可能实现这一邪恶计划呢？</p>
+<p>假如现在有一个<code>Fish=&gt;Fish</code>的委托，是我们要下手的目标。根据委托参数的逆变性，我们只能传入<code>Animal</code>或<code>Fish</code>。那么，我们就先把<code>Dog</code>伪装成<code>Animal</code>。这好像很简单，只要用一个<code>Dog=&gt;Dog</code>的方法返回自己，再依照协变性将这个方法分配给<code>Dog=&gt;Animal</code>的委托就能做到，甚至直接<code>as Animal</code>都可以。</p>
+<p>但当我写下上面这一段之后，我意识到了我认知上的错误。</p>
+<blockquote>
+<p>根据委托参数的逆变性，我们只能传入<code>Animal</code>或<code>Fish</code>。</p>
+</blockquote>
+<p>这是不对的。必须强调，逆变性并不是指我们能实现“给<code>Fish=&gt;Fish</code>类型的委托传入<code>Animal</code>类型参数”这样的“基类代替子类”的操作，<strong>而是指我们能把<code>Animal=&gt;Fish</code>的方法封装进<code>Fish=&gt;Fish</code>类型的委托变量。</strong> 在这里<code>Animal</code>是<code>Fish</code>的父类，看起来就像是违反了里氏替换原则。但实际上，这恰恰是里氏替换原则的体现：</p>
+<p>当我们调用要求传入<code>Fish</code>的委托时，根据里氏替换原则，只能传入派生程度一致或更高的参数，比如<code>Fish</code>类自己的对象。而这个<code>Fish</code>类型的参数，相比起被封装在<code>Fish=&gt;Fish</code>委托里面的<code>Animal=&gt;Fish</code>方法所要求的<code>Animal</code>类型参数而言，其派生程度是更高的。换句话说，<strong>对于被封装的<code>Animal=&gt;Fish</code>方法，逆变恰恰使得<code>Fish</code>这个子类代替了<code>Animal</code>这个基类，这是符合里氏替换原则的！</strong></p>
+<blockquote>
+<p>另外还有一个概念是不变体（Invariance），这限定了只能使用原始指定的类型，无论是其基类还是子类还是别的类都不被接受。</p>
+</blockquote>
+<h1 id="自定义泛型委托中的变体"><a href="#自定义泛型委托中的变体" class="headerlink" title="自定义泛型委托中的变体"></a>自定义泛型委托中的变体</h1><p>上面说的支持变体的委托，是指<code>Func&lt;&gt;</code>和<code>Action&lt;&gt;</code>这两种C#预定义的泛型委托，它默认参数类型逆变，而返回类型协变。如果是自定义的泛型委托，则需要手动指定参数和返回类型的变体（不过很少会有需要自定义泛型委托的场景）。</p>
+<p>我们用<code>out</code>和<code>in</code>泛型修饰符来进行指定，<code>out</code>代表支持协变，<code>in</code>代表支持逆变：</p>
+<p>协变：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 支持协变的委托，out修饰符修饰的是返回类型</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> R <span class="title">DCovariant</span>&lt;<span class="keyword">out</span> <span class="title">R</span>&gt;(<span class="params"></span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 符合委托签名的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Control <span class="title">SampleControl</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> Control(); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Button <span class="title">SampleButton</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> Button(); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;            </span><br><span class="line">    <span class="comment">// 将委托实例化</span></span><br><span class="line">    DCovariant&lt;Control&gt; dControl = SampleControl;</span><br><span class="line">    DCovariant&lt;Button&gt; dButton = SampleButton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// dButton可以赋给dControl</span></span><br><span class="line">    <span class="comment">// 因为DCovariant委托是支持协变的</span></span><br><span class="line">    dControl = dButton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用委托</span></span><br><span class="line">    dControl(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>逆变：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 支持逆变的委托，in修饰符修饰的是参数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">DContravariant</span>&lt;<span class="keyword">in</span> <span class="title">A</span>&gt;(<span class="params">A argument</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 符合委托签名的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SampleControl</span>(<span class="params">Control control</span>)</span></span><br><span class="line"><span class="function"></span>&#123; &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SampleButton</span>(<span class="params">Button button</span>)</span></span><br><span class="line"><span class="function"></span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 将委托实例化</span></span><br><span class="line">    DContravariant&lt;Control&gt; dControl = SampleControl;</span><br><span class="line">    DContravariant&lt;Button&gt; dButton = SampleButton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// dControl可以赋给dButton</span></span><br><span class="line">    <span class="comment">// 因为DContravariant委托是支持逆变的</span></span><br><span class="line">    dButton = dControl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用委托</span></span><br><span class="line">    dButton(<span class="keyword">new</span> Button()); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="泛型接口中的变体"><a href="#泛型接口中的变体" class="headerlink" title="泛型接口中的变体"></a>泛型接口中的变体</h1><p>除了泛型委托之外，泛型接口里也会运用到变体。</p>
+<p>非常常用的<code>IEnumerable&lt;T&gt;</code>、<code>IEnumerator&lt;T&gt;</code>、<code>IQueryable&lt;T&gt;</code> 和<code>IGrouping&lt;TKey,TElement&gt;</code>泛型接口，它们的所有类型参数都是协变类型参数，这些类型参数只用于成员的返回类型。</p>
+<p>另外还有<code>IComparer&lt;T&gt;</code>、<code>IComparable&lt;T&gt;</code>和<code>IEqualityComparer&lt;T&gt;</code>等接口，它们的所有类型参数都是逆变类型参数，只用于接口成员中的参数。</p>
+<p>关于接口我的理解还不够深入，这里就不展开讨论了。</p>
+<blockquote>
+<p>开题答辩即将开始，报告一笔未动，不知道最近还有没有机会写LINQ与异步，看情况吧。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>A1高闪来一个好吗</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://i.loli.net/2020/04/15/glvwN8eEY3MHiTS.png" alt="Macyrate 微信">
+        <span>微信</span>
       </div>
-    </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/C-Sharp/" rel="tag"># C Sharp</a>
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+          </div>
+
         
 
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/" rel="prev" title="C#杂记之壹：委托与事件">
+                  <i class="fa fa-chevron-left"></i> C#杂记之壹：委托与事件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/03/05/200305/" rel="next" title="200305：写在开题答辩之前">
+                  200305：写在开题答辩之前 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
 <div class="copyright">
+  
   &copy; 2016 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
@@ -530,12 +549,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Macyrate & Hakurei Reimu</span>
 </div>
-  <div class="powered-by">由 <a href="https://thwiki.cc/%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6/%E4%B8%80%E8%AE%BE%E8%B5%84%E6%96%99" class="theme-link" rel="noopener" target="_blank">博麗大結界</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
@@ -544,7 +558,6 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
@@ -554,99 +567,55 @@
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
+    </div>
+  </footer>
+
   
-
-
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [
     'head title',
-    '#page-configurations',
-    '.content-wrap',
+    '.page-configurations',
+    '.main-inner',
     '.post-toc-wrap',
-    '#pjax'
+    '.languages',
+    '.pjax'
   ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
   analytics: false,
   cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
 });
 
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.getAttribute('pjax') !== null) {
-      element.setAttribute('pjax', '');
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
   NexT.boot.refresh();
   // Define Motion Sequence & Bootstrap Motion.
   if (CONFIG.motion.enable) {
     NexT.motion.integrator
       .init()
+      .add(NexT.motion.middleWares.subMenu)
       .add(NexT.motion.middleWares.postList)
       .bootstrap();
   }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
   NexT.utils.updateSidebarPosition();
 });
 </script>
 
 
-
-
   
-  <script pjax>
+  <script data-pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -659,10 +628,7 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -674,10 +640,18 @@ window.addEventListener('pjax:success', () => {
 
 
 
-    <div id="pjax">
 
   
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
+
+
+
+
+
+
+    <div class="pjax">
   
 
   
@@ -685,31 +659,23 @@ window.addEventListener('pjax:success', () => {
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.css">
 
 <script>
+NexT.utils.loadComments('#gitalk-container', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.min.js', () => {
     var gitalk = new Gitalk({
-      clientID: 'aa2288c6cbb5322cac6b',
+      clientID    : 'aa2288c6cbb5322cac6b',
       clientSecret: '63492ee584a83a8479f1408f33e2ca04e3ef9f82',
-      repo: 'Macyrate.github.io',
-      owner: 'macyrate',
-      admin: ['macyrate'],
-      id: 'be77dd5d00f6dd87f1503e4594cb7a0b',
+      repo        : 'Macyrate.github.io',
+      owner       : 'macyrate',
+      admin       : ['macyrate'],
+      id          : 'e9ede737f79d780f76c3b43c817edb44',
         language: 'zh-CN',
-      distractionFreeMode: 'true'
+      distractionFreeMode: true
     });
     gitalk.render('gitalk-container');
   }, window.Gitalk);
+});
 </script>
 
     </div>
 </body>
-<div id="contentleft">
-  <div class="aplayer" 
-  data-fixed="true" 
-  data-autoplay="true" 
-  data-order="random" 
-  data-volume="0.55" 
-  data-theme="#cc543a" 
-  data-preload="auto" 
-  ></div>
-</div>
 </html>

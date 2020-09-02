@@ -20,6 +20,9 @@ $blue-bright  = #87daff;
 $blue         = #0684bd;
 $blue-deep    = #262a30;
 $orange       = #fc6423;
+$ake          = #93251a;
+$cpc          = #d02e2e;
+$dark-red     = #660000;
 
 
 // Transition
@@ -47,7 +50,7 @@ $blockquote-color             = $grey-dim;
 $blockquote-color-dark        = $grey;
 
 // Global border color.
-$border-color                 = $grey-light;
+$border-color                 = $ake;
 
 // Background color for <body>
 $body-bg-color                = white;
@@ -56,7 +59,7 @@ $content-bg-color             = white;
 $content-bg-color-dark        = $black-dim;
 
 // Selection
-$selection-bg                 = $blue-deep;
+$selection-bg                 = $ake;
 $selection-color              = $gainsboro;
 
 // Dark mode color
@@ -89,8 +92,8 @@ $font-family-headings     = get_font_family('headings'), $font-family-base if ge
 $font-family-posts        = $font-family-base;
 $font-family-posts        = get_font_family('posts'), $font-family-base if get_font_family('posts');
 
-$font-family-monospace    = consolas, Menlo, monospace, $font-family-chinese;
-$font-family-monospace    = get_font_family('codes'), consolas, Menlo, monospace, $font-family-chinese if get_font_family('codes');
+$font-family-monospace    = "Cascadia Code", consolas, Menlo, monospace, $font-family-chinese;
+$font-family-monospace    = "Cascadia Code", get_font_family('codes'), consolas, Menlo, monospace, $font-family-chinese if get_font_family('codes');
 
 
 // Font size
@@ -101,12 +104,12 @@ $font-size-small          = .875em;
 $font-size-medium         = 1em;
 $font-size-large          = 1.125em;
 $font-size-larger         = 1.25em;
-$font-size-largest        = 1.5em;
+$font-size-largest        = 1.375em;
 
 
 // Headings font size
-$font-size-headings-step  = .125em;
-$font-size-headings-base  = (hexo-config('font.enable') and hexo-config('font.headings.size') is a 'unit') ? unit(hexo-config('font.headings.size'), em) : 1.625em;
+$font-size-headings-step  = .25em;
+$font-size-headings-base  = (hexo-config('font.enable') and hexo-config('font.headings.size') is a 'unit') ? unit(hexo-config('font.headings.size'), em) : 2em;
 
 
 // Global line height
@@ -198,8 +201,7 @@ $content-mobile-padding         = 8px;
 // Headband
 // --------------------------------------------------
 $headband-height                = 3px;
-$headband-bg                    = $black-deep;
-
+$headband-bg                    = #93251a;
 
 // Section Header
 // Variables for header section elements.
@@ -213,7 +215,7 @@ $brand-hover-color              = white;
 $brand-color-dark               = $grey-lighter;
 $brand-hover-color-dark         = $grey-lighter;
 
-$font-size-title                = (hexo-config('font.enable') and hexo-config('font.title.size') is a 'unit') ? unit(hexo-config('font.title.size'), em) : 1.375em;
+$font-size-title                = (hexo-config('font.enable') and hexo-config('font.title.size') is a 'unit') ? unit(hexo-config('font.title.size'), em) : $font-size-largest;
 $font-size-subtitle             = $font-size-smaller;
 $subtitle-color                 = $grey-dark;
 $site-subtitle-color            = $grey-dark;

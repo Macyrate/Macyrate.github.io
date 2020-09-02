@@ -145,7 +145,9 @@ social:
   GitHub: https://github.com/Macyrate || fab fa-github
   E-Mail: mailto:macyrate@foxmail.com || fa fa-envelope
   Weibo: https://weibo.com/6010944415 || fab fa-weibo
-  Steam: https://steamcommunity.com/profiles/76561198313695590/ || fab fa-steam
+  Steam: https://steamcommunity.com/profiles/76561198313695590/ || fab fa-steamhex
+  Netease: https://music.163.com/#/user/home?id=36445171 || fas fa-music
+  Zhihu: https://www.zhihu.com/people/mei-zhao-rui || fab fa-zhihu
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
@@ -217,7 +219,7 @@ footer:
     # If you want to animate the icon, set it to true.
     animated: true
     # Change the color of icon, using Hex Code.
-    color: "#CC543A"
+    color: "#93251A"
 
   # If not defined, `author` from Hexo `_config.yml` will be used.
   copyright: Macyrate & Hakurei Reimu
@@ -356,7 +358,7 @@ text_align:
 mobile_layout_economy: false
 
 # Android Chrome header panel color ($brand-bg / $headband-bg => $black-deep).
-android_chrome_color: "#CC543A"
+android_chrome_color: "#93251A"
 
 codeblock:
   # Code Highlight theme
@@ -385,14 +387,14 @@ reading_progress:
   enable: false
   # Available values: top | bottom
   position: top
-  color: "#CC543A"
+  color: "#93251A"
   height: 3px
 
 # Bookmark Support
 bookmark:
   enable: false
   # Customize the color of the bookmark.
-  color: "#CC543A"
+  color: "#93251A"
   # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
   # If manual, only save it by clicking the bookmark-icon.
   save: auto

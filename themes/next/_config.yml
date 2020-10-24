@@ -924,8 +924,8 @@ vendors:
   valine:
 
   # Gitalk
-  gitalk_js: //cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.min.js
-  gitalk_css: //cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.0/dist/gitalk.css
+  gitalk_js: //cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.1/dist/gitalk.min.js
+  gitalk_css: //cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.1/dist/gitalk.css
 
   # Firebase
   firebase_app:

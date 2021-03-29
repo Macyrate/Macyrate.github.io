@@ -1,3 +1,6 @@
 [submodule "themes/next/source/lib/darkmode-js"]
 	path = themes/next/source/lib/darkmode-js
 	url = https://github.com/sandoche/Darkmode.js.git
+[submodule "themes/hexo-theme-next"]
+	path = themes/hexo-theme-next
+	url = https://github.com/Macyrate/hexo-theme-next.git

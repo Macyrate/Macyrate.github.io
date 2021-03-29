@@ -19,14 +19,13 @@
 <p>“所以×××同志同我讲话，说‘中央都决定了，你来当总书记’。我说另请高明吧，我实在也不是谦虚。我一个上海市委书记怎么到北京来了呢？但是，×××同志讲‘大家已经研究决定了’。后来我念了两首诗，叫‘苟利国家生死以，岂因祸福避趋之’。”</p>
 <p><em>—— 长者</em></p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>Flash的素材来源于站长之家和百度图片（那张AV画质的背景图是中国联合工程公司，原国机二院），使用软件是Adobe Flash Professional CS6，因为没有VISA卡只好下载了破解免费版，在此向Adobe致歉(。</p>
 <p>制作过程比较简单，动画效果只有树和帽带的晃动（但是至少熟悉了flash的基本操作），毕竟我们要做到简洁纯朴啊。</p>
 <p>本来想给文字也添加一个动画效果的，但是出现了各种迷之问题，就秉承一贯的“简洁风”弃了。</p>
 <p>真正劳神的是把.swf插到wordpress站点里，因为flash早就是时代的眼泪了，wordpress已经不再支持.swf的上传，找来了“Swf Upload Enabler”插件才上传成功；插入.swf又用到WOPUS论坛上大佬的方法，引入代码：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--其实我也不知道是不是这段代码，网站迁移时这里的内容丢失了（--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">id</span>=<span class="string">&quot;flashcontent&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">classid</span>=<span class="string">&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">width</span>=<span class="string">&quot;550px&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">height</span>=<span class="string">&quot;400px&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;movie&quot;</span> <span class="attr">value</span>=<span class="string">&quot;mymovie.swf&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--[if !IE]&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">type</span>=<span class="string">&quot;application/x-shockwave-flash&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">data</span>=<span class="string">&quot;mymovie.swf&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">width</span>=<span class="string">&quot;550px&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">height</span>=<span class="string">&quot;400px&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;![endif]--&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    Fallback or &quot;alternate&quot; content goes here.</span><br><span class="line">    This content will only be visible if the SWF fails to load.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--[if !IE]&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;![endif]--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>（WP-Syntax简直有毒，锻炼视力的时刻到了）（代码显示效果以后再调试吧）</p>
 <p>把url改为媒体库中文件的链接，再改改宽高，就完成了。</p>
 <p>但是移动端上显示很不理想，因为尺寸不会自适应，导致排版出现缺陷（况且移动端根本不支持flash）</p>
@@ -42,17 +41,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Flash暴力膜</title>
-    <url>/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><img src="https://i.loli.net/2020/01/12/uIR1rUVtanXyz7H.gif" alt="暴力膜.gif"></p>
-<p>本应是Flash的，但时间已过3年，Flash成了时代眼泪中的时代眼泪，拿gif凑数好了（这抖动频率有点太快了）</p>
-]]></content>
-      <tags>
-        <tag>Flash</tag>
-        <tag>动画</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>回乡见闻</title>
     <url>/2016/12/13/%E5%9B%9E%E4%B9%A1%E8%A7%81%E9%97%BB/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>前两日回老家，参加了曾外祖母的葬礼。我对曾外祖母完全没有印象，似乎十几年来确凿未曾见过一面（大概是我见过时还小，早已忘了）。但是葬礼还是要认真对待，于是穿了从头到脚的一身黑。</p>
@@ -61,7 +49,7 @@
 <p>原来这个舞台是点歌用的吗。</p>
 <p>再看台上，一个中年妇女捏着话筒搞事，大概是类似于主持人的吧。她宣读“送行点歌单”时，声音抑扬顿挫，细细一听就发现原来交钱越多的便被喊得越有气势，有个砸了一千元的来宾名字叫的震天响，而那些只点了一两百元的就给含糊地混过去了。</p>
 <p>这倒没什么，你们爱唱便唱罢，葬礼庆典、坟头蹦迪也就算了。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>然而到了晚上，居然请来了一个演员，不是为了别的，而是为了让她在这陌生人的葬礼上表演嚎啕大哭。这演员一身古代孝妇行头，竟然真的哭出了眼泪。于是大家也就很欣慰，有人便给主持人递上红票子算是捧了场。主持人则是喜笑颜开，把一张张红票子收进口袋时还不忘对着话筒宣讲这位演员的专业，以及其眼泪是真的有感而发，否则不可能真的哭出来云云云。</p>
 <p>虽然很可笑，我姑且忍了罢。没准是什么特别的丧葬习俗呢。</p>
@@ -82,6 +70,17 @@
       </tags>
   </entry>
   <entry>
+    <title>Flash暴力膜</title>
+    <url>/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><img src="https://i.loli.net/2020/01/12/uIR1rUVtanXyz7H.gif" alt="暴力膜.gif"></p>
+<p>本应是Flash的，但时间已过3年，Flash成了时代眼泪中的时代眼泪，拿gif凑数好了（这抖动频率有点太快了）</p>
+]]></content>
+      <tags>
+        <tag>Flash</tag>
+        <tag>动画</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Steam游览记录：Eternal Senia（永恒的赛妮亚）</title>
     <url>/2016/12/17/Steam%E6%B8%B8%E8%A7%88%E8%AE%B0%E5%BD%95%EF%BC%9AEternal%20Senia%EF%BC%88%E6%B0%B8%E6%81%92%E7%9A%84%E8%B5%9B%E5%A6%AE%E4%BA%9A%EF%BC%89/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><img src="https://i.loli.net/2020/01/12/VvuFk1lsjyEWmOQ.jpg" alt="senia-1.jpg"></p>
@@ -92,7 +91,7 @@
 <p>但是，不知道为什么就是这么带感啊！！！一口气刷过去根本停不下来啊！！！</p>
 <p>大概我享受着这种见证赛妮亚从一个脆弱胆怯的少女逐渐成长为真正的勇者的过程吧。</p>
 <p>我玩着感觉还是比较投入的。后期赛妮亚会觉醒R技能，爆发出“永（hei）恒（hua）”的力量，威力巨大，但是除非为了保命，我完全不愿意用这个技能。因为一旦使用，一段时间内赛妮亚都会黑化，在菜单里看着十分揪心。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>这是赛妮亚正常的样子：</p>
 <p><img src="https://i.loli.net/2020/01/12/XWjeo37dDmVFc6O.jpg" alt="senia-2.jpg"></p>
@@ -112,16 +111,6 @@
       </tags>
   </entry>
   <entry>
-    <title>161218</title>
-    <url>/2016/12/18/161218/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>祖国神仿的英梨梨终于在我的书桌上找到了自己的工作：</p>
-<p><img src="https://i.loli.net/2020/01/12/qLInJ2OEl1cspUT.jpg" alt="英梨梨.jpg"></p>
-]]></content>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一个不错的素材网站</title>
     <url>/2016/12/30/%E4%B8%80%E4%B8%AA%E4%B8%8D%E9%94%99%E7%9A%84%E7%B4%A0%E6%9D%90%E7%BD%91%E7%AB%99/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><img src="https://i.loli.net/2020/01/12/TLnEIjlPvA8V6fe.jpg" alt="搞不定抠图.jpg"></p>
@@ -136,6 +125,16 @@
       <tags>
         <tag>工具</tag>
         <tag>图像</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>161218</title>
+    <url>/2016/12/18/161218/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>祖国神仿的英梨梨终于在我的书桌上找到了自己的工作：</p>
+<p><img src="https://i.loli.net/2020/01/12/qLInJ2OEl1cspUT.jpg" alt="英梨梨.jpg"></p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -167,7 +166,8 @@
     <url>/2019/10/20/%E4%B8%BAHexo%E9%85%8D%E7%BD%AEGitalk%EF%BC%8C%E5%B9%B6%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="配置Gitalk"><a href="#配置Gitalk" class="headerlink" title="配置Gitalk"></a>配置Gitalk</h1><p>在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？</p>
 <p>当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行<code>hexo g</code>却永远都是：</p>
-<pre><code>next disqus TypeError: Cannot read property &#39;replace&#39; of null</code></pre>
+<pre><code>next disqus TypeError: Cannot read property &#39;replace&#39; of null
+</code></pre>
 <p>在我感到阵阵窒息之后，我看到了这样的issue：</p>
 <p><img src="https://i.loli.net/2020/01/12/fkE8JSxeo4pjmu7.jpg" alt="不支持Disqus.jpg"></p>
 <p>我人傻了，3月份就不支持了咋现在还在配置文件里？</p>
@@ -176,7 +176,7 @@
 </blockquote>
 <p>于是我转而尝试其他的评论系统，好么，国内的一个赛一个麻烦，又是实名认证又是人脸信息的，还是别了。而国外的又时刻有被河蟹的风险。</p>
 <p>终于我看到了Gitalk，它基于GitHub的issue，只要有GitHub账号就可以评论，看来同性交友网站不倒，这玩意就能用下去。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>配置起来不算太麻烦，在NexT的配置文件里<strong>找到comments块，将gitalk给active上</strong>（这一步很重要），再去下面一点的gitalk块里按照文档一顿填，基本就完事了。</p>
 <p>给出我的配置以供参考：</p>
@@ -222,7 +222,7 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>对于所谓“现充”，我一向是不屑一顾的。对于所谓人人趋之若鹜的“潮流”，我更是嗤之以鼻的。</p>
 <p>毕竟这种东西，和他们自己说的一样，“流行是个圈”，有甚么意思呢？</p>
 <p>是故在根本没有校服的高中时代，同学们——只要有条件的，个个汪洋恣肆泼洒青春时，我常常以和我心象般灰暗，似我体重般深沉的军夹克、牛仔裤、徒步鞋示人：一种自我麻痹式的超然放逐。那时的我只是一个丢不掉过去的失魂人，或者说，是过去的“什么”拉扯着我的魂魄，将它的一端钉在了2013年那个该死春季的墓碑上。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>一晃七年，我日复一日，我得过且过；我浑浑噩噩，耗费了我已走过人生的三分之一——而其前三分之二，我甚至没有三两记忆。我学知识，忘得比学得更快；我记日记，终究又付之一炬；我结好友，“远走高飞难找寻”。</p>
 <p>唯一可以确信的，居然是这六七年我对东方project有了不少了解，而且从对STG基本没有概念到全通e、若干通n的程度，以及知道了一些文化方面的皮毛，能让我在新作里认出一些个出典，但也仅此而已。</p>
@@ -259,7 +259,7 @@
 <p>其实我完全不明白自己应该干什么。八月底退出考研大军之后，我捡起大一没能坚持看下去的廖雪峰Python教程读了个大概（在这期间，Python 3甚至已经普及了），半懂不懂地接触了些之前所学的语言里没有讲过的“迭代器、生成器、装饰器”一类玩意，就去投秋招简历了。</p>
 <p>可想而知，一个数据结构、算法、操作系统、计算机网络统统没复习，没有刷LeetCode，工程实践基本靠课程设计（甚至还有不少是东拼西凑）的学生，哪家公司会收留就有鬼了。何况，我投的岗位还是数据研发，但在这之前我对数据研发的了解还真的是仅限<code>Hadoop</code>和<code>Spark</code>的拼写……</p>
 <p>因此，笔试直接挂是理所当然的了。可是投字节跳动实习的时候，我这个铁憨憨还是投了数据研发。好歹实习不用笔试，不过面试当然还是挂了——一个小时的面试里，全是灵魂拷问，“人，有实力，是不怕的”，但是没有实力的话就算冷静镇定也不会带来更好的结果。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>那既然这样，就开始学吧。九月，在Python学习、实习扫尾和秋招投递的混乱中度过。月底，为了养生的规律作息，我搬出学校宿舍，和一群退休爹爹婆婆住在森林公园对面。静谧的午后，他们摇着轮椅去沐浴阳光。这确实是好的，我暂且告别了凌晨两点睡，上午十点醒的混沌生活，每天能在起床时看到楼下初中生们的早自习了。</p>
 <p>剧情又恰似高中的落魄时刻，不过却相隔四年半了。十月，我和那个少女每天高强度对线（并不是），好歹不至于成为一瞬就能为未来的孩子找到无数上学地点的标准A岛肥肥。这时候我才开始真正使用<code>Git</code>，并且试着使用<code>GitHub</code>上那些我曾经从未碰过的功能——Fork，Pull Request，Issue，Review等等。我暂时完成了Python的基础学习；试着理清了之前一直没整明白的几种排序算法；经过好几天的折腾，这个网站也总算重新开了起来。这时候，我一边思虑着应该再找份实习，一边觉得该开始学习真正的“数据研发”了。</p>
@@ -321,7 +321,7 @@
 <p>而Button是可以自定义详细配置的。在<code>Edit-ProjectSettings-Input</code>中可以对输入进行详细配置，为一种操作提供一个字符串别名。只要使用<code>GetBotton(string str)</code>就可以监测对应的输入了。</p>
 <p>除了知道按键是否被按下之外，我们还需要确切地知道按键在哪一帧被按下，哪一帧被松开。 因此，这两个方法都有衍生的<code>GetxxxDown</code>和<code>GetxxxUp</code>。在对应按键被按下后的第一帧，<code>GetKeyDown</code>返回true，而到了第二帧，它就再次返回false了。同理，<code>GetKeyUp</code>也仅在松开按键后的第一帧返回true。</p>
 <p>当然，这些方法都应该被放在Update()函数里，这样才能在每一帧对按键进行监测。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="摇杆控制"><a href="#摇杆控制" class="headerlink" title="摇杆控制"></a>摇杆控制</h2><p>确切地讲，这里应该是“轴”而不是摇杆。不过比起按键，摇杆更能体现“轴”的涵义，虽然按键确实也可以作为轴。</p>
 <p>摇杆控制就比较麻烦了，因为按键只有按下与没按下两个状态，可以简单地用bool值表示，但摇杆有推移的距离，只能用浮点数表示。而且摇杆还有反向。</p>
@@ -368,7 +368,7 @@
 <p>需要注意的是，由于游戏机制上的一点点变化就会在动态上引发动态上的大变化，进而在美学上引发巨大变化，因此游戏机制的调整是应该慎之又慎的。  </p>
 <p>对于设计者，<strong>首先应该敲定想要玩家体会到的美学，据此来创造动态和机制。</strong> 怎样的动态能展现这样的美学？怎样的机制能产生这样的动态？</p>
 <p>而对于玩家，首先接触到的是机制，即游戏的规则，由此产生动态，在动态中体会到设计者预想的美学。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="形式、戏剧和动态元素"><a href="#形式、戏剧和动态元素" class="headerlink" title="形式、戏剧和动态元素"></a>形式、戏剧和动态元素</h2><blockquote>
 <p>形式：与媒体和互动无关的游戏的骨架，包括规则、资源和界限。<br>戏剧：剧情、叙事、设定。这使得游戏成型，使玩家理解规则，产生共鸣。<br>动态：游戏运行的状态，包括决策、行为、游戏实体间的联系。这里的动态范畴比MDA中的更大。</p>
@@ -473,7 +473,7 @@
 <li>第二幕：对抗<br>第二幕是故事的主要发展，主角经历一系列坎坷，情节推进到第二戏剧点。<br>第二戏剧点使主角作出重大决定，由此走向结局。   </li>
 <li>第三幕：结局<br>故事的高潮往往接近尾声，所有冲突汇集，悬念落下之后不久，故事即结束。</li>
 </ol>
-<a id="more"></a>
+<span id="more"></span>
 
 <h3 id="互动叙事与线性叙事的区别"><a href="#互动叙事与线性叙事的区别" class="headerlink" title="互动叙事与线性叙事的区别"></a>互动叙事与线性叙事的区别</h3><p>互动叙事基本上不可能是完全的自由，本质上依然限制着可能性。支线、伏笔、NPC，都是可以在玩家的选择之外影响剧情走向，控制情节的元素。</p>
 <p>互动叙事中的主角是玩家的化身，因此不可避免地，玩家的真实性格也许会与角色的性格错位。这种分歧有时却是可以被妥善利用的。</p>
@@ -497,6 +497,38 @@
       <tags>
         <tag>游戏</tag>
         <tag>笔记</tag>
+        <tag>游戏学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于“涌现”的思考</title>
+    <url>/2019/11/23/%E5%85%B3%E4%BA%8E%E2%80%9C%E6%B6%8C%E7%8E%B0%E2%80%9D%E7%9A%84%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>“涌现”可以说是相当重要，我认为它是一个与重复游玩密切相关的概念。涌现导致不同的游戏体验，而单个玩家感受不同游戏体验的方法就是换种思路重复游玩。这可以说是游戏可玩性的一种代表。</p>
+<p>我需要着重参考的非东方游戏中有《Enter the Gungeon》和《元气骑士》。想到这里我发现了一个共同点，它们都用多样的自机天赋、武器、技能、Buff实现了“涌现”。   </p>
+<p>但我是否需要这样做呢？以上两个游戏都是Rougelike类型，甚至连随机生成的地图都高度体现着“涌现”，具有高度的重复游玩性，但我想要做的是一个拥有线性叙事的游戏。 </p>
+<p>枪牢用“杀死过去的枪”这个线索巧妙地把重复的游玩变成一定程度上的线性叙事，元气骑士则完全不在意这个，剧情只是随口一说，花式推地牢才是其核心。</p>
+<p>其他游戏是怎么做的呢？如果是自由度高的大型游戏，极长的主线首先就无须让人进行重复游玩。如果要体现“涌现”，无数的支线任务、收集要素、角色养成就能体现作用。</p>
+<p>《战地1》这种游戏，其单人模式根本就是多人竞技模式的新手教学，而多人竞技模式中的涌现是由多名玩家的行为共同构建的。</p>
+<p>还有《黑暗之魂》、《只狼》这样的，虽然剧情趋于线性，但提供多结局且难度极高，多周目还能继续提高难度，专供想要挑战自己的玩家食用。</p>
+<p>想来想去，我要做的游戏可能在内嵌层上更接近于STG游戏（或者说，和STG一样古老的形式？）。STG是怎么做的呢？</p>
+<span id="more"></span>
+
+<p>就拿东方正作来说：</p>
+<p><strong>提供了多种自机</strong>——比起枪牢那种自机选择只影响天赋的机制，STG中的自机还与其攻击手段对应，这使得不同机体的游玩体验可能大大不同。</p>
+<p><strong>固定的少量资源</strong>——在奖残吃满的情况下，能够使用的雷与残的总量基本固定，如何合理分配这些资源来提高通关可能？由于设计上基本不会能让人仅靠拼资源就能顺利通过每一个难点，所以策略是因人而异的，这也是一种涌现。</p>
+<p><strong>不同的难度等级</strong>——但是对于没有游玩经验的玩家，即使是Easy难度可能都需要多次游玩进行反复练习。要求不续关完整通关（甚至必须是Normal及以上难度）才能到达Good Ending，这种机制也在增加玩家的游玩时间。</p>
+<p><strong>额外的Extra关卡</strong>——完整通关之后才能够解锁的Extra关卡。长度较长，难度较高且有大量初见杀，需要反复练习。这个部分不怎么体现“涌现”，基本是用于补充说明剧情以及延长游戏时间。</p>
+<p>这时候，查到一篇讲涌现式游戏设计的文章：</p>
+<p><a href="https://www.chuapp.com/?c=Article&a=index&id=285949">涌现式游戏设计：《荒野大镖客：救赎2》和开放世界的未来</a></p>
+<p>看来，涌现式的游戏设计固然好，但是并不适合刚刚起步的我。</p>
+<p>买了份华彩乱战玩了玩，“就这？就这？就这？”之声充斥我的脑海，不过细细一想，工程量还是不小，毕竟我才打到二面。不过基本的风味还是懂了，一言蔽之——<strong>没内味儿！</strong>说到东方，我印象里最棒的就是永夜抄和风神录那种匠气打造的爽快感了吧……关于这个可能需要另外的分析。</p>
+<p>不过买还是要买的，玩还是要接着玩的，支持天朝同人嘛。</p>
+<iframe src="https://store.steampowered.com/widget/1124830/" frameborder="0" width="646" height="190"></iframe>
+
+<p>好像又和“涌现”没啥关系了。我想到导师给我报错了的课题，写的是“DBG游戏”，这让我有点联想到非想天则那几款FTG，符卡不亦是卡吗？符卡的组合不也是Deck Building吗？也许这个方向可以有更多的想法。</p>
+]]></content>
+      <tags>
+        <tag>游戏</tag>
         <tag>游戏学</tag>
       </tags>
   </entry>
@@ -532,38 +564,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关于“涌现”的思考</title>
-    <url>/2019/11/23/%E5%85%B3%E4%BA%8E%E2%80%9C%E6%B6%8C%E7%8E%B0%E2%80%9D%E7%9A%84%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>“涌现”可以说是相当重要，我认为它是一个与重复游玩密切相关的概念。涌现导致不同的游戏体验，而单个玩家感受不同游戏体验的方法就是换种思路重复游玩。这可以说是游戏可玩性的一种代表。</p>
-<p>我需要着重参考的非东方游戏中有《Enter the Gungeon》和《元气骑士》。想到这里我发现了一个共同点，它们都用多样的自机天赋、武器、技能、Buff实现了“涌现”。   </p>
-<p>但我是否需要这样做呢？以上两个游戏都是Rougelike类型，甚至连随机生成的地图都高度体现着“涌现”，具有高度的重复游玩性，但我想要做的是一个拥有线性叙事的游戏。 </p>
-<p>枪牢用“杀死过去的枪”这个线索巧妙地把重复的游玩变成一定程度上的线性叙事，元气骑士则完全不在意这个，剧情只是随口一说，花式推地牢才是其核心。</p>
-<p>其他游戏是怎么做的呢？如果是自由度高的大型游戏，极长的主线首先就无须让人进行重复游玩。如果要体现“涌现”，无数的支线任务、收集要素、角色养成就能体现作用。</p>
-<p>《战地1》这种游戏，其单人模式根本就是多人竞技模式的新手教学，而多人竞技模式中的涌现是由多名玩家的行为共同构建的。</p>
-<p>还有《黑暗之魂》、《只狼》这样的，虽然剧情趋于线性，但提供多结局且难度极高，多周目还能继续提高难度，专供想要挑战自己的玩家食用。</p>
-<p>想来想去，我要做的游戏可能在内嵌层上更接近于STG游戏（或者说，和STG一样古老的形式？）。STG是怎么做的呢？</p>
-<a id="more"></a>
-
-<p>就拿东方正作来说：</p>
-<p><strong>提供了多种自机</strong>——比起枪牢那种自机选择只影响天赋的机制，STG中的自机还与其攻击手段对应，这使得不同机体的游玩体验可能大大不同。</p>
-<p><strong>固定的少量资源</strong>——在奖残吃满的情况下，能够使用的雷与残的总量基本固定，如何合理分配这些资源来提高通关可能？由于设计上基本不会能让人仅靠拼资源就能顺利通过每一个难点，所以策略是因人而异的，这也是一种涌现。</p>
-<p><strong>不同的难度等级</strong>——但是对于没有游玩经验的玩家，即使是Easy难度可能都需要多次游玩进行反复练习。要求不续关完整通关（甚至必须是Normal及以上难度）才能到达Good Ending，这种机制也在增加玩家的游玩时间。</p>
-<p><strong>额外的Extra关卡</strong>——完整通关之后才能够解锁的Extra关卡。长度较长，难度较高且有大量初见杀，需要反复练习。这个部分不怎么体现“涌现”，基本是用于补充说明剧情以及延长游戏时间。</p>
-<p>这时候，查到一篇讲涌现式游戏设计的文章：</p>
-<p><a href="https://www.chuapp.com/?c=Article&a=index&id=285949">涌现式游戏设计：《荒野大镖客：救赎2》和开放世界的未来</a></p>
-<p>看来，涌现式的游戏设计固然好，但是并不适合刚刚起步的我。</p>
-<p>买了份华彩乱战玩了玩，“就这？就这？就这？”之声充斥我的脑海，不过细细一想，工程量还是不小，毕竟我才打到二面。不过基本的风味还是懂了，一言蔽之——<strong>没内味儿！</strong>说到东方，我印象里最棒的就是永夜抄和风神录那种匠气打造的爽快感了吧……关于这个可能需要另外的分析。</p>
-<p>不过买还是要买的，玩还是要接着玩的，支持天朝同人嘛。</p>
-<iframe src="https://store.steampowered.com/widget/1124830/" frameborder="0" width="646" height="190"></iframe>
-
-<p>好像又和“涌现”没啥关系了。我想到导师给我报错了的课题，写的是“DBG游戏”，这让我有点联想到非想天则那几款FTG，符卡不亦是卡吗？符卡的组合不也是Deck Building吗？也许这个方向可以有更多的想法。</p>
-]]></content>
-      <tags>
-        <tag>游戏</tag>
-        <tag>游戏学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>游戏设计理论学习笔记 壹</title>
     <url>/2019/11/24/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="迭代设计"><a href="#迭代设计" class="headerlink" title="迭代设计"></a>迭代设计</h1><p><strong>游戏设计由1%的灵感和99%的重复组成。</strong></p>
@@ -575,7 +575,7 @@
 <p><strong>现有技术有什么？</strong> 现有技术指与要设计的作品相关联的<strong>现存游戏及其他媒介</strong>。对我来讲，具体的是Unity引擎，东方Project的大量官方以及同人游戏。同人游戏中可以着重参考的是登陆steam的几部作品，《东方红辉心》、《永远消失的幻想乡》、《东方华彩乱战》。还有些不属于东方但类型相似的游戏，比如《Enter the Gungeon》和其模仿者《元气骑士》等。</p>
 <p><strong>如何尽快制作原型？</strong> 高效利用时间，优先开发<strong>核心机制</strong>并进行测试。美工、音乐等外观要素可以在后期进行处理。</p>
 <p>设计、实现和测试，此处不必多讲。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="创新：头脑风暴"><a href="#创新：头脑风暴" class="headerlink" title="创新：头脑风暴"></a>创新：头脑风暴</h1><blockquote>
 <p>尽可能的多想点子，再扔掉那些不好的。</p>
@@ -654,7 +654,7 @@
 
 <p><img src="https://i.loli.net/2020/01/12/Dmhzxi8XFIQK7np.jpg" alt="site-nav中的iframe.jpg"></p>
 <p>这个效果属实🍔🍔。并且在桌面版视图下还会把sidebar压下去，不太理想。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="明月浩空音乐"><a href="#明月浩空音乐" class="headerlink" title="明月浩空音乐"></a>明月浩空音乐</h2><p>有没有悬浮式的播放器呢？有的。随便查一查就看到了这篇文章：<a href="https://leafjame.github.io/posts/2636059693.html">一款炫丽的网页播放器插件</a>，这里介绍了<code>绚丽彩虹播放器</code>，确实是够绚丽的，点进去一看还是个东方二次元，连域名都叫<code>badapple.top</code>，爱了。</p>
 <p>一阵操作之后，预览的效果确实挺理想的，可是到我网站上就只能播放第一首曲子了，和上面那篇文章的评论区里一位老哥说的一模一样：</p>
@@ -736,7 +736,7 @@
 
 <p>这是我在还没有看教学视频之前，自己胡乱尝试下摸索了将近一整天完成的<a href="https://www.pixiv.net/artworks/78095634">第一幅作品</a>：</p>
 <p><img src="https://i.loli.net/2020/01/12/rWmnCw9V1uBeDH6.gif" alt="youmu"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>虽然看起来比较憨憨，但是基本上熟悉了Aseprita的大部分功能。甚至，还进了Pixiv动图日榜？（说明一天根本没几张动图投稿嘛）</p>
 <p><img src="https://i.loli.net/2020/01/12/SCUkuMRXxmgA5Yz.png" alt="进了排行榜？"></p>
@@ -768,7 +768,7 @@
 <p><img src="https://i.loli.net/2020/01/12/M2IrfnixCdL4TRj.jpg" alt="Switch开箱"></p>
 <p>其实本来准备遵照传统从荒野之息开始，奈何店主没有，就买了宝可梦。说起来，虽然“神奇宝贝、宠物小精灵、口袋妖怪、精灵宝可梦”地过了这么多年，我却没有完整通关过任何一作，也算是童年一桩憾事。去年买到NDSL之后，也有一小段时间曾试着玩过著名的同人作品《口袋妖怪 漆黑的魅影》，不过也只打过两个道馆，然后就去《大航海时代》里开船了。因此，这次从拿到卡带的第一刻起，我就开始了近乎废寝忘食的攻略。</p>
 <p><img src="https://i.loli.net/2020/01/12/qnLSlNHK9fYB1Jj.jpg" alt="漆黑的魅影 剑"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p><img src="https://i.loli.net/2020/01/12/dI5v27siMfJt6Uz.jpg" alt="馆主"></p>
 <p>三天时间里，我屡次错过饭点，两回凌晨三点才放下手柄，洗漱也是草草了事。每到一个新的地点，我就迫不及待去寻找时装店，在试衣间反复横跳试图弄出好看的搭配；我骑着自行车在旷野游荡，向训练家们掠夺食材；道馆挑战中期，某位仁兄用“魔法交换”送来Lv60的铜镜怪，让我顺风顺水地打过妖精和岩石道馆；草路镇外的麦田里间，我不知吹了多少次口哨，才得以遇到一只皮卡丘；极巨化团体战里，我带着波克基斯在一众大佬的无极汰那、苍响、藏玛然特之间瑟瑟发抖……</p>
@@ -808,9 +808,9 @@
 <h1 id="同步加载"><a href="#同步加载" class="headerlink" title="同步加载"></a>同步加载</h1><p>在讲异步加载以前，先说同步加载。</p>
 <p>当执行同步加载时，正在运行的场景会被阻塞，产生卡顿，这种方法适合小型的、不怎么需要获取读取进度的场景的加载。如在地牢中切换到另一个房间，读取完成之前当前房间中的一切都静止不动，这种情况应该是用同步加载实现的。</p>
 <p>Unity使用<code>SceneManager</code>类的静态方法<a href="https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html">LoadScene</a>实现同步的场景加载。由于是静态方法，不需要对<code>SceneManager</code>类进行实例化，只要使用命名空间<code>using UnityEngine.SceneManagement;</code>就可直接通过<code>SceneManager.LoadSceneAsync</code>访问。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方法原型：</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="keyword">int</span> sceneBuildIndex, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="keyword">string</span> sceneName, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方法原型：</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="built_in">int</span> sceneBuildIndex, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="built_in">string</span> sceneName, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <p>其中，第一个参数可以是场景的编号<code>sceneBuildIndex</code>，也可以是场景的名称<code>sceneName</code>。</p>
 <div class="note info"><p><strong>什么是场景编号？</strong></p>
@@ -819,12 +819,12 @@
 
 <p>第二个参数所说的<code>LoadSceneMode</code>是一个枚举类，包含<code>Addtive</code>和<code>Single</code>两种加载方法。前者是在保留当前场景的基础上加载其他场景，如果是临时打开一个全屏的设置界面，就可以使用这种加载方式；而后者在加载完新场景之后就不保留原来的场景，适合进行关卡的切换等。</p>
 <h1 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h1><p>异步加载和同步加载大同小异，但是它通过C#的“协程”使得加载过程看起来是在后台运行。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方法原型：</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> AsyncOperation <span class="title">LoadSceneAsync</span>(<span class="params"><span class="keyword">string</span> sceneName, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> AsyncOperation <span class="title">LoadSceneAsync</span>(<span class="params"><span class="keyword">int</span> sceneBuildIndex, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> AsyncOperation <span class="title">LoadSceneAsync</span>(<span class="params"><span class="keyword">string</span> sceneName, SceneManagement.LoadSceneParameters parameters</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> AsyncOperation <span class="title">LoadSceneAsync</span>(<span class="params"><span class="keyword">int</span> sceneBuildIndex, SceneManagement.LoadSceneParameters parameters</span>)</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方法原型：</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> AsyncOperation <span class="title">LoadSceneAsync</span>(<span class="params"><span class="built_in">string</span> sceneName, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> AsyncOperation <span class="title">LoadSceneAsync</span>(<span class="params"><span class="built_in">int</span> sceneBuildIndex, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> AsyncOperation <span class="title">LoadSceneAsync</span>(<span class="params"><span class="built_in">string</span> sceneName, SceneManagement.LoadSceneParameters parameters</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> AsyncOperation <span class="title">LoadSceneAsync</span>(<span class="params"><span class="built_in">int</span> sceneBuildIndex, SceneManagement.LoadSceneParameters parameters</span>)</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>方法原型与同步加载非常相似，方法名也只是加了一个“Async”。但最大的不同是，<code>LoadSceneAsync</code>返回的是一个<code>AsyncOperation</code>类对象，用于对后台的加载过程进行监测，其中有一个比较有意思的<code>bool</code>型属性<code>allowSceneActivation</code>，如果将其设置为<code>false</code>，加载进度<code>public float progress</code>会在0.9处暂停，直到将<code>allowSceneActivation</code>设置为<code>true</code>时再继续加载剩下的10%。</p>
 <p>需要注意，<strong>Unity并不支持多线程</strong>，这里使用的协程实际上是一种Unity主线程上的伪线程。在VS的线程调试窗口里也可以看到协程启动后其实仍然在原来的线程里，<strong>我认为</strong>它大概和传说中的<strong>纤程</strong>就是一种东西，而后面的几个工作线程应当是C#的CLR开辟的。</p>
 <p><img src="https://i.loli.net/2020/01/12/YavnLJtRl5qicGF.png" alt="纤程？"></p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//这里给出一个简单的例子：</span></span><br><span class="line"><span class="function">IEnumerator <span class="title">AsyncLoading</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">yield</span> return new <span class="title">WaitForSeconds</span>(<span class="params"><span class="number">3</span></span>)</span>;     <span class="comment">//加载太快了，先播上3s的加载动画</span></span><br><span class="line">    operation = SceneManager.LoadSceneAsync(<span class="string">&quot;StartMenuScene&quot;</span>, mode: LoadSceneMode.Single);</span><br><span class="line">    <span class="keyword">while</span> (!operation.isDone)</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(operation.progress);</span><br><span class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//这里给出一个简单的例子：</span></span><br><span class="line"><span class="function">IEnumerator <span class="title">AsyncLoading</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params"><span class="number">3</span></span>)</span>;     <span class="comment">//加载太快了，先播上3s的加载动画</span></span><br><span class="line">    operation = SceneManager.LoadSceneAsync(<span class="string">&quot;StartMenuScene&quot;</span>, mode: LoadSceneMode.Single);</span><br><span class="line">    <span class="keyword">while</span> (!operation.isDone)</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(operation.progress);</span><br><span class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
 <li><a href="https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html">Unity - SceneManager.LoadScene</a></li>
@@ -876,9 +876,9 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这两行都定义了相同的字符串&quot;Hello&quot;</span></span><br><span class="line"><span class="keyword">char</span> foo1[] = <span class="string">&quot;Hello&quot;</span>;      <span class="comment">//末尾有隐藏的&#x27;\0&#x27;</span></span><br><span class="line"><span class="keyword">char</span> foo2[<span class="number">6</span>] = &#123;<span class="string">&#x27;H&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125;;</span><br></pre></td></tr></table></figure>
 
 <p><code>char* foo</code>是声明了一个字符指针，指向单个字符，可以将其当作以<code>&#39;\0&#39;</code>为末尾的字符串的首字符地址。如果要把字符串赋给它，需要先申请内存空间，再使用<code>memcpy()</code>或<code>strcpy()</code>。当然，也可以不分配空间，直接用<strong>十分危险的指针赋值</strong>。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span>* foo1 = (<span class="keyword">char</span>*)<span class="built_in">calloc</span>(<span class="number">6</span>, <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line"><span class="built_in">strcpy</span>(foo1, <span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* foo2 = <span class="string">&quot;Hello&quot;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span>* foo1 = (<span class="keyword">char</span>*)<span class="built_in">calloc</span>(<span class="number">6</span>, <span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">char</span>));</span><br><span class="line"><span class="built_in">strcpy</span>(foo1, <span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* foo2 = <span class="string">&quot;Hello&quot;</span>;</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="CString"><a href="#CString" class="headerlink" title="CString"></a>CString</h1><p><code>CString</code>是<code>MFC</code>的类，使用它需要包含<code>afx.h</code>。</p>
 <p><strong>什么是MFC？</strong></p>
@@ -892,7 +892,7 @@
 <p>关键的问题是，什么是<a href="https://zh.cppreference.com/w/cpp/header">C++标准库</a>？这个名字很容易和标准模板库（Standard Template Libraries, STL）混淆，但实际上它们最开始是不同的东西。C++被标准化最早是1998年的<code>ISO/IEC 14882:1998</code>，即所谓的C++98。而STL始于C++尚未被标准化的1993年，它很大程度上影响了几年后C++标准中标准库的制定，因此其内容与C++标准库有非常大的重合。但需要注意的是，<strong>STL不完全是C++标准库的一部分</strong>，C++标准里也从来没有“STL”这一说法。C++标准库中的“STL”可以说是STL的一个“Fork”。</p>
 <p>C++标准库包含一系列不带<code>.h</code>后缀的头文件，用尖括号引用。其中除宏定义以外的内容包含在名称空间<code>std</code>中，这也是许多C++程序都有一句<code>using namespace std;</code>的原因。</p>
 <p>这是<a href="https://en.cppreference.com/w/cpp/algorithm/qsort">cppreference</a>上对<code>std::qsort</code>的一段示例：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;     //C++输入/输出流标准头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;      //C++标准库中来自C标准库的部分，去掉.h并在前面加c</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;      //同上</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">-2</span>, <span class="number">99</span>, <span class="number">0</span>, <span class="number">-743</span>, <span class="number">2</span>, INT_MIN, <span class="number">4</span>&#125;;</span><br><span class="line">    <span class="keyword">constexpr</span> <span class="built_in">std</span>::<span class="keyword">size_t</span> size = <span class="keyword">sizeof</span> a / <span class="keyword">sizeof</span> *a;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">std</span>::qsort(a, size, <span class="keyword">sizeof</span> *a, [](<span class="keyword">const</span> <span class="keyword">void</span>* a, <span class="keyword">const</span> <span class="keyword">void</span>* b)     <span class="comment">//指定名称空间std</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> arg1 = *<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">int</span>*&gt;(a);</span><br><span class="line">        <span class="keyword">int</span> arg2 = *<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">int</span>*&gt;(b);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span>(arg1 &lt; arg2) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(arg1 &gt; arg2) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//  return (arg1 &gt; arg2) - (arg1 &lt; arg2); // possible shortcut</span></span><br><span class="line">    <span class="comment">//  return arg1 - arg2; // erroneous shortcut (fails if INT_MIN is present)</span></span><br><span class="line">    &#125;);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> ai : a)</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; ai &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>     <span class="comment">//C++输入/输出流标准头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span>      <span class="comment">//C++标准库中来自C标准库的部分，去掉.h并在前面加c</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span>      <span class="comment">//同上</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">-2</span>, <span class="number">99</span>, <span class="number">0</span>, <span class="number">-743</span>, <span class="number">2</span>, INT_MIN, <span class="number">4</span>&#125;;</span><br><span class="line">    <span class="keyword">constexpr</span> std::<span class="keyword">size_t</span> size = <span class="keyword">sizeof</span> a / <span class="keyword">sizeof</span> *a;</span><br><span class="line"> </span><br><span class="line">    std::<span class="built_in">qsort</span>(a, size, <span class="keyword">sizeof</span> *a, [](<span class="keyword">const</span> <span class="keyword">void</span>* a, <span class="keyword">const</span> <span class="keyword">void</span>* b)     <span class="comment">//指定名称空间std</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> arg1 = *<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">int</span>*&gt;(a);</span><br><span class="line">        <span class="keyword">int</span> arg2 = *<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">int</span>*&gt;(b);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span>(arg1 &lt; arg2) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(arg1 &gt; arg2) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//  return (arg1 &gt; arg2) - (arg1 &lt; arg2); // possible shortcut</span></span><br><span class="line">    <span class="comment">//  return arg1 - arg2; // erroneous shortcut (fails if INT_MIN is present)</span></span><br><span class="line">    &#125;);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> ai : a)</span><br><span class="line">        std::cout &lt;&lt; ai &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="LPSTR，以及各种乱七八糟的"><a href="#LPSTR，以及各种乱七八糟的" class="headerlink" title="LPSTR，以及各种乱七八糟的"></a>LPSTR，以及各种乱七八糟的</h1><p>这就是较为难以理解的东西了，名字让人一头雾水。<code>LPSTR</code>算是最简单的形式，还有什么<code>LPCTSTR</code>,<code>PCTSTR</code>等等，这都是些啥？</p>
 <p>其实这些全大写的神秘数据类型依然来自MFC，它们都是Windows特色数据类型。STR显然代表的是字符串，重要的是它们的前缀。</p>
@@ -936,7 +936,7 @@
 <p> 如今的Windows开发基本上是用.NET Framework和C#进行的，C++的实现非常佶屈聱牙，仅仅是启动一个选择路径的窗口就要耗去一整天时间搜集资料。类似的过程，加上对C++遗忘较多，让我在开发初期花费了大量时间。</p>
 </li>
 </ol>
-<a id="more"></a>
+<span id="more"></span>
 
 <ol start="2">
 <li><p>稳健性的缺失</p>
@@ -946,7 +946,7 @@
 <p> 在对系统管理模块进行的测试过程中，我们常常遇到极为“神秘”的问题：所有的功能都能按照预期实现，但在一个随机的时间节点，或是对<code>RM_FileScan*</code>等进行free操作时会引发“堆损坏”错误，即<strong>HEAP CORRUPTION DETECTED</strong>。</p>
 <p> 一开始我以为这是HustBase框架本身的问题，因为任务书中指定的开发环境应为VS2010，而我使用的是VS2019。但其他同样使用VS2019进行开发的小组并没有出现同样问题，于是我们认为这是由某处访问越界造成的，尤其是早期版本中我使用了大量的<code>memcpy( )</code>函数，这很容易造成访问越界。但当我逐渐用<code>strcpy( )</code>或严谨的指针操作取代<code>memcpy( )</code>，并且对所有写内存操作进行检查后，该问题仍然存在。</p>
 <p> 最后我们发现，这个问题出现在内存分配时：</p>
- <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">FileScan = (RM_FileScan*)<span class="built_in">calloc</span>(<span class="number">1</span>, <span class="keyword">sizeof</span>(FileScan));</span><br></pre></td></tr></table></figure>
+ <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">FileScan = (RM_FileScan*)<span class="built_in">calloc</span>(<span class="number">1</span>, <span class="built_in"><span class="keyword">sizeof</span></span>(FileScan));</span><br></pre></td></tr></table></figure>
 
 <p> 在<code>sizeof( )</code>中，我错误地填写了<code>FileScan</code>，而非其作为指针指向的<code>RM_FileScan</code>结构体。因此，这一语句为指针分配了一个指针本身长度的内存空间，即4字节。但后面我将一个结构体填入了这块内存空间，这造成了越界。</p>
 <p> 由于对<code>FileScan</code>的内存分配几乎在系统管理模块的每个功能函数中都需要使用，这才使无论使用什么功能，都会随机出现该错误。对内存进行操作时，看清楚自己在写什么东西太重要了！</p>
@@ -1002,7 +1002,7 @@
 <p>大学的最后一个假期也将要过去，我大抵是不会再有体验这种生活的机会了——这种莫名有点感慨的心态，就像当年高考前最后的一次晚自习——以后不会再有晚自习了，也不会再有晚自习上小心回避着老师而听的歌、看的闲书了。“大学四年顶个球”，留下的东西实在不多，而我才刚刚开始认识这个世界。</p>
 <p>身边参加了考研的朋友们，面对前途大多迷茫，苦笑着一年努力八成喂了狗。往往是越学越了解自己的浅薄，就像现在看看6年前入宅不久时自己写的、自己得意的东西，显得与2020年的网络那么格格不入，像mikufans时期的弹幕乃至古早时期猫扑大杂烩里的帖子，没有经过思考的吐槽、没有经过考证的论调中，真挚与弱智三七分成。</p>
 <p>不过网络变化其实不大，至少真挚与弱智的三七分成还是没变。谁都没有上帝视角，哪一方都太容易被现实愚弄，绕来绕去才发现大家其实都有同一种病，没有谁就高人一等。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>要说高中的基调是怎样，我想起来的就是大一时初次在华科见到的——其实直到如今也一样——在黑糊糊树影的簇拥之上那个圆月。只是高中所见的月被“黄冈中学”的明亮红色灯牌和教学楼上缠着的黄色灯带烘托着，再被些许我可能叫得出名字的星点围绕着，似乎要黯淡些。说来也怪，这么些年，每有了要去观察月亮的心时，偏偏就是“天心月圆”。或者，就是在远远的远方，薄薄的渐变色里浮着的一勾新月。新月，它总让我想起伊斯兰世界，那个世界似乎比这新月还要遥远。</p>
 <p>新月，新月沃地，那里的印象就是天方、阿萨辛和游侠纳斯列金。文化与瘟疫最早的起源之一在这里。</p>
@@ -1030,7 +1030,7 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>谈到动漫，世界上比较有权威的大概只有三个国家：日本、美国和中国。然而当动漫在国外蓬勃发展时，我国动漫却总不受观众待见。在我们看来，中国动漫所遭遇的窘境，根本原因是我国广电总局长期以来所施加的压力以及大部分制作人的庸俗思想。</p>
 <p>在美国 ，动漫寄托的是天马行空的想象、美利坚人民独特的冒险精神；在日本，动漫早已成为这个国家新型文化中的重要组成部分，在任何地方都能看到它的影子，这种文化的浪潮席卷世界……中国与它们的不同在于，美日都称动漫为“文化”，或者干脆是“艺术”，而我国一直将动漫作为“产业”对待。这就是我们在政府态度上的差异。广电总局还一再说为了大力促进国产动漫“产业”发展，在各种时段禁播境外动漫作品，实在是恶性循环！</p>
 <p>动漫，它的存在意义在于使未成年人更明晰地了解这个世界，或者让成年人从中也有所感悟，所以它理应是面向所有年龄段观众的，然而既然这样，就不可避免地要含有一些所谓“成人世界”的元素，就是广电总局所说的“恐怖、暴力、色情、凶杀、犯罪”等等。因此，为了“创建和谐社会”，“还孩子们一片纯净的天空”，许多好作品都不受光电待见，最典型的就是《秦时明月》，这部被民众广泛认为“冲出国门，走向世界”的诚意之作，曾经差点被禁播，现在也不怎么受电视台的追捧，只是在网络上一直受人关注。《秦时明月》讲的是战国时代的故事，它有点征伐、武侠、爱恨交织的元素怎么了？光电却曾认为它“血腥暴力内容不健康”。什么居心？那么，日本的作品《日在校园》中女主角之一杀死男主角和女主角其二并分尸的情节（其原因还是由于男主角乱搞男女关系）真可谓是和谐社会的“毒草”了。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>日本动漫可能在广电看来“不健康”，然则它们往往蕴涵着深刻的思想。比如《Date A Live》，开头就说“30年前的一场‘空间震’，使三千万人命丧黄泉”，这时广电就会说“小孩子看了多不好啊，禁播！”但《Date A Live》的主要情节是用爱改变引发“空间震”的精灵的暴戾性格，使其融入人类社会，宣扬的是“兼爱”、“非攻”的思想，展现的是世界的美好，但这样的情节放到国内可能会被认为是“鼓动未成年人早恋”云云。据我们的判断，广电对于“教唆未成年人早恋”的作品极其反感，甚至连广电最喜欢的“动物世界”类型动漫（角色全都是各种动物）也逃脱不了这样的“铁律”，导致一代经典（“动物世界”中的经典）《虹猫蓝兔七侠传》被禁播。广电，你也太小看现在的孩子们的心理承受能力了吧。</p>
 <p>在《名侦探柯南》情节越来越高智商的同时，我国作品陷入了“低龄化”的圈子，真正适合全年龄段的国产作品，就只有以《秦时明月》为代表的一小批作品。许多在网络上受人追捧的作品的制作者叹道：“像我们《十万个冷笑话》这样‘和谐’的作品绝对上不了电视！”能上电视的，总是以《喜羊羊与灰太狼》为代表的大批“低龄化”、“低智商”的作品。我们不否认这些作品对低龄人群的作用，但我们作为青少年，也理应拥有适合我们年龄段的优秀国产作品。</p>
@@ -1059,7 +1059,7 @@
 <p>这段话出自法国大革命时期吉伦特派的皮埃尔·韦鸠尼昂·韦尼奥之口。这样的言辞是如何得以出现的？当中国的某个掌权者的做法与宪法背道而驰之时，我们能够像这样大胆斥责吗？</p>
 <p>显然是不能的。“得道者多助，失道者寡助”，受到这样批判的当然是寡助者——多助者在被这样批判的时候，发出批判的人立刻就会被口水淹没。不幸的是，政治的发展和技术的变革让得道者不一定多助，失道者也不一定寡助了，或者至少将他们多助、寡助的时间点大大延后，使得许多事物可以被扼杀于摇篮。</p>
 <p>这些天，肺炎疫情把武汉政府的虚伪面具撕得稀烂，官僚主义、形式主义的败絮化为血的火焰，烧穿包装纸让魔幻的现实在全世界面前光彩夺目。因此，舆论的战斗被推到自习近平同志就任以来所未有的高度，甚至有人表示“上一次有这么多人觉醒，还是1989年”，品葱的反共分子和连登的香港废青们弹冠相庆，似乎民智将开，马上就要十月革命一声炮响，共产党就要被打倒了。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>但从大体上看，中国共产党经历九十九年仍然是得道者。多助寡助自不必说，光是党员就有9000万之巨，假如将其看作一种有具体名头的宗教，那也是世界第五大教了。得道就在于，无论当年是通过机缘巧合还是苏联援助，还是中共声称的历史必然性，即“没有共产党就没有新中国”的阐释，中共最终是成功在中国建立了较为稳定的社会主义政权，使中国摆脱了半殖民地半封建社会的性质，这一点无论怎么抹黑都是不可否认的。而且经过七十年的“艰难探索”，在集中力量办大事，杀了许多好人和坏人之后，在让懒惰的人穷下去，勤劳的人富起来之后，成为了“第三世界”中有头有脸的一员，甚至让一部分狂妄的人提前敢于和曾经骑在祖先头上的“西方列强”掰掰手腕。</p>
 <p>但是哪个政权是可以永远存在的呢？古代的帝王号称受命于天，但嫡传几代就免不了“天数有变”的历史周期律；“资本主义社会”以资本为中心，政权怎么更迭都是服务于资本，本质上没有多少区别；中国的马克思主义者认为建设社会主义并逐渐发展到共产主义的究极形态是破除周期律的方法——毕竟那时就根本没有政权了。</p>
@@ -1097,7 +1097,7 @@
 <p>扔进光驱，兴冲冲安装之后，点开附带的<code>omake.txt</code>文档，你会发现和安装时就遇到的一样，大部分成了乱码：</p>
 <p><img src="https://i.loli.net/2020/02/09/UV9Pzu8rQFtSHMj.jpg" alt="omake原文"></p>
 <p>奇怪的是，英文、数字、以及一些符号部分并没有变成乱码，这时你就明白，该死的编码问题又出现了。一直到几年前，Windows记事本的默认编码都是写在右下角的<code>ANSI</code>（现在已经是UTF-8），这是什么编码呢？</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>当你在简体中文Windows环境下用记事本写一个ANSI编码的文件，再用VS Code这种对各种编码都支持良好的编辑器打开它，编辑器所识别的编码是中国的国标码<code>GB 2312</code>。</p>
 <p><img src="https://i.loli.net/2020/02/09/swLx1GrgF7zpRJC.jpg" alt="动画观览记录GB2312.jpg"></p>
@@ -1255,11 +1255,11 @@
 <h1 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>如之前所说，委托类似于函数指针。或者说，委托是一种存储函数引用的<strong>类型</strong>。由于函数的参数须是变量/常量/表达式，只要把函数变成一种引用类型的变量，就可以让一个函数作为其它函数的参数了。同样，也可以通过直接调用委托变量来调用委托变量所引用的函数。</p>
 <p>为什么要把<strong>类型</strong>加粗？因为声明一个委托类型并不是声明一个委托变量，而是一类委托的<strong>模板</strong>，说明了这类委托应具有的的返回值类型与参数列表。委托类型与具体的委托变量之关系，类似于“类”和“对象”的关系。</p>
 <p>委托类型声明和函数类似，拥有返回值类型和参数列表，但没有函数体，并且在前面用<code>delegate</code>关键字声明这是一个委托类型，再声明这个委托类型的变量：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//声明委托类型和委托变量</span></span><br><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">double</span> <span class="title">ProcessDelegate</span>(<span class="params"><span class="keyword">double</span> param1, <span class="keyword">double</span> param2</span>)</span>;</span><br><span class="line">ProcessDelegate process;</span><br><span class="line"></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将函数Multiply注册到ProcessDelegate类型的委托变量process</span></span><br><span class="line">process = <span class="keyword">new</span> ProcessDelegate(Multiply);</span><br><span class="line"></span><br><span class="line"><span class="comment">//也可以简写</span></span><br><span class="line">process = Multiply;</span><br><span class="line"></span><br><span class="line"><span class="comment">//多播委托(虽然这里没什么用)</span></span><br><span class="line">process += Divide;</span><br><span class="line">process += Add;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用委托</span></span><br><span class="line">System.Console.WriteLine(<span class="string">$&quot;Result:<span class="subst">&#123;process(<span class="number">12.1</span>, <span class="number">22.4</span>)&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//声明委托类型和委托变量</span></span><br><span class="line"><span class="function"><span class="built_in">delegate</span> <span class="built_in">double</span> <span class="title">ProcessDelegate</span>(<span class="params"><span class="built_in">double</span> param1, <span class="built_in">double</span> param2</span>)</span>;</span><br><span class="line">ProcessDelegate process;</span><br><span class="line"></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将函数Multiply注册到ProcessDelegate类型的委托变量process</span></span><br><span class="line">process = <span class="keyword">new</span> ProcessDelegate(Multiply);</span><br><span class="line"></span><br><span class="line"><span class="comment">//也可以简写</span></span><br><span class="line">process = Multiply;</span><br><span class="line"></span><br><span class="line"><span class="comment">//多播委托(虽然这里没什么用)</span></span><br><span class="line">process += Divide;</span><br><span class="line">process += Add;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用委托</span></span><br><span class="line">System.Console.WriteLine(<span class="string">$&quot;Result:<span class="subst">&#123;process(<span class="number">12.1</span>, <span class="number">22.4</span>)&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>实际上，委托确实是一种“类”。上面所展示的委托变量声明，其形式就和类的实例化完全一致。在委托变量后面打个点，你甚至能看到一堆委托类型包含的方法和属性：</p>
 <p><img src="https://i.loli.net/2020/02/27/xVONQiE1hJIrWf2.jpg" alt="委托也是类"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="何时用委托？"><a href="#何时用委托？" class="headerlink" title="何时用委托？"></a>何时用委托？</h2><p><strong>委托的一个有趣且有用的属性是，它不知道也不关心所引用的方法的类；只关心引用的方法是否具有与委托相同的参数和返回类型。</strong> </p>
 <p>这就像是当你饿了的时候，并不是非得去哪家特定的饭店吃饭，而是只要你给钱（参数）能得到食物（返回类型）就行了。这样，就无需先通过继承<code>建筑</code>类来构建一个<code>店铺</code>类，再实现一个<code>厨房</code>接口之类的东西，让其成为<code>饭店</code>——而是就算是大街上一个路人你能从TA那买到吃的，也算是能满足你的需求。</p>
@@ -1268,7 +1268,7 @@
 
 <p>LINQ的详细介绍留至以后，这可以说是C#中最为变态的武器之一，这里只说说Where方法。</p>
 <p>Where方法是接口<code>IEnumerable</code>和<code>IEnumerable&lt;T&gt;</code>中的方法，也只有实现了这两个接口之一或它们的派生接口（如<code>IQueryable&lt;T&gt;</code>）的类可以使用LINQ，这种类被称为<strong>可查询类型</strong>。Where方法的原型：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">IEnumerable</span>&lt;<span class="title">TSource</span>&gt; <span class="title">Where</span>&lt;<span class="title">TSource</span>&gt; (<span class="params"><span class="keyword">this</span> IEnumerable&lt;TSource&gt; source, Func&lt;TSource, <span class="keyword">bool</span>&gt; predicate</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">IEnumerable</span>&lt;<span class="title">TSource</span>&gt; <span class="title">Where</span>&lt;<span class="title">TSource</span>&gt; (<span class="params"><span class="keyword">this</span> IEnumerable&lt;TSource&gt; source, Func&lt;TSource, <span class="built_in">bool</span>&gt; predicate</span>)</span>;</span><br></pre></td></tr></table></figure>
 
 <p>分析一下。</p>
 <p>首先，这个方法是一个<code>static</code>方法，并且参数列表的第一个参数被<code>this</code>修饰，这是<strong>扩展方法</strong>的特征。这是因为Where方法之类的LINQ操作并不是直接定义在<code>IEnumerable&lt;T&gt;</code>接口里，而是在<code>System.Linq</code>命名空间中定义的扩展方法。扩展方法的第一个，被<code>this</code>所修饰的参数指明了这个扩展方法扩展的是什么类型。</p>
@@ -1277,29 +1277,29 @@
 <p>而后面的<code>Func&lt;TSource, bool&gt; predicate</code>就是一个委托，并且是泛型委托。其中关系到“协变和逆变”之类的高深操作留待下次再说。</p>
 <p>这个委托用于对每个元素进行测试，看它们是否满足条件。自然，如果满足条件，这个委托将返回bool型的<code>true</code>。泛型委托的泛型类型参数中，最后一个即为委托的返回类型，故而是bool型。而前面的<code>TSource</code>指示了所封装的方法的参数类型。</p>
 <p>因此，这个<code>Func&lt;TSource, bool&gt; predicate</code>可以看作是：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">delegate</span> <span class="keyword">bool</span> <span class="title">FooDelegate</span>(<span class="params">TSource foo</span>)</span>;     <span class="comment">//这里的TSource是某个类型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">FooFunc</span>(<span class="params">TSource foo</span>)</span>&#123;      <span class="comment">//接收TSource，返回bool的函数</span></span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">FooDelegate predicate = <span class="keyword">new</span> FooDelegate(FooFunc);</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="built_in">delegate</span> <span class="built_in">bool</span> <span class="title">FooDelegate</span>(<span class="params">TSource foo</span>)</span>;     <span class="comment">//这里的TSource是某个类型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">bool</span> <span class="title">FooFunc</span>(<span class="params">TSource foo</span>)</span>&#123;      <span class="comment">//接收TSource，返回bool的函数</span></span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">FooDelegate predicate = <span class="keyword">new</span> FooDelegate(FooFunc);</span><br></pre></td></tr></table></figure>
 
 <h2 id="泛型委托"><a href="#泛型委托" class="headerlink" title="泛型委托"></a>泛型委托</h2><p>除了用<code>delegate</code>关键字声明传统委托之外，还有两种泛型委托：即上面提到过的<code>Func&lt;&gt;</code>和另一种<code>Action&lt;&gt;</code>泛型委托。</p>
 <p>使用泛型委托，可以避免传统委托在使用前必须定义委托类型才能用委托变量引用函数的麻烦。</p>
 <h3 id="Func-lt-gt-泛型委托"><a href="#Func-lt-gt-泛型委托" class="headerlink" title="Func&lt;&gt;泛型委托"></a>Func&lt;&gt;泛型委托</h3><p><code>Func&lt;&gt;</code>泛型委托适用于引用那些返回类型非<code>void</code>的函数。其泛型类型参数的个数可从1-17个不等，其中最后的泛型类型参数代表返回类型，前面的0-16个泛型类型参数代表委托的参数列表。</p>
 <p>以下示例用两个泛型委托分别输出List中大于5和小于10的数：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">static</span> System.Console;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">PlayGround</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">//定义两个函数</span></span><br><span class="line">            <span class="function"><span class="keyword">bool</span> <span class="title">Foo1</span>(<span class="params"><span class="keyword">int</span> num</span>)</span></span><br><span class="line"><span class="function"></span>            &#123;</span><br><span class="line">                <span class="keyword">return</span> num &gt; <span class="number">5</span> ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">bool</span> <span class="title">Foo2</span>(<span class="params"><span class="keyword">int</span> num</span>)</span></span><br><span class="line"><span class="function"></span>            &#123;</span><br><span class="line">                <span class="keyword">return</span> num &lt; <span class="number">10</span> ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//定义两个泛型委托</span></span><br><span class="line">            Func&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt; foo1 = Foo1;</span><br><span class="line">            Func&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt; foo2 = Foo2;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span>[] input = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">10</span>, <span class="number">37</span>, <span class="number">256</span> &#125;;</span><br><span class="line">            List&lt;<span class="keyword">int</span>&gt; numsList = <span class="keyword">new</span> List&lt;<span class="keyword">int</span>&gt;(input);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">int</span> num <span class="keyword">in</span> numsList.Where(foo1).ToList())  <span class="comment">//用委托调用函数Foo1</span></span><br><span class="line">                Write(<span class="string">$&quot;<span class="subst">&#123;num&#125;</span> &quot;</span>);   <span class="comment">//Print: 6 10 37 256</span></span><br><span class="line"></span><br><span class="line">            WriteLine();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">int</span> num <span class="keyword">in</span> numsList.Where(foo2).ToList())  <span class="comment">//用委托调用函数Foo2</span></span><br><span class="line">                Write(<span class="string">$&quot;<span class="subst">&#123;num&#125;</span> &quot;</span>);   <span class="comment">//Print: 1 2 4 5 6</span></span><br><span class="line"></span><br><span class="line">            ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">static</span> System.Console;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">PlayGround</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="comment">//定义两个函数</span></span><br><span class="line">            <span class="function"><span class="built_in">bool</span> <span class="title">Foo1</span>(<span class="params"><span class="built_in">int</span> num</span>)</span></span><br><span class="line"><span class="function"></span>            &#123;</span><br><span class="line">                <span class="keyword">return</span> num &gt; <span class="number">5</span> ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="built_in">bool</span> <span class="title">Foo2</span>(<span class="params"><span class="built_in">int</span> num</span>)</span></span><br><span class="line"><span class="function"></span>            &#123;</span><br><span class="line">                <span class="keyword">return</span> num &lt; <span class="number">10</span> ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//定义两个泛型委托</span></span><br><span class="line">            Func&lt;<span class="built_in">int</span>, <span class="built_in">bool</span>&gt; foo1 = Foo1;</span><br><span class="line">            Func&lt;<span class="built_in">int</span>, <span class="built_in">bool</span>&gt; foo2 = Foo2;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">int</span>[] input = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">10</span>, <span class="number">37</span>, <span class="number">256</span> &#125;;</span><br><span class="line">            List&lt;<span class="built_in">int</span>&gt; numsList = <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt;(input);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">foreach</span> (<span class="built_in">int</span> num <span class="keyword">in</span> numsList.Where(foo1).ToList())  <span class="comment">//用委托调用函数Foo1</span></span><br><span class="line">                Write(<span class="string">$&quot;<span class="subst">&#123;num&#125;</span> &quot;</span>);   <span class="comment">//Print: 6 10 37 256</span></span><br><span class="line"></span><br><span class="line">            WriteLine();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">foreach</span> (<span class="built_in">int</span> num <span class="keyword">in</span> numsList.Where(foo2).ToList())  <span class="comment">//用委托调用函数Foo2</span></span><br><span class="line">                Write(<span class="string">$&quot;<span class="subst">&#123;num&#125;</span> &quot;</span>);   <span class="comment">//Print: 1 2 4 5 6</span></span><br><span class="line"></span><br><span class="line">            ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>使用泛型委托之后，声明委托类型、声明委托变量、引用函数的步骤被结合到了一步：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">Func&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt; foo1 = Foo1;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">Func&lt;<span class="built_in">int</span>, <span class="built_in">bool</span>&gt; foo1 = Foo1;</span><br></pre></td></tr></table></figure>
 
 <p>当然，上述这个例子用Lambda表达式作为委托还会简单得多：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (<span class="keyword">int</span> num <span class="keyword">in</span> numsList.Where(n =&gt; n &gt; <span class="number">5</span>).ToList())    <span class="comment">//用Lambda表达式表示大于5</span></span><br><span class="line">    Write(<span class="string">$&quot;<span class="subst">&#123;num&#125;</span> &quot;</span>);   <span class="comment">//Print: 6 10 37 256</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">int</span> num <span class="keyword">in</span> numsList.Where(n =&gt; n &lt; <span class="number">10</span>).ToList())   <span class="comment">//用Lambda表达式表示小于10</span></span><br><span class="line">    Write(<span class="string">$&quot;<span class="subst">&#123;num&#125;</span> &quot;</span>);   <span class="comment">//Print: 6 10 37 256</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (<span class="built_in">int</span> num <span class="keyword">in</span> numsList.Where(n =&gt; n &gt; <span class="number">5</span>).ToList())    <span class="comment">//用Lambda表达式表示大于5</span></span><br><span class="line">    Write(<span class="string">$&quot;<span class="subst">&#123;num&#125;</span> &quot;</span>);   <span class="comment">//Print: 6 10 37 256</span></span><br><span class="line"><span class="keyword">foreach</span> (<span class="built_in">int</span> num <span class="keyword">in</span> numsList.Where(n =&gt; n &lt; <span class="number">10</span>).ToList())   <span class="comment">//用Lambda表达式表示小于10</span></span><br><span class="line">    Write(<span class="string">$&quot;<span class="subst">&#123;num&#125;</span> &quot;</span>);   <span class="comment">//Print: 6 10 37 256</span></span><br></pre></td></tr></table></figure>
 
 <p>实际上，Lambda表达式它完全就是一种委托，属于匿名委托的更简写法。</p>
 <h3 id="Action-lt-gt-泛型委托"><a href="#Action-lt-gt-泛型委托" class="headerlink" title="Action&lt;&gt;泛型委托"></a>Action&lt;&gt;泛型委托</h3><p>和<code>Func&lt;&gt;</code>的区别在于，<code>Action&lt;&gt;</code>的返回类型是void。因此，泛型类型参数的个数从0~16个不等，全部代表委托的参数列表。这也非常“Action”：传统意义上的“函数”感觉就是得返回点什么（函数值），而什么也不返回的更像是一个“动作”。这个就不再举例了。</p>
 <h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>事件是在委托的基础上实现的，同样也是解耦利器。</p>
 <p>在委托变量的声明前加<code>event</code>关键字就是声明了一个事件。<strong>需要注意，用于事件的委托其返回值一般是void</strong>：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//一个委托类型，接收string，返回void</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">BoilerLogHandler</span>(<span class="params"><span class="keyword">string</span> status</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//基于上面的委托类型定义BoilerLogHandler类型的事件BoilerEventLog</span></span><br><span class="line"><span class="comment">//这要求事件处理函数接受string返回void</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">event</span> BoilerLogHandler BoilerEventLog;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//一个委托类型，接收string，返回void</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">BoilerLogHandler</span>(<span class="params"><span class="built_in">string</span> status</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//基于上面的委托类型定义BoilerLogHandler类型的事件BoilerEventLog</span></span><br><span class="line"><span class="comment">//这要求事件处理函数接受string返回void</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">event</span> BoilerLogHandler BoilerEventLog;</span><br></pre></td></tr></table></figure>
 
 <p>包含了事件声明定义的类被称为<strong>发布器（publisher）类</strong>；接收事件，并提供事件处理函数的类被称为<strong>订阅器（subscriber）类</strong>。所谓订阅事件的过程，就是将订阅器类的处理函数注册到发布器类那里，当发布器发现事件被引发时，就通知订阅器类去执行相应的处理函数。发布器类有可能同时也是订阅器类之一，而引发事件的类可能既不是发布器类也不是订阅器类。</p>
 <p>上面的那段就是发布器类的一部分，定义了事件<code>BoilerEventLog</code>。接下来展示一个相符的订阅器类内容：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//满足BoilerEventLog事件对参数和返回类型要求的函数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DisplayMessage</span>(<span class="params"><span class="keyword">string</span> message</span>)</span> =&gt; Console.WriteLine(<span class="string">$&quot;Message arrived: <span class="subst">&#123;message&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//满足BoilerEventLog事件对参数和返回类型要求的函数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DisplayMessage</span>(<span class="params"><span class="built_in">string</span> message</span>)</span> =&gt; Console.WriteLine(<span class="string">$&quot;Message arrived: <span class="subst">&#123;message&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>订阅事件和引发事件：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//实例化发布器类和订阅器类</span></span><br><span class="line">Logger myLogger = <span class="keyword">new</span> Logger();</span><br><span class="line">Display myDisplay = <span class="keyword">new</span> Display();</span><br><span class="line"></span><br><span class="line"><span class="comment">//订阅事件</span></span><br><span class="line">myLogger.BoilerEventLog += <span class="keyword">new</span> BoilerLogHandler(myDisplay.DispalyMessage);</span><br><span class="line"></span><br><span class="line"><span class="comment">//或者和委托一样，简化写法：</span></span><br><span class="line">myLogger.BoilerEventLog += myDisplay.DisplayMessage;</span><br><span class="line"></span><br><span class="line"><span class="comment">//引发事件：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//用?. 运算符可以轻松确保在事件没有订阅器时不引发事件</span></span><br><span class="line"><span class="comment">//当?. 左侧为null时返回null，非空才访问右侧。没有被订阅的事件就是空的。</span></span><br><span class="line">myLogger.BoilerEventLog?.Invoke(<span class="string">&quot;This is a message.&quot;</span>);</span><br></pre></td></tr></table></figure>
@@ -1311,12 +1311,12 @@
 <p>不过，接下来就有区别了，这个才是重点。</p>
 <h2 id="EventHandler"><a href="#EventHandler" class="headerlink" title="EventHandler"></a>EventHandler</h2><p>C#预定义了委托<code>EventHandler</code>和泛型委托<code>EventHandler&lt;TEventArgs&gt;</code>用来写发布器。事实上，考虑到事件引发时通常需要传入不少各种各样的参数，相比前面与多播委托基本没区别的语法，使用这种预定义的事件要更多。</p>
 <p>原型：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventHandler</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">EventHandler</span>&lt;<span class="title">TEventArgs</span>&gt;(<span class="params"><span class="keyword">object</span> sender, TEventArgs e</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">EventHandler</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">EventHandler</span>&lt;<span class="title">TEventArgs</span>&gt;(<span class="params"><span class="built_in">object</span> sender, TEventArgs e</span>)</span>;</span><br></pre></td></tr></table></figure>
 
 <p>这两个参数，第一个是事件源，在引发事件时填写<code>this</code>即可；第二个参数的类型派生自<code>System.EventArgs</code>，包含任意个事件参数。派生自<code>System.EventArgs</code>的类有很多很多，其中都是C#预先定义的事件形参。</p>
 <p>而泛型委托<code>EventHandler&lt;TEventArgs&gt;</code>的区别在于，第二项参数可以不派生自<code>System.EventArgs</code>，而是根据泛型类型参数<code>TEventArgs</code>决定。这意味着，如果希望在引发事件时传入10种参数，你需要根据<code>TEventArgs</code>写一个类，在里面定义10项属性。引发事件时，实例化这个类，把构造出的对象传到第二项参数里。</p>
 <p>这个过程相当于是引发事件的类填了一张表格寄出去。表格的格式是预先设计好的，无论是派生自<code>System.EventArgs</code>的类，还是泛型委托里根据泛型类型参数自己写的那个类，其属性是在填写表格之前就确定了的。寄出去的除了填写完整的表格<code>e</code>之外，信封上还有你的联系方式<code>sender</code>。这样，收件人（发布器类）才能知道信是谁寄来的，也能够确定信里表格的格式是符合要求的。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//一个定义的例子</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="keyword">event</span> EventHandler&lt;MessageArrivedEventArgs&gt; MessageArrived;</span><br><span class="line"></span><br><span class="line"><span class="comment">//事件参数类的定义</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MessageArrivedEventArgs</span> : <span class="title">EventArgs</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">string</span> message;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Message</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span>&#123;<span class="keyword">return</span> message;&#125;    <span class="comment">//让message通过Message只读</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//显式定义无参构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessageArrivedEventArgs</span>(<span class="params"></span>)</span>=&gt;</span><br><span class="line">        message = <span class="string">&quot;No message sent.&quot;</span></span><br><span class="line">    <span class="comment">//有参构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessageArrivedEventArgs</span>(<span class="params"><span class="keyword">string</span> newMessage</span>)</span>=&gt;</span><br><span class="line">        message = newMessage;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//引发事件，第一个参数是this，第二个实例化事件参数类</span></span><br><span class="line">MessageArrived(<span class="keyword">this</span>, <span class="keyword">new</span> MessageArrivedEventArgs(<span class="string">&quot;Hello World!&quot;</span>))；</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//一个定义的例子</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="keyword">event</span> EventHandler&lt;MessageArrivedEventArgs&gt; MessageArrived;</span><br><span class="line"></span><br><span class="line"><span class="comment">//事件参数类的定义</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MessageArrivedEventArgs</span> : <span class="title">EventArgs</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">string</span> message;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Message</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span>&#123;<span class="keyword">return</span> message;&#125;    <span class="comment">//让message通过Message只读</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//显式定义无参构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessageArrivedEventArgs</span>(<span class="params"></span>)</span>=&gt;</span><br><span class="line">        message = <span class="string">&quot;No message sent.&quot;</span></span><br><span class="line">    <span class="comment">//有参构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessageArrivedEventArgs</span>(<span class="params"><span class="built_in">string</span> newMessage</span>)</span>=&gt;</span><br><span class="line">        message = newMessage;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//引发事件，第一个参数是this，第二个实例化事件参数类</span></span><br><span class="line">MessageArrived(<span class="keyword">this</span>, <span class="keyword">new</span> MessageArrivedEventArgs(<span class="string">&quot;Hello World!&quot;</span>))；</span><br></pre></td></tr></table></figure>
 
 <p>最后要注意的是，如果事件根本不需要传入参数，依然可以用<code>EventHandler</code>委托来定义，只要向第二项参数里传入<code>EventArgs.Empty</code>就行了。</p>
 <blockquote>
@@ -1340,7 +1340,7 @@
 <p>假设<code>Greyhound</code> （灰狗）是 <code>Dog</code> （狗）的子类，而 <code>Dog</code> 则是 <code>Animal</code> （动物）的子类。由于子类型通常是可传递的，因此我们也称 <code>Greyhound</code> 是 <code>Animal</code> 的子类。这是显然的。</p>
 <p>那么，一个问题出现了：</p>
 <p><strong>如果我们有一个委托<code>Func&lt;Dog, Dog&gt;</code>，是不是真的只能分配那些接受<code>Dog</code>为参数，并返回<code>Dog</code>的方法呢？</strong></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>根据里氏替换原则，既然灰狗是狗的子类，似乎我们完全可以用灰狗来代替狗：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Dog类的DogBark()</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Dog <span class="title">DogBark</span>(<span class="params">Dog dog</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    WriteLine(<span class="string">&quot;A Dog:&quot;</span> + dog.dogMessage);</span><br><span class="line">    <span class="keyword">return</span> dog;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Greyhound类的GreyhoundBark()</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Greyhound <span class="title">GreyhoundBark</span>(<span class="params">Greyhound greyhound</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    WriteLine(<span class="string">&quot;A Greyhound: &quot;</span> + greyhound.greyhoundMessage);</span><br><span class="line">    <span class="keyword">return</span> greyhound;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Func&lt;Dog, Dog&gt; LetDogBark = <span class="keyword">new</span> Func&lt;Dog, Dog&gt;(dog.DogBark);</span><br><span class="line"></span><br><span class="line"><span class="comment">//CS0123: &quot;GreyhoundBark&quot;没有与委托&quot;Func&lt;Dog,Dog&gt;&quot;匹配的重载</span></span><br><span class="line">LetDogBark += greyhound.GreyhoundBark;</span><br></pre></td></tr></table></figure>
@@ -1369,10 +1369,10 @@
 <h1 id="自定义泛型委托中的变体"><a href="#自定义泛型委托中的变体" class="headerlink" title="自定义泛型委托中的变体"></a>自定义泛型委托中的变体</h1><p>上面说的支持变体的委托，是指<code>Func&lt;&gt;</code>和<code>Action&lt;&gt;</code>这两种C#预定义的泛型委托，它默认参数类型逆变，而返回类型协变。如果是自定义的泛型委托，则需要手动指定参数和返回类型的变体（不过很少会有需要自定义泛型委托的场景）。</p>
 <p>我们用<code>out</code>和<code>in</code>泛型修饰符来进行指定，<code>out</code>代表支持协变，<code>in</code>代表支持逆变：</p>
 <p>协变：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 支持协变的委托，out修饰符修饰的是返回类型</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> R <span class="title">DCovariant</span>&lt;<span class="keyword">out</span> <span class="title">R</span>&gt;(<span class="params"></span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 符合委托签名的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Control <span class="title">SampleControl</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> Control(); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Button <span class="title">SampleButton</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> Button(); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;            </span><br><span class="line">    <span class="comment">// 将委托实例化</span></span><br><span class="line">    DCovariant&lt;Control&gt; dControl = SampleControl;</span><br><span class="line">    DCovariant&lt;Button&gt; dButton = SampleButton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// dButton可以赋给dControl</span></span><br><span class="line">    <span class="comment">// 因为DCovariant委托是支持协变的</span></span><br><span class="line">    dControl = dButton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用委托</span></span><br><span class="line">    dControl(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 支持协变的委托，out修饰符修饰的是返回类型</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> R <span class="title">DCovariant</span>&lt;<span class="keyword">out</span> <span class="title">R</span>&gt;(<span class="params"></span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 符合委托签名的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Control <span class="title">SampleControl</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> Control(); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Button <span class="title">SampleButton</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> Button(); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;            </span><br><span class="line">    <span class="comment">// 将委托实例化</span></span><br><span class="line">    DCovariant&lt;Control&gt; dControl = SampleControl;</span><br><span class="line">    DCovariant&lt;Button&gt; dButton = SampleButton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// dButton可以赋给dControl</span></span><br><span class="line">    <span class="comment">// 因为DCovariant委托是支持协变的</span></span><br><span class="line">    dControl = dButton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用委托</span></span><br><span class="line">    dControl(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>逆变：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 支持逆变的委托，in修饰符修饰的是参数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">DContravariant</span>&lt;<span class="keyword">in</span> <span class="title">A</span>&gt;(<span class="params">A argument</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 符合委托签名的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SampleControl</span>(<span class="params">Control control</span>)</span></span><br><span class="line"><span class="function"></span>&#123; &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SampleButton</span>(<span class="params">Button button</span>)</span></span><br><span class="line"><span class="function"></span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 将委托实例化</span></span><br><span class="line">    DContravariant&lt;Control&gt; dControl = SampleControl;</span><br><span class="line">    DContravariant&lt;Button&gt; dButton = SampleButton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// dControl可以赋给dButton</span></span><br><span class="line">    <span class="comment">// 因为DContravariant委托是支持逆变的</span></span><br><span class="line">    dButton = dControl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用委托</span></span><br><span class="line">    dButton(<span class="keyword">new</span> Button()); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 支持逆变的委托，in修饰符修饰的是参数</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">DContravariant</span>&lt;<span class="keyword">in</span> <span class="title">A</span>&gt;(<span class="params">A argument</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 符合委托签名的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SampleControl</span>(<span class="params">Control control</span>)</span></span><br><span class="line"><span class="function"></span>&#123; &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">SampleButton</span>(<span class="params">Button button</span>)</span></span><br><span class="line"><span class="function"></span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 将委托实例化</span></span><br><span class="line">    DContravariant&lt;Control&gt; dControl = SampleControl;</span><br><span class="line">    DContravariant&lt;Button&gt; dButton = SampleButton;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// dControl可以赋给dButton</span></span><br><span class="line">    <span class="comment">// 因为DContravariant委托是支持逆变的</span></span><br><span class="line">    dButton = dControl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用委托</span></span><br><span class="line">    dButton(<span class="keyword">new</span> Button()); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="泛型接口中的变体"><a href="#泛型接口中的变体" class="headerlink" title="泛型接口中的变体"></a>泛型接口中的变体</h1><p>除了泛型委托之外，泛型接口里也会运用到变体。</p>
 <p>非常常用的<code>IEnumerable&lt;T&gt;</code>、<code>IEnumerator&lt;T&gt;</code>、<code>IQueryable&lt;T&gt;</code> 和<code>IGrouping&lt;TKey,TElement&gt;</code>泛型接口，它们的所有类型参数都是协变类型参数，这些类型参数只用于成员的返回类型。</p>
@@ -1385,6 +1385,75 @@
       <tags>
         <tag>C Sharp</tag>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>试分析苇名弦一郎的BOSS设计</title>
+    <url>/2020/03/16/%E8%AF%95%E5%88%86%E6%9E%90%E8%8B%87%E5%90%8D%E5%BC%A6%E4%B8%80%E9%83%8E%E7%9A%84BOSS%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>对BOSS战的分析，可以从战斗机制的设计和对玩家能力的考验两个方向进行。</p>
+<h1 id="战斗机制"><a href="#战斗机制" class="headerlink" title="战斗机制"></a>战斗机制</h1><p>何谓战斗机制？</p>
+<p>“机制”这个词实在太宽泛。几个月前我曾在<a href="https://hakurei.red/2019/11/20/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">这篇笔记</a>里总结过一次。</p>
+<p>根据MDA框架，机制是“数据层面上的组件与算法”；形式、戏剧和动态元素框架中，“机制”基本等同于“形式”元素，即交互模式、目标、规则、过程、资源、边界、结局等等。四元法有一元是机制，指的是“玩家与游戏互动的规则”，也是游戏与其他非互动性媒体的区别所在。</p>
+<p>不过，我们仍然可以把“机制”换个词，用“规则”来代替。更进一步的，战斗机制即是指，在战斗时，玩家能做什么？</p>
+<p>那么《只狼》的战斗中，玩家能做什么？</p>
+<p>最大的特色就是“打铁”，即弹反与架势槽。这个机制把传统动作游戏里高难度、高回报、低频率的“弹反”完全逆转成为难度相对偏低、回报不算明显，但使用频率极高的一种主要操作。《只狼》的战斗目标不再是单纯的削血，而主要是以进攻和弹反使敌人的架势槽涨满，此时即可一击必杀（忍杀）。同时架势槽的自然回落速度随剩余血量的减少而变慢，架势槽和血槽成为了相辅相成的两个机制。</p>
+<p>第二点是处理敌人的“危”攻击。敌人偶尔发动无法格挡的技能，玩家头顶会浮现出红色的“危”字，这时就需要玩家根据敌人的起手动作，紧急判断下一步的应对措施。所谓的“危”其实也蕴含着“机”，如果处理得当，可以对敌方架势槽造成较大的上升。</p>
+<p>主要的“危”攻击有两种类别，一是突刺，无法格挡，可以精准弹反，但正确的处理是在突刺的瞬间向敌人脸上垫步发动“识破”，造成较大的架势条上涨；二是横扫，最佳的处理方法是跳到敌人头上踩踏，亦可以造成较大的架势条上涨。一些BOSS战中能用“雷电奉还”反弹雷电攻击，而少数敌人能使出的擒抱攻击只能靠闪避处理。</p>
+<span id="more"></span>
+
+<h1 id="玩家能力"><a href="#玩家能力" class="headerlink" title="玩家能力"></a>玩家能力</h1><p>何谓玩家能力？</p>
+<p>这里我找到两种说法。</p>
+<p>第一种说法：</p>
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/60192653">五石. 设计方法论001-确定游戏类型与玩家能力</a>： </p>
+<p>这个时候我们会引入一个东西叫做玩家能力（也叫玩家技巧）。我们会设立几个维度，如策略/操作/游戏知识等，然后在这个品类下为我们要考察的玩家能力划分等级。依然举例子来说明：    </p>
+<ul>
+<li>黑魂系列：大量的操作和游戏知识技巧，极少的策略技巧。    </li>
+<li>文明系列：大量的策略，中等的游戏知识，少量的操作。  </li>
+<li>刀塔自走棋：中等的策略，中等的游戏知识，少量的操作。    </li>
+<li>守望先锋：中等的策略，少量的游戏知识，大量的操作。  </li>
+</ul>
+</blockquote>
+<p>策略指的是较长期的规划，操作指的是短期的反应能力，游戏知识则是对游戏机制的全面了解。既然是动作游戏，策略显然是不怎么需要考虑的，主要考验的就是操作和游戏知识。</p>
+<p>第二种说法：</p>
+<blockquote>
+<p><a href="https://www.gameres.com/459042.html">小篱. 让新手成为核心玩家——从玩家能力分析开始</a>：</p>
+<p>玩家的能力大致可以归纳为两大类八小类：</p>
+<p>第一大类，集中力和肌肉的协调能力</p>
+<ul>
+<li>时机：考验玩家是否在正确的时间按键。比如跳舞类游戏，音乐游戏，对打游戏中出连招的时机，或者掐着时间跳平台。  </li>
+<li>估量：考验玩家是否估量准确通过挑战的幅度。比如赛车类游戏，玩家在拐弯时要把握好转弯的速度和幅度。    </li>
+<li>精确：考验玩家是否在一个精确的位置输入操作。比如射击类游戏，玩家需要精确的瞄准敌人。    </li>
+<li>反应：考验玩家对于一个不能预测的突发情况是否在正确的时刻输入操作。比如对打游戏，街头霸王的玩家需要很快的躲避，挡格。赛车游戏中高速行驶的车需要躲开迎面而来的车辆或者障碍。    </li>
+</ul>
+<p>第二大类，分析力、逻辑思维和记忆力</p>
+<ul>
+<li>战术：分析当前观察到的信息很快的做出决定，这个决定具有短期影响。比如反恐精英CS中，玩家需要根据对方的攻击重点，来调整自己队伍的攻防重点。比如RPG回合制游戏中，玩家需要分析怪物的血量，技能，抗性，判断出怪物的弱点，安排好自己的技能顺序。     </li>
+<li>策略：分析当前观察到的信息用了很长时间做出决定，这个决定具有长期影响。比如WOW中，玩家有很多天赋树的选择，不同的天赋的选择往往会导致玩家的攻击或者治疗效果的不一样。比如足球游戏中，玩家对于阵形和球员的调整。     </li>
+<li>管理：分配自己有限的资源。比如生化危机中玩家只有固定的少量的背包空格，需要安排好弹药和补给的数量。比如管理游戏，铁路大亨，虚拟人生。      </li>
+<li>机智：收集信息和线索去解决问题。比如古墓丽影中玩家需要思考机关的破解方式，生化危机中玩家需要收集很多道具去打开一个机关，比如手机上的很多益智游戏。        </li>
+</ul>
+</blockquote>
+<p>第二种解释较为详细，更加适合用来分析。第一大类基本可以归为“操作”，第二大类中，除了“策略”之外的的战术、管理、机智则可以归为“游戏知识”。</p>
+<h1 id="为什么是弦一郎？"><a href="#为什么是弦一郎？" class="headerlink" title="为什么是弦一郎？"></a>为什么是弦一郎？</h1><p>这是因为我至今还没彻底通关《只狼》，而是停留在了源之宫，甚至还没有找樱龙“拜泪”，更别说剑圣苇名一心了。这主要是我个人很不擅长源之宫这种低矮却错综复杂，可能还有很多水的地图，打平家宅邸以及魂3的法兰要塞都让我花了很长时间。</p>
+<p>不主要说义父，则是因为他的设计简直是为了恶心玩家。</p>
+<p>首先出手极狠，完美弹刀也要涨可观的架势条。打起来让人畏手畏脚，莽也不是守也不是，比起一般的敌人找到打铁节奏就能有惊无险地通过，面对义父就算是“太鼓达人”不时也要退避三舍恢复元气。</p>
+<p>第二是禁药。虽然触发范围不算大，奈何义父总是在拼刀正酣之际贴脸来上一下，即使是较为熟练的玩家也不免中招。一旦中了禁药，极长的持续时间会相应地给玩家造成极大的心理压力，甚至此时义父的进攻还会变得更为积极，在狂风暴雨的攻势下玩家的操作很容易出现误差，就此落命。</p>
+<p>第三是撒毒。不大的天守阁场地里有时甚至能散布四片毒区，占去约1/3的场地，大大缩小玩家的生存空间，这下不只是攻与守的抉择，连位移都要慎重考量了。</p>
+<p>第四是烟雾弹。烟雾弹的存在也是为了打断节奏，在跳出烟雾重新定位的时候，义父的架势条已经回落了一大截，前面几十秒的苦心拼刀可能就付诸东流。</p>
+<p>且不论什么正义的鞭炮，不得不说，巨型忍者枭这个BOSS确实诠释了“忍者”的身份，道具花样百出，招招阴险毒辣。但这些设计堆叠起来——它实在是太令人痛苦了。</p>
+<p>而苇名弦一郎，作为《只狼》前期最为重要的BOSS，与他堂堂正正的对决可以说是整部游戏的“期中测验”，值得用来分析。</p>
+<h1 id="与弦一郎对决之前"><a href="#与弦一郎对决之前" class="headerlink" title="与弦一郎对决之前"></a>与弦一郎对决之前</h1><p>和弦一郎的战斗在《只狼》中出现了三次，一次是在游戏刚开始不久时，基本上属于“剧情杀”；第二次是作为前期转入中期的BOSS；第三次是作为游戏最终决战的引子。“起承转合”之中，弦一郎就占了起、转、合三点，不得不说是《只狼》里形象非常饱满、令人印象深刻，也极为重要的BOSS。</p>
+<p>游戏进入主线时玩家来到破旧寺院，遥望远方见到的最显眼的目标就是苇名城天守阁，而玩家的第一个长期目标亦是登上天守阁，向弦一郎复仇。在去往天守阁的旅途中，玩家逐步掌握《只狼》的游戏机制，包括弹反、架势、“危”攻击的处理、义手忍具，乃至于在苇名流道场知道了“雷电奉还”。而抵达天守阁顶端时，与弦一郎的对决将前面的一切汇聚起来，是考验玩家对游戏机制理解的一次“期中考试”。</p>
+<h1 id="弦一郎"><a href="#弦一郎" class="headerlink" title="弦一郎"></a>弦一郎</h1><p>《只狼》中面对敌人的攻击，处理方式除了一般的动作游戏中所具有的打断、闪避、格挡、弹反之外，还添加了识破、踩头、忍具等机制，并且具有相比以前的“魂”系列更短的反馈时间。机制宽度上的增加与反馈时间的缩短，很好的弥补了因没有复杂的装备系统在深度上带来的不足。在这样的游戏机制下，最能考验玩家对弹反的掌握程度的，也令我印象尤为深刻的，是弦一郎的标志性技能“飞渡浮舟”：先是常规的两刀，略停顿后接两次上挑，立刻跃起极快地乱砍四下，最后在较长的停顿后以转身强力上挑收尾。这一套下来总共9刀，时长仅4秒左右，处理得当的话可以造成约1/4的架势槽上涨，而处理不当玩家就会当场落命，可以说是攻略中的一个难点。虽然这里说起来很轻松，但实际上这一套连招往往出现在激烈的、包含大量变招的拼刀之中，光是记住弦一郎总共出刀几次都不是件易事。</p>
+<p>另一个值得注意的是弦一郎的跳劈，劈砍结束后会产生小范围的烟尘，让玩家无法看清对方的动作。此时弦一郎会接突刺或者横扫的“危”攻击，玩家需要根据烟尘中一闪而过的刀光来判断到底是哪一种，是应该起跳，还是应该“识破”。</p>
+<p>完美弹反飞渡浮舟的严苛判定和用烟尘营造的障眼法，考验的是玩家的反应力、观察力和对时机的掌控力。而为了达到用这些攻击手段考验玩家能力的目的，弦一郎的BOSS战也经过了一番设计。一方面是在战斗场地的设置上。前面玩家打过鬼庭形部雅孝的战场、蝴蝶夫人的佛堂、乃至“居合哥”佐濑甚助的道场，而天守阁的空间相较它们更小，也没有设置任何掩体。这无疑是让玩家没有盘旋的余地，不鼓励像《黑暗之魂》里一样摸几刀就远远躲开，把BOSS战玩成实质上的“回合制游戏”，而是要正面迎战。另一方面弦一郎自身也有很多远程攻击和拉近距离的技能，比如空中射箭四连、射箭后翻滚近身以及跳劈，几乎是不让玩家有喘息机会的。这些设计，完全是在引导玩家和弦一郎贴身近战，并且不得不处理那些麻烦的技能，这就是弦一郎前两个阶段的主旋律。</p>
+<p>当玩家好不容易磨掉两条血，可能已经“弹尽粮绝”的时候，弦一郎却觉醒意外的力量，进入隐藏的第三阶段，成为“巴流 苇名弦一郎”。第三阶段很有意思，场景的环境由细雪和风骤变成快雪惊雷，这正是“巴之雷”力量的反映，立刻就让玩家回想起在苇名流道场所见的“雷电奉还”卷轴，提示了正确的应对措施。而真正施展出华丽的雷电奉还之后，产生的“打雷”麻痹效果以及极大的架势槽上涨，堪称是这场战斗中最令人爽快的一刻，使得第三阶段没有看上去的那么难，也构成了良好难度曲线的最后一环。良好的难度曲线，即是难度逐渐上升到顶峰，而后又逐渐降低的。</p>
+<h1 id="纯粹"><a href="#纯粹" class="headerlink" title="纯粹"></a>纯粹</h1><p>其实《只狼》是一部过于纯粹的游戏，以至于我不知道该怎么光就一个BOSS的设计进行进一步分析。像那篇由国产游戏策划所写的著名差评里所表达的那样，这个游戏几乎只剩下了“节奏大师音乐游戏”……但这并不是《只狼》的缺点，反而可以说是一种“返璞归真”。作为动作游戏，它既不是《荣耀战魂》那样的过于硬核，也不是《鬼泣》那样的炫瞎狗眼：它纯粹、朴实、“大巧不工”，强化少量核心机制的地位。而能够做到这个的游戏，总是不会差的。</p>
+]]></content>
+      <tags>
+        <tag>游戏</tag>
+        <tag>游戏学</tag>
       </tags>
   </entry>
   <entry>
@@ -1402,7 +1471,7 @@
 <li>Pixel Perfect效果</li>
 <li>实现基本的游戏逻辑</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="决定转向游戏制作"><a href="#决定转向游戏制作" class="headerlink" title="决定转向游戏制作"></a>决定转向游戏制作</h2><p>从<a href="https://hakurei.red/2019/11/02/191102/">191102</a>起，我由于开始接触C#这门与大数据开发关系不太深的语言，更由于自己一直以来的一些爱好与愿望，决定转向游戏制作。</p>
 <p>那时的计划是先系统性学习C#，然后逐步了解Unity引擎，尝试在实验室工作之外制作一个东方同人游戏，既贴合毕业所需，也可作为日后求职的材料。</p>
@@ -1477,75 +1546,6 @@
       </tags>
   </entry>
   <entry>
-    <title>试分析苇名弦一郎的BOSS设计</title>
-    <url>/2020/03/16/%E8%AF%95%E5%88%86%E6%9E%90%E8%8B%87%E5%90%8D%E5%BC%A6%E4%B8%80%E9%83%8E%E7%9A%84BOSS%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>对BOSS战的分析，可以从战斗机制的设计和对玩家能力的考验两个方向进行。</p>
-<h1 id="战斗机制"><a href="#战斗机制" class="headerlink" title="战斗机制"></a>战斗机制</h1><p>何谓战斗机制？</p>
-<p>“机制”这个词实在太宽泛。几个月前我曾在<a href="https://hakurei.red/2019/11/20/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">这篇笔记</a>里总结过一次。</p>
-<p>根据MDA框架，机制是“数据层面上的组件与算法”；形式、戏剧和动态元素框架中，“机制”基本等同于“形式”元素，即交互模式、目标、规则、过程、资源、边界、结局等等。四元法有一元是机制，指的是“玩家与游戏互动的规则”，也是游戏与其他非互动性媒体的区别所在。</p>
-<p>不过，我们仍然可以把“机制”换个词，用“规则”来代替。更进一步的，战斗机制即是指，在战斗时，玩家能做什么？</p>
-<p>那么《只狼》的战斗中，玩家能做什么？</p>
-<p>最大的特色就是“打铁”，即弹反与架势槽。这个机制把传统动作游戏里高难度、高回报、低频率的“弹反”完全逆转成为难度相对偏低、回报不算明显，但使用频率极高的一种主要操作。《只狼》的战斗目标不再是单纯的削血，而主要是以进攻和弹反使敌人的架势槽涨满，此时即可一击必杀（忍杀）。同时架势槽的自然回落速度随剩余血量的减少而变慢，架势槽和血槽成为了相辅相成的两个机制。</p>
-<p>第二点是处理敌人的“危”攻击。敌人偶尔发动无法格挡的技能，玩家头顶会浮现出红色的“危”字，这时就需要玩家根据敌人的起手动作，紧急判断下一步的应对措施。所谓的“危”其实也蕴含着“机”，如果处理得当，可以对敌方架势槽造成较大的上升。</p>
-<p>主要的“危”攻击有两种类别，一是突刺，无法格挡，可以精准弹反，但正确的处理是在突刺的瞬间向敌人脸上垫步发动“识破”，造成较大的架势条上涨；二是横扫，最佳的处理方法是跳到敌人头上踩踏，亦可以造成较大的架势条上涨。一些BOSS战中能用“雷电奉还”反弹雷电攻击，而少数敌人能使出的擒抱攻击只能靠闪避处理。</p>
-<a id="more"></a>
-
-<h1 id="玩家能力"><a href="#玩家能力" class="headerlink" title="玩家能力"></a>玩家能力</h1><p>何谓玩家能力？</p>
-<p>这里我找到两种说法。</p>
-<p>第一种说法：</p>
-<blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/60192653">五石. 设计方法论001-确定游戏类型与玩家能力</a>： </p>
-<p>这个时候我们会引入一个东西叫做玩家能力（也叫玩家技巧）。我们会设立几个维度，如策略/操作/游戏知识等，然后在这个品类下为我们要考察的玩家能力划分等级。依然举例子来说明：    </p>
-<ul>
-<li>黑魂系列：大量的操作和游戏知识技巧，极少的策略技巧。    </li>
-<li>文明系列：大量的策略，中等的游戏知识，少量的操作。  </li>
-<li>刀塔自走棋：中等的策略，中等的游戏知识，少量的操作。    </li>
-<li>守望先锋：中等的策略，少量的游戏知识，大量的操作。  </li>
-</ul>
-</blockquote>
-<p>策略指的是较长期的规划，操作指的是短期的反应能力，游戏知识则是对游戏机制的全面了解。既然是动作游戏，策略显然是不怎么需要考虑的，主要考验的就是操作和游戏知识。</p>
-<p>第二种说法：</p>
-<blockquote>
-<p><a href="https://www.gameres.com/459042.html">小篱. 让新手成为核心玩家——从玩家能力分析开始</a>：</p>
-<p>玩家的能力大致可以归纳为两大类八小类：</p>
-<p>第一大类，集中力和肌肉的协调能力</p>
-<ul>
-<li>时机：考验玩家是否在正确的时间按键。比如跳舞类游戏，音乐游戏，对打游戏中出连招的时机，或者掐着时间跳平台。  </li>
-<li>估量：考验玩家是否估量准确通过挑战的幅度。比如赛车类游戏，玩家在拐弯时要把握好转弯的速度和幅度。    </li>
-<li>精确：考验玩家是否在一个精确的位置输入操作。比如射击类游戏，玩家需要精确的瞄准敌人。    </li>
-<li>反应：考验玩家对于一个不能预测的突发情况是否在正确的时刻输入操作。比如对打游戏，街头霸王的玩家需要很快的躲避，挡格。赛车游戏中高速行驶的车需要躲开迎面而来的车辆或者障碍。    </li>
-</ul>
-<p>第二大类，分析力、逻辑思维和记忆力</p>
-<ul>
-<li>战术：分析当前观察到的信息很快的做出决定，这个决定具有短期影响。比如反恐精英CS中，玩家需要根据对方的攻击重点，来调整自己队伍的攻防重点。比如RPG回合制游戏中，玩家需要分析怪物的血量，技能，抗性，判断出怪物的弱点，安排好自己的技能顺序。     </li>
-<li>策略：分析当前观察到的信息用了很长时间做出决定，这个决定具有长期影响。比如WOW中，玩家有很多天赋树的选择，不同的天赋的选择往往会导致玩家的攻击或者治疗效果的不一样。比如足球游戏中，玩家对于阵形和球员的调整。     </li>
-<li>管理：分配自己有限的资源。比如生化危机中玩家只有固定的少量的背包空格，需要安排好弹药和补给的数量。比如管理游戏，铁路大亨，虚拟人生。      </li>
-<li>机智：收集信息和线索去解决问题。比如古墓丽影中玩家需要思考机关的破解方式，生化危机中玩家需要收集很多道具去打开一个机关，比如手机上的很多益智游戏。        </li>
-</ul>
-</blockquote>
-<p>第二种解释较为详细，更加适合用来分析。第一大类基本可以归为“操作”，第二大类中，除了“策略”之外的的战术、管理、机智则可以归为“游戏知识”。</p>
-<h1 id="为什么是弦一郎？"><a href="#为什么是弦一郎？" class="headerlink" title="为什么是弦一郎？"></a>为什么是弦一郎？</h1><p>这是因为我至今还没彻底通关《只狼》，而是停留在了源之宫，甚至还没有找樱龙“拜泪”，更别说剑圣苇名一心了。这主要是我个人很不擅长源之宫这种低矮却错综复杂，可能还有很多水的地图，打平家宅邸以及魂3的法兰要塞都让我花了很长时间。</p>
-<p>不主要说义父，则是因为他的设计简直是为了恶心玩家。</p>
-<p>首先出手极狠，完美弹刀也要涨可观的架势条。打起来让人畏手畏脚，莽也不是守也不是，比起一般的敌人找到打铁节奏就能有惊无险地通过，面对义父就算是“太鼓达人”不时也要退避三舍恢复元气。</p>
-<p>第二是禁药。虽然触发范围不算大，奈何义父总是在拼刀正酣之际贴脸来上一下，即使是较为熟练的玩家也不免中招。一旦中了禁药，极长的持续时间会相应地给玩家造成极大的心理压力，甚至此时义父的进攻还会变得更为积极，在狂风暴雨的攻势下玩家的操作很容易出现误差，就此落命。</p>
-<p>第三是撒毒。不大的天守阁场地里有时甚至能散布四片毒区，占去约1/3的场地，大大缩小玩家的生存空间，这下不只是攻与守的抉择，连位移都要慎重考量了。</p>
-<p>第四是烟雾弹。烟雾弹的存在也是为了打断节奏，在跳出烟雾重新定位的时候，义父的架势条已经回落了一大截，前面几十秒的苦心拼刀可能就付诸东流。</p>
-<p>且不论什么正义的鞭炮，不得不说，巨型忍者枭这个BOSS确实诠释了“忍者”的身份，道具花样百出，招招阴险毒辣。但这些设计堆叠起来——它实在是太令人痛苦了。</p>
-<p>而苇名弦一郎，作为《只狼》前期最为重要的BOSS，与他堂堂正正的对决可以说是整部游戏的“期中测验”，值得用来分析。</p>
-<h1 id="与弦一郎对决之前"><a href="#与弦一郎对决之前" class="headerlink" title="与弦一郎对决之前"></a>与弦一郎对决之前</h1><p>和弦一郎的战斗在《只狼》中出现了三次，一次是在游戏刚开始不久时，基本上属于“剧情杀”；第二次是作为前期转入中期的BOSS；第三次是作为游戏最终决战的引子。“起承转合”之中，弦一郎就占了起、转、合三点，不得不说是《只狼》里形象非常饱满、令人印象深刻，也极为重要的BOSS。</p>
-<p>游戏进入主线时玩家来到破旧寺院，遥望远方见到的最显眼的目标就是苇名城天守阁，而玩家的第一个长期目标亦是登上天守阁，向弦一郎复仇。在去往天守阁的旅途中，玩家逐步掌握《只狼》的游戏机制，包括弹反、架势、“危”攻击的处理、义手忍具，乃至于在苇名流道场知道了“雷电奉还”。而抵达天守阁顶端时，与弦一郎的对决将前面的一切汇聚起来，是考验玩家对游戏机制理解的一次“期中考试”。</p>
-<h1 id="弦一郎"><a href="#弦一郎" class="headerlink" title="弦一郎"></a>弦一郎</h1><p>《只狼》中面对敌人的攻击，处理方式除了一般的动作游戏中所具有的打断、闪避、格挡、弹反之外，还添加了识破、踩头、忍具等机制，并且具有相比以前的“魂”系列更短的反馈时间。机制宽度上的增加与反馈时间的缩短，很好的弥补了因没有复杂的装备系统在深度上带来的不足。在这样的游戏机制下，最能考验玩家对弹反的掌握程度的，也令我印象尤为深刻的，是弦一郎的标志性技能“飞渡浮舟”：先是常规的两刀，略停顿后接两次上挑，立刻跃起极快地乱砍四下，最后在较长的停顿后以转身强力上挑收尾。这一套下来总共9刀，时长仅4秒左右，处理得当的话可以造成约1/4的架势槽上涨，而处理不当玩家就会当场落命，可以说是攻略中的一个难点。虽然这里说起来很轻松，但实际上这一套连招往往出现在激烈的、包含大量变招的拼刀之中，光是记住弦一郎总共出刀几次都不是件易事。</p>
-<p>另一个值得注意的是弦一郎的跳劈，劈砍结束后会产生小范围的烟尘，让玩家无法看清对方的动作。此时弦一郎会接突刺或者横扫的“危”攻击，玩家需要根据烟尘中一闪而过的刀光来判断到底是哪一种，是应该起跳，还是应该“识破”。</p>
-<p>完美弹反飞渡浮舟的严苛判定和用烟尘营造的障眼法，考验的是玩家的反应力、观察力和对时机的掌控力。而为了达到用这些攻击手段考验玩家能力的目的，弦一郎的BOSS战也经过了一番设计。一方面是在战斗场地的设置上。前面玩家打过鬼庭形部雅孝的战场、蝴蝶夫人的佛堂、乃至“居合哥”佐濑甚助的道场，而天守阁的空间相较它们更小，也没有设置任何掩体。这无疑是让玩家没有盘旋的余地，不鼓励像《黑暗之魂》里一样摸几刀就远远躲开，把BOSS战玩成实质上的“回合制游戏”，而是要正面迎战。另一方面弦一郎自身也有很多远程攻击和拉近距离的技能，比如空中射箭四连、射箭后翻滚近身以及跳劈，几乎是不让玩家有喘息机会的。这些设计，完全是在引导玩家和弦一郎贴身近战，并且不得不处理那些麻烦的技能，这就是弦一郎前两个阶段的主旋律。</p>
-<p>当玩家好不容易磨掉两条血，可能已经“弹尽粮绝”的时候，弦一郎却觉醒意外的力量，进入隐藏的第三阶段，成为“巴流 苇名弦一郎”。第三阶段很有意思，场景的环境由细雪和风骤变成快雪惊雷，这正是“巴之雷”力量的反映，立刻就让玩家回想起在苇名流道场所见的“雷电奉还”卷轴，提示了正确的应对措施。而真正施展出华丽的雷电奉还之后，产生的“打雷”麻痹效果以及极大的架势槽上涨，堪称是这场战斗中最令人爽快的一刻，使得第三阶段没有看上去的那么难，也构成了良好难度曲线的最后一环。良好的难度曲线，即是难度逐渐上升到顶峰，而后又逐渐降低的。</p>
-<h1 id="纯粹"><a href="#纯粹" class="headerlink" title="纯粹"></a>纯粹</h1><p>其实《只狼》是一部过于纯粹的游戏，以至于我不知道该怎么光就一个BOSS的设计进行进一步分析。像那篇由国产游戏策划所写的著名差评里所表达的那样，这个游戏几乎只剩下了“节奏大师音乐游戏”……但这并不是《只狼》的缺点，反而可以说是一种“返璞归真”。作为动作游戏，它既不是《荣耀战魂》那样的过于硬核，也不是《鬼泣》那样的炫瞎狗眼：它纯粹、朴实、“大巧不工”，强化少量核心机制的地位。而能够做到这个的游戏，总是不会差的。</p>
-]]></content>
-      <tags>
-        <tag>游戏</tag>
-        <tag>游戏学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C#杂记之叁：LINQ</title>
     <url>/2020/03/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%8F%81/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>准备完了开题答辩，弄完了笔试，又咸鱼了数天、玩了数天《动物森友会》，一下子离上一篇C#杂记过了三个星期。</p>
@@ -1553,9 +1553,9 @@
 <p>所以接下来要填的坑是LINQ和异步。弄完了这个，C#最大的几块拼图才得以完整，大抵能够叫是入了门。</p>
 <h1 id="查询表达式"><a href="#查询表达式" class="headerlink" title="查询表达式"></a>查询表达式</h1><p>所谓的LINQ，是语言集成查询<strong>L</strong>anguage <strong>IN</strong>tegrated <strong>Q</strong>uery的缩写。通过引用命名空间<code>System.Linq</code>，可以用可读性极强的、类似SQL查询语句形式的代码对一些数据结构，甚至直接对数据库进行便捷的操作，如查询、排序、分组等，而不必编写大量逻辑复杂的循环代码。<!--尤其是在与异步流式处理相结合时，可以优雅地将C#的性能发挥到极致。(存疑)-->LINQ的操作十分高深，这里我仅学习一些基础、常用的LINQ功能。</p>
 <p>以下是一个典型的LINQ查询示例：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//数据源</span></span><br><span class="line">    <span class="keyword">string</span>[] name = &#123;<span class="string">&quot;Alonso&quot;</span>, <span class="string">&quot;Zheng&quot;</span>, <span class="string">&quot;Smith&quot;</span>, <span class="string">&quot;Jones&quot;</span>, <span class="string">&quot;Smythe&quot;</span>, <span class="string">&quot;Small&quot;</span>, <span class="string">&quot;Ruiz&quot;</span>, <span class="string">&quot;Hsieh&quot;</span>, <span class="string">&quot;Jorgenson&quot;</span>, <span class="string">&quot;Ilyich&quot;</span>, <span class="string">&quot;Singh&quot;</span>, <span class="string">&quot;Samba&quot;</span>, <span class="string">&quot;Fatimah&quot;</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询表达式</span></span><br><span class="line">    <span class="keyword">var</span> queryResults = </span><br><span class="line">        <span class="keyword">from</span> n <span class="keyword">in</span> names</span><br><span class="line">        <span class="keyword">where</span> n.StartWith(<span class="string">&quot;S&quot;</span>)</span><br><span class="line">        <span class="keyword">select</span> n;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//迭代查询结果</span></span><br><span class="line">    WriteLine(<span class="string">&quot;Name beginning with S:&quot;</span>);</span><br><span class="line">    <span class="keyword">foreach</span>(<span class="keyword">var</span> item <span class="keyword">in</span> queryResults)&#123;</span><br><span class="line">        WriteLine(item);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Write(<span class="string">&quot;Program finished. Press Enter/Return to continue:&quot;</span>);</span><br><span class="line">    ReadLine();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//数据源</span></span><br><span class="line">    <span class="built_in">string</span>[] name = &#123;<span class="string">&quot;Alonso&quot;</span>, <span class="string">&quot;Zheng&quot;</span>, <span class="string">&quot;Smith&quot;</span>, <span class="string">&quot;Jones&quot;</span>, <span class="string">&quot;Smythe&quot;</span>, <span class="string">&quot;Small&quot;</span>, <span class="string">&quot;Ruiz&quot;</span>, <span class="string">&quot;Hsieh&quot;</span>, <span class="string">&quot;Jorgenson&quot;</span>, <span class="string">&quot;Ilyich&quot;</span>, <span class="string">&quot;Singh&quot;</span>, <span class="string">&quot;Samba&quot;</span>, <span class="string">&quot;Fatimah&quot;</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询表达式</span></span><br><span class="line">    <span class="keyword">var</span> queryResults = </span><br><span class="line">        <span class="keyword">from</span> n <span class="keyword">in</span> names</span><br><span class="line">        <span class="keyword">where</span> n.StartWith(<span class="string">&quot;S&quot;</span>)</span><br><span class="line">        <span class="keyword">select</span> n;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//迭代查询结果</span></span><br><span class="line">    WriteLine(<span class="string">&quot;Name beginning with S:&quot;</span>);</span><br><span class="line">    <span class="keyword">foreach</span>(<span class="keyword">var</span> item <span class="keyword">in</span> queryResults)&#123;</span><br><span class="line">        WriteLine(item);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Write(<span class="string">&quot;Program finished. Press Enter/Return to continue:&quot;</span>);</span><br><span class="line">    ReadLine();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <p>这段代码查询字符串数组<code>name</code>中以<code>S</code>开头的元素，收入<code>queryResults</code>中，并将它们输出。其中类似SQL语句，包含“from…in…where…select”的部分被称为“查询表达式”。</p>
 <p><code>from...in...</code>子句指定了要查询的数据，这里例子中是数组<code>names</code>中的每一个元素<code>n</code>。数据是指数据源中的元素，而LINQ支持的数据源必须支持<code>IEnumerable&lt;T&gt;</code>接口，这是C#中所有的数据、集合都支持的。</p>
@@ -1610,7 +1610,7 @@
 </tbody></table>
 <p><strong>不过，LINQ与SQL仍有所不同，聚合运算符不是像SQL里一样写在select子句里，而是结果集所支持的方法。</strong></p>
 <p>SQL的形式：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(column_name) <span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(column_name) <span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
 
 <p>LINQ的形式，聚合运算时可以可选地传入委托作为元素的转换函数，然后对转换后的结果进行聚合：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">WriteLine(queryReusults.Max(i =&gt; i * <span class="number">5</span> + <span class="number">2</span>));</span><br></pre></td></tr></table></figure>
@@ -1631,7 +1631,7 @@
 <p>不过，由于数学上的“集合”是无重复的，上面的Union()方法返回的也是去重的结果。如果想保留重复的结果，可以使用Concat()。</p>
 <p>这几个方法返回的类型都是IEnumerable，需要在调用之后再使用ToList()或者ToArray()之类的方法。</p>
 <p>你甚至可以用这玩意一行代码秒掉<a href="https://leetcode-cn.com/problems/intersection-of-two-arrays/">LeetCode 349 两个数组的交集</a>：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span>[] <span class="title">Intersection</span>(<span class="params"><span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> nums1.Intersect(nums2).ToArray();        <span class="comment">//LINQ完事，别想算法了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">int</span>[] <span class="title">Intersection</span>(<span class="params"><span class="built_in">int</span>[] nums1, <span class="built_in">int</span>[] nums2</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> nums1.Intersect(nums2).ToArray();        <span class="comment">//LINQ完事，别想算法了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>基础形式：<strong>from…in…where…select…</strong></p>
 <p>其中：</p>
@@ -1661,7 +1661,7 @@
 <p>新华社北京4月3日电 为表达全国各族人民对抗击新冠肺炎疫情斗争牺牲烈士和逝世同胞的深切哀悼，国务院今天发布公告，决定2020年4月4日举行全国性哀悼活动。在此期间，全国和驻外使领馆下半旗志哀，全国停止公共娱乐活动。4月4日10时起，全国人民默哀3分钟，汽车、火车、舰船鸣笛，防空警报鸣响。</p>
 </blockquote>
 <p><img src="https://i.loli.net/2020/04/04/LS6WIcNkAsH4VeJ.jpg" alt="清明追思"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>“躲进小楼成一统”的这两个多月，我的情绪依然常常通过社交平台与外界牵连着，随着疫情通报和人间冷暖而波动。从武汉F4的操作秀到“全境封锁”再到李文亮医生的逝世，整个中国天翻地覆。但那之后似乎一切都终于走上正轨，那两天很是发了一番牢骚之后，我也就不再那么关注了。记得中途的某一天，我爸问我：你们计算机专业可以为抗击疫情做什么呢？是啊，我做得了什么呢？</p>
 <p>我做不了什么。我不是阿里P7，也没发过顶会Paper，与医学的关联也仅仅是去年帮同济医学院搬过几次砖——贡献大的总只可能是攀登到顶峰上的数人。我能做到的最好的事，也就是“配合”：老实一点，不要给别人添麻烦。</p>
@@ -1693,109 +1693,19 @@
       </tags>
   </entry>
   <entry>
-    <title>C#杂记之肆：异步</title>
-    <url>/2020/04/08/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div class="note warning"><p><strong>前方高能！</strong><br>这篇笔记断断续续花了近10天，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。<br>（其实就是我写完实在不愿审阅）</p>
-</div>
-
-<p>首先说明，异步是<strong>极为高深</strong>的高级编程技术，这篇文章只是才疏学浅的我阅读文档之后的一些思考与理解，可能有极多描述不准确乃至完全错误之处，还望批评指导。顺便吐槽，C#文档翻译得实在是太烂了，很多地方一看就是机翻的，却没有机翻警告。很多地方百思不得其解的词，切换到英语就发现其实很简单，翻译的用词完全错误，难受啊！</p>
-<h1 id="何为异步"><a href="#何为异步" class="headerlink" title="何为异步"></a>何为异步</h1><p>与异步相对的是“同步”，代表着一句代码的执行结束是其后一句代码的执行开始，整个流程是按照固定的顺序进行的，这是一般程序的逻辑。然而，某些语句可能需要花较长时间才能得到结果——比如网络通信和文件读写——这些语句的执行并不怎么占用CPU，但会阻塞整个线程，后续的语句需要等待这些语句执行完成，造成大量的浪费。特别是如果网络环境很不好、读取的文件好几个G，那可是尤其要命，可能整个程序都会出现肉眼可见的卡顿甚至崩溃。</p>
-<p>为了解决这种飞快的CPU与龟爬的IO之间的不平衡，传统的方案是单独开个线程让它去执行耗时的操作，让主线程继续运行与耗时操作的结果无关的代码。但是线程操作很麻烦、开销很高，线程数量也有限，不是能随便使用的，所以依然不是个完美的方法。</p>
-<p>异步就是为了解决这个问题而存在的。当代码需要执行一个耗时的操作时，它只发出指令，并不等待结果，然后就去执行其他代码了。一段时间后，当耗时操作返回结果时，再通知CPU进行处理。</p>
-<a id="more"></a>
-
-<h1 id="怎么使用"><a href="#怎么使用" class="headerlink" title="怎么使用"></a>怎么使用</h1><p>从C# 5开始，编写异步程序变得比较容易。</p>
-<p>C#的异步编程模型主要通过两个关键字来使用：<code>async</code>和<code>await</code>。</p>
-<h2 id="用早餐毁掉美好的一天"><a href="#用早餐毁掉美好的一天" class="headerlink" title="用早餐毁掉美好的一天"></a>用早餐毁掉美好的一天</h2><p>先来一段同步的憨憨代码，这描述了一个“做早餐”的流程：</p>
-<ol>
-<li>倒一杯咖啡。</li>
-<li>加热平底锅，然后煎两个鸡蛋。</li>
-<li>煎三片培根。</li>
-<li>烤两片面包。</li>
-<li>在烤面包上加黄油和果酱。</li>
-<li>倒一杯橙汁。</li>
-</ol>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Coffee cup = PourCoffee();          <span class="comment">//倒咖啡</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;coffee is ready&quot;</span>);</span><br><span class="line">    Egg eggs = FryEggs(<span class="number">2</span>);              <span class="comment">//煎蛋</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;eggs are ready&quot;</span>);</span><br><span class="line">    Bacon bacon = FryBacon(<span class="number">3</span>);          <span class="comment">//煎培根</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;bacon is ready&quot;</span>);</span><br><span class="line">    Toast toast = ToastBread(<span class="number">2</span>);        <span class="comment">//烤面包</span></span><br><span class="line">    ApplyButter(toast);                 <span class="comment">//涂黄油</span></span><br><span class="line">    ApplyJam(toast);                    <span class="comment">//涂果酱</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;toast is ready&quot;</span>);</span><br><span class="line">    Juice oj = PourOJ();                <span class="comment">//倒橙汁</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;oj is ready&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Breakfast is ready!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>线性的逻辑很简单，但有大问题。煎蛋、煎培根和烤面包都要花很长时间，其实完全可以在做煎蛋和培根的同时，让面包自己在面包机里烤。不然还没等面包烤完，别的东西早凉透了，吃了可能还会引起肠胃不适。煎蛋和煎培根甚至也没必要一前一后——谁家还没有两个锅呢？或者找个大点的锅来一起煎也行啊。</p>
-<h2 id="异步做早餐"><a href="#异步做早餐" class="headerlink" title="异步做早餐"></a>异步做早餐</h2><p>来看看一个近乎完美的“做早餐解决方案”是怎样的。下面是C#文档里的示范异步代码，我擅自添加了些方便理解的沙雕注释：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">async</span> Task <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Coffee cup = PourCoffee();          <span class="comment">//倒杯咖啡</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;coffee is ready&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> eggsTask = FryEggsAsync(<span class="number">2</span>);     <span class="comment">//得煎俩鸡蛋，开整！</span></span><br><span class="line">    <span class="keyword">var</span> baconTask = FryBaconAsync(<span class="number">3</span>);   <span class="comment">//得煎仨培根，开整！</span></span><br><span class="line">    <span class="keyword">var</span> toastTask = MakeToastWithButterAndJamAsync(<span class="number">2</span>);  <span class="comment">//得搞两片涂黄油和果酱的面包，开整！</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> allTasks = <span class="keyword">new</span> List&lt;Task&gt;&#123;eggsTask, baconTask, toastTask&#125;;  <span class="comment">//列个任务清单吧</span></span><br><span class="line">    <span class="keyword">while</span> (allTasks.Any())  <span class="comment">//看来清单里还有任务没搞完</span></span><br><span class="line">    &#123;</span><br><span class="line">        Task finished = <span class="keyword">await</span> Task.WhenAny(allTasks);   <span class="comment">//下一个完成的任务是啥？</span></span><br><span class="line">        <span class="keyword">if</span> (finished == eggsTask)   <span class="comment">//噢，是鸡蛋煎好了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;eggs are ready&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (finished == baconTask)     <span class="comment">//噢，是培根煎好了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;bacon is ready&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (finished == toastTask)     <span class="comment">//噢，是面包做完了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;toast is ready&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        allTasks.Remove(finished);      <span class="comment">//行，把完成的任务从清单里划了</span></span><br><span class="line">    &#125;</span><br><span class="line">    Juice oj = PourOJ();    <span class="comment">//最后再来杯橙汁，完事</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;oj is ready&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Breakfast is ready!&quot;</span>);   <span class="comment">//爽到</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">async</span> Task&lt;Toast&gt; <span class="title">MakeToastWithButterAndJamAsync</span>(<span class="params"><span class="keyword">int</span> number</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> toast = <span class="keyword">await</span> ToastBreadAsync(number);      <span class="comment">//要处理面包得先等面包烤好</span></span><br><span class="line">        ApplyButter(toast);     <span class="comment">//涂点黄油</span></span><br><span class="line">        ApplyJam(toast);        <span class="comment">//涂点果酱</span></span><br><span class="line">        <span class="keyword">return</span> toast;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>粗略一看，握草，感觉魔改成异步之后复杂了好多。其实不然，我慢慢来分析。</p>
-<h3 id="定义异步方法"><a href="#定义异步方法" class="headerlink" title="定义异步方法"></a>定义异步方法</h3><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> eggsTask = FryEggsAsync(<span class="number">2</span>);     <span class="comment">//得煎俩鸡蛋，开整！</span></span><br><span class="line"><span class="keyword">var</span> baconTask = FryBaconAsync(<span class="number">3</span>);   <span class="comment">//得煎仨培根，开整！</span></span><br><span class="line"><span class="keyword">var</span> toastTask = MakeToastWithButterAndJamAsync(<span class="number">2</span>);  <span class="comment">//得搞两片涂黄油和果酱的面包，开整！</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> allTasks = <span class="keyword">new</span> List&lt;Task&gt;&#123;eggsTask, baconTask, toastTask&#125;;  <span class="comment">//列个任务清单吧</span></span><br></pre></td></tr></table></figure>
-
-<p>可以注意到，这一段使用的几个方法，其名称都在后面加了个“Async”，这是异步方法的命名规范。调用三个异步方法，就是设置了三个任务（Task）。那谁谁，照这个任务去执行吧！我要接着跑后面的代码了。</p>
-<p>那么，怎么定义一个异步方法呢？来看上面示例中的这个方法：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">async</span> Task&lt;Toast&gt; <span class="title">MakeToastWithButterAndJamAsync</span>(<span class="params"><span class="keyword">int</span> number</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> toast = <span class="keyword">await</span> ToastBreadAsync(number);      <span class="comment">//要处理面包得先等面包烤好</span></span><br><span class="line">    ApplyButter(toast);     <span class="comment">//涂点黄油</span></span><br><span class="line">    ApplyJam(toast);        <span class="comment">//涂点果酱</span></span><br><span class="line">    <span class="keyword">return</span> toast;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>首先，方法定义的前面有<code>async</code>修饰符，这直接说明了此方法是异步（<strong>async</strong>hronous）的。</p>
-<p>异步方法返回的是<code>Task&lt;TResult&gt;</code>类型，代表着这个任务（Task）的结果是<code>TResult</code>所代表的类型。比如一个返回类型为<code>Toast</code>的同步方法，其异步版本的返回类型就应该是<code>Task&lt;Toast&gt;</code>，代表着一个“烤面包（Toast）”的任务（Task）。</p>
-<p><strong><code>async</code>异步方法的存在，要依靠包含<code>await</code>运算符的表达式或语句。反过来说，异步方法里必须得有<code>await</code>的存在。</strong> 上面的代码里，<code>Main</code>方法本身也是被<code>async</code>修饰的，就是因为Main方法里也用到了<code>await</code>语句。</p>
-<h3 id="设置前置条件"><a href="#设置前置条件" class="headerlink" title="设置前置条件"></a>设置前置条件</h3><p><code>async</code>是用来定义异步方法的，那<code>await</code>是干什么的呢？按照字面意思来理解就好，“等待”。异步方法运行到这里就开始等待，直到<code>await</code>的操作数所表示的异步操作（一个<code>Task&lt;TResult&gt;</code>）执行完毕。<strong>一旦异步操作完成，<code>await</code>运算符就从<code>Task&lt;TResult&gt;</code>的任务里，获取任务的最终结果，以<code>TResult</code>类型返回，然后再继续运行后续代码。</strong> 这说明<code>await</code>所等待的任务的结果是后续操作的前置条件。上面这个异步方法第一句就在<code>await</code>，这是因为后面抹黄油和果酱的流程都必须建立在“烤完面包”的前置条件上。</p>
-<p>然而，我们希望优化的耗时操作往往本身不是异步的。<code>await</code>只能接异步操作，怎么和非异步的耗时操作结合呢？比如说有这样一个“根正苗红”的同步函数：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">string</span> <span class="title">Foo</span>(<span class="params"><span class="keyword">int</span> bar</span>)</span>&#123;</span><br><span class="line">    Wtf();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要让它的执行完成作为前置条件，就得把它改造成一个返回<code>Task&lt;string&gt;</code>的函数。但是如果原函数是不允许修改的呢？依然有办法，只要用<code>Task.Run(() =&gt; Foo(bar))</code>来调用就好了。</p>
-<p><code>Task.Run()</code>可以把以下四种委托包装成任务，其中常用的是前两种：</p>
-<ol>
-<li><code>Action</code></li>
-<li><code>Func&lt;TResult&gt;</code></li>
-<li><code>Func&lt;Task&gt;</code></li>
-<li><code>Func&lt;Task&lt;TResult&gt;&gt;</code></li>
-</ol>
-<p>由于Lambda表达式也是委托，完全可以构造一个符合上述种类的Lambda表达式。<code>() =&gt; Foo(bar)</code>没有参数，返回类型为<code>string</code>，是一个受到支持的<code>Func&lt;string&gt;</code>委托。因此在被<code>Task.Run()</code>包装之后，它就能成为一个<code>Task&lt;string&gt;</code>，作为异步过程中的前置条件。</p>
-<h3 id="使用连接符"><a href="#使用连接符" class="headerlink" title="使用连接符"></a>使用连接符</h3><p>再来看中间的这一段。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (allTasks.Any())</span><br><span class="line">&#123;</span><br><span class="line">    Task finished = <span class="keyword">await</span> Task.WhenAny(allTasks);</span><br><span class="line">    <span class="keyword">if</span> (finished == eggsTask)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;eggs are ready&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (finished == baconTask)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;bacon is ready&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (finished == toastTask)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;toast is ready&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    allTasks.Remove(finished);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>allTasks.Any()</code>使用<code>List&lt;T&gt;</code>的<code>Any()</code>方法检查列表里是否还有剩余的元素，即当还有未完成的任务时，令程序一直在此循环，这实际上类似于一个消息循环机制。</p>
-<p><code>Task.WhenAny(allTasks)</code>有点儿特殊，它是一个<code>Task&lt;Task&gt;</code>，即“结果是任务”的任务——在<code>allTasks</code>里的某一个任务完成时，它把这个刚刚完成的任务作为自己的结果。这样，<code>await</code>运算符就提取出了那个刚刚完成的任务，将它赋给<code>finished</code>，接下来就可以作出相应的反应了。别忘了在任务处理完之后，把这个完成了的任务从任务列表里删去。</p>
-<p>另有一个类似的方法是<code>Task.WhenAll()</code>，它所创建的任务在参数所表示的一系列任务都完成时才完成。命名空间<code>System.Threading.Tasks</code>里的这类辅助处理多个任务的方法被称为“连接符”。</p>
-<p>以上就是一种基于任务的异步模式（TAP）：把多个任务一齐启动，记录在任务列表里，然后用<code>await</code>、循环和连接符来等待所有任务的完成。对于每个任务本身，如果具有一些前置条件，就依然用<code>await</code>来等待其前置条件的完成。</p>
-<h1 id="扩展：线程池"><a href="#扩展：线程池" class="headerlink" title="扩展：线程池"></a>扩展：线程池</h1><p>至此，虽然我们知道了怎么把同步代码改造成异步的，但其中的原理是什么呢？</p>
-<p>异步的关键是定义<code>async</code>异步方法和用<code>await</code>进行必要的流程控制，而这两个关键字都是围绕<code>Task&lt;TResult&gt;</code>展开的。因此要更深入地理解异步，就要了解<code>Task&lt;TResult&gt;</code>的工作机制。</p>
-<p>Task工作的基础是线程池，C#中的线程池是命名空间<code>System.Threading</code>中的<code>ThreadPool</code>静态类。关于线程池和多线程又可以事无巨细地写一篇长文，这里先作简要的记录。</p>
-<p>每一个进程都可以拥有一个线程池，里面有预先创建好的一大堆空闲线程。当一个任务需要用线程处理的时候，就无需临时单独创建一个线程，可以直接从线程池里找一个空闲的来跑。跑完也不用费劲将线程销毁，它会被线程池回收，等待其它任务来利用。假如要处理的任务太多，导致线程池里所有的线程都在忙碌，线程池可能会创建新线程，也可能让任务等待空闲线程的出现。</p>
-<p>线程池也有缺点。由于池里线程的一切工作都是由CLR托管的（这又是一个天坑），虽然用起来是简单了，但你无法对这些线程进行具体的操作，一旦把任务加进队列里也没法取消（不要停下来啊！）。不过都要用上线程池了，那不是一把梭跑就完事了嘛，谁还希望让任务停下来呢？</p>
-<p>使用线程池的方法是利用<code>QueueUserWorkItem()</code>方法：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//ThreadPool.QueueUserWorkItem 方法</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">QueueUserWorkItem</span> (<span class="params">System.Threading.WaitCallback callBack</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">QueueUserWorkItem</span> (<span class="params">System.Threading.WaitCallback callBack, <span class="keyword">object</span> state</span>)</span>;</span><br></pre></td></tr></table></figure>
-
-<p>这个方法把一项工作添加到线程池的工作队列中，一旦线程池有空闲线程，就会从队列里取出工作来执行。</p>
-<p>其中，<code>WaitCallback</code>是一个委托，它接收<code>object</code>作为参数，并返回<code>void</code>，类似<code>Action&lt;object&gt;</code>。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">[<span class="meta">System.Runtime.InteropServices.ComVisible(true)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">WaitCallback</span>(<span class="params"><span class="keyword">object</span> state</span>)</span>;</span><br></pre></td></tr></table></figure>
-
-<p>注意，由于委托参数的<a href="https://hakurei.red/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/">逆变性</a>（我靠，居然在这里用上了前面学的逆变），这里仅能使用<code>object</code>或派生程度更低的类型的参数。由于<code>object</code>已经是最终基类，故只能用它。</p>
-<p>但<code>object</code>可是啥都没有啊？如果要安排一个带有任务信息的委托作为任务，怎么把信息封在里面？</p>
-<p>为了解答这个问题，我们可以先看<code>QueueUserWorkItem</code>的后一个重载。参数除了<code>WaitCallback</code>类型的委托<code>callBack</code>之外，还有一个<code>object state</code>，它就是委托调用时使用的参数。由于协变性，你可以把任何类型视作<code>object</code>，也就可以在调用委托时传入任意类型的参数。而前一个重载的参数列表中没有<code>object state</code>，是给无需在调用时传入参数的委托使用的，类似<code>Action</code>。</p>
-<p><strong>如此一来就很明白了，支持添加到线程池工作队列里的工作是这样的函数：返回类型为<code>void</code>，参数列表中有0或1个任意类型的参数。</strong></p>
-<h1 id="未竟之旅"><a href="#未竟之旅" class="headerlink" title="未竟之旅"></a>未竟之旅</h1><p>原本这里应该有更多关于Task和await工作原理的内容，但当我在C#文档的迷宫中走得愈发深入时，我发现我的理解被不断推翻，比如说用async和await实现的异步实际上是单线程的，但它们所围绕的Task又和用线程池实现的多线程密不可分。</p>
-<p>我试图理清这一切到底是如何工作的，这时回调函数、消息循环、线程调度、编译原理这几只怪物都跑了出来，甚至将一切都指向了JavaScript，告诉我是时候敬而远之了。</p>
-<p>因此，目前这篇笔记是十分没有深度的一篇，它有太多可以写也需要写的内容了。C#我还有更多的东西一知半解，目前在此考据技术细节是不明智的。但过段时间我还会继续刨根究底，现在将非常具有参考价值的一篇StackOverflow问题链接贴在这里：</p>
-<p><a href="https://stackoverflow.com/questions/37419572/if-async-await-doesnt-create-any-additional-threads-then-how-does-it-make-appl">If async-await doesn’t create any additional threads, then how does it make applications responsive?</a></p>
-<p>以及之前我画的<strong>理解错误</strong>的示意图：</p>
-<p><img src="https://i.loli.net/2020/04/08/7TIPufG6oAm2cOd.png" alt="BreakfastAsync.png"></p>
-<blockquote>
-<p>下一步，应该是回过头去搞清楚集合、列表、数组，还有相关的接口和索引器啥的。</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>C Sharp</tag>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C#杂记之伍：数组与集合</title>
     <url>/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>数组可以说是在任何语言中都非常基本的数据结构了。这篇笔记以C#中的数组为引，再延伸到C#的几种集合类(Collections)以及一些相关的基本概念。</p>
 <h1 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>数组存储相同种类的元素，其大小固定，且是顺序存储的，即在内存中占据一段连续的地址。</p>
 <p>数组作为一种引用类型(其基类是System.Array)，需要用<code>new</code>来创建实例。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//初始化时指定大小</span></span><br><span class="line"><span class="keyword">double</span>[] balance = <span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以直接赋值来初始化</span></span><br><span class="line"><span class="keyword">int</span>[] marks = &#123;<span class="number">99</span>, <span class="number">98</span>, <span class="number">92</span>, <span class="number">97</span>, <span class="number">95</span>&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//初始化时指定大小</span></span><br><span class="line"><span class="built_in">double</span>[] balance = <span class="keyword">new</span> <span class="built_in">double</span>[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以直接赋值来初始化</span></span><br><span class="line"><span class="built_in">int</span>[] marks = &#123;<span class="number">99</span>, <span class="number">98</span>, <span class="number">92</span>, <span class="number">97</span>, <span class="number">95</span>&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>初始化而尚未赋值的数组，编译器会根据其类型隐式地将所有元素设置为默认值。</p>
 <p>数组最大的特点还是能够用下标索引来随机访问其中的元素：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> salary = balance[<span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下是C# 8.0引入的好东西！</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//末尾运算符 ^ </span></span><br><span class="line"><span class="comment">//[^n]表示[length-n]，类似Python用负数索引[-n]表示[length-n]</span></span><br><span class="line"><span class="keyword">double</span> salary = balance[^<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//范围运算符 ..</span></span><br><span class="line"><span class="comment">//[a..b]表示从[a]到[b]的范围(但不包含[b]！)，类似Python的切片[a:b]</span></span><br><span class="line"><span class="comment">//省略a代表0，省略b代表^0</span></span><br><span class="line"><span class="keyword">double</span>[] salaries1 = balance[..^<span class="number">3</span>];</span><br><span class="line"><span class="comment">//如果a比b还大，会抛出异常(Python中则是返回空列表)</span></span><br><span class="line"><span class="keyword">double</span>[] salaries2 = balance[<span class="number">3.</span><span class="number">.2</span>];     <span class="comment">//ArgumentOutOfRangeException</span></span><br><span class="line"><span class="comment">//a和b一样大时，返回长度为0的集合</span></span><br><span class="line"><span class="keyword">double</span>[] salaries3 = balance[<span class="number">3.</span><span class="number">.3</span>];</span><br><span class="line">Console.WriteLine(salaries3.Length);   <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">double</span> salary = balance[<span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下是C# 8.0引入的好东西！</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//末尾运算符 ^ </span></span><br><span class="line"><span class="comment">//[^n]表示[length-n]，类似Python用负数索引[-n]表示[length-n]</span></span><br><span class="line"><span class="built_in">double</span> salary = balance[^<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//范围运算符 ..</span></span><br><span class="line"><span class="comment">//[a..b]表示从[a]到[b]的范围(但不包含[b]！)，类似Python的切片[a:b]</span></span><br><span class="line"><span class="comment">//省略a代表0，省略b代表^0</span></span><br><span class="line"><span class="built_in">double</span>[] salaries1 = balance[..^<span class="number">3</span>];</span><br><span class="line"><span class="comment">//如果a比b还大，会抛出异常(Python中则是返回空列表)</span></span><br><span class="line"><span class="built_in">double</span>[] salaries2 = balance[<span class="number">3.</span><span class="number">.2</span>];     <span class="comment">//ArgumentOutOfRangeException</span></span><br><span class="line"><span class="comment">//a和b一样大时，返回长度为0的集合</span></span><br><span class="line"><span class="built_in">double</span>[] salaries3 = balance[<span class="number">3.</span><span class="number">.3</span>];</span><br><span class="line">Console.WriteLine(salaries3.Length);   <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
 
 <p>由于实现了<code>IEnumerable</code>接口，数组可以使用<code>foreach...in...</code>的方式进行迭代访问，还可以使用LINQ，这样就无需获取数组长度再用for循环迭代了。关于这个接口及其相关的内容，我在本文稍后的部分记述。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="索引器-Indexer"><a href="#索引器-Indexer" class="headerlink" title="索引器 Indexer"></a>索引器 Indexer</h2><p>索引器（Indexer）可以让各种类、结构、接口实现数组的这种能够用下标索引来访问的功能。</p>
 <p>索引器就像一个名为<code>this</code>的属性，可以用访问器进行定义。</p>
@@ -1803,15 +1713,15 @@
 <p>访问器是可在属性上定义的两个方法。其中get方法在读属性时执行；set方法隐含一个传入的<code>value</code>参数，在写属性时执行。一个常见的用途是用公开属性的访问器来对私有属性进行读/写。另外也可以在set访问器里对传入值进行范围检查等操作。</p>
 </blockquote>
 <p>索引器的一般定义示例：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">element-type <span class="keyword">this</span>[<span class="keyword">int</span> index]</span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">// get 访问器</span></span><br><span class="line">   <span class="keyword">get</span></span><br><span class="line">   &#123;</span><br><span class="line">      <span class="comment">// 返回 index 指定的值</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// set 访问器</span></span><br><span class="line">   <span class="keyword">set</span></span><br><span class="line">   &#123;</span><br><span class="line">      <span class="comment">// 设置 index 指定的值</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">element-type <span class="keyword">this</span>[<span class="built_in">int</span> index]</span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">// get 访问器</span></span><br><span class="line">   <span class="keyword">get</span></span><br><span class="line">   &#123;</span><br><span class="line">      <span class="comment">// 返回 index 指定的值</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// set 访问器</span></span><br><span class="line">   <span class="keyword">set</span></span><br><span class="line">   &#123;</span><br><span class="line">      <span class="comment">// 设置 index 指定的值</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>比较神奇的是，索引器的索引下标并不是只能使用int，还可以用string。同时索引器又像是一个方法，甚至可以重载，这意味着你可以同时定义以int和string作为索引下标的索引器。</p>
 <h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>C#的多维数组在定义时，维度之间用逗号隔开。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//三维数组</span></span><br><span class="line"><span class="keyword">int</span>[, ,] array3Da = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>] &#123; &#123; &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> &#125; &#125;, </span><br><span class="line">                                        &#123; &#123; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span> &#125;, &#123; <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span> &#125; &#125; &#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//三维数组</span></span><br><span class="line"><span class="built_in">int</span>[, ,] array3Da = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>] &#123; &#123; &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> &#125; &#125;, </span><br><span class="line">                                        &#123; &#123; <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span> &#125;, &#123; <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span> &#125; &#125; &#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="交错数组"><a href="#交错数组" class="headerlink" title="交错数组"></a>交错数组</h2><p>交错数组是<strong>数组的数组</strong>。当我们说“数组”的时候，说的是一个引用类型。因此交错数组与多维数组的不同之处在于，它本质上是个一维数组，其元素为引用类型，且被初始化为null。</p>
 <p>也正因此，交错数组中的元素只需要是规定的数组类型即可，不需要具有一致的长度：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//包含大小不同的三个二维数组元素的一维交错数组：</span></span><br><span class="line"><span class="keyword">int</span>[][,] jaggedArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][,] </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="keyword">int</span>[,] &#123; &#123;<span class="number">1</span>,<span class="number">3</span>&#125;, &#123;<span class="number">5</span>,<span class="number">7</span>&#125; &#125;,</span><br><span class="line">    <span class="keyword">new</span> <span class="keyword">int</span>[,] &#123; &#123;<span class="number">0</span>,<span class="number">2</span>&#125; &#125;,</span><br><span class="line">    <span class="keyword">new</span> <span class="keyword">int</span>[,] &#123; &#123;<span class="number">11</span>,<span class="number">22</span>&#125;, &#123;<span class="number">99</span>,<span class="number">88</span>&#125;, &#123;<span class="number">0</span>,<span class="number">9</span>&#125; &#125; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">System.Console.Write(<span class="string">&quot;&#123;0&#125;&quot;</span>, jaggedArray4[<span class="number">0</span>][<span class="number">1</span>, <span class="number">0</span>]);   <span class="comment">//输出：5</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//包含大小不同的三个二维数组元素的一维交错数组：</span></span><br><span class="line"><span class="built_in">int</span>[][,] jaggedArray = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">3</span>][,] </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">int</span>[,] &#123; &#123;<span class="number">1</span>,<span class="number">3</span>&#125;, &#123;<span class="number">5</span>,<span class="number">7</span>&#125; &#125;,</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">int</span>[,] &#123; &#123;<span class="number">0</span>,<span class="number">2</span>&#125; &#125;,</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">int</span>[,] &#123; &#123;<span class="number">11</span>,<span class="number">22</span>&#125;, &#123;<span class="number">99</span>,<span class="number">88</span>&#125;, &#123;<span class="number">0</span>,<span class="number">9</span>&#125; &#125; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">System.Console.Write(<span class="string">&quot;&#123;0&#125;&quot;</span>, jaggedArray4[<span class="number">0</span>][<span class="number">1</span>, <span class="number">0</span>]);   <span class="comment">//输出：5</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="集合-Collections"><a href="#集合-Collections" class="headerlink" title="集合 Collections"></a>集合 Collections</h1><h2 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h2><p>集合类是定义在<code>System.Collection</code>命名空间里的几种类。比起数组，它们实现了几个接口，能更方便用于存储和检索数据。</p>
 <p>为了支持无数种类型，非泛型集合把所有的元素都装箱成<code>object</code>类的对象来存储。元素的读写总要涉及到装箱与拆箱，在性能上有一定损失；而且也因为装箱，你可以把任意不同类型的元素装进同一个集合，这是危险的，相当不妙。</p>
@@ -1893,7 +1803,7 @@
 <li>BinarySearch() 用指定的比较器在一定范围内二分查找元素，返回其索引</li>
 </ul>
 <h2 id="字典-Dictionary-lt-Tkey-Tvalue-gt"><a href="#字典-Dictionary-lt-Tkey-Tvalue-gt" class="headerlink" title="字典 Dictionary&lt;Tkey,Tvalue&gt;"></a>字典 Dictionary&lt;Tkey,Tvalue&gt;</h2><p>C#中的字典是泛型的哈希表（HashTable），存储的是键值对<code>KeyValuePair&lt;TKey, TValue&gt;</code>。</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">string</span>&gt; mydict = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">string</span>&gt;();</span><br><span class="line"><span class="comment">//仍然是Add()添加元素</span></span><br><span class="line">mydict.Add(<span class="string">&quot;lang1&quot;</span>, <span class="string">&quot;C++&quot;</span>);</span><br><span class="line">mydict.Add(<span class="string">&quot;lang2&quot;</span>, <span class="string">&quot;C#&quot;</span>);</span><br><span class="line">mydict.Add(<span class="string">&quot;lang3&quot;</span>, <span class="string">&quot;Python&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//CotainsKey()判断是否有该键，也有ContainsValue()判断是否有值</span></span><br><span class="line"><span class="keyword">if</span>(mydict.ContainsKey(<span class="string">&quot;lang3&quot;</span>))</span><br><span class="line">      mydict.Remove(<span class="string">&quot;lang3&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//根据TKey使用索引器，但访问前不检查可能会爆炸(KeyNotFoundException)</span></span><br><span class="line"><span class="comment">//WriteLine(mydict[&quot;lang3&quot;]);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//TryGetValue()尝试用key获取value，没获取到的话传出null，本身返回False</span></span><br><span class="line">WriteLine(mydict.TryGetValue(<span class="string">&quot;lang4&quot;</span>, <span class="keyword">out</span> <span class="keyword">string</span> test));</span><br><span class="line">WriteLine(test);</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; mydict = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt;();</span><br><span class="line"><span class="comment">//仍然是Add()添加元素</span></span><br><span class="line">mydict.Add(<span class="string">&quot;lang1&quot;</span>, <span class="string">&quot;C++&quot;</span>);</span><br><span class="line">mydict.Add(<span class="string">&quot;lang2&quot;</span>, <span class="string">&quot;C#&quot;</span>);</span><br><span class="line">mydict.Add(<span class="string">&quot;lang3&quot;</span>, <span class="string">&quot;Python&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//CotainsKey()判断是否有该键，也有ContainsValue()判断是否有值</span></span><br><span class="line"><span class="keyword">if</span>(mydict.ContainsKey(<span class="string">&quot;lang3&quot;</span>))</span><br><span class="line">      mydict.Remove(<span class="string">&quot;lang3&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//根据TKey使用索引器，但访问前不检查可能会爆炸(KeyNotFoundException)</span></span><br><span class="line"><span class="comment">//WriteLine(mydict[&quot;lang3&quot;]);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//TryGetValue()尝试用key获取value，没获取到的话传出null，本身返回False</span></span><br><span class="line">WriteLine(mydict.TryGetValue(<span class="string">&quot;lang4&quot;</span>, <span class="keyword">out</span> <span class="built_in">string</span> test));</span><br><span class="line">WriteLine(test);</span><br></pre></td></tr></table></figure>
 
 <h2 id="队列-Queue-lt-T-gt-和堆栈-Stack-lt-T-gt"><a href="#队列-Queue-lt-T-gt-和堆栈-Stack-lt-T-gt" class="headerlink" title="队列 Queue&lt;T&gt;和堆栈 Stack&lt;T&gt;"></a>队列 Queue&lt;T&gt;和堆栈 Stack&lt;T&gt;</h2><p>这两个就更没什么值得说的了，基本上是List&lt;T&gt;的“阉割”版。</p>
 <p>对于它们而言，添加、删除元素并不是用Add()方法和Remove()方法。队列Queue&lt;T&gt;中，使用入队Enqueue()和出队Dequeue()；队列Stack&lt;T&gt;中，使用压入Push()和弹出Pop()。</p>
@@ -1914,7 +1824,7 @@
 <li>Reset()：把位置重置为原始状态。</li>
 </ul>
 <p>实现了<code>IEnumerable</code>的可枚举类型，其能够使用foreach语句进行迭代的原理就是运用了枚举器：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">int</span>[] myArray = &#123; <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span> &#125;;		<span class="comment">// 创建数组</span></span><br><span class="line">        <span class="keyword">var</span> ie = myArray.GetEnumerator();	<span class="comment">// 获取枚举器</span></span><br><span class="line">        <span class="keyword">while</span> (ie.MoveNext())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> i = (<span class="keyword">int</span>)ie.Current;	<span class="comment">// 获取当前项</span></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;&#123;0&#125;&quot;</span>, i);	<span class="comment">// 输出</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//用foreach进行同样的迭代</span></span><br><span class="line">        <span class="keyword">foreach</span>(<span class="keyword">var</span> i <span class="keyword">in</span> myArray)</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;&#123;0&#125;&quot;</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="built_in">int</span>[] myArray = &#123; <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span> &#125;;		<span class="comment">// 创建数组</span></span><br><span class="line">        <span class="keyword">var</span> ie = myArray.GetEnumerator();	<span class="comment">// 获取枚举器</span></span><br><span class="line">        <span class="keyword">while</span> (ie.MoveNext())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> i = (<span class="built_in">int</span>)ie.Current;	<span class="comment">// 获取当前项</span></span><br><span class="line">            Console.WriteLine(<span class="string">&quot;&#123;0&#125;&quot;</span>, i);	<span class="comment">// 输出</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//用foreach进行同样的迭代</span></span><br><span class="line">        <span class="keyword">foreach</span>(<span class="keyword">var</span> i <span class="keyword">in</span> myArray)</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;&#123;0&#125;&quot;</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="比较与排序"><a href="#比较与排序" class="headerlink" title="比较与排序"></a>比较与排序</h1><p>众所周知，一切排序算法的基础都是<strong>比较</strong>。不同排序算法的复杂度之差异，就在于它们比较元素的次数。</p>
 <p>C#中有两个接口用于实现比较：<code>IComparable</code>和<code>IComparer</code>。</p>
@@ -1922,7 +1832,7 @@
 <h2 id="IComparable"><a href="#IComparable" class="headerlink" title="IComparable"></a>IComparable</h2><p>实现了这个接口的类型是可比较类型，由它们组成的数组、集合是可以进行排序的。C#中有很多内置类型已经实现了这个接口，比如各种值类型、字符串、时间日期等等。</p>
 <p>这个接口也只有一个方法：<code>CompareTo()</code>。</p>
 <p>CompareTo()接收一个用于和<code>this</code>比较的参数，并返回一个<code>int</code>作为比较的结果。举个例子，如果定义了<code>Person</code>类，且为其实现IComparable接口：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Person</span> : <span class="title">IComparable</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">int</span> Age &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Person</span>(<span class="params"></span>)</span> &#123; &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Person</span>(<span class="params"><span class="keyword">string</span> name, <span class="keyword">int</span> age</span>) </span></span><br><span class="line"><span class="function"></span>   &#123; </span><br><span class="line">      <span class="keyword">this</span>.Name = name; </span><br><span class="line">      <span class="keyword">this</span>.Age = age; </span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//实现IComparable接口</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">CompareTo</span>(<span class="params"><span class="keyword">object</span> obj</span>)</span></span><br><span class="line"><span class="function"></span>   &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.Age == obj.Age)</span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.Age &gt; obj.Age)</span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Person</span> : <span class="title">IComparable</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="built_in">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">   <span class="keyword">public</span> <span class="built_in">int</span> Age &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Person</span>(<span class="params"></span>)</span> &#123; &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Person</span>(<span class="params"><span class="built_in">string</span> name, <span class="built_in">int</span> age</span>) </span></span><br><span class="line"><span class="function"></span>   &#123; </span><br><span class="line">      <span class="keyword">this</span>.Name = name; </span><br><span class="line">      <span class="keyword">this</span>.Age = age; </span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//实现IComparable接口</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="built_in">int</span> <span class="title">CompareTo</span>(<span class="params"><span class="built_in">object</span> obj</span>)</span></span><br><span class="line"><span class="function"></span>   &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.Age == obj.Age)</span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.Age &gt; obj.Age)</span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
 <p>在此基础上，比较两个Person：</p>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(person1.CompareTo(person2) == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">   WriteLine(<span class="string">&quot;Same Age.&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(person1.CompareTo(person2) &gt; <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">   WriteLine(<span class="string">&quot;Person 1 is older.&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(person1.CompareTo(person2) &lt; <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">   WriteLine(<span class="string">&quot;Person 1 is younger.&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1930,7 +1840,7 @@
 <h2 id="IComparer-lt-T-gt"><a href="#IComparer-lt-T-gt" class="headerlink" title="IComparer&lt;T&gt;"></a>IComparer&lt;T&gt;</h2><p>Comparer是“比较器”，对于那些没有实现IComparable接口的类，可以为其单独定义一个实现IComparer&lt;T&gt;的类。</p>
 <p>接口中包含一个方法<code>Compare()</code>。它对两个<code>T</code>类型的对象进行比较，返回<code>int</code>作为比较的结果。这个接口也有非泛型版本，它能支持不同类型的对象之间的比较，这很神秘，可能一般不会用到。</p>
 <p>用实现了IComparer&lt;Person&gt;的比较器对两个Person进行比较：</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   Person person1 = <span class="keyword">new</span> Person(<span class="string">&quot;张三&quot;</span>, <span class="number">24</span>);</span><br><span class="line">   Person person2 = <span class="keyword">new</span> Person(<span class="string">&quot;罗翔&quot;</span>, <span class="number">42</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">int</span> n = <span class="keyword">new</span> PersonComparer().Compare(person1, person2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   Person person1 = <span class="keyword">new</span> Person(<span class="string">&quot;张三&quot;</span>, <span class="number">24</span>);</span><br><span class="line">   Person person2 = <span class="keyword">new</span> Person(<span class="string">&quot;罗翔&quot;</span>, <span class="number">42</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="built_in">int</span> n = <span class="keyword">new</span> PersonComparer().Compare(person1, person2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Sort-方法"><a href="#Sort-方法" class="headerlink" title="Sort()方法"></a>Sort()方法</h2><p>Sort()方法运用集合中元素所属类型的默认比较方法，或指定的某种比较方法进行<strong>升序排序</strong>。</p>
 <p>这个方法有四种重载：</p>
@@ -1938,7 +1848,7 @@
 <li>Sort()<br>无参形式，在元素对象实现了IComparable接口时可以使用。</li>
 <li>Sort(IComparer&lt;T&gt;)<br>以比较器为参数，需要定义比较器，并<code>new</code>一个传入。</li>
 <li>Sort(Int32, Int32, IComparer<T>)<br>在指定范围用比较器排序。</li>
-<li>Sort(Comparison<T>)<br>用委托进行排序，其中委托Comparison&lt;T&gt;接受两个同类型参数，返回int。原型： <figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">int</span> <span class="title">Comparison</span>&lt;<span class="keyword">in</span> <span class="title">T</span>&gt;(<span class="params">T x, T y</span>)</span>;</span><br></pre></td></tr></table></figure>
+<li>Sort(Comparison<T>)<br>用委托进行排序，其中委托Comparison&lt;T&gt;接受两个同类型参数，返回int。原型： <figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="built_in">int</span> <span class="title">Comparison</span>&lt;<span class="keyword">in</span> <span class="title">T</span>&gt;(<span class="params">T x, T y</span>)</span>;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -1954,6 +1864,96 @@
       </tags>
   </entry>
   <entry>
+    <title>C#杂记之肆：异步</title>
+    <url>/2020/04/08/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><div class="note warning"><p><strong>前方高能！</strong><br>这篇笔记断断续续花了近10天，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。<br>（其实就是我写完实在不愿审阅）</p>
+</div>
+
+<p>首先说明，异步是<strong>极为高深</strong>的高级编程技术，这篇文章只是才疏学浅的我阅读文档之后的一些思考与理解，可能有极多描述不准确乃至完全错误之处，还望批评指导。顺便吐槽，C#文档翻译得实在是太烂了，很多地方一看就是机翻的，却没有机翻警告。很多地方百思不得其解的词，切换到英语就发现其实很简单，翻译的用词完全错误，难受啊！</p>
+<h1 id="何为异步"><a href="#何为异步" class="headerlink" title="何为异步"></a>何为异步</h1><p>与异步相对的是“同步”，代表着一句代码的执行结束是其后一句代码的执行开始，整个流程是按照固定的顺序进行的，这是一般程序的逻辑。然而，某些语句可能需要花较长时间才能得到结果——比如网络通信和文件读写——这些语句的执行并不怎么占用CPU，但会阻塞整个线程，后续的语句需要等待这些语句执行完成，造成大量的浪费。特别是如果网络环境很不好、读取的文件好几个G，那可是尤其要命，可能整个程序都会出现肉眼可见的卡顿甚至崩溃。</p>
+<p>为了解决这种飞快的CPU与龟爬的IO之间的不平衡，传统的方案是单独开个线程让它去执行耗时的操作，让主线程继续运行与耗时操作的结果无关的代码。但是线程操作很麻烦、开销很高，线程数量也有限，不是能随便使用的，所以依然不是个完美的方法。</p>
+<p>异步就是为了解决这个问题而存在的。当代码需要执行一个耗时的操作时，它只发出指令，并不等待结果，然后就去执行其他代码了。一段时间后，当耗时操作返回结果时，再通知CPU进行处理。</p>
+<span id="more"></span>
+
+<h1 id="怎么使用"><a href="#怎么使用" class="headerlink" title="怎么使用"></a>怎么使用</h1><p>从C# 5开始，编写异步程序变得比较容易。</p>
+<p>C#的异步编程模型主要通过两个关键字来使用：<code>async</code>和<code>await</code>。</p>
+<h2 id="用早餐毁掉美好的一天"><a href="#用早餐毁掉美好的一天" class="headerlink" title="用早餐毁掉美好的一天"></a>用早餐毁掉美好的一天</h2><p>先来一段同步的憨憨代码，这描述了一个“做早餐”的流程：</p>
+<ol>
+<li>倒一杯咖啡。</li>
+<li>加热平底锅，然后煎两个鸡蛋。</li>
+<li>煎三片培根。</li>
+<li>烤两片面包。</li>
+<li>在烤面包上加黄油和果酱。</li>
+<li>倒一杯橙汁。</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Coffee cup = PourCoffee();          <span class="comment">//倒咖啡</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;coffee is ready&quot;</span>);</span><br><span class="line">    Egg eggs = FryEggs(<span class="number">2</span>);              <span class="comment">//煎蛋</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;eggs are ready&quot;</span>);</span><br><span class="line">    Bacon bacon = FryBacon(<span class="number">3</span>);          <span class="comment">//煎培根</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;bacon is ready&quot;</span>);</span><br><span class="line">    Toast toast = ToastBread(<span class="number">2</span>);        <span class="comment">//烤面包</span></span><br><span class="line">    ApplyButter(toast);                 <span class="comment">//涂黄油</span></span><br><span class="line">    ApplyJam(toast);                    <span class="comment">//涂果酱</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;toast is ready&quot;</span>);</span><br><span class="line">    Juice oj = PourOJ();                <span class="comment">//倒橙汁</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;oj is ready&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Breakfast is ready!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>线性的逻辑很简单，但有大问题。煎蛋、煎培根和烤面包都要花很长时间，其实完全可以在做煎蛋和培根的同时，让面包自己在面包机里烤。不然还没等面包烤完，别的东西早凉透了，吃了可能还会引起肠胃不适。煎蛋和煎培根甚至也没必要一前一后——谁家还没有两个锅呢？或者找个大点的锅来一起煎也行啊。</p>
+<h2 id="异步做早餐"><a href="#异步做早餐" class="headerlink" title="异步做早餐"></a>异步做早餐</h2><p>来看看一个近乎完美的“做早餐解决方案”是怎样的。下面是C#文档里的示范异步代码，我擅自添加了些方便理解的沙雕注释：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">async</span> Task <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Coffee cup = PourCoffee();          <span class="comment">//倒杯咖啡</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;coffee is ready&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> eggsTask = FryEggsAsync(<span class="number">2</span>);     <span class="comment">//得煎俩鸡蛋，开整！</span></span><br><span class="line">    <span class="keyword">var</span> baconTask = FryBaconAsync(<span class="number">3</span>);   <span class="comment">//得煎仨培根，开整！</span></span><br><span class="line">    <span class="keyword">var</span> toastTask = MakeToastWithButterAndJamAsync(<span class="number">2</span>);  <span class="comment">//得搞两片涂黄油和果酱的面包，开整！</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> allTasks = <span class="keyword">new</span> List&lt;Task&gt;&#123;eggsTask, baconTask, toastTask&#125;;  <span class="comment">//列个任务清单吧</span></span><br><span class="line">    <span class="keyword">while</span> (allTasks.Any())  <span class="comment">//看来清单里还有任务没搞完</span></span><br><span class="line">    &#123;</span><br><span class="line">        Task finished = <span class="keyword">await</span> Task.WhenAny(allTasks);   <span class="comment">//下一个完成的任务是啥？</span></span><br><span class="line">        <span class="keyword">if</span> (finished == eggsTask)   <span class="comment">//噢，是鸡蛋煎好了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;eggs are ready&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (finished == baconTask)     <span class="comment">//噢，是培根煎好了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;bacon is ready&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (finished == toastTask)     <span class="comment">//噢，是面包做完了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;toast is ready&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        allTasks.Remove(finished);      <span class="comment">//行，把完成的任务从清单里划了</span></span><br><span class="line">    &#125;</span><br><span class="line">    Juice oj = PourOJ();    <span class="comment">//最后再来杯橙汁，完事</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;oj is ready&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Breakfast is ready!&quot;</span>);   <span class="comment">//爽到</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">async</span> Task&lt;Toast&gt; <span class="title">MakeToastWithButterAndJamAsync</span>(<span class="params"><span class="built_in">int</span> number</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> toast = <span class="keyword">await</span> ToastBreadAsync(number);      <span class="comment">//要处理面包得先等面包烤好</span></span><br><span class="line">        ApplyButter(toast);     <span class="comment">//涂点黄油</span></span><br><span class="line">        ApplyJam(toast);        <span class="comment">//涂点果酱</span></span><br><span class="line">        <span class="keyword">return</span> toast;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>粗略一看，握草，感觉魔改成异步之后复杂了好多。其实不然，我慢慢来分析。</p>
+<h3 id="定义异步方法"><a href="#定义异步方法" class="headerlink" title="定义异步方法"></a>定义异步方法</h3><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> eggsTask = FryEggsAsync(<span class="number">2</span>);     <span class="comment">//得煎俩鸡蛋，开整！</span></span><br><span class="line"><span class="keyword">var</span> baconTask = FryBaconAsync(<span class="number">3</span>);   <span class="comment">//得煎仨培根，开整！</span></span><br><span class="line"><span class="keyword">var</span> toastTask = MakeToastWithButterAndJamAsync(<span class="number">2</span>);  <span class="comment">//得搞两片涂黄油和果酱的面包，开整！</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> allTasks = <span class="keyword">new</span> List&lt;Task&gt;&#123;eggsTask, baconTask, toastTask&#125;;  <span class="comment">//列个任务清单吧</span></span><br></pre></td></tr></table></figure>
+
+<p>可以注意到，这一段使用的几个方法，其名称都在后面加了个“Async”，这是异步方法的命名规范。调用三个异步方法，就是设置了三个任务（Task）。那谁谁，照这个任务去执行吧！我要接着跑后面的代码了。</p>
+<p>那么，怎么定义一个异步方法呢？来看上面示例中的这个方法：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">async</span> Task&lt;Toast&gt; <span class="title">MakeToastWithButterAndJamAsync</span>(<span class="params"><span class="built_in">int</span> number</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> toast = <span class="keyword">await</span> ToastBreadAsync(number);      <span class="comment">//要处理面包得先等面包烤好</span></span><br><span class="line">    ApplyButter(toast);     <span class="comment">//涂点黄油</span></span><br><span class="line">    ApplyJam(toast);        <span class="comment">//涂点果酱</span></span><br><span class="line">    <span class="keyword">return</span> toast;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先，方法定义的前面有<code>async</code>修饰符，这直接说明了此方法是异步（<strong>async</strong>hronous）的。</p>
+<p>异步方法返回的是<code>Task&lt;TResult&gt;</code>类型，代表着这个任务（Task）的结果是<code>TResult</code>所代表的类型。比如一个返回类型为<code>Toast</code>的同步方法，其异步版本的返回类型就应该是<code>Task&lt;Toast&gt;</code>，代表着一个“烤面包（Toast）”的任务（Task）。</p>
+<p><strong><code>async</code>异步方法的存在，要依靠包含<code>await</code>运算符的表达式或语句。反过来说，异步方法里必须得有<code>await</code>的存在。</strong> 上面的代码里，<code>Main</code>方法本身也是被<code>async</code>修饰的，就是因为Main方法里也用到了<code>await</code>语句。</p>
+<h3 id="设置前置条件"><a href="#设置前置条件" class="headerlink" title="设置前置条件"></a>设置前置条件</h3><p><code>async</code>是用来定义异步方法的，那<code>await</code>是干什么的呢？按照字面意思来理解就好，“等待”。异步方法运行到这里就开始等待，直到<code>await</code>的操作数所表示的异步操作（一个<code>Task&lt;TResult&gt;</code>）执行完毕。<strong>一旦异步操作完成，<code>await</code>运算符就从<code>Task&lt;TResult&gt;</code>的任务里，获取任务的最终结果，以<code>TResult</code>类型返回，然后再继续运行后续代码。</strong> 这说明<code>await</code>所等待的任务的结果是后续操作的前置条件。上面这个异步方法第一句就在<code>await</code>，这是因为后面抹黄油和果酱的流程都必须建立在“烤完面包”的前置条件上。</p>
+<p>然而，我们希望优化的耗时操作往往本身不是异步的。<code>await</code>只能接异步操作，怎么和非异步的耗时操作结合呢？比如说有这样一个“根正苗红”的同步函数：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">Foo</span>(<span class="params"><span class="built_in">int</span> bar</span>)</span>&#123;</span><br><span class="line">    Wtf();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要让它的执行完成作为前置条件，就得把它改造成一个返回<code>Task&lt;string&gt;</code>的函数。但是如果原函数是不允许修改的呢？依然有办法，只要用<code>Task.Run(() =&gt; Foo(bar))</code>来调用就好了。</p>
+<p><code>Task.Run()</code>可以把以下四种委托包装成任务，其中常用的是前两种：</p>
+<ol>
+<li><code>Action</code></li>
+<li><code>Func&lt;TResult&gt;</code></li>
+<li><code>Func&lt;Task&gt;</code></li>
+<li><code>Func&lt;Task&lt;TResult&gt;&gt;</code></li>
+</ol>
+<p>由于Lambda表达式也是委托，完全可以构造一个符合上述种类的Lambda表达式。<code>() =&gt; Foo(bar)</code>没有参数，返回类型为<code>string</code>，是一个受到支持的<code>Func&lt;string&gt;</code>委托。因此在被<code>Task.Run()</code>包装之后，它就能成为一个<code>Task&lt;string&gt;</code>，作为异步过程中的前置条件。</p>
+<h3 id="使用连接符"><a href="#使用连接符" class="headerlink" title="使用连接符"></a>使用连接符</h3><p>再来看中间的这一段。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (allTasks.Any())</span><br><span class="line">&#123;</span><br><span class="line">    Task finished = <span class="keyword">await</span> Task.WhenAny(allTasks);</span><br><span class="line">    <span class="keyword">if</span> (finished == eggsTask)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;eggs are ready&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (finished == baconTask)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;bacon is ready&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (finished == toastTask)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;toast is ready&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    allTasks.Remove(finished);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>allTasks.Any()</code>使用<code>List&lt;T&gt;</code>的<code>Any()</code>方法检查列表里是否还有剩余的元素，即当还有未完成的任务时，令程序一直在此循环，这实际上类似于一个消息循环机制。</p>
+<p><code>Task.WhenAny(allTasks)</code>有点儿特殊，它是一个<code>Task&lt;Task&gt;</code>，即“结果是任务”的任务——在<code>allTasks</code>里的某一个任务完成时，它把这个刚刚完成的任务作为自己的结果。这样，<code>await</code>运算符就提取出了那个刚刚完成的任务，将它赋给<code>finished</code>，接下来就可以作出相应的反应了。别忘了在任务处理完之后，把这个完成了的任务从任务列表里删去。</p>
+<p>另有一个类似的方法是<code>Task.WhenAll()</code>，它所创建的任务在参数所表示的一系列任务都完成时才完成。命名空间<code>System.Threading.Tasks</code>里的这类辅助处理多个任务的方法被称为“连接符”。</p>
+<p>以上就是一种基于任务的异步模式（TAP）：把多个任务一齐启动，记录在任务列表里，然后用<code>await</code>、循环和连接符来等待所有任务的完成。对于每个任务本身，如果具有一些前置条件，就依然用<code>await</code>来等待其前置条件的完成。</p>
+<h1 id="扩展：线程池"><a href="#扩展：线程池" class="headerlink" title="扩展：线程池"></a>扩展：线程池</h1><p>至此，虽然我们知道了怎么把同步代码改造成异步的，但其中的原理是什么呢？</p>
+<p>异步的关键是定义<code>async</code>异步方法和用<code>await</code>进行必要的流程控制，而这两个关键字都是围绕<code>Task&lt;TResult&gt;</code>展开的。因此要更深入地理解异步，就要了解<code>Task&lt;TResult&gt;</code>的工作机制。</p>
+<p>Task工作的基础是线程池，C#中的线程池是命名空间<code>System.Threading</code>中的<code>ThreadPool</code>静态类。关于线程池和多线程又可以事无巨细地写一篇长文，这里先作简要的记录。</p>
+<p>每一个进程都可以拥有一个线程池，里面有预先创建好的一大堆空闲线程。当一个任务需要用线程处理的时候，就无需临时单独创建一个线程，可以直接从线程池里找一个空闲的来跑。跑完也不用费劲将线程销毁，它会被线程池回收，等待其它任务来利用。假如要处理的任务太多，导致线程池里所有的线程都在忙碌，线程池可能会创建新线程，也可能让任务等待空闲线程的出现。</p>
+<p>线程池也有缺点。由于池里线程的一切工作都是由CLR托管的（这又是一个天坑），虽然用起来是简单了，但你无法对这些线程进行具体的操作，一旦把任务加进队列里也没法取消（不要停下来啊！）。不过都要用上线程池了，那不是一把梭跑就完事了嘛，谁还希望让任务停下来呢？</p>
+<p>使用线程池的方法是利用<code>QueueUserWorkItem()</code>方法：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//ThreadPool.QueueUserWorkItem 方法</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">bool</span> <span class="title">QueueUserWorkItem</span> (<span class="params">System.Threading.WaitCallback callBack</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">bool</span> <span class="title">QueueUserWorkItem</span> (<span class="params">System.Threading.WaitCallback callBack, <span class="built_in">object</span> state</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这个方法把一项工作添加到线程池的工作队列中，一旦线程池有空闲线程，就会从队列里取出工作来执行。</p>
+<p>其中，<code>WaitCallback</code>是一个委托，它接收<code>object</code>作为参数，并返回<code>void</code>，类似<code>Action&lt;object&gt;</code>。</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">[<span class="meta">System.Runtime.InteropServices.ComVisible(true)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">WaitCallback</span>(<span class="params"><span class="built_in">object</span> state</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>注意，由于委托参数的<a href="https://hakurei.red/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/">逆变性</a>（我靠，居然在这里用上了前面学的逆变），这里仅能使用<code>object</code>或派生程度更低的类型的参数。由于<code>object</code>已经是最终基类，故只能用它。</p>
+<p>但<code>object</code>可是啥都没有啊？如果要安排一个带有任务信息的委托作为任务，怎么把信息封在里面？</p>
+<p>为了解答这个问题，我们可以先看<code>QueueUserWorkItem</code>的后一个重载。参数除了<code>WaitCallback</code>类型的委托<code>callBack</code>之外，还有一个<code>object state</code>，它就是委托调用时使用的参数。由于协变性，你可以把任何类型视作<code>object</code>，也就可以在调用委托时传入任意类型的参数。而前一个重载的参数列表中没有<code>object state</code>，是给无需在调用时传入参数的委托使用的，类似<code>Action</code>。</p>
+<p><strong>如此一来就很明白了，支持添加到线程池工作队列里的工作是这样的函数：返回类型为<code>void</code>，参数列表中有0或1个任意类型的参数。</strong></p>
+<h1 id="未竟之旅"><a href="#未竟之旅" class="headerlink" title="未竟之旅"></a>未竟之旅</h1><p>原本这里应该有更多关于Task和await工作原理的内容，但当我在C#文档的迷宫中走得愈发深入时，我发现我的理解被不断推翻，比如说用async和await实现的异步实际上是单线程的，但它们所围绕的Task又和用线程池实现的多线程密不可分。</p>
+<p>我试图理清这一切到底是如何工作的，这时回调函数、消息循环、线程调度、编译原理这几只怪物都跑了出来，甚至将一切都指向了JavaScript，告诉我是时候敬而远之了。</p>
+<p>因此，目前这篇笔记是十分没有深度的一篇，它有太多可以写也需要写的内容了。C#我还有更多的东西一知半解，目前在此考据技术细节是不明智的。但过段时间我还会继续刨根究底，现在将非常具有参考价值的一篇StackOverflow问题链接贴在这里：</p>
+<p><a href="https://stackoverflow.com/questions/37419572/if-async-await-doesnt-create-any-additional-threads-then-how-does-it-make-appl">If async-await doesn’t create any additional threads, then how does it make applications responsive?</a></p>
+<p>以及之前我画的<strong>理解错误</strong>的示意图：</p>
+<p><img src="https://i.loli.net/2020/04/08/7TIPufG6oAm2cOd.png" alt="BreakfastAsync.png"></p>
+<blockquote>
+<p>下一步，应该是回过头去搞清楚集合、列表、数组，还有相关的接口和索引器啥的。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>C Sharp</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>200505：后浪</title>
     <url>/2020/05/05/200505/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>不可避免地，这两天被《后浪》刷了屏。</p>
@@ -1961,7 +1961,7 @@
 <p>显然，我是属于前一种“爱书人”。也许上次去书店我抽出了《山海经校注》，这次我找来了一本《中国神话史》，下次还要考虑着把那套《火鸟》扛走……但是实际上堆在桌上，自己经常翻看的还是诸如《C#高级编程》和《Unity 5.x从入门到精通》之类，“科技类图书四大社”的俗套玩意。</p>
 <p>噢，不——在那堆东西里甚至还夹着一本没翻过几页的《日本书纪》。</p>
 <p><img src="https://i.loli.net/2020/05/05/Vna4JIWD3xKYSe5.jpg" alt="冠位十二阶 宪法十七条"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>总之，比起“果麦”那种昂贵的书架装饰品，我对“后浪”和广西师范大学的“理想国”是更有好感，或者说怀抱更多敬意的。</p>
 <p>而关于《后浪》这条视频，“脱离群众”、“毒鸡汤”的批评已经太多太多，我所在意的是如今中国青年中的新思潮。</p>
@@ -1999,7 +1999,7 @@
 <p>五月初，我终于得知毕设deadline的确切日期已经不远，而且那时我的春招战果虽不算好，但总归拿到了保底的offer，唯一要做的就是赶进度了。To Do List上的待办事项随着Commit被勾掉一些，那时我充满热情，状态是相当理想的。我又满怀兴奋地购入一堆技术书籍——不必说，它们自然还是没有被翻过几页。</p>
 <p>我的Unity终于有了点入门的感觉，开发就像华科的施工队般“日新月异”。为了保持这种节奏，毕设所需要写的那些形式上的文书之类一度令我深恶痛绝，但很快我就从中感受到了回顾与总结既往工作的乐趣，这项杂务实际上是大有裨益的，让人能暂时跳出“此山中”，不至于沉迷于手头的问题而“不见庐山真面目”。</p>
 <p>到了线上答辩的时刻，大家的课题多是大型分布式系统或者机器学习等等非常“Computer Science”的内容，我的《基于Unity的东方Project同人ARPG游戏设计与开发》无论什么时候都那么格格不入。偏偏我的答辩排在最后几位，只好先接受了数个小时的天书洗礼。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>轮到我时，我感到冷汗直冒，毕竟届时完成的内容实在是少之又少，短到30秒就能演示得七七八八，连敌人的寻路移动都还是答辩前一天才勉强做出来的。我打开游戏，对基本不懂游戏的老师、和过于懂游戏的同学们进行解说，由于演示全程只有我一个人的声音，那种感觉别提有多尴尬了。之后，对着PPT我天花乱坠地讲了一堆乱七八糟的东西——ZUN、东方、同人展、GPU实例化、SDF算法、字体渲染、UI设计、像素艺术、TileMap、《元气骑士》、A*算法、符卡和擦弹、Shader、法线贴图、行为树……</p>
 <p>哦对，那段时间我曾试图写一篇总结各种最短路径算法的文章，可时间不够，又多了一篇草稿。</p>
@@ -2042,7 +2042,7 @@
 <p>最大的事儿，当然是入职了。这次加入的是成立不久的央企中国信科，由历史悠久的烽火通信和大唐电信合并而成，一言蔽之如今是在通信行业排在华为和中兴之后第三位的公司。</p>
 <p><img src="https://i.loli.net/2020/07/22/QadeXHJM6t8fyvD.png" alt="中国信科"></p>
 <p>说实话，以前我与烽火通信几乎没有什么交集，而大唐电信倒是早有耳闻，不仅仅是因为它那霸气侧漏的名字，最主要的是3G时代大唐电信给中国移动搞的那套备受吐槽的<code>TD-SCDMA</code>制式，让我这个当年的G3用户深切认识到了什么叫“如果G3就是3G，那么国美就是美国”。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>自此，我成为了中国移动黑，凡是能自定义运营商标识符的手机，我都给改成了“中国移不动”，G3带给我的心理阴影一直保留到现在，让我看到移动那红配绿赛狗屁的<code>AND和</code>LOGO就敬而远之，回忆起WAP飞信网是如何用氪金手游把我钱包骗空的，以及比五福一安还要历史悠久的祖传5元30M。在有线网络方面，移动这家伙也没让我失望，网络上对移动宽带跨越多年的种种吐槽无需赘述。</p>
 <p>我早已打算好再也不要和移动扯上一毛钱的关系，然而，生活往往在你意想不到的时候给你开个玩笑。搬到金融港之后，联通装宽带的师傅问我们是否有联通光猫可用。我在阳台找到了移动的光猫，却发现背后的铭牌赫然印着<code>FiberHome烽火通信</code>——巧了，我就是烽火通信宽带部门的员工。</p>
@@ -2085,7 +2085,7 @@
 <p>在演变到今天状况的前两年，大家还有动态的公网IPv4地址，而不是被圈养在运营商的“大内网”里，那段时间我还能进行一些“叠床架屋”的操作来胡作非为。</p>
 <p>我在树莓派上弄了一个简单的Python脚本，每隔一小时检查路由器的公网IP，如果发生了变动就用邮件形式发出通知。再配合路由器上配置的IP-MAC绑定和端口转发，我就能在外访问到局域网里某台设备的具体端口。虽然后来改用了更方便的TeamViewer，但很长一段时间里，我就是这样在实验课机房里连接寝室中的台式机来写代码的。如今看来，我这操作基本就是实现了一个“低配版”的DDNS服务。</p>
 <p>那么，说回现在。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="无源光网络PON"><a href="#无源光网络PON" class="headerlink" title="无源光网络PON"></a>无源光网络PON</h1><p>这半个多月的培训期间我虽然挺摸，但也不是白学的。</p>
 <p>首先，要从网络的宏观结构讲起。放到可能是最宏观的角度，整个通信网络就分为三层：</p>
@@ -2170,7 +2170,7 @@
 <p>在桌面上VS Code的快捷方式上右键打开属性（假如桌面上没有，就去安装目录里找到code.exe，右键发送-&gt;桌面快捷方式），找到<code>目标(T)</code>一栏，在已有内容的后面添上:</p>
 <figure class="highlight dsconfig"><table><tr><td class="code"><pre><span class="line"><span class="built_in">--extensions-dir</span> <span class="string">&quot;(你刚才创建的extensions文件夹的完整路径)&quot;</span></span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <p>这实际上是为VS Code设置了一个启动参数，说明要从你新建的这个<code>extensions</code>文件夹读取扩展，同时，你下载的扩展也会被放到这里。以后只要从这个快捷方式启动VS Code，不管重启VDI几次扩展都还在，因为extensions文件夹是在Q盘里的。</p>
 <p>好了，接下来启动VS Code。</p>
@@ -2213,7 +2213,7 @@
 <p>Wi-Fi同时作为一个商标，被WiFi联盟WFA持有，新产品要通过Wi-Fi联盟的测试和认证后，才被允许使用“Wi-Fi”logo。这实际上是为了保证产品之间的兼容性。</p>
 <p>Wi-Fi技术伴随着802.11标准演进。这一过程带来了更多的子载波、更高的调制方式、更高的编码率、更短的GI、更宽的带宽、还有MAC层的报文聚合等等。当然，它们的共同目的都是不断提升无线网络的吞吐量，降低时延。</p>
 <p><img src="https://i.loli.net/2020/09/10/SBMczewQtKh6NoU.jpg" alt="历代Wi-Fi"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="基本架构"><a href="#基本架构" class="headerlink" title="基本架构"></a>基本架构</h1><p>AP(Access Point，接入点)是Wi-Fi网络的中枢，它相当于有线网络中的集线器，把各个无线终端设备连接起来，在一般的使用场景中，AP就是无线路由器。</p>
 <h2 id="FAT-AP"><a href="#FAT-AP" class="headerlink" title="FAT AP"></a>FAT AP</h2><p>传统的Wi-Fi组网采用FAT AP架构，这种“胖”AP集Wi-Fi物理层，用户数据加密，用户认证，QoS，网络管理，漫游技术以及其他应用层的技术于一体，一台无线路由器干了所有的事。这种简单架构适合家庭用户，但并不适合进行大规模组网。</p>

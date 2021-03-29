@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#93251A">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
@@ -14,16 +16,15 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hakurei.red","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-
-  <meta name="description" content="写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。 char foo[bar] 和 char* foochar foo[bar]这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”： 123&#x2F;&#x2F;这两行都定义了相同的字符串&quot;">
+<meta name="description" content="写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。 char foo[bar] 和 char* foochar foo[bar]这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”： 123&#x2F;&#x2F;这两行都定义了相同的字符串&quot;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从C++里的一大堆字符串说起">
 <meta property="og:url" content="https://hakurei.red/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/index.html">
@@ -52,11 +53,8 @@
     lang   : 'zh-CN'
   };
 </script>
-
-  <title>从C++里的一大堆字符串说起 | 博丽流芳分社 | Macyrate</title>
+<title>从C++里的一大堆字符串说起 | 博丽流芳分社 | Macyrate</title>
   
-
-
 
 
 
@@ -105,7 +103,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -132,26 +130,10 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-lab">
-
-    <a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>实验</a>
-
-  </li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-lab"><a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>实验</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -162,8 +144,7 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -172,7 +153,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -188,7 +169,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -206,20 +187,21 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#char-foo-bar-%E5%92%8C-char-foo"><span class="nav-number">1.</span> <span class="nav-text">char foo[bar] 和 char* foo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CString"><span class="nav-number">2.</span> <span class="nav-text">CString</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#string"><span class="nav-number">3.</span> <span class="nav-text">string</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LPSTR%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%90%84%E7%A7%8D%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84"><span class="nav-number">4.</span> <span class="nav-text">LPSTR，以及各种乱七八糟的</span></a></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#char-foo-bar-%E5%92%8C-char-foo"><span class="nav-number">1.</span> <span class="nav-text">char foo[bar] 和 char* foo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CString"><span class="nav-number">2.</span> <span class="nav-text">CString</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#string"><span class="nav-number">3.</span> <span class="nav-text">string</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LPSTR%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%90%84%E7%A7%8D%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84"><span class="nav-number">4.</span> <span class="nav-text">LPSTR，以及各种乱七八糟的</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Macyrate"
       src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
   <p class="site-author-name" itemprop="name">Macyrate</p>
   <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -236,7 +218,7 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author animated">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
         <a href="https://github.com/Macyrate" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -256,12 +238,12 @@
         <a href="https://www.zhihu.com/people/mei-zhao-rui" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;mei-zhao-rui" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
       </span>
   </div>
-  <div class="cc-license animated" itemprop="license">
+  <div class="cc-license site-overview-item animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
-  <div class="links-of-blogroll animated">
+  <div class="links-of-blogroll site-overview-item animated">
     <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
       Links
     </div>
@@ -287,7 +269,8 @@
     </ul>
   </div>
 
-      </section>
+        </div>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -296,7 +279,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -308,14 +291,16 @@
 
 
     <div class="main-inner post posts-expand">
-      
 
-      
 
-    
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -327,9 +312,6 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="博丽流芳分社 | Macyrate">
     </span>
-
-    
-    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           从C++里的一大堆字符串说起
@@ -368,9 +350,9 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这两行都定义了相同的字符串&quot;Hello&quot;</span></span><br><span class="line"><span class="keyword">char</span> foo1[] = <span class="string">&quot;Hello&quot;</span>;      <span class="comment">//末尾有隐藏的&#x27;\0&#x27;</span></span><br><span class="line"><span class="keyword">char</span> foo2[<span class="number">6</span>] = &#123;<span class="string">&#x27;H&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125;;</span><br></pre></td></tr></table></figure>
 
 <p><code>char* foo</code>是声明了一个字符指针，指向单个字符，可以将其当作以<code>&#39;\0&#39;</code>为末尾的字符串的首字符地址。如果要把字符串赋给它，需要先申请内存空间，再使用<code>memcpy()</code>或<code>strcpy()</code>。当然，也可以不分配空间，直接用<strong>十分危险的指针赋值</strong>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* foo1 = (<span class="keyword">char</span>*)<span class="built_in">calloc</span>(<span class="number">6</span>, <span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br><span class="line"><span class="built_in">strcpy</span>(foo1, <span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* foo2 = <span class="string">&quot;Hello&quot;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* foo1 = (<span class="keyword">char</span>*)<span class="built_in">calloc</span>(<span class="number">6</span>, <span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">char</span>));</span><br><span class="line"><span class="built_in">strcpy</span>(foo1, <span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* foo2 = <span class="string">&quot;Hello&quot;</span>;</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="CString"><a href="#CString" class="headerlink" title="CString"></a>CString</h1><p><code>CString</code>是<code>MFC</code>的类，使用它需要包含<code>afx.h</code>。</p>
 <p><strong>什么是MFC？</strong></p>
@@ -384,7 +366,7 @@
 <p>关键的问题是，什么是<a target="_blank" rel="noopener" href="https://zh.cppreference.com/w/cpp/header">C++标准库</a>？这个名字很容易和标准模板库（Standard Template Libraries, STL）混淆，但实际上它们最开始是不同的东西。C++被标准化最早是1998年的<code>ISO/IEC 14882:1998</code>，即所谓的C++98。而STL始于C++尚未被标准化的1993年，它很大程度上影响了几年后C++标准中标准库的制定，因此其内容与C++标准库有非常大的重合。但需要注意的是，<strong>STL不完全是C++标准库的一部分</strong>，C++标准里也从来没有“STL”这一说法。C++标准库中的“STL”可以说是STL的一个“Fork”。</p>
 <p>C++标准库包含一系列不带<code>.h</code>后缀的头文件，用尖括号引用。其中除宏定义以外的内容包含在名称空间<code>std</code>中，这也是许多C++程序都有一句<code>using namespace std;</code>的原因。</p>
 <p>这是<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/algorithm/qsort">cppreference</a>上对<code>std::qsort</code>的一段示例：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;     //C++输入/输出流标准头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;      //C++标准库中来自C标准库的部分，去掉.h并在前面加c</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;      //同上</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">-2</span>, <span class="number">99</span>, <span class="number">0</span>, <span class="number">-743</span>, <span class="number">2</span>, INT_MIN, <span class="number">4</span>&#125;;</span><br><span class="line">    <span class="keyword">constexpr</span> <span class="built_in">std</span>::<span class="keyword">size_t</span> size = <span class="keyword">sizeof</span> a / <span class="keyword">sizeof</span> *a;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">std</span>::qsort(a, size, <span class="keyword">sizeof</span> *a, [](<span class="keyword">const</span> <span class="keyword">void</span>* a, <span class="keyword">const</span> <span class="keyword">void</span>* b)     <span class="comment">//指定名称空间std</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> arg1 = *<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">int</span>*&gt;(a);</span><br><span class="line">        <span class="keyword">int</span> arg2 = *<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">int</span>*&gt;(b);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span>(arg1 &lt; arg2) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(arg1 &gt; arg2) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//  return (arg1 &gt; arg2) - (arg1 &lt; arg2); // possible shortcut</span></span><br><span class="line">    <span class="comment">//  return arg1 - arg2; // erroneous shortcut (fails if INT_MIN is present)</span></span><br><span class="line">    &#125;);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> ai : a)</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; ai &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>     <span class="comment">//C++输入/输出流标准头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span>      <span class="comment">//C++标准库中来自C标准库的部分，去掉.h并在前面加c</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span>      <span class="comment">//同上</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">-2</span>, <span class="number">99</span>, <span class="number">0</span>, <span class="number">-743</span>, <span class="number">2</span>, INT_MIN, <span class="number">4</span>&#125;;</span><br><span class="line">    <span class="keyword">constexpr</span> std::<span class="keyword">size_t</span> size = <span class="keyword">sizeof</span> a / <span class="keyword">sizeof</span> *a;</span><br><span class="line"> </span><br><span class="line">    std::<span class="built_in">qsort</span>(a, size, <span class="keyword">sizeof</span> *a, [](<span class="keyword">const</span> <span class="keyword">void</span>* a, <span class="keyword">const</span> <span class="keyword">void</span>* b)     <span class="comment">//指定名称空间std</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> arg1 = *<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">int</span>*&gt;(a);</span><br><span class="line">        <span class="keyword">int</span> arg2 = *<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">int</span>*&gt;(b);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span>(arg1 &lt; arg2) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(arg1 &gt; arg2) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//  return (arg1 &gt; arg2) - (arg1 &lt; arg2); // possible shortcut</span></span><br><span class="line">    <span class="comment">//  return arg1 - arg2; // erroneous shortcut (fails if INT_MIN is present)</span></span><br><span class="line">    &#125;);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> ai : a)</span><br><span class="line">        std::cout &lt;&lt; ai &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="LPSTR，以及各种乱七八糟的"><a href="#LPSTR，以及各种乱七八糟的" class="headerlink" title="LPSTR，以及各种乱七八糟的"></a>LPSTR，以及各种乱七八糟的</h1><p>这就是较为难以理解的东西了，名字让人一头雾水。<code>LPSTR</code>算是最简单的形式，还有什么<code>LPCTSTR</code>,<code>PCTSTR</code>等等，这都是些啥？</p>
 <p>其实这些全大写的神秘数据类型依然来自MFC，它们都是Windows特色数据类型。STR显然代表的是字符串，重要的是它们的前缀。</p>
@@ -444,14 +426,14 @@
           </div>
     </footer>
   </article>
-  
-  
-  
+</div>
 
 
 
-      
-    <div class="comments" id="gitalk-container"></div>
+
+
+
+    <div class="comments gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -474,8 +456,7 @@
     });
   }
 </script>
-
-    </div>
+</div>
   </main>
   <!-- APlayer start -->
   <!-- Native Mode
@@ -522,14 +503,11 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      
 
-      
 
 <div class="copyright">
-  
   &copy; 2016 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -560,12 +538,11 @@
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
-  <script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -601,26 +578,7 @@ document.addEventListener('pjax:success', () => {
 
 
   
-  <script data-pjax>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
+<script src="/js/local-search.js"></script>
 
 
 
@@ -632,20 +590,13 @@ document.addEventListener('pjax:success', () => {
 
 
 
-
-
-
-
-
     <div class="pjax">
-  
 
-  
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.1/dist/gitalk.css">
 
 <script>
-NexT.utils.loadComments('#gitalk-container', () => {
+NexT.utils.loadComments('.gitalk-container', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.1/dist/gitalk.min.js', () => {
     var gitalk = new Gitalk({
       clientID    : 'aa2288c6cbb5322cac6b',
@@ -654,10 +605,11 @@ NexT.utils.loadComments('#gitalk-container', () => {
       owner       : 'macyrate',
       admin       : ['macyrate'],
       id          : '8779df05e80ac69c330d7cbb7d8c77d2',
+      proxy       : 'https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token',
         language: 'zh-CN',
       distractionFreeMode: true
     });
-    gitalk.render('gitalk-container');
+    gitalk.render(document.querySelector('.gitalk-container'));
   }, window.Gitalk);
 });
 </script>

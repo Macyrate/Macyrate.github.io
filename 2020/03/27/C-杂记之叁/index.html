@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#93251A">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
@@ -14,16 +16,15 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hakurei.red","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-
-  <meta name="description" content="准备完了开题答辩，弄完了笔试，又咸鱼了数天、玩了数天《动物森友会》，一下子离上一篇C#杂记过了三个星期。  所以接下来要填的坑是LINQ和异步。弄完了这个，C#最大的几块拼图才得以完整，大抵能够叫是入了门。 查询表达式所谓的LINQ，是语言集成查询Language INtegrated Query的缩写。通过引用命名空间System.Linq，可以用可读性极强的、类似SQL查询语句形式的代码对一些">
+<meta name="description" content="准备完了开题答辩，弄完了笔试，又咸鱼了数天、玩了数天《动物森友会》，一下子离上一篇C#杂记过了三个星期。  所以接下来要填的坑是LINQ和异步。弄完了这个，C#最大的几块拼图才得以完整，大抵能够叫是入了门。 查询表达式所谓的LINQ，是语言集成查询Language INtegrated Query的缩写。通过引用命名空间System.Linq，可以用可读性极强的、类似SQL查询语句形式的代码对一些">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#杂记之叁：LINQ">
 <meta property="og:url" content="https://hakurei.red/2020/03/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%8F%81/index.html">
@@ -53,11 +54,8 @@
     lang   : 'zh-CN'
   };
 </script>
-
-  <title>C#杂记之叁：LINQ | 博丽流芳分社 | Macyrate</title>
+<title>C#杂记之叁：LINQ | 博丽流芳分社 | Macyrate</title>
   
-
-
 
 
 
@@ -106,7 +104,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -133,26 +131,10 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-lab">
-
-    <a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>实验</a>
-
-  </li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-lab"><a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>实验</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -163,8 +145,7 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -173,7 +154,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -189,7 +170,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -207,20 +188,21 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">查询表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%81%9A%E5%90%88"><span class="nav-number">3.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.</span> <span class="nav-text">分组查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#join%E6%9F%A5%E8%AF%A2"><span class="nav-number">5.</span> <span class="nav-text">join查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%A4%E5%B9%B6%E5%B7%AE"><span class="nav-number">6.</span> <span class="nav-text">交并差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">查询表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%81%9A%E5%90%88"><span class="nav-number">3.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.</span> <span class="nav-text">分组查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#join%E6%9F%A5%E8%AF%A2"><span class="nav-number">5.</span> <span class="nav-text">join查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%A4%E5%B9%B6%E5%B7%AE"><span class="nav-number">6.</span> <span class="nav-text">交并差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Macyrate"
       src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
   <p class="site-author-name" itemprop="name">Macyrate</p>
   <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -237,7 +219,7 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author animated">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
         <a href="https://github.com/Macyrate" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -257,12 +239,12 @@
         <a href="https://www.zhihu.com/people/mei-zhao-rui" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;mei-zhao-rui" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
       </span>
   </div>
-  <div class="cc-license animated" itemprop="license">
+  <div class="cc-license site-overview-item animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
-  <div class="links-of-blogroll animated">
+  <div class="links-of-blogroll site-overview-item animated">
     <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
       Links
     </div>
@@ -288,7 +270,8 @@
     </ul>
   </div>
 
-      </section>
+        </div>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -297,7 +280,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -309,14 +292,16 @@
 
 
     <div class="main-inner post posts-expand">
-      
 
-      
 
-    
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/03/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%8F%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -328,9 +313,6 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="博丽流芳分社 | Macyrate">
     </span>
-
-    
-    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           C#杂记之叁：LINQ
@@ -369,9 +351,9 @@
 <p>所以接下来要填的坑是LINQ和异步。弄完了这个，C#最大的几块拼图才得以完整，大抵能够叫是入了门。</p>
 <h1 id="查询表达式"><a href="#查询表达式" class="headerlink" title="查询表达式"></a>查询表达式</h1><p>所谓的LINQ，是语言集成查询<strong>L</strong>anguage <strong>IN</strong>tegrated <strong>Q</strong>uery的缩写。通过引用命名空间<code>System.Linq</code>，可以用可读性极强的、类似SQL查询语句形式的代码对一些数据结构，甚至直接对数据库进行便捷的操作，如查询、排序、分组等，而不必编写大量逻辑复杂的循环代码。<!--尤其是在与异步流式处理相结合时，可以优雅地将C#的性能发挥到极致。(存疑)-->LINQ的操作十分高深，这里我仅学习一些基础、常用的LINQ功能。</p>
 <p>以下是一个典型的LINQ查询示例：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//数据源</span></span><br><span class="line">    <span class="keyword">string</span>[] name = &#123;<span class="string">&quot;Alonso&quot;</span>, <span class="string">&quot;Zheng&quot;</span>, <span class="string">&quot;Smith&quot;</span>, <span class="string">&quot;Jones&quot;</span>, <span class="string">&quot;Smythe&quot;</span>, <span class="string">&quot;Small&quot;</span>, <span class="string">&quot;Ruiz&quot;</span>, <span class="string">&quot;Hsieh&quot;</span>, <span class="string">&quot;Jorgenson&quot;</span>, <span class="string">&quot;Ilyich&quot;</span>, <span class="string">&quot;Singh&quot;</span>, <span class="string">&quot;Samba&quot;</span>, <span class="string">&quot;Fatimah&quot;</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询表达式</span></span><br><span class="line">    <span class="keyword">var</span> queryResults = </span><br><span class="line">        <span class="keyword">from</span> n <span class="keyword">in</span> names</span><br><span class="line">        <span class="keyword">where</span> n.StartWith(<span class="string">&quot;S&quot;</span>)</span><br><span class="line">        <span class="keyword">select</span> n;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//迭代查询结果</span></span><br><span class="line">    WriteLine(<span class="string">&quot;Name beginning with S:&quot;</span>);</span><br><span class="line">    <span class="keyword">foreach</span>(<span class="keyword">var</span> item <span class="keyword">in</span> queryResults)&#123;</span><br><span class="line">        WriteLine(item);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Write(<span class="string">&quot;Program finished. Press Enter/Return to continue:&quot;</span>);</span><br><span class="line">    ReadLine();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//数据源</span></span><br><span class="line">    <span class="built_in">string</span>[] name = &#123;<span class="string">&quot;Alonso&quot;</span>, <span class="string">&quot;Zheng&quot;</span>, <span class="string">&quot;Smith&quot;</span>, <span class="string">&quot;Jones&quot;</span>, <span class="string">&quot;Smythe&quot;</span>, <span class="string">&quot;Small&quot;</span>, <span class="string">&quot;Ruiz&quot;</span>, <span class="string">&quot;Hsieh&quot;</span>, <span class="string">&quot;Jorgenson&quot;</span>, <span class="string">&quot;Ilyich&quot;</span>, <span class="string">&quot;Singh&quot;</span>, <span class="string">&quot;Samba&quot;</span>, <span class="string">&quot;Fatimah&quot;</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询表达式</span></span><br><span class="line">    <span class="keyword">var</span> queryResults = </span><br><span class="line">        <span class="keyword">from</span> n <span class="keyword">in</span> names</span><br><span class="line">        <span class="keyword">where</span> n.StartWith(<span class="string">&quot;S&quot;</span>)</span><br><span class="line">        <span class="keyword">select</span> n;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//迭代查询结果</span></span><br><span class="line">    WriteLine(<span class="string">&quot;Name beginning with S:&quot;</span>);</span><br><span class="line">    <span class="keyword">foreach</span>(<span class="keyword">var</span> item <span class="keyword">in</span> queryResults)&#123;</span><br><span class="line">        WriteLine(item);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Write(<span class="string">&quot;Program finished. Press Enter/Return to continue:&quot;</span>);</span><br><span class="line">    ReadLine();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <p>这段代码查询字符串数组<code>name</code>中以<code>S</code>开头的元素，收入<code>queryResults</code>中，并将它们输出。其中类似SQL语句，包含“from…in…where…select”的部分被称为“查询表达式”。</p>
 <p><code>from...in...</code>子句指定了要查询的数据，这里例子中是数组<code>names</code>中的每一个元素<code>n</code>。数据是指数据源中的元素，而LINQ支持的数据源必须支持<code>IEnumerable&lt;T&gt;</code>接口，这是C#中所有的数据、集合都支持的。</p>
@@ -426,7 +408,7 @@
 </tbody></table>
 <p><strong>不过，LINQ与SQL仍有所不同，聚合运算符不是像SQL里一样写在select子句里，而是结果集所支持的方法。</strong></p>
 <p>SQL的形式：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(column_name) <span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(column_name) <span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
 
 <p>LINQ的形式，聚合运算时可以可选地传入委托作为元素的转换函数，然后对转换后的结果进行聚合：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WriteLine(queryReusults.Max(i =&gt; i * <span class="number">5</span> + <span class="number">2</span>));</span><br></pre></td></tr></table></figure>
@@ -447,7 +429,7 @@
 <p>不过，由于数学上的“集合”是无重复的，上面的Union()方法返回的也是去重的结果。如果想保留重复的结果，可以使用Concat()。</p>
 <p>这几个方法返回的类型都是IEnumerable，需要在调用之后再使用ToList()或者ToArray()之类的方法。</p>
 <p>你甚至可以用这玩意一行代码秒掉<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/intersection-of-two-arrays/">LeetCode 349 两个数组的交集</a>：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span>[] <span class="title">Intersection</span>(<span class="params"><span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> nums1.Intersect(nums2).ToArray();        <span class="comment">//LINQ完事，别想算法了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">int</span>[] <span class="title">Intersection</span>(<span class="params"><span class="built_in">int</span>[] nums1, <span class="built_in">int</span>[] nums2</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> nums1.Intersect(nums2).ToArray();        <span class="comment">//LINQ完事，别想算法了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>基础形式：<strong>from…in…where…select…</strong></p>
 <p>其中：</p>
@@ -505,14 +487,14 @@
           </div>
     </footer>
   </article>
-  
-  
-  
+</div>
 
 
 
-      
-    <div class="comments" id="gitalk-container"></div>
+
+
+
+    <div class="comments gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -535,8 +517,7 @@
     });
   }
 </script>
-
-    </div>
+</div>
   </main>
   <!-- APlayer start -->
   <!-- Native Mode
@@ -583,14 +564,11 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      
 
-      
 
 <div class="copyright">
-  
   &copy; 2016 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -621,12 +599,11 @@
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
-  <script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -662,26 +639,7 @@ document.addEventListener('pjax:success', () => {
 
 
   
-  <script data-pjax>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
+<script src="/js/local-search.js"></script>
 
 
 
@@ -693,20 +651,13 @@ document.addEventListener('pjax:success', () => {
 
 
 
-
-
-
-
-
     <div class="pjax">
-  
 
-  
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.1/dist/gitalk.css">
 
 <script>
-NexT.utils.loadComments('#gitalk-container', () => {
+NexT.utils.loadComments('.gitalk-container', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.1/dist/gitalk.min.js', () => {
     var gitalk = new Gitalk({
       clientID    : 'aa2288c6cbb5322cac6b',
@@ -715,10 +666,11 @@ NexT.utils.loadComments('#gitalk-container', () => {
       owner       : 'macyrate',
       admin       : ['macyrate'],
       id          : '9c752e3ec9ba0f9734c8b836ba61c696',
+      proxy       : 'https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token',
         language: 'zh-CN',
       distractionFreeMode: true
     });
-    gitalk.render('gitalk-container');
+    gitalk.render(document.querySelector('.gitalk-container'));
   }, window.Gitalk);
 });
 </script>

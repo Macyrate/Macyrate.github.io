@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#93251A">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
@@ -14,16 +16,15 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hakurei.red","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-
-  <meta name="description" content="在 Windows 记事本的语境中：所谓的「ANSI」指的是对应当前系统 locale 的遗留（legacy）编码。梁海的回答 - 知乎  所谓编码也许你曾试着购买东方Project正作游戏，或别的什么非英语内容：  扔进光驱，兴冲冲安装之后，点开附带的omake.txt文档，你会发现和安装时就遇到的一样，大部分成了乱码：  奇怪的是，英文、数字、以及一些符号部分并没有变成乱码，这时你就明白，该">
+<meta name="description" content="在 Windows 记事本的语境中：所谓的「ANSI」指的是对应当前系统 locale 的遗留（legacy）编码。梁海的回答 - 知乎  所谓编码也许你曾试着购买东方Project正作游戏，或别的什么非英语内容：  扔进光驱，兴冲冲安装之后，点开附带的omake.txt文档，你会发现和安装时就遇到的一样，大部分成了乱码：  奇怪的是，英文、数字、以及一些符号部分并没有变成乱码，这时你就明白，该">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从ANSI编码是啥说起">
 <meta property="og:url" content="https://hakurei.red/2020/02/09/%E4%BB%8EANSI%E7%BC%96%E7%A0%81%E6%98%AF%E5%95%A5%E8%AF%B4%E8%B5%B7/index.html">
@@ -60,11 +61,8 @@
     lang   : 'zh-CN'
   };
 </script>
-
-  <title>从ANSI编码是啥说起 | 博丽流芳分社 | Macyrate</title>
+<title>从ANSI编码是啥说起 | 博丽流芳分社 | Macyrate</title>
   
-
-
 
 
 
@@ -113,7 +111,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -140,26 +138,10 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-lab">
-
-    <a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>实验</a>
-
-  </li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-lab"><a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>实验</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -170,8 +152,7 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -180,7 +161,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -196,7 +177,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -214,20 +195,21 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%80%E8%B0%93%E7%BC%96%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">所谓编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A2%A6%E5%9B%9E1963"><span class="nav-number">2.</span> <span class="nav-text">梦回1963</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ASCII"><span class="nav-number">2.1.</span> <span class="nav-text">ASCII</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EASCII"><span class="nav-number">2.2.</span> <span class="nav-text">EASCII</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-page-437"><span class="nav-number">2.2.1.</span> <span class="nav-text">Code page 437</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ISO-IEC-8859"><span class="nav-number">2.2.2.</span> <span class="nav-text">ISO&#x2F;IEC 8859</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%9C%E6%96%B9%E5%AE%BD%E5%AD%97%E7%AC%A6"><span class="nav-number">2.3.</span> <span class="nav-text">东方宽字符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Unicode%E6%8B%AF%E6%95%91%E4%B8%96%E7%95%8C"><span class="nav-number">3.</span> <span class="nav-text">Unicode拯救世界</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%80%9C%E5%AD%97%E7%AC%A6%E9%9B%86%E2%80%9D%E4%B8%8E%E2%80%9C%E7%BC%96%E7%A0%81%E2%80%9D"><span class="nav-number">4.</span> <span class="nav-text">“字符集”与“编码”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#U-5F41-%E5%BD%81"><span class="nav-number">5.</span> <span class="nav-text">U+5F41 彁</span></a></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%80%E8%B0%93%E7%BC%96%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">所谓编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A2%A6%E5%9B%9E1963"><span class="nav-number">2.</span> <span class="nav-text">梦回1963</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ASCII"><span class="nav-number">2.1.</span> <span class="nav-text">ASCII</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EASCII"><span class="nav-number">2.2.</span> <span class="nav-text">EASCII</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-page-437"><span class="nav-number">2.2.1.</span> <span class="nav-text">Code page 437</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ISO-IEC-8859"><span class="nav-number">2.2.2.</span> <span class="nav-text">ISO&#x2F;IEC 8859</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%9C%E6%96%B9%E5%AE%BD%E5%AD%97%E7%AC%A6"><span class="nav-number">2.3.</span> <span class="nav-text">东方宽字符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Unicode%E6%8B%AF%E6%95%91%E4%B8%96%E7%95%8C"><span class="nav-number">3.</span> <span class="nav-text">Unicode拯救世界</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%80%9C%E5%AD%97%E7%AC%A6%E9%9B%86%E2%80%9D%E4%B8%8E%E2%80%9C%E7%BC%96%E7%A0%81%E2%80%9D"><span class="nav-number">4.</span> <span class="nav-text">“字符集”与“编码”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#U-5F41-%E5%BD%81"><span class="nav-number">5.</span> <span class="nav-text">U+5F41 彁</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Macyrate"
       src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
   <p class="site-author-name" itemprop="name">Macyrate</p>
   <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -244,7 +226,7 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author animated">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
         <a href="https://github.com/Macyrate" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -264,12 +246,12 @@
         <a href="https://www.zhihu.com/people/mei-zhao-rui" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;mei-zhao-rui" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
       </span>
   </div>
-  <div class="cc-license animated" itemprop="license">
+  <div class="cc-license site-overview-item animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
-  <div class="links-of-blogroll animated">
+  <div class="links-of-blogroll site-overview-item animated">
     <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
       Links
     </div>
@@ -295,7 +277,8 @@
     </ul>
   </div>
 
-      </section>
+        </div>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -304,7 +287,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -316,14 +299,16 @@
 
 
     <div class="main-inner post posts-expand">
-      
 
-      
 
-    
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/09/%E4%BB%8EANSI%E7%BC%96%E7%A0%81%E6%98%AF%E5%95%A5%E8%AF%B4%E8%B5%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -335,9 +320,6 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="博丽流芳分社 | Macyrate">
     </span>
-
-    
-    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           从ANSI编码是啥说起
@@ -379,7 +361,7 @@
 <p>扔进光驱，兴冲冲安装之后，点开附带的<code>omake.txt</code>文档，你会发现和安装时就遇到的一样，大部分成了乱码：</p>
 <p><img src="https://i.loli.net/2020/02/09/UV9Pzu8rQFtSHMj.jpg" alt="omake原文"></p>
 <p>奇怪的是，英文、数字、以及一些符号部分并没有变成乱码，这时你就明白，该死的编码问题又出现了。一直到几年前，Windows记事本的默认编码都是写在右下角的<code>ANSI</code>（现在已经是UTF-8），这是什么编码呢？</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>当你在简体中文Windows环境下用记事本写一个ANSI编码的文件，再用VS Code这种对各种编码都支持良好的编辑器打开它，编辑器所识别的编码是中国的国标码<code>GB 2312</code>。</p>
 <p><img src="https://i.loli.net/2020/02/09/swLx1GrgF7zpRJC.jpg" alt="动画观览记录GB2312.jpg"></p>
@@ -537,14 +519,14 @@
           </div>
     </footer>
   </article>
-  
-  
-  
+</div>
 
 
 
-      
-    <div class="comments" id="gitalk-container"></div>
+
+
+
+    <div class="comments gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -567,8 +549,7 @@
     });
   }
 </script>
-
-    </div>
+</div>
   </main>
   <!-- APlayer start -->
   <!-- Native Mode
@@ -615,14 +596,11 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      
 
-      
 
 <div class="copyright">
-  
   &copy; 2016 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -653,12 +631,11 @@
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
-  <script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -694,26 +671,7 @@ document.addEventListener('pjax:success', () => {
 
 
   
-  <script data-pjax>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
+<script src="/js/local-search.js"></script>
 
 
 
@@ -725,20 +683,13 @@ document.addEventListener('pjax:success', () => {
 
 
 
-
-
-
-
-
     <div class="pjax">
-  
 
-  
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.1/dist/gitalk.css">
 
 <script>
-NexT.utils.loadComments('#gitalk-container', () => {
+NexT.utils.loadComments('.gitalk-container', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.1/dist/gitalk.min.js', () => {
     var gitalk = new Gitalk({
       clientID    : 'aa2288c6cbb5322cac6b',
@@ -747,10 +698,11 @@ NexT.utils.loadComments('#gitalk-container', () => {
       owner       : 'macyrate',
       admin       : ['macyrate'],
       id          : '7b4d84cd107c83ea582b67b93881a043',
+      proxy       : 'https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token',
         language: 'zh-CN',
       distractionFreeMode: true
     });
-    gitalk.render('gitalk-container');
+    gitalk.render(document.querySelector('.gitalk-container'));
   }, window.Gitalk);
 });
 </script>

@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#93251A">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
@@ -14,16 +16,15 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hakurei.red","root":"/","scheme":"Pisces","version":"8.0.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-
-  <meta name="description" content="前方高能！这篇笔记断断续续花了近10天，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。（其实就是我写完实在不愿审阅）   首先说明，异步是极为高深的高级编程技术，这篇文章只是才疏学浅的我阅读文档之后的一些思考与理解，可能有极多描述不准确乃至完全错误之处，还望批评指导。顺便吐槽，C#文档翻译得实在是太烂了，很多地方一看就是机翻的，却没有机翻警告。很多地方百思不得其解的词，切换到英语">
+<meta name="description" content="前方高能！这篇笔记断断续续花了近10天，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。（其实就是我写完实在不愿审阅）   首先说明，异步是极为高深的高级编程技术，这篇文章只是才疏学浅的我阅读文档之后的一些思考与理解，可能有极多描述不准确乃至完全错误之处，还望批评指导。顺便吐槽，C#文档翻译得实在是太烂了，很多地方一看就是机翻的，却没有机翻警告。很多地方百思不得其解的词，切换到英语">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#杂记之肆：异步">
 <meta property="og:url" content="https://hakurei.red/2020/04/08/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/index.html">
@@ -52,11 +53,8 @@
     lang   : 'zh-CN'
   };
 </script>
-
-  <title>C#杂记之肆：异步 | 博丽流芳分社 | Macyrate</title>
+<title>C#杂记之肆：异步 | 博丽流芳分社 | Macyrate</title>
   
-
-
 
 
 
@@ -105,7 +103,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -132,26 +130,10 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-lab">
-
-    <a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>实验</a>
-
-  </li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-lab"><a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>实验</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -162,8 +144,7 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -172,7 +153,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -188,7 +169,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -206,20 +187,21 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%95%E4%B8%BA%E5%BC%82%E6%AD%A5"><span class="nav-number">1.</span> <span class="nav-text">何为异步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%97%A9%E9%A4%90%E6%AF%81%E6%8E%89%E7%BE%8E%E5%A5%BD%E7%9A%84%E4%B8%80%E5%A4%A9"><span class="nav-number">2.1.</span> <span class="nav-text">用早餐毁掉美好的一天</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E5%81%9A%E6%97%A9%E9%A4%90"><span class="nav-number">2.2.</span> <span class="nav-text">异步做早餐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%BC%82%E6%AD%A5%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">定义异步方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.2.2.</span> <span class="nav-text">设置前置条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%BF%9E%E6%8E%A5%E7%AC%A6"><span class="nav-number">2.2.3.</span> <span class="nav-text">使用连接符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%EF%BC%9A%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="nav-number">3.</span> <span class="nav-text">扩展：线程池</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AA%E7%AB%9F%E4%B9%8B%E6%97%85"><span class="nav-number">4.</span> <span class="nav-text">未竟之旅</span></a></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%95%E4%B8%BA%E5%BC%82%E6%AD%A5"><span class="nav-number">1.</span> <span class="nav-text">何为异步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%97%A9%E9%A4%90%E6%AF%81%E6%8E%89%E7%BE%8E%E5%A5%BD%E7%9A%84%E4%B8%80%E5%A4%A9"><span class="nav-number">2.1.</span> <span class="nav-text">用早餐毁掉美好的一天</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E5%81%9A%E6%97%A9%E9%A4%90"><span class="nav-number">2.2.</span> <span class="nav-text">异步做早餐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%BC%82%E6%AD%A5%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text">定义异步方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.2.2.</span> <span class="nav-text">设置前置条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%BF%9E%E6%8E%A5%E7%AC%A6"><span class="nav-number">2.2.3.</span> <span class="nav-text">使用连接符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%EF%BC%9A%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="nav-number">3.</span> <span class="nav-text">扩展：线程池</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AA%E7%AB%9F%E4%B9%8B%E6%97%85"><span class="nav-number">4.</span> <span class="nav-text">未竟之旅</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Macyrate"
       src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
   <p class="site-author-name" itemprop="name">Macyrate</p>
   <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -236,7 +218,7 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author animated">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
         <a href="https://github.com/Macyrate" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -256,12 +238,12 @@
         <a href="https://www.zhihu.com/people/mei-zhao-rui" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;mei-zhao-rui" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
       </span>
   </div>
-  <div class="cc-license animated" itemprop="license">
+  <div class="cc-license site-overview-item animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
-  <div class="links-of-blogroll animated">
+  <div class="links-of-blogroll site-overview-item animated">
     <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
       Links
     </div>
@@ -287,7 +269,8 @@
     </ul>
   </div>
 
-      </section>
+        </div>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -296,7 +279,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -308,14 +291,16 @@
 
 
     <div class="main-inner post posts-expand">
-      
 
-      
 
-    
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/04/08/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -327,9 +312,6 @@
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="博丽流芳分社 | Macyrate">
     </span>
-
-    
-    
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           C#杂记之肆：异步
@@ -370,7 +352,7 @@
 <h1 id="何为异步"><a href="#何为异步" class="headerlink" title="何为异步"></a>何为异步</h1><p>与异步相对的是“同步”，代表着一句代码的执行结束是其后一句代码的执行开始，整个流程是按照固定的顺序进行的，这是一般程序的逻辑。然而，某些语句可能需要花较长时间才能得到结果——比如网络通信和文件读写——这些语句的执行并不怎么占用CPU，但会阻塞整个线程，后续的语句需要等待这些语句执行完成，造成大量的浪费。特别是如果网络环境很不好、读取的文件好几个G，那可是尤其要命，可能整个程序都会出现肉眼可见的卡顿甚至崩溃。</p>
 <p>为了解决这种飞快的CPU与龟爬的IO之间的不平衡，传统的方案是单独开个线程让它去执行耗时的操作，让主线程继续运行与耗时操作的结果无关的代码。但是线程操作很麻烦、开销很高，线程数量也有限，不是能随便使用的，所以依然不是个完美的方法。</p>
 <p>异步就是为了解决这个问题而存在的。当代码需要执行一个耗时的操作时，它只发出指令，并不等待结果，然后就去执行其他代码了。一段时间后，当耗时操作返回结果时，再通知CPU进行处理。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="怎么使用"><a href="#怎么使用" class="headerlink" title="怎么使用"></a>怎么使用</h1><p>从C# 5开始，编写异步程序变得比较容易。</p>
 <p>C#的异步编程模型主要通过两个关键字来使用：<code>async</code>和<code>await</code>。</p>
@@ -383,25 +365,25 @@
 <li>在烤面包上加黄油和果酱。</li>
 <li>倒一杯橙汁。</li>
 </ol>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Coffee cup = PourCoffee();          <span class="comment">//倒咖啡</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;coffee is ready&quot;</span>);</span><br><span class="line">    Egg eggs = FryEggs(<span class="number">2</span>);              <span class="comment">//煎蛋</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;eggs are ready&quot;</span>);</span><br><span class="line">    Bacon bacon = FryBacon(<span class="number">3</span>);          <span class="comment">//煎培根</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;bacon is ready&quot;</span>);</span><br><span class="line">    Toast toast = ToastBread(<span class="number">2</span>);        <span class="comment">//烤面包</span></span><br><span class="line">    ApplyButter(toast);                 <span class="comment">//涂黄油</span></span><br><span class="line">    ApplyJam(toast);                    <span class="comment">//涂果酱</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;toast is ready&quot;</span>);</span><br><span class="line">    Juice oj = PourOJ();                <span class="comment">//倒橙汁</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;oj is ready&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Breakfast is ready!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Coffee cup = PourCoffee();          <span class="comment">//倒咖啡</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;coffee is ready&quot;</span>);</span><br><span class="line">    Egg eggs = FryEggs(<span class="number">2</span>);              <span class="comment">//煎蛋</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;eggs are ready&quot;</span>);</span><br><span class="line">    Bacon bacon = FryBacon(<span class="number">3</span>);          <span class="comment">//煎培根</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;bacon is ready&quot;</span>);</span><br><span class="line">    Toast toast = ToastBread(<span class="number">2</span>);        <span class="comment">//烤面包</span></span><br><span class="line">    ApplyButter(toast);                 <span class="comment">//涂黄油</span></span><br><span class="line">    ApplyJam(toast);                    <span class="comment">//涂果酱</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;toast is ready&quot;</span>);</span><br><span class="line">    Juice oj = PourOJ();                <span class="comment">//倒橙汁</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;oj is ready&quot;</span>);</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Breakfast is ready!&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>线性的逻辑很简单，但有大问题。煎蛋、煎培根和烤面包都要花很长时间，其实完全可以在做煎蛋和培根的同时，让面包自己在面包机里烤。不然还没等面包烤完，别的东西早凉透了，吃了可能还会引起肠胃不适。煎蛋和煎培根甚至也没必要一前一后——谁家还没有两个锅呢？或者找个大点的锅来一起煎也行啊。</p>
 <h2 id="异步做早餐"><a href="#异步做早餐" class="headerlink" title="异步做早餐"></a>异步做早餐</h2><p>来看看一个近乎完美的“做早餐解决方案”是怎样的。下面是C#文档里的示范异步代码，我擅自添加了些方便理解的沙雕注释：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">async</span> Task <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Coffee cup = PourCoffee();          <span class="comment">//倒杯咖啡</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;coffee is ready&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> eggsTask = FryEggsAsync(<span class="number">2</span>);     <span class="comment">//得煎俩鸡蛋，开整！</span></span><br><span class="line">    <span class="keyword">var</span> baconTask = FryBaconAsync(<span class="number">3</span>);   <span class="comment">//得煎仨培根，开整！</span></span><br><span class="line">    <span class="keyword">var</span> toastTask = MakeToastWithButterAndJamAsync(<span class="number">2</span>);  <span class="comment">//得搞两片涂黄油和果酱的面包，开整！</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> allTasks = <span class="keyword">new</span> List&lt;Task&gt;&#123;eggsTask, baconTask, toastTask&#125;;  <span class="comment">//列个任务清单吧</span></span><br><span class="line">    <span class="keyword">while</span> (allTasks.Any())  <span class="comment">//看来清单里还有任务没搞完</span></span><br><span class="line">    &#123;</span><br><span class="line">        Task finished = <span class="keyword">await</span> Task.WhenAny(allTasks);   <span class="comment">//下一个完成的任务是啥？</span></span><br><span class="line">        <span class="keyword">if</span> (finished == eggsTask)   <span class="comment">//噢，是鸡蛋煎好了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;eggs are ready&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (finished == baconTask)     <span class="comment">//噢，是培根煎好了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;bacon is ready&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (finished == toastTask)     <span class="comment">//噢，是面包做完了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;toast is ready&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        allTasks.Remove(finished);      <span class="comment">//行，把完成的任务从清单里划了</span></span><br><span class="line">    &#125;</span><br><span class="line">    Juice oj = PourOJ();    <span class="comment">//最后再来杯橙汁，完事</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;oj is ready&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Breakfast is ready!&quot;</span>);   <span class="comment">//爽到</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">async</span> Task&lt;Toast&gt; <span class="title">MakeToastWithButterAndJamAsync</span>(<span class="params"><span class="keyword">int</span> number</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> toast = <span class="keyword">await</span> ToastBreadAsync(number);      <span class="comment">//要处理面包得先等面包烤好</span></span><br><span class="line">        ApplyButter(toast);     <span class="comment">//涂点黄油</span></span><br><span class="line">        ApplyJam(toast);        <span class="comment">//涂点果酱</span></span><br><span class="line">        <span class="keyword">return</span> toast;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">async</span> Task <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Coffee cup = PourCoffee();          <span class="comment">//倒杯咖啡</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;coffee is ready&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> eggsTask = FryEggsAsync(<span class="number">2</span>);     <span class="comment">//得煎俩鸡蛋，开整！</span></span><br><span class="line">    <span class="keyword">var</span> baconTask = FryBaconAsync(<span class="number">3</span>);   <span class="comment">//得煎仨培根，开整！</span></span><br><span class="line">    <span class="keyword">var</span> toastTask = MakeToastWithButterAndJamAsync(<span class="number">2</span>);  <span class="comment">//得搞两片涂黄油和果酱的面包，开整！</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> allTasks = <span class="keyword">new</span> List&lt;Task&gt;&#123;eggsTask, baconTask, toastTask&#125;;  <span class="comment">//列个任务清单吧</span></span><br><span class="line">    <span class="keyword">while</span> (allTasks.Any())  <span class="comment">//看来清单里还有任务没搞完</span></span><br><span class="line">    &#123;</span><br><span class="line">        Task finished = <span class="keyword">await</span> Task.WhenAny(allTasks);   <span class="comment">//下一个完成的任务是啥？</span></span><br><span class="line">        <span class="keyword">if</span> (finished == eggsTask)   <span class="comment">//噢，是鸡蛋煎好了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;eggs are ready&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (finished == baconTask)     <span class="comment">//噢，是培根煎好了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;bacon is ready&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (finished == toastTask)     <span class="comment">//噢，是面包做完了！</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;toast is ready&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        allTasks.Remove(finished);      <span class="comment">//行，把完成的任务从清单里划了</span></span><br><span class="line">    &#125;</span><br><span class="line">    Juice oj = PourOJ();    <span class="comment">//最后再来杯橙汁，完事</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;oj is ready&quot;</span>);</span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Breakfast is ready!&quot;</span>);   <span class="comment">//爽到</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">async</span> Task&lt;Toast&gt; <span class="title">MakeToastWithButterAndJamAsync</span>(<span class="params"><span class="built_in">int</span> number</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> toast = <span class="keyword">await</span> ToastBreadAsync(number);      <span class="comment">//要处理面包得先等面包烤好</span></span><br><span class="line">        ApplyButter(toast);     <span class="comment">//涂点黄油</span></span><br><span class="line">        ApplyJam(toast);        <span class="comment">//涂点果酱</span></span><br><span class="line">        <span class="keyword">return</span> toast;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>粗略一看，握草，感觉魔改成异步之后复杂了好多。其实不然，我慢慢来分析。</p>
 <h3 id="定义异步方法"><a href="#定义异步方法" class="headerlink" title="定义异步方法"></a>定义异步方法</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> eggsTask = FryEggsAsync(<span class="number">2</span>);     <span class="comment">//得煎俩鸡蛋，开整！</span></span><br><span class="line"><span class="keyword">var</span> baconTask = FryBaconAsync(<span class="number">3</span>);   <span class="comment">//得煎仨培根，开整！</span></span><br><span class="line"><span class="keyword">var</span> toastTask = MakeToastWithButterAndJamAsync(<span class="number">2</span>);  <span class="comment">//得搞两片涂黄油和果酱的面包，开整！</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> allTasks = <span class="keyword">new</span> List&lt;Task&gt;&#123;eggsTask, baconTask, toastTask&#125;;  <span class="comment">//列个任务清单吧</span></span><br></pre></td></tr></table></figure>
 
 <p>可以注意到，这一段使用的几个方法，其名称都在后面加了个“Async”，这是异步方法的命名规范。调用三个异步方法，就是设置了三个任务（Task）。那谁谁，照这个任务去执行吧！我要接着跑后面的代码了。</p>
 <p>那么，怎么定义一个异步方法呢？来看上面示例中的这个方法：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">async</span> Task&lt;Toast&gt; <span class="title">MakeToastWithButterAndJamAsync</span>(<span class="params"><span class="keyword">int</span> number</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> toast = <span class="keyword">await</span> ToastBreadAsync(number);      <span class="comment">//要处理面包得先等面包烤好</span></span><br><span class="line">    ApplyButter(toast);     <span class="comment">//涂点黄油</span></span><br><span class="line">    ApplyJam(toast);        <span class="comment">//涂点果酱</span></span><br><span class="line">    <span class="keyword">return</span> toast;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">async</span> Task&lt;Toast&gt; <span class="title">MakeToastWithButterAndJamAsync</span>(<span class="params"><span class="built_in">int</span> number</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> toast = <span class="keyword">await</span> ToastBreadAsync(number);      <span class="comment">//要处理面包得先等面包烤好</span></span><br><span class="line">    ApplyButter(toast);     <span class="comment">//涂点黄油</span></span><br><span class="line">    ApplyJam(toast);        <span class="comment">//涂点果酱</span></span><br><span class="line">    <span class="keyword">return</span> toast;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>首先，方法定义的前面有<code>async</code>修饰符，这直接说明了此方法是异步（<strong>async</strong>hronous）的。</p>
 <p>异步方法返回的是<code>Task&lt;TResult&gt;</code>类型，代表着这个任务（Task）的结果是<code>TResult</code>所代表的类型。比如一个返回类型为<code>Toast</code>的同步方法，其异步版本的返回类型就应该是<code>Task&lt;Toast&gt;</code>，代表着一个“烤面包（Toast）”的任务（Task）。</p>
 <p><strong><code>async</code>异步方法的存在，要依靠包含<code>await</code>运算符的表达式或语句。反过来说，异步方法里必须得有<code>await</code>的存在。</strong> 上面的代码里，<code>Main</code>方法本身也是被<code>async</code>修饰的，就是因为Main方法里也用到了<code>await</code>语句。</p>
 <h3 id="设置前置条件"><a href="#设置前置条件" class="headerlink" title="设置前置条件"></a>设置前置条件</h3><p><code>async</code>是用来定义异步方法的，那<code>await</code>是干什么的呢？按照字面意思来理解就好，“等待”。异步方法运行到这里就开始等待，直到<code>await</code>的操作数所表示的异步操作（一个<code>Task&lt;TResult&gt;</code>）执行完毕。<strong>一旦异步操作完成，<code>await</code>运算符就从<code>Task&lt;TResult&gt;</code>的任务里，获取任务的最终结果，以<code>TResult</code>类型返回，然后再继续运行后续代码。</strong> 这说明<code>await</code>所等待的任务的结果是后续操作的前置条件。上面这个异步方法第一句就在<code>await</code>，这是因为后面抹黄油和果酱的流程都必须建立在“烤完面包”的前置条件上。</p>
 <p>然而，我们希望优化的耗时操作往往本身不是异步的。<code>await</code>只能接异步操作，怎么和非异步的耗时操作结合呢？比如说有这样一个“根正苗红”的同步函数：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">string</span> <span class="title">Foo</span>(<span class="params"><span class="keyword">int</span> bar</span>)</span>&#123;</span><br><span class="line">    Wtf();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">Foo</span>(<span class="params"><span class="built_in">int</span> bar</span>)</span>&#123;</span><br><span class="line">    Wtf();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>要让它的执行完成作为前置条件，就得把它改造成一个返回<code>Task&lt;string&gt;</code>的函数。但是如果原函数是不允许修改的呢？依然有办法，只要用<code>Task.Run(() =&gt; Foo(bar))</code>来调用就好了。</p>
 <p><code>Task.Run()</code>可以把以下四种委托包装成任务，其中常用的是前两种：</p>
@@ -425,11 +407,11 @@
 <p>每一个进程都可以拥有一个线程池，里面有预先创建好的一大堆空闲线程。当一个任务需要用线程处理的时候，就无需临时单独创建一个线程，可以直接从线程池里找一个空闲的来跑。跑完也不用费劲将线程销毁，它会被线程池回收，等待其它任务来利用。假如要处理的任务太多，导致线程池里所有的线程都在忙碌，线程池可能会创建新线程，也可能让任务等待空闲线程的出现。</p>
 <p>线程池也有缺点。由于池里线程的一切工作都是由CLR托管的（这又是一个天坑），虽然用起来是简单了，但你无法对这些线程进行具体的操作，一旦把任务加进队列里也没法取消（不要停下来啊！）。不过都要用上线程池了，那不是一把梭跑就完事了嘛，谁还希望让任务停下来呢？</p>
 <p>使用线程池的方法是利用<code>QueueUserWorkItem()</code>方法：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ThreadPool.QueueUserWorkItem 方法</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">QueueUserWorkItem</span> (<span class="params">System.Threading.WaitCallback callBack</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">QueueUserWorkItem</span> (<span class="params">System.Threading.WaitCallback callBack, <span class="keyword">object</span> state</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ThreadPool.QueueUserWorkItem 方法</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">bool</span> <span class="title">QueueUserWorkItem</span> (<span class="params">System.Threading.WaitCallback callBack</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">bool</span> <span class="title">QueueUserWorkItem</span> (<span class="params">System.Threading.WaitCallback callBack, <span class="built_in">object</span> state</span>)</span>;</span><br></pre></td></tr></table></figure>
 
 <p>这个方法把一项工作添加到线程池的工作队列中，一旦线程池有空闲线程，就会从队列里取出工作来执行。</p>
 <p>其中，<code>WaitCallback</code>是一个委托，它接收<code>object</code>作为参数，并返回<code>void</code>，类似<code>Action&lt;object&gt;</code>。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">System.Runtime.InteropServices.ComVisible(true)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">void</span> <span class="title">WaitCallback</span>(<span class="params"><span class="keyword">object</span> state</span>)</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">System.Runtime.InteropServices.ComVisible(true)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">WaitCallback</span>(<span class="params"><span class="built_in">object</span> state</span>)</span>;</span><br></pre></td></tr></table></figure>
 
 <p>注意，由于委托参数的<a href="https://hakurei.red/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/">逆变性</a>（我靠，居然在这里用上了前面学的逆变），这里仅能使用<code>object</code>或派生程度更低的类型的参数。由于<code>object</code>已经是最终基类，故只能用它。</p>
 <p>但<code>object</code>可是啥都没有啊？如果要安排一个带有任务信息的委托作为任务，怎么把信息封在里面？</p>
@@ -487,14 +469,14 @@
           </div>
     </footer>
   </article>
-  
-  
-  
+</div>
 
 
 
-      
-    <div class="comments" id="gitalk-container"></div>
+
+
+
+    <div class="comments gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -517,8 +499,7 @@
     });
   }
 </script>
-
-    </div>
+</div>
   </main>
   <!-- APlayer start -->
   <!-- Native Mode
@@ -565,14 +546,11 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      
 
-      
 
 <div class="copyright">
-  
   &copy; 2016 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -603,12 +581,11 @@
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
-  <script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -644,26 +621,7 @@ document.addEventListener('pjax:success', () => {
 
 
   
-  <script data-pjax>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
+<script src="/js/local-search.js"></script>
 
 
 
@@ -675,20 +633,13 @@ document.addEventListener('pjax:success', () => {
 
 
 
-
-
-
-
-
     <div class="pjax">
-  
 
-  
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.1/dist/gitalk.css">
 
 <script>
-NexT.utils.loadComments('#gitalk-container', () => {
+NexT.utils.loadComments('.gitalk-container', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.1/dist/gitalk.min.js', () => {
     var gitalk = new Gitalk({
       clientID    : 'aa2288c6cbb5322cac6b',
@@ -697,10 +648,11 @@ NexT.utils.loadComments('#gitalk-container', () => {
       owner       : 'macyrate',
       admin       : ['macyrate'],
       id          : '47898fd5c81ccbcaf118fd8a4fcfb859',
+      proxy       : 'https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token',
         language: 'zh-CN',
       distractionFreeMode: true
     });
-    gitalk.render('gitalk-container');
+    gitalk.render(document.querySelector('.gitalk-container'));
   }, window.Gitalk);
 });
 </script>

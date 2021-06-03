@@ -155,7 +155,7 @@ public string MyProperty{ get; set; }
 //使set访问器为private
 public string MyProperty{ get; private set; }
 
-//实现readonly
+//只读属性
 public string MyProperty{ get; }
 ```
 
@@ -163,17 +163,19 @@ public string MyProperty{ get; }
 
 被`const`和`readonly`修饰的字段都不能被修改，但它们也有区别。
 
-const常量是在**编译时**被编译器确定，用其值取代了所有使用到它的地方。
+const常量是在**编译时**被编译器确定，用其值取代了所有使用到它的地方，类似于C语言的宏定义。
 
-而readonly的值是在**运行时**被构造函数决定的，它仍然是个变量。
+而readonly的值是在**运行时**被构造函数决定的，它仍然是个变量，只不过它的值只能在构造函数中分配。
+
+# 宏、条件编译
+
+注意，**C#没有宏定义这一机制！**
+
+像`#define ...`这样的预处理器指令，并不是用来进行宏定义的，仅仅用于设置符号常量。
 
 # CLR内存机制
 
 C#实际上并不需要怎么关心内存管理，自动垃圾收集非常强大。但是要细说的话内容太多了，之后单独用一片来讲。
-
-# 垃圾回收
-
-
 
 # 指针和引用的区别
 

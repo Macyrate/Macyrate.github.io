@@ -424,20 +424,6 @@
   </url>
   
   <url>
-    <loc>https://hakurei.red/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2021-08-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hakurei.red/tags/%E5%9B%BE%E5%83%8F/</loc>
-    <lastmod>2021-08-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hakurei.red/tags/Hexo/</loc>
     <lastmod>2021-08-23</lastmod>
     <changefreq>daily</changefreq>
@@ -452,6 +438,27 @@
   </url>
   
   <url>
+    <loc>https://hakurei.red/tags/%E4%BB%BB%E5%A4%A9%E5%A0%82/</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hakurei.red/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hakurei.red/tags/%E5%9B%BE%E5%83%8F/</loc>
+    <lastmod>2021-08-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hakurei.red/tags/%E6%B8%B8%E6%88%8F%E5%AD%A6/</loc>
     <lastmod>2021-08-23</lastmod>
     <changefreq>daily</changefreq>
@@ -460,13 +467,6 @@
   
   <url>
     <loc>https://hakurei.red/tags/%E4%B8%9C%E6%96%B9Project/</loc>
-    <lastmod>2021-08-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hakurei.red/tags/%E4%BB%BB%E5%A4%A9%E5%A0%82/</loc>
     <lastmod>2021-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -494,14 +494,14 @@
   </url>
   
   <url>
-    <loc>https://hakurei.red/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://hakurei.red/tags/%E6%8A%98%E8%85%BE/</loc>
     <lastmod>2021-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://hakurei.red/tags/%E6%8A%98%E8%85%BE/</loc>
+    <loc>https://hakurei.red/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2021-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

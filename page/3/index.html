@@ -159,7 +159,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -244,6 +244,86 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">C#杂记之伍：数组与集合</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-15 00:08:01" itemprop="dateCreated datePublished" datetime="2020-04-15T00:08:01+08:00">2020-04-15</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>数组可以说是在任何语言中都非常基本的数据结构了。这篇笔记以C#中的数组为引，再延伸到C#的几种集合类(Collections)以及一些相关的基本概念。</p>
+<h1 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>数组存储相同种类的元素，其大小固定，且是顺序存储的，即在内存中占据一段连续的地址。</p>
+<p>数组作为一种引用类型(其基类是System.Array)，需要用<code>new</code>来创建实例。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化时指定大小</span></span><br><span class="line"><span class="built_in">double</span>[] balance = <span class="keyword">new</span> <span class="built_in">double</span>[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以直接赋值来初始化</span></span><br><span class="line"><span class="built_in">int</span>[] marks = &#123;<span class="number">99</span>, <span class="number">98</span>, <span class="number">92</span>, <span class="number">97</span>, <span class="number">95</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>初始化而尚未赋值的数组，编译器会根据其类型隐式地将所有元素设置为默认值。</p>
+<p>数组最大的特点还是能够用下标索引来随机访问其中的元素：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">double</span> salary = balance[<span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下是C# 8.0引入的好东西！</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//末尾运算符 ^ </span></span><br><span class="line"><span class="comment">//[^n]表示[length-n]，类似Python用负数索引[-n]表示[length-n]</span></span><br><span class="line"><span class="built_in">double</span> salary = balance[^<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//范围运算符 ..</span></span><br><span class="line"><span class="comment">//[a..b]表示从[a]到[b]的范围(但不包含[b]！)，类似Python的切片[a:b]</span></span><br><span class="line"><span class="comment">//省略a代表0，省略b代表^0</span></span><br><span class="line"><span class="built_in">double</span>[] salaries1 = balance[..^<span class="number">3</span>];</span><br><span class="line"><span class="comment">//如果a比b还大，会抛出异常(Python中则是返回空列表)</span></span><br><span class="line"><span class="built_in">double</span>[] salaries2 = balance[<span class="number">3.</span><span class="number">.2</span>];     <span class="comment">//ArgumentOutOfRangeException</span></span><br><span class="line"><span class="comment">//a和b一样大时，返回长度为0的集合</span></span><br><span class="line"><span class="built_in">double</span>[] salaries3 = balance[<span class="number">3.</span><span class="number">.3</span>];</span><br><span class="line">Console.WriteLine(salaries3.Length);   <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+
+<p>由于实现了<code>IEnumerable</code>接口，数组可以使用<code>foreach...in...</code>的方式进行迭代访问，还可以使用LINQ，这样就无需获取数组长度再用for循环迭代了。关于这个接口及其相关的内容，我在本文稍后的部分记述。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -452,85 +532,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/03/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%8F%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/03/16/%E8%AF%95%E5%88%86%E6%9E%90%E8%8B%87%E5%90%8D%E5%BC%A6%E4%B8%80%E9%83%8E%E7%9A%84BOSS%E8%AE%BE%E8%AE%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/16/%E8%AF%95%E5%88%86%E6%9E%90%E8%8B%87%E5%90%8D%E5%BC%A6%E4%B8%80%E9%83%8E%E7%9A%84BOSS%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">试分析苇名弦一郎的BOSS设计</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-16 21:07:32" itemprop="dateCreated datePublished" datetime="2020-03-16T21:07:32+08:00">2020-03-16</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>对BOSS战的分析，可以从战斗机制的设计和对玩家能力的考验两个方向进行。</p>
-<h1 id="战斗机制"><a href="#战斗机制" class="headerlink" title="战斗机制"></a>战斗机制</h1><p>何谓战斗机制？</p>
-<p>“机制”这个词实在太宽泛。几个月前我曾在<a href="https://hakurei.red/2019/11/20/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">这篇笔记</a>里总结过一次。</p>
-<p>根据MDA框架，机制是“数据层面上的组件与算法”；形式、戏剧和动态元素框架中，“机制”基本等同于“形式”元素，即交互模式、目标、规则、过程、资源、边界、结局等等。四元法有一元是机制，指的是“玩家与游戏互动的规则”，也是游戏与其他非互动性媒体的区别所在。</p>
-<p>不过，我们仍然可以把“机制”换个词，用“规则”来代替。更进一步的，战斗机制即是指，在战斗时，玩家能做什么？</p>
-<p>那么《只狼》的战斗中，玩家能做什么？</p>
-<p>最大的特色就是“打铁”，即弹反与架势槽。这个机制把传统动作游戏里高难度、高回报、低频率的“弹反”完全逆转成为难度相对偏低、回报不算明显，但使用频率极高的一种主要操作。《只狼》的战斗目标不再是单纯的削血，而主要是以进攻和弹反使敌人的架势槽涨满，此时即可一击必杀（忍杀）。同时架势槽的自然回落速度随剩余血量的减少而变慢，架势槽和血槽成为了相辅相成的两个机制。</p>
-<p>第二点是处理敌人的“危”攻击。敌人偶尔发动无法格挡的技能，玩家头顶会浮现出红色的“危”字，这时就需要玩家根据敌人的起手动作，紧急判断下一步的应对措施。所谓的“危”其实也蕴含着“机”，如果处理得当，可以对敌方架势槽造成较大的上升。</p>
-<p>主要的“危”攻击有两种类别，一是突刺，无法格挡，可以精准弹反，但正确的处理是在突刺的瞬间向敌人脸上垫步发动“识破”，造成较大的架势条上涨；二是横扫，最佳的处理方法是跳到敌人头上踩踏，亦可以造成较大的架势条上涨。一些BOSS战中能用“雷电奉还”反弹雷电攻击，而少数敌人能使出的擒抱攻击只能靠闪避处理。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/16/%E8%AF%95%E5%88%86%E6%9E%90%E8%8B%87%E5%90%8D%E5%BC%A6%E4%B8%80%E9%83%8E%E7%9A%84BOSS%E8%AE%BE%E8%AE%A1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

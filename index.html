@@ -159,7 +159,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -244,6 +244,125 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2021/08/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="post-title-link" itemprop="url">Linux 常用命令行</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-24 00:50:46" itemprop="dateCreated datePublished" datetime="2021-08-24T00:50:46+08:00">2021-08-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>以下所介绍的部分命令，在设备上是由适合嵌入式 Linux 的工具集 BusyBox 提供，行为和 Linux 桌面发行版上不完全一致，这里均采用 BusyBox 所提供的指令用法。</p>
+<h1 id="ifconfig：查看接口状态"><a href="#ifconfig：查看接口状态" class="headerlink" title="ifconfig：查看接口状态"></a>ifconfig：查看接口状态</h1><p><code>ifconfig</code> 可设置网卡接口的状态，或是显示目前的设置。以下是一些主要的设置参数。</p>
+<p>语法格式：<code>ifconfig &lt; -a &gt; [网卡名称] &lt;参数&gt;</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">add &lt;地址&gt;</td>
+<td align="left">设置网卡的IPv6地址。</td>
+</tr>
+<tr>
+<td align="left">del &lt;地址&gt;</td>
+<td align="left">删除网卡的IPv6地址。</td>
+</tr>
+<tr>
+<td align="left">up</td>
+<td align="left">启动指定的网卡。</td>
+</tr>
+<tr>
+<td align="left">down</td>
+<td align="left">关闭指定的网卡。</td>
+</tr>
+<tr>
+<td align="left">metric &lt;数目&gt;</td>
+<td align="left">指定在计算数据包的转送次数时，所要加上的数目。</td>
+</tr>
+<tr>
+<td align="left">mtu &lt;字节&gt;</td>
+<td align="left">设置网卡的MTU（最大数据包大小）。</td>
+</tr>
+<tr>
+<td align="left">netmask &lt;子网掩码&gt;</td>
+<td align="left">设置网卡的子网掩码。</td>
+</tr>
+<tr>
+<td align="left">-broadcast &lt;地址&gt;</td>
+<td align="left">将要送往指定地址的数据包当成广播数据包来处理。</td>
+</tr>
+<tr>
+<td align="left">[IP地址]</td>
+<td align="left">指定网卡的IP地址。</td>
+</tr>
+</tbody></table>
+<p>直接输入 <code>ifconfig</code> 就会列出目前已激活的网卡，不论这个卡是否有给予 IP ，都会被显示出来。带接口的 <code>ifconfig eth0</code> 则仅会表示接口 eth0 的相关数据，无论其是否启动。使用 <code>-a</code> 选项，则会展示所有网卡的属性。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ifconfig ra8</span></span><br><span class="line">ra8       Link encap:Ethernet  HWaddr 02:A1:BB:01:23:48  </span><br><span class="line">          inet6 addr: fe80::a1:bbff:fe01:2348/64 Scope:Link</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:130 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:61 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000 </span><br><span class="line">          RX bytes:13971 (13.6 KiB)  TX bytes:7767 (7.5 KiB)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -467,86 +586,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/01/VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽流芳分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/" class="post-title-link" itemprop="url">能不能好好上网-壹：搭建IPv6私有云盘</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-08-09 02:54:46" itemprop="dateCreated datePublished" datetime="2020-08-09T02:54:46+08:00">2020-08-09</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>能不能好好上网？</strong></p>
-<p>在中国，很难。</p>
-<h1 id="故事背景"><a href="#故事背景" class="headerlink" title="故事背景"></a>故事背景</h1><p>我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。</p>
-<p><img src="https://i.loli.net/2020/08/05/FcrqSmxuBWz9e8a.png" alt="远程桌面连接"></p>
-<p>到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？</p>
-<p>以此为契机，我了解到了局域网，IP和3389端口的概念——巧合的是，我目前的手机尾号就是<code>3389</code>，而前半部分则恰好可以写作一个IPv4地址。那时，中国的网络用户数量远不如今天，大部分设备都有公网IP。可能也正因如此，诸如CS1.6，War3和东方非想天则一类基于IP联机的游戏能够风靡一时。</p>
-<p>时代变了。匮乏的IPv4地址资源遇上万物互联的爆发式增长势头，NAT一层套一层，再也没法畅快地IP直连，人们在网络里也像居住于水泥丛林间的鸽子笼，失却了那种田间地头吆喝一嗓子的快意。</p>
-<p>在演变到今天状况的前两年，大家还有动态的公网IPv4地址，而不是被圈养在运营商的“大内网”里，那段时间我还能进行一些“叠床架屋”的操作来胡作非为。</p>
-<p>我在树莓派上弄了一个简单的Python脚本，每隔一小时检查路由器的公网IP，如果发生了变动就用邮件形式发出通知。再配合路由器上配置的IP-MAC绑定和端口转发，我就能在外访问到局域网里某台设备的具体端口。虽然后来改用了更方便的TeamViewer，但很长一段时间里，我就是这样在实验课机房里连接寝室中的台式机来写代码的。如今看来，我这操作基本就是实现了一个“低配版”的DDNS服务。</p>
-<p>那么，说回现在。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

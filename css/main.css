@@ -229,7 +229,7 @@ h6 {
   font-family: source-han-serif-sc, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
-  margin: 20px 0 15px;
+  margin: 30px 0 15px;
 }
 h1 {
   font-size: 1.75em;
@@ -982,12 +982,16 @@ pre code {
 }
 .post-body .tabs ul.nav-tabs,
 .tabs-comment ul.nav-tabs {
+  background: var(--content-bg-color);
   display: flex;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0;
   padding: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 @media (max-width: 413px) {
   .post-body .tabs ul.nav-tabs,
@@ -1458,8 +1462,12 @@ pre code {
 }
 .sidebar-inner {
   color: #999;
+  max-height: calc(100vh - 24px);
   padding: 18px 10px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .site-overview-item:not(:first-child) {
   margin-top: 10px;
@@ -1506,29 +1514,24 @@ pre code {
 .sidebar .sidebar-button:not(:first-child) {
   margin-top: 15px;
 }
-.sidebar .sidebar-button a {
+.sidebar .sidebar-button button {
+  background: transparent;
+  color: #fc6423;
+  cursor: pointer;
+  line-height: 2;
+  padding: 0 15px;
   border: 1px solid #fc6423;
   border-radius: 4px;
-  color: #fc6423;
-  display: inline-block;
-  padding: 0 15px;
 }
-.sidebar .sidebar-button a .fa,
-.sidebar .sidebar-button a .fab,
-.sidebar .sidebar-button a .far,
-.sidebar .sidebar-button a .fas {
-  margin-right: 5px;
-}
-.sidebar .sidebar-button a:hover {
+.sidebar .sidebar-button button:hover {
   background: #fc6423;
-  border: 1px solid #fc6423;
   color: #fff;
 }
-.sidebar .sidebar-button a:hover .fa,
-.sidebar .sidebar-button a:hover .fab,
-.sidebar .sidebar-button a:hover .far,
-.sidebar .sidebar-button a:hover .fas {
-  color: #fff;
+.sidebar .sidebar-button button .fa,
+.sidebar .sidebar-button button .fab,
+.sidebar .sidebar-button button .far,
+.sidebar .sidebar-button button .fas {
+  margin-right: 5px;
 }
 .links-of-blogroll {
   font-size: 0.8125em;
@@ -1597,7 +1600,7 @@ pre code {
   color: #fc6423;
 }
 .sidebar-panel-container {
-  max-height: var(--sidebar-wrapper-height);
+  flex: 1;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -2065,14 +2068,6 @@ pre code {
     text-align: justify;
   }
 }
-.post-body h1,
-.post-body h2,
-.post-body h3,
-.post-body h4,
-.post-body h5,
-.post-body h6 {
-  padding-top: 10px;
-}
 .post-body h1 .header-anchor,
 .post-body h2 .header-anchor,
 .post-body h3 .header-anchor,
@@ -2141,7 +2136,8 @@ pre code {
   margin-left: 4px;
 }
 .post-body .image-caption,
-.post-body .figure .caption {
+.post-body img + figcaption,
+.post-body .fancybox + figcaption {
   color: #999;
   font-size: 0.875em;
   font-weight: bold;
@@ -2259,7 +2255,7 @@ pre code {
   flex-wrap: wrap;
   justify-content: center;
 }
-.post-meta-item:not(:first-child)::before {
+:not(.post-meta-break) + .post-meta-item::before {
   content: '|';
   margin: 0 0.5em;
 }
@@ -2270,6 +2266,10 @@ pre code {
   .post-meta-item-text {
     display: none;
   }
+}
+.post-meta-break {
+  flex-basis: 100%;
+  height: 0;
 }
 #busuanzi_container_page_pv {
   display: none;
@@ -2320,6 +2320,13 @@ pre code {
 .post-block:last-of-type .post-eof {
   display: none;
 }
+.post-copyright ul {
+  list-style: none;
+  padding: 0.5em 1em;
+  background: var(--card-bg-color);
+  border-left: 3px solid #ff2a2a;
+  margin: 1em 0 0;
+}
 .post-tags {
   margin-top: 40px;
   text-align: center;
@@ -2356,19 +2363,18 @@ pre code {
 }
 .reward-container button {
   background: transparent;
-  border: 2px solid #fc6423;
-  border-radius: 2px;
   color: #fc6423;
   cursor: pointer;
   line-height: 2;
-  outline: 0;
   padding: 0 15px;
+  border: 2px solid #fc6423;
+  border-radius: 2px;
+  outline: 0;
   transition: all 0.2s ease-in-out;
   vertical-align: text-top;
 }
 .reward-container button:hover {
   background: #fc6423;
-  border: 2px solid transparent;
   color: #fff;
 }
 .post-reward {
@@ -2999,20 +3005,15 @@ mark.search-keyword {
   border-bottom: 1px dotted #ccc;
   border-top: 1px dotted #ccc;
 }
-.sidebar .sidebar-button a {
+.sidebar .sidebar-button button {
   border: 0;
   color: #fc6423;
   display: block;
+  width: 100%;
 }
-.sidebar .sidebar-button a:hover {
+.sidebar .sidebar-button button:hover {
   background: none;
   border: 0;
-  color: #e34603;
-}
-.sidebar .sidebar-button a:hover .fa,
-.sidebar .sidebar-button a:hover .fab,
-.sidebar .sidebar-button a:hover .far,
-.sidebar .sidebar-button a:hover .fas {
   color: #e34603;
 }
 .links-of-author {

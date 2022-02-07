@@ -13,5 +13,101 @@ tags:
 
 # 特性 Attribute
 
-## 预定义特性
+特性是一种标签，可以用方括号贴在各种元素[^2]之前，给这些元素添加**元数据**。元数据包括编译器指令、注释、描述、方法、类等信息。
 
+[^2]: 能够使用attribute的元素包括程序集（即.exe或者.dll）、类型、方法、属性等。
+
+许多特性都附带一些参数，如在声明`element`的时候，通过带参的attribute附加元数据，按下面的格式使用：
+
+```CSharp
+[SomeAttribute(positional_parameters, name_parameter = value, ...)]
+element
+```
+
+特性实际上是`System.Attribute`的一系列派生类，它们的后缀均为"Attribute"，在打标签的时候这个后缀可以省略掉。
+
+## 预定义的Attribute
+
+微软在.NET库里已经内置了一堆`System.Attribute`的派生类，我们可能只会接触到其中一小部分，这里举几种常用的为例。
+
+### ObsoleteAttribute
+
+`Obsolete`用于指示过时、弃用的元素。这些元素被认为不应该使用，因此在有调用到这种元素的地方，会产生Warning，并且附带参数`message`所包含的提示信息。如果建议使用某种新方案，就可以写在提示信息里。
+
+![对过时元素告警](https://s2.loli.net/2022/02/07/tkSGJRc4mFe1w2y.png)
+
+另外，还有可选的第二个参数`iserror`，如果被设置为`true`，则会产生Error而不是Warning，阻止编译。
+
+### ConditionalAttribute
+
+`Conditional`用于进行条件编译，只有参数中所记录的符号有定义时，才编译相关的代码。
+
+不过，这个attribute只适用于`System.Attribute`的派生类（也就是各种attribute），以及返回类型为`void`的方法。毕竟，比起它们来说，如果不编译其它的类，或者那些提供了返回值的方法，程序更有可能会整个垮掉。
+
+```CSharp
+#undef DEBUG
+//#define TEST_SYMBOL
+
+using System;
+using System.Diagnostics;
+
+public class Myclass
+{
+    //Conditional可以附加多个，满足其中一个条件即可
+    [Conditional("DEBUG"), Conditional("TEST_SYMBOL")]
+    public static void DebugMessage(string msg)
+    {
+        Console.WriteLine($"[DEBUG] {DateTime.Now.ToString()} {msg}");
+    }
+}
+
+class Test
+{
+    public static void Main()
+    {
+        //由于取消了DEBUG的定义，也没有定义TEST_SYMBOL，故什么都不会打印
+        Myclass.DebugMessage("In function Main now.");
+        Console.ReadKey();
+    }
+}
+```
+
+### AttributeUsageAttribute
+
+`AttributeUsage`可以放在我们自定义的attribute类前面，用来规定该如何使用这种attribute。
+
+```CSharp
+[AttributeUsage(
+   validon,
+   AllowMultiple=allowmultiple,
+   Inherited=inherited
+)]
+public class MyTestAttribute : Attribute
+{
+    //...
+}
+```
+
+必选参数validon规定该attribute适用于哪些元素。它是枚举器AttributeTargets的值的组合。默认值是AttributeTargets.All。
+
+![各种AttributeTargets](https://s2.loli.net/2022/02/07/rpK4QE1bgGWxzVC.png)
+
+还有两个bool型的可选参数：
+
+`AllowMultiple`: 默认为false，表示这个attribute是否可以像`Conditional`一样，在同一个元素上打多个标签。给元素打标签其实是调用了对应attribute类的构造函数，并将实例加入到目标元素的元数据里去，所以这里就是是否允许多个实例在同一元素的元数据里共存。
+
+`Inherited`: 默认为true这个attribute是否可以被继承。
+
+
+## 自定义的Attribute
+
+既然attribute是一系列继承自`System.Attribute`的类，我们也可以写一个它的派生类，实现自己的attribute。
+
+如何正确地设计一个attribute？
+
+1. 应用[AttributeUsage](#attributeusageattribute)
+2. 声明`System.Attribute`的派生类，并且名称以"Attribute"结尾
+3. 声明构造函数
+4. 声明属性
+
+# 反射 Reflection

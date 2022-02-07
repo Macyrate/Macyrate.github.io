@@ -21,32 +21,25 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","version":"8.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="随笔的部分2014年，Google Cardboard着实火了一把，我也借此从红米1s的那块720P屏幕里看到了未来“元宇宙”的一角。之后数年，Magic Leap、Microsoft HoloLens、Google DayDream等等产品的消息在cnBeta上层出不穷，16年还到广埠屯去体验了一把HTC Vive。但彼时VR设备高昂的价格、对高性能显卡的依赖、对现实空间的需求，都不是一个在校大">
-<meta property="og:type" content="article">
-<meta property="og:title" content="metaGBA开发手记之壹：Unity VR入门">
-<meta property="og:url" content="https://hakurei.red/2022/01/29/Unity-VR%E5%85%A5%E9%97%A8/index.html">
+<meta name="description" content="&amp;nbsp;&amp;nbsp;氣霽風梳新柳髮，&amp;nbsp;&amp;nbsp;冰消浪洗舊苔須。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="博丽寿昌分社 | Macyrate">
+<meta property="og:url" content="https://hakurei.red/archives/2022/02/index.html">
 <meta property="og:site_name" content="博丽寿昌分社 | Macyrate">
-<meta property="og:description" content="随笔的部分2014年，Google Cardboard着实火了一把，我也借此从红米1s的那块720P屏幕里看到了未来“元宇宙”的一角。之后数年，Magic Leap、Microsoft HoloLens、Google DayDream等等产品的消息在cnBeta上层出不穷，16年还到广埠屯去体验了一把HTC Vive。但彼时VR设备高昂的价格、对高性能显卡的依赖、对现实空间的需求，都不是一个在校大">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;氣霽風梳新柳髮，&amp;nbsp;&amp;nbsp;冰消浪洗舊苔須。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-01-29T11:52:26.000Z">
-<meta property="article:modified_time" content="2022-01-29T11:52:26.000Z">
 <meta property="article:author" content="Macyrate">
-<meta property="article:tag" content="游戏">
-<meta property="article:tag" content="笔记">
-<meta property="article:tag" content="Unity">
-<meta property="article:tag" content="C Sharp">
-<meta property="article:tag" content="XR">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://hakurei.red/2022/01/29/Unity-VR%E5%85%A5%E9%97%A8/">
+<link rel="canonical" href="https://hakurei.red/archives/2022/02/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hakurei.red/2022/01/29/Unity-VR%E5%85%A5%E9%97%A8/","path":"2022/01/29/Unity-VR入门/","title":"metaGBA开发手记之壹：Unity VR入门"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2022/02/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>metaGBA开发手记之壹：Unity VR入门 | 博丽寿昌分社 | Macyrate</title>
+<title>归档 | 博丽寿昌分社 | Macyrate</title>
   
 
 
@@ -138,7 +131,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -151,7 +144,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%8F%E7%AC%94%E7%9A%84%E9%83%A8%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">随笔的部分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text"></span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -249,135 +241,51 @@
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner archive posts-collapse">
 
 
   
-
-
-<div class="post-block">
   
   
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2022/01/29/Unity-VR%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽寿昌分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          metaGBA开发手记之壹：Unity VR入门
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-01-29 19:52:26" itemprop="dateCreated datePublished" datetime="2022-01-29T19:52:26+08:00">2022-01-29</time>
-    </span>
-
-  
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span id="busuanzi_value_page_pv"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="随笔的部分"><a href="#随笔的部分" class="headerlink" title="随笔的部分"></a>随笔的部分</h1><p>2014年，Google Cardboard着实火了一把，我也借此从红米1s的那块720P屏幕里看到了未来“元宇宙”的一角。之后数年，Magic Leap、Microsoft HoloLens、Google DayDream等等产品的消息在cnBeta上层出不穷，16年还到广埠屯去体验了一把HTC Vive。但彼时VR设备高昂的价格、对高性能显卡的依赖、对现实空间的需求，都不是一个在校大学生所能承受的。</p>
-<p>也许是拜所谓的“元宇宙”热潮所赐，曾经高不可攀的VR头显现在“飞入寻常百姓家”，有了性价比超高的产品：Meta Oculus Quest 2。在B站给我推送到Quest 2评测视频的第二天，我就兴冲冲地以1700元的价格入手。玩了一段时间Blade and Sorcery和VR女友之后，我觉得自己也可以试着用Unity做点东西，顺便复习下相关知识，为跳槽进行准备。</p>
-<p>可以做点什么呢？当时，因为在3DS上用mGBA模拟器玩GBA游戏无法达到全屏点对点的效果，我干脆组了一部高亮GBA。这下，我已经收集了Switch、3DS、NDS、GBA、Game &amp; Watch这五个世代的任天堂掌机，择日再弄上一部GBC就可称得上完满了。</p>
-<p>那么，就试着将mGBA模拟器移植到VR上吧——<a target="_blank" rel="noopener" href="https://github.com/Macyrate/metagba">metaGBA</a>，这就是我准备实现的小东西。当然，里面现在一行代码都没有。</p>
-<p>GBA的按键并不多，Quest 2那简单的手柄也可以完全覆盖到。用分辨率一般的VR头显看GBA的大像素屏幕也许会是一种折磨，但在VR世界中我可以让GBA“连接电视”，将画面转播到大屏，这是现实世界里很难做到的。</p>
-<p>第一步就是学习用Unity开发VR应用的基础操作。</p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="reward-container">
-  <div>A1高闪来一个好吗</div>
-  <button>
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="https://i.loli.net/2020/04/15/glvwN8eEY3MHiTS.png" alt="Macyrate 微信">
-        <span>微信</span>
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        
+        <span class="collection-header">还行! 目前共计 49 篇日志。 继续努力。</span>
       </div>
 
-  </div>
-</div>
+      
+    <div class="collection-year">
+      <span class="collection-header">2022</span>
+    </div>
 
-          
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2022-02-07T09:51:35+08:00"
+              content="2022-02-07">
+          02-07
+        </time>
+      </div>
 
-<div class="post-copyright">
-<ul>
-  <li class="post-copyright-author">
-      <strong>本文作者： </strong>Macyrate
-  </li>
-  <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://hakurei.red/2022/01/29/Unity-VR%E5%85%A5%E9%97%A8/" title="metaGBA开发手记之壹：Unity VR入门">https://hakurei.red/2022/01/29/Unity-VR入门/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
+      <div class="post-title">
+          <a class="post-title-link" href="/2022/02/07/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/" itemprop="url">
+            <span itemprop="name">C#杂记之陆：真·杂记</span>
+          </a>
+      </div>
 
-          <div class="post-tags">
-              <a href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag"># 游戏</a>
-              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
-              <a href="/tags/Unity/" rel="tag"># Unity</a>
-              <a href="/tags/C-Sharp/" rel="tag"># C Sharp</a>
-              <a href="/tags/XR/" rel="tag"># XR</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2021/08/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C/" rel="prev" title="Linux 常用命令行">
-                  <i class="fa fa-chevron-left"></i> Linux 常用命令行
-                </a>
-            </div>
-            <div class="post-nav-item">
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
 
+    </div>
+  </div>
+  
+  
+  
 
-
-
-
-    <div class="comments gitalk-container"></div>
 </div>
   </main>
   <!-- APlayer start -->
@@ -481,7 +389,7 @@
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.2/dist/gitalk.css">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.2/dist/gitalk.min.js"},"path_md5":"c54f5189a7f9fee5dcc8415b92ee5a07"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.2/dist/gitalk.min.js"},"path_md5":"ef4e9feeac8fdbc1044ac7236cc4e002"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>

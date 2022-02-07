@@ -362,16 +362,18 @@
 
 <p>这类似于C语言的指针常量：指针本身，即 <strong>“指针指向的是什么地址”</strong> 不能修改，但 <strong>“指向的地址上写了什么东西”</strong> 是可以修改的。</p>
 <h1 id="宏、条件编译"><a href="#宏、条件编译" class="headerlink" title="宏、条件编译"></a>宏、条件编译</h1><p>注意，<strong>C#没有宏定义这一机制！</strong></p>
-<p>确切地说，C#的预处理器不会像C语言一样，将源代码的内容根据宏定义进行替换。像<code>#define ...</code>这样的预处理器指令，并不是用来进行宏定义的，仅仅用于设置符号常量。</p>
-<p>符号常量的使用场景是条件编译。配合另外几条预处理器指令，可以选择一定情况下编译哪些代码：</p>
+<p>确切地说，C#的预处理器不会像C语言一样，将源代码的内容根据宏定义进行替换。像<code>#define ...</code>这样的预处理器指令，并不是用来进行宏定义的，它仅仅用于设置条件编译符号。而且，这些符号也不能像在C语言中一样被分配值。</p>
+<p>条件编译符号还可以通过系统环境变量、编译器命令行选项提供。</p>
+<p>条件编译符号的使用场景当然是条件编译。配合另外几条预处理器指令，可以选择一定情况下编译哪些代码：</p>
 <ol>
-<li>#if：打开条件编译，其中仅在定义了指定的符号时才会编译代码。</li>
-<li>#elif：关闭前面的条件编译，并基于是否定义了指定的符号打开一个新的条件编译。</li>
-<li>#else：关闭前面的条件编译，如果没有定义前面指定的符号，打开一个新的条件编译。</li>
-<li>#endif：关闭前面的条件编译。</li>
+<li>#if：开始条件编译代码块，仅在定义了指定的符号时，才会编译其中的代码。</li>
+<li>#elif：结束前面的条件编译代码块，并基于是否定义了指定的符号，开始一个新的条件编译代码块。</li>
+<li>#else：结束前面的条件编译代码块，如果没有定义前面指定的符号，开始一个新的条件编译代码块。</li>
+<li>#endif：结束前面的条件编译代码块。</li>
+<li>#undef：取消符号的定义。</li>
 </ol>
 <p>比如：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// #define DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VC7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> DEBUG</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Debug build&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> VC7</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Visual Studio 7&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意符号的定义和取消要放在文件最前面</span></span><br><span class="line"><span class="comment">// #define DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VC7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> DEBUG</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Debug build&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> VC7</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Visual Studio 7&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;No symbol defined&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出&quot;Visual Studio 7&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>另外，还有通过特性attribute实现条件编译的方法。具体在下一篇的特性部分记录。</p>
 <!-- # CLR内存机制

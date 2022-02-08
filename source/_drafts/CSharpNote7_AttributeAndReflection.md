@@ -101,13 +101,86 @@ public class MyTestAttribute : Attribute
 
 ## 自定义的Attribute
 
-既然attribute是一系列继承自`System.Attribute`的类，我们也可以写一个它的派生类，实现自己的attribute。
+既然attribute是一系列继承自`System.Attribute`的类，我们也可以编写它的派生类，实现自己的attribute。
 
 如何正确地设计一个attribute？
 
-1. 应用[AttributeUsage](#attributeusageattribute)
-2. 声明`System.Attribute`的派生类，并且名称以"Attribute"结尾
+1. 应用[AttributeUsage](#attributeusageattribute)，规定该attribute的用法
+2. 声明`System.Attribute`的派生类，并且名称以"Attribute"结尾（命名规范，非强制）
 3. 声明构造函数
 4. 声明属性
 
+以下是微软文档中给出的自定义attribute示例，其中包含带两个参数的构造函数，三个字段，三个对应的属性：
+
+```CSharp
+[AttributeUsage(AttributeTargets.All)]
+public class DeveloperAttribute : Attribute
+{
+    // Private fields.
+    private string name;
+    private string level;
+    private bool reviewed;
+
+    // This constructor defines two required parameters: name and level.
+    public DeveloperAttribute(string name, string level)
+    {
+        this.name = name;
+        this.level = level;
+        this.reviewed = false;
+    }
+
+    // Define Name property.
+    // This is a read-only attribute.
+    public virtual string Name
+    {
+        get {return name;}
+    }
+
+    // Define Level property.
+    // This is a read-only attribute.
+    public virtual string Level
+    {
+        get {return level;}
+    }
+
+    // Define Reviewed property.
+    // This is a read/write attribute.
+    public virtual bool Reviewed
+    {
+        get {return reviewed;}
+        set {reviewed = value;}
+    }
+}
+```
+
+不难看出，这个attribute用于标记一个元素的作者信息和评审状态。也许你会疑惑，这个attribute的构造函数只有两个关于作者信息的参数，如何指定评审状态Reviewed呢？
+
+其实，被方括号括起来的标签和attribute的构造函数并不完全一样，我们可以将Reviewed作为可选参数传入：
+
+```CSharp
+[Developer("Macyrate", "Senior", Reviewed = true)]
+public static class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("HelloWorld.");
+    }
+}
+```
+
+## 编译器对Attribute的处理
+
+当C#编译器发现有元素应用了一个attribute时，根据其名称是否以"Attribute"结尾，编译器会决定是否把字符串"Attribute"追加到后面，然后在其搜索路径的所有名称空间中搜索符合指定名称的类。
+
+找到对应的类，并确定该类派生自`System.Attribute`后，编译器会根据其`AttributeUsage`，看该attribute的用法是否正确。如果合法，编译器就会开始进一步处理attribute的参数。
+
+编译器会根据传递给attribute的参数，查找对应的构造函数。编译器还会查找attribute类中存在的**public属性/字段**，将它们作为可选参数。如果编译器找到一个这样的构造函数，传入的可选参数也合法，编译器就会把指定的元数据传递给程序集。否则，就生成一个编译错误。
+
+现在，我们知道了如何通过attribute给元素附加元信息。但是仅仅将这些元信息写入是没什么意义的，我们还需要依靠**某种机制**来读出元信息，并且用它们来控制代码逻辑，这样才能实现有意义的功能。
+
+而这种读取元信息的机制，就是**反射**（Reflection）。
+
 # 反射 Reflection
+
+## GetType()
+

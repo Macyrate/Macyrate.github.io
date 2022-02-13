@@ -21,12 +21,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","version":"8.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="配置Gitalk在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？ 当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行hexo g却永远都是： next disqus">
+<meta name="description" content="配置Gitalk 在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？ 当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行hexo g却永远都是： next disqus">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为Hexo配置Gitalk，并更改主题颜色">
 <meta property="og:url" content="https://hakurei.red/2019/10/20/%E4%B8%BAHexo%E9%85%8D%E7%BD%AEGitalk%EF%BC%8C%E5%B9%B6%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/index.html">
 <meta property="og:site_name" content="博丽寿昌分社 | Macyrate">
-<meta property="og:description" content="配置Gitalk在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？ 当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行hexo g却永远都是： next disqus">
+<meta property="og:description" content="配置Gitalk 在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？ 当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行hexo g却永远都是： next disqus">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/01/12/fkE8JSxeo4pjmu7.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/01/12/jPw6frglHAW52ME.jpg">
@@ -160,7 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEGitalk"><span class="nav-number">1.</span> <span class="nav-text">配置Gitalk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9Gitalk%E7%9A%84%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2"><span class="nav-number">2.</span> <span class="nav-text">更改Gitalk的主题颜色</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">配置Gitalk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">更改Gitalk的主题颜色</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -313,9 +313,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="配置Gitalk"><a href="#配置Gitalk" class="headerlink" title="配置Gitalk"></a>配置Gitalk</h1><p>在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？</p>
+        <h1>配置Gitalk</h1>
+<p>在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？</p>
 <p>当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行<code>hexo g</code>却永远都是：</p>
-<pre><code>next disqus TypeError: Cannot read property &#39;replace&#39; of null
+<pre><code>next disqus TypeError: Cannot read property 'replace' of null
 </code></pre>
 <p>在我感到阵阵窒息之后，我看到了这样的issue：</p>
 <p><img src="https://i.loli.net/2020/01/12/fkE8JSxeo4pjmu7.jpg" alt="不支持Disqus.jpg"></p>
@@ -326,7 +327,6 @@
 <p>于是我转而尝试其他的评论系统，好么，国内的一个赛一个麻烦，又是实名认证又是人脸信息的，还是别了。而国外的又时刻有被河蟹的风险。</p>
 <p>终于我看到了Gitalk，它基于GitHub的issue，只要有GitHub账号就可以评论，看来同性交友网站不倒，这玩意就能用下去。</p>
 <span id="more"></span>
-
 <p>配置起来不算太麻烦，在NexT的配置文件里<strong>找到comments块，将gitalk给active上</strong>（这一步很重要），再去下面一点的gitalk块里按照文档一顿填，基本就完事了。</p>
 <p>给出我的配置以供参考：</p>
 <p><img src="https://i.loli.net/2020/01/12/jPw6frglHAW52ME.jpg" alt="gitalk块配置"></p>
@@ -340,14 +340,16 @@
 <p>而这是repo里对应的issue：</p>
 <p><img src="https://i.loli.net/2020/01/12/l7pDt8vaf1gKdmk.jpg" alt="gitalk在issue中"></p>
 <p>注意到红线标出的这一行，Gitalk就是用这两个标签来对应issue和文章的。</p>
-<h1 id="更改Gitalk的主题颜色"><a href="#更改Gitalk的主题颜色" class="headerlink" title="更改Gitalk的主题颜色"></a>更改Gitalk的主题颜色</h1><p>如果你足够细心，也许会注意到官方的gitalk是蓝色的，而我站点中的却是与页头一致的绯色。</p>
+<h1>更改Gitalk的主题颜色</h1>
+<p>如果你足够细心，也许会注意到官方的gitalk是蓝色的，而我站点中的却是与页头一致的绯色。</p>
 <p>这两种颜色差别太大，我想要保持网页配色的一致性，于是免不了多折腾两下。</p>
 <p>要更改颜色，首先就得知道这是什么颜色。</p>
 <p>F12，审查元素，可以看到默认的色号是<code>#6190E8</code>。</p>
-<p><img src="https://i.loli.net/2020/01/12/mjACFTl8et5hfwp.jpg" alt="默认配色"><br>既然如此，我们去Gitalk的repo，找找这个色号出现在哪些地方。</p>
+<p><img src="https://i.loli.net/2020/01/12/mjACFTl8et5hfwp.jpg" alt="默认配色"><br>
+既然如此，我们去Gitalk的repo，找找这个色号出现在哪些地方。</p>
 <p><img src="https://i.loli.net/2020/01/12/EAkaJT7sGz8jcC1.jpg" alt="repo中的位置"></p>
 <p>可以看到，这个色号出现在<code>dist/gitalk.css</code>和<code>src/style/index.styl</code>中。而真正决定Gitalk颜色的，应当是<code>dist</code>（Distribution，分发）中的<code>gitalk.css</code>。</p>
-<p>明白了这一点，我们就可以整活了。首先将这个repo给fork过来，再将<code>dist/gitalk.css</code>中的色号全都改成想要的样子。我使用的绯色<code>#CC543A</code>取自<a target="_blank" rel="noopener" href="http://nipponcolors.com/">NIPPON COLORS - 日本の伝統色</a>。</p>
+<p>明白了这一点，我们就可以整活了。首先将这个repo给fork过来，再将<code>dist/gitalk.css</code>中的色号全都改成想要的样子。我使用的绯色<code>#CC543A</code>取自<a target="_blank" rel="noopener" href="http://nipponcolors.com">NIPPON COLORS - 日本の伝統色</a>。</p>
 <p>康康初音浅葱色？</p>
 <p><img src="https://i.loli.net/2020/01/12/rzUKvqA5SIT7tPG.jpg" alt="浅葱"></p>
 <p>这套色彩也是锤子的坚果手机“文青版”那几个骚气配色名称：远州鼠、落栗、苏芳、石竹、枯草、柳煤竹茶、锖青磁、鸠羽紫的来源。</p>
@@ -357,7 +359,7 @@
 <p><img src="https://i.loli.net/2020/01/12/UiRWDco3Tr6IAls.jpg" alt="gtalk搜索结果"></p>
 <p>显然，第2、4行的<code>gitalk_css_uri</code>和<code>gitalk_js_uri</code>就是关键。它说明gitalk的文件可以从两个地方加载：一个是<code>theme.vendors</code>，也就是主题配置文件<code>_config.yml</code>的<code>vendors</code>块中的记录，一个是<code>jsdelivr</code>这个CDN。</p>
 <p><img src="https://i.loli.net/2020/01/12/FpBQKzJZhqjdtmY.jpg" alt="gitalk vendors"></p>
-<p>以上两张截图里的CDN已经被我改成了我修改后的分支中对应的文件。关于这个CDN地址的格式，可以参看<a target="_blank" rel="noopener" href="https://www.jsdelivr.com/">jsDelivr官网</a>的说明。</p>
+<p>以上两张截图里的CDN已经被我改成了我修改后的分支中对应的文件。关于这个CDN地址的格式，可以参看<a target="_blank" rel="noopener" href="https://www.jsdelivr.com">jsDelivr官网</a>的说明。</p>
 <p>地址修改完成后，<code>hexo g -d</code>走起，你的配色应该已经成了想要的样子，庆贺吧！</p>
 
     </div>

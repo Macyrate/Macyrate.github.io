@@ -21,12 +21,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","version":"8.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="由于安全上的要求，我司的开发环境比较复杂，涉及到Citrix非涉密&#x2F;涉密桌面和远程Linux编译服务器等等，在这样的环境下用VS Code需要经过一系列的折腾，这篇文章简要记录了我最初的配置流程。 安装VS Code首先，在非涉密桌面访问VS Code官网下载最新安装包，然后安装到Q盘中（重要！）。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件就">
+<meta name="description" content="由于安全上的要求，我司的开发环境比较复杂，涉及到Citrix非涉密&#x2F;涉密桌面和远程Linux编译服务器等等，在这样的环境下用VS Code需要经过一系列的折腾，这篇文章简要记录了我最初的配置流程。 安装VS Code 首先，在非涉密桌面访问VS Code官网下载最新安装包，然后安装到Q盘中（重要！）。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VS Code C语言开发环境配置">
 <meta property="og:url" content="https://hakurei.red/2020/09/01/VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="博丽寿昌分社 | Macyrate">
-<meta property="og:description" content="由于安全上的要求，我司的开发环境比较复杂，涉及到Citrix非涉密&#x2F;涉密桌面和远程Linux编译服务器等等，在这样的环境下用VS Code需要经过一系列的折腾，这篇文章简要记录了我最初的配置流程。 安装VS Code首先，在非涉密桌面访问VS Code官网下载最新安装包，然后安装到Q盘中（重要！）。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件就">
+<meta property="og:description" content="由于安全上的要求，我司的开发环境比较复杂，涉及到Citrix非涉密&#x2F;涉密桌面和远程Linux编译服务器等等，在这样的环境下用VS Code需要经过一系列的折腾，这篇文章简要记录了我最初的配置流程。 安装VS Code 首先，在非涉密桌面访问VS Code官网下载最新安装包，然后安装到Q盘中（重要！）。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-01T05:08:05.000Z">
 <meta property="article:modified_time" content="2020-09-01T05:08:05.000Z">
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85VS-Code"><span class="nav-number">1.</span> <span class="nav-text">安装VS Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%89%A9%E5%B1%95"><span class="nav-number">2.</span> <span class="nav-text">安装扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">安装编译器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B"><span class="nav-number">4.</span> <span class="nav-text">测试一下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">5.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">安装VS Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">安装扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">安装编译器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">测试一下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">最后</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,7 +164,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -303,18 +303,18 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>由于安全上的要求，我司的开发环境比较复杂，涉及到Citrix非涉密/涉密桌面和远程Linux编译服务器等等，在这样的环境下用VS Code需要经过一系列的折腾，这篇文章简要记录了我最初的配置流程。</p>
-<h1 id="安装VS-Code"><a href="#安装VS-Code" class="headerlink" title="安装VS Code"></a>安装VS Code</h1><p>首先，在非涉密桌面访问<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code官网</a>下载最新安装包，然后安装到<strong>Q盘中（重要！）</strong>。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件就没了。</p>
+<h1>安装VS Code</h1>
+<p>首先，在非涉密桌面访问<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code官网</a>下载最新安装包，然后安装到<strong>Q盘中（重要！）</strong>。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件就没了。</p>
 <p>不要急着删除安装包，将它<strong>复制</strong>到T盘（直接剪切可能会报权限错误），转移到涉密桌面。如果之前你已经启动了涉密桌面，可以尝试用快捷键<code>Ctrl + Alt + Tab</code>进行切换。</p>
 <p>到涉密桌面环境后，安装VS Code——这次可以装在C盘里，涉密桌面的C盘是不会被重置的。注意，安装时会有几个选项，询问是否要加入右键菜单以及PATH等，请把所有的勾都勾上。</p>
-<h1 id="安装扩展"><a href="#安装扩展" class="headerlink" title="安装扩展"></a>安装扩展</h1><p>众所周知，VS Code最重要的是扩展。由于涉密桌面没有外网，我们要安装扩展只能先从非涉密桌面下载，再通过T盘转移。</p>
+<h1>安装扩展</h1>
+<p>众所周知，VS Code最重要的是扩展。由于涉密桌面没有外网，我们要安装扩展只能先从非涉密桌面下载，再通过T盘转移。</p>
 <p>但是，VS Code默认存放扩展的目录在C盘，这导致非涉密桌面一旦重启，你的扩展就会全部消失。所以，装扩展之前要先更改非涉密桌面中VS Code存放扩展的目录。</p>
 <p>我没有在设置里找到直接修改的方法，但你可以通过以下的方法来间接修改。</p>
 <p>首先进入VS Code的安装目录（没忘记装在哪了吧），新建一个文件夹，命名为<code>extensions</code>。</p>
 <p>在桌面上VS Code的快捷方式上右键打开属性（假如桌面上没有，就去安装目录里找到code.exe，右键发送-&gt;桌面快捷方式），找到<code>目标(T)</code>一栏，在已有内容的后面添上:</p>
 <figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">--extensions-dir</span> <span class="string">&quot;(你刚才创建的extensions文件夹的完整路径)&quot;</span></span><br></pre></td></tr></table></figure>
-
 <span id="more"></span>
-
 <p>这实际上是为VS Code设置了一个启动参数，说明要从你新建的这个<code>extensions</code>文件夹读取扩展，同时，你下载的扩展也会被放到这里。以后只要从这个快捷方式启动VS Code，不管重启VDI几次扩展都还在，因为extensions文件夹是在Q盘里的。</p>
 <p>好了，接下来启动VS Code。</p>
 <p>VS Code最左侧的边栏中有一个由四个方块组成的图标，那就是扩展管理。点击它后，你可以使用上面的搜索框寻找应用商店里的扩展，它们全都是托管在GitHub上的开源项目。</p>
@@ -324,18 +324,20 @@
 <p>第四个是<code>Bracket Pair Colorizer 2</code>，它将各组配对的括号用不同的颜色表示，</p>
 <p>扩展安装全部完成之后，将你的<code>extensions</code>文件夹整个通过T盘复制到涉密桌面里VS Code的安装目录下。</p>
 <p>最后，在涉密桌面的快捷方式里也设置一遍启动参数，启动VS Code，你会发现扩展已经全部转移过来了。</p>
-<h1 id="安装编译器"><a href="#安装编译器" class="headerlink" title="安装编译器"></a>安装编译器</h1><p>你还需要一个编译器才能将C语言源代码转换成可执行程序。</p>
+<h1>安装编译器</h1>
+<p>你还需要一个编译器才能将C语言源代码转换成可执行程序。</p>
 <p>在Windows平台使用比较广泛的是MinGW，它包含了著名的GCC编译器。但是在公司的网络环境下，下载MinGW十分缓慢，有没有别的办法?</p>
-<p>Dev-C++是一个开箱即用的轻便C/C++ IDE，它也内置了我们需要的GCC编译器。我们可以借此来个“曲线救国”。为了让下载快一点，你可以到腾讯软件中心的网页版下载其<a target="_blank" rel="noopener" href="https://pc.qq.com/detail/16/detail_163136.html">镜像</a>，进入链接后选择“普通下载”即可。</p>
+<p>Dev-C<ins>是一个开箱即用的轻便C/C</ins> IDE，它也内置了我们需要的GCC编译器。我们可以借此来个“曲线救国”。为了让下载快一点，你可以到腾讯软件中心的网页版下载其<a target="_blank" rel="noopener" href="https://pc.qq.com/detail/16/detail_163136.html">镜像</a>，进入链接后选择“普通下载”即可。</p>
 <p>安装时的安装语言列表可能会有乱码，先选择English。安装完成之后出现引导界面，就可以选择简体中文UI了。</p>
 <p>为了方便地使用GCC编译器，应该将其添加到环境变量。</p>
 <p>先来到Dev-C++的安装目录，找到<code>MinGW64\bin</code>文件夹，复制其路径。打开开始菜单，输入<code>env</code>就能快速导航到环境变量设置。将之前复制的路径粘贴到PATH环境变量的末尾，一路确定保存，再新开启一个命令行输入<code>gcc</code>试试。如果提示“fatal error: no input files”，就说明GCC的环境变量已经配置好了。</p>
 <p>在VS Code中按<code>Ctrl + ~</code>(即键盘左上角Esc下面的那个键)可以开启内置终端。默认的终端是cmd，但你可以将其改为<code>pwsh</code>以使用几乎完全兼容cmd且功能强大得多的PowerShell。</p>
-<h1 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h1><p>接下来，用VS Code打开一个文件夹，新建一个C语言源文件，随便写点什么，比如Hello World：</p>
+<h1>测试一下</h1>
+<p>接下来，用VS Code打开一个文件夹，新建一个C语言源文件，随便写点什么，比如Hello World：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World!\n&quot;</span>);</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>然后，在终端中执行<code>gcc 源文件名 -o 输出文件名</code>，你的源码就被编译出来了。用命令行运行编译出的可执行文件，将在终端中输出<code>Hello World!</code>。</p>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>以上就是VS Code的基本。要进行调试其实也是可以的，但那个配置起来也相当麻烦，是另一个故事了（我自己也还没配好，鸽了）。</p>
+<h1>最后</h1>
+<p>以上就是VS Code的基本。要进行调试其实也是可以的，但那个配置起来也相当麻烦，是另一个故事了（我自己也还没配好，鸽了）。</p>
 <p>顺带一提，为了快速插入代码规范要求的源文件/函数注释，可以使用VS Code的“代码片段”功能，按<code>Ctrl + Shift + P</code>启动VS Code命令面板，输入<code>snippet</code>配置用户代码片段，选择C语言，使用方法已经写在文件注释里了。</p>
 <p>得益于大量的扩展，还有很多好玩的东西。比如SSH扩展能让你在VS Code中直接连到编译服务器，此时VS Code的终端就是远程Linux服务器的终端，左侧的资源管理器也可以管理Linux服务器的文件。由于在Windows 7一类的老版系统里没有内置OpenSSH，要实现这个还得折腾一回，这里给出两篇相关文章：</p>
 <p><a target="_blank" rel="noopener" href="https://www.mcclellandlegge.com/2017-02-24-installsshd/">Installing OpenSSH on Windows 7</a></p>

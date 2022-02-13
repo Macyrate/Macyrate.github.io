@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://hakurei.red/2022/02/14/CSharpNote7-AttributeAndReflection/</loc>
+    <lastmod>2022-02-13</lastmod>
+  </url>
+  <url>
     <loc>https://hakurei.red/2022/02/07/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/</loc>
     <lastmod>2022-02-07</lastmod>
   </url>

@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -242,6 +242,81 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/06/23/200621/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽寿昌分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/06/23/200621/" class="post-title-link" itemprop="url">200621：江湖再见</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-06-23 12:51:04" itemprop="dateCreated datePublished" datetime="2020-06-23T12:51:04+08:00">2020-06-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>距离上一次更新竟然过去了一个半月。倒也不是我不想写，每当念起时总有些“俗事缠身”。而当处理完这些事，我要么是没有安静的适合写作的环境，要么便是只想躺平刷微博，失却了敲键盘的热情。</p>
+<p>今天终于得闲，慢慢地来记几笔吧。</p>
+<p>五月初，我终于得知毕设deadline的确切日期已经不远，而且那时我的春招战果虽不算好，但总归拿到了保底的offer，唯一要做的就是赶进度了。To Do List上的待办事项随着Commit被勾掉一些，那时我充满热情，状态是相当理想的。我又满怀兴奋地购入一堆技术书籍——不必说，它们自然还是没有被翻过几页。</p>
+<p>我的Unity终于有了点入门的感觉，开发就像华科的施工队般“日新月异”。为了保持这种节奏，毕设所需要写的那些形式上的文书之类一度令我深恶痛绝，但很快我就从中感受到了回顾与总结既往工作的乐趣，这项杂务实际上是大有裨益的，让人能暂时跳出“此山中”，不至于沉迷于手头的问题而“不见庐山真面目”。</p>
+<p>到了线上答辩的时刻，大家的课题多是大型分布式系统或者机器学习等等非常“Computer Science”的内容，我的《基于Unity的东方Project同人ARPG游戏设计与开发》无论什么时候都那么格格不入。偏偏我的答辩排在最后几位，只好先接受了数个小时的天书洗礼。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/23/200621/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -364,14 +439,14 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>数组可以说是在任何语言中都非常基本的数据结构了。这篇笔记以C#中的数组为引，再延伸到C#的几种集合类(Collections)以及一些相关的基本概念。</p>
-<h1 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>数组存储相同种类的元素，其大小固定，且是顺序存储的，即在内存中占据一段连续的地址。</p>
+<h1>数组 Array</h1>
+<h2 id="概述"><a class="header-anchor" href="#概述">¶</a>概述</h2>
+<p>数组存储相同种类的元素，其大小固定，且是顺序存储的，即在内存中占据一段连续的地址。</p>
 <p>数组作为一种引用类型(其基类是System.Array)，需要用<code>new</code>来创建实例。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化时指定大小</span></span><br><span class="line"><span class="built_in">double</span>[] balance = <span class="keyword">new</span> <span class="built_in">double</span>[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以直接赋值来初始化</span></span><br><span class="line"><span class="built_in">int</span>[] marks = &#123;<span class="number">99</span>, <span class="number">98</span>, <span class="number">92</span>, <span class="number">97</span>, <span class="number">95</span>&#125;;</span><br></pre></td></tr></table></figure>
-
 <p>初始化而尚未赋值的数组，编译器会根据其类型隐式地将所有元素设置为默认值。</p>
 <p>数组最大的特点还是能够用下标索引来随机访问其中的元素：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">double</span> salary = balance[<span class="number">9</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下是C# 8.0引入的好东西！</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//末尾运算符 ^ </span></span><br><span class="line"><span class="comment">//[^n]表示[length-n]，类似Python用负数索引[-n]表示[length-n]</span></span><br><span class="line"><span class="built_in">double</span> salary = balance[^<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//范围运算符 ..</span></span><br><span class="line"><span class="comment">//[a..b]表示从[a]到[b]的范围(但不包含[b]！)，类似Python的切片[a:b]</span></span><br><span class="line"><span class="comment">//省略a代表0，省略b代表^0</span></span><br><span class="line"><span class="built_in">double</span>[] salaries1 = balance[..^<span class="number">3</span>];</span><br><span class="line"><span class="comment">//如果a比b还大，会抛出异常(Python中则是返回空列表)</span></span><br><span class="line"><span class="built_in">double</span>[] salaries2 = balance[<span class="number">3.</span><span class="number">.2</span>];     <span class="comment">//ArgumentOutOfRangeException</span></span><br><span class="line"><span class="comment">//a和b一样大时，返回长度为0的集合</span></span><br><span class="line"><span class="built_in">double</span>[] salaries3 = balance[<span class="number">3.</span><span class="number">.3</span>];</span><br><span class="line">Console.WriteLine(salaries3.Length);   <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
-
 <p>由于实现了<code>IEnumerable</code>接口，数组可以使用<code>foreach...in...</code>的方式进行迭代访问，还可以使用LINQ，这样就无需获取数组长度再用for循环迭代了。关于这个接口及其相关的内容，我在本文稍后的部分记述。</p>
           <!--noindex-->
             <div class="post-button">
@@ -443,92 +518,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <div class="note warning"><p><strong>前方高能！</strong><br>这篇笔记断断续续花了近10天，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。<br>（其实就是我写完实在不愿审阅）</p>
+          <div class="note warning"><p><strong>前方高能！</strong><br>
+这篇笔记断断续续花了近10天，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。<br>
+（其实就是我写完实在不愿审阅）</p>
 </div>
-
 <p>首先说明，异步是<strong>极为高深</strong>的高级编程技术，这篇文章只是才疏学浅的我阅读文档之后的一些思考与理解，可能有极多描述不准确乃至完全错误之处，还望批评指导。顺便吐槽，C#文档翻译得实在是太烂了，很多地方一看就是机翻的，却没有机翻警告。很多地方百思不得其解的词，切换到英语就发现其实很简单，翻译的用词完全错误，难受啊！</p>
-<h1 id="何为异步"><a href="#何为异步" class="headerlink" title="何为异步"></a>何为异步</h1><p>与异步相对的是“同步”，代表着一句代码的执行结束是其后一句代码的执行开始，整个流程是按照固定的顺序进行的，这是一般程序的逻辑。然而，某些语句可能需要花较长时间才能得到结果——比如网络通信和文件读写——这些语句的执行并不怎么占用CPU，但会阻塞整个线程，后续的语句需要等待这些语句执行完成，造成大量的浪费。特别是如果网络环境很不好、读取的文件好几个G，那可是尤其要命，可能整个程序都会出现肉眼可见的卡顿甚至崩溃。</p>
+<h1>何为异步</h1>
+<p>与异步相对的是“同步”，代表着一句代码的执行结束是其后一句代码的执行开始，整个流程是按照固定的顺序进行的，这是一般程序的逻辑。然而，某些语句可能需要花较长时间才能得到结果——比如网络通信和文件读写——这些语句的执行并不怎么占用CPU，但会阻塞整个线程，后续的语句需要等待这些语句执行完成，造成大量的浪费。特别是如果网络环境很不好、读取的文件好几个G，那可是尤其要命，可能整个程序都会出现肉眼可见的卡顿甚至崩溃。</p>
 <p>为了解决这种飞快的CPU与龟爬的IO之间的不平衡，传统的方案是单独开个线程让它去执行耗时的操作，让主线程继续运行与耗时操作的结果无关的代码。但是线程操作很麻烦、开销很高，线程数量也有限，不是能随便使用的，所以依然不是个完美的方法。</p>
 <p>异步就是为了解决这个问题而存在的。当代码需要执行一个耗时的操作时，它只发出指令，并不等待结果，然后就去执行其他代码了。一段时间后，当耗时操作返回结果时，再通知CPU进行处理。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/04/08/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/04/04/200404/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽寿昌分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/04/200404/" class="post-title-link" itemprop="url">200404：清明追思</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-04 21:11:47" itemprop="dateCreated datePublished" datetime="2020-04-04T21:11:47+08:00">2020-04-04</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>到了清明节，很奇怪的，今年并没有下雨。印象中每年的清明正应那句“清明时节雨纷纷”，这几天就该是细雨连绵，气温恰好舒适得让人头脑清晰。气象数据统计上也反映了这一点。杏花村所在的安徽池州，历年来清明前后的降雨概率高达85%。湖北离得不远，这印象是有基础的。</p>
-<p>下不下雨倒是无关紧要，今天有其更大的意义。</p>
-<blockquote>
-<p>新华社北京4月3日电 为表达全国各族人民对抗击新冠肺炎疫情斗争牺牲烈士和逝世同胞的深切哀悼，国务院今天发布公告，决定2020年4月4日举行全国性哀悼活动。在此期间，全国和驻外使领馆下半旗志哀，全国停止公共娱乐活动。4月4日10时起，全国人民默哀3分钟，汽车、火车、舰船鸣笛，防空警报鸣响。</p>
-</blockquote>
-<p><img src="https://i.loli.net/2020/04/04/LS6WIcNkAsH4VeJ.jpg" alt="清明追思"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/04/200404/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

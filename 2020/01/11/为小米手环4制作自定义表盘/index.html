@@ -164,7 +164,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -308,13 +308,15 @@
 <p>不过，在<a target="_blank" rel="noopener" href="https://www.bandbbs.cn/">米坛</a>这个网站我找到了真正意义上自定义表盘的方法，而且<a target="_blank" rel="noopener" href="https://amazfitwatchfaces.com/">amazfitwatchfaces</a>上已经有了相当多的自定义表盘。但是我想要继续使用曾经在Pebble上用的<a target="_blank" rel="noopener" href="https://apps.rebble.io/zh_CN/application/529ab1b6d17b5033ba000033">EVA表盘</a>，发现网上并没有现成资源后我决定自己制作。</p>
 <p>简单地说，小米手环4的表盘是由一个<code>json</code>文件控制布局的一系列图片构成的。这个<a target="_blank" rel="noopener" href="https://www.bandbbs.cn/threads/533/">注释版万能json</a>展示了该json文件的形式。将自定义的json文件与资源文件，即要显示的一系列图片，经过<a target="_blank" rel="noopener" href="https://geekdoing.com/threads/mb4-resource-pack-unpack.1383/">MB4 Resource pack/unpack</a>工具打包后就能生成表盘<code>bin</code>文件了。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">&quot;Time&quot;: &#123;</span><br><span class="line">    &quot;Hours&quot;: &#123;</span><br><span class="line">      &quot;Tens&quot;: &#123;</span><br><span class="line">        &quot;X&quot;: 70,</span><br><span class="line">        &quot;Y&quot;: 10,</span><br><span class="line">        &quot;ImageIndex&quot;: 23,</span><br><span class="line">        &quot;ImagesCount&quot;: 3</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;Ones&quot;: &#123;</span><br><span class="line">        &quot;X&quot;: 70,</span><br><span class="line">        &quot;Y&quot;: 60,</span><br><span class="line">        &quot;ImageIndex&quot;: 11,</span><br><span class="line">        &quot;ImagesCount&quot;: 10</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
 <p>以这段json代码为例，它控制表盘中时间部分的小时显示。</p>
 <p>X和Y是图片左上角的坐标。这里的<code>ImageIndex</code>是指资源图片的起始编号，是其4位数字的文件名。而<code>ImageCount</code>是从起始图片开始向后有多少张图片被此处使用。由于是24小时制——12小时制也许也可以，但我不知道如何设置——小时需要用到表示<code>0</code>、<code>1</code>、<code>2</code>的3张图片。需要注意的是，资源图片的编号必须从<code>0000</code>开始连续，且所有的图片都要在json中被使用到，否则无法正常生成。</p>
 <p>最后的效果：</p>
-<p><img src="https://i.loli.net/2020/01/12/lPeLST9Rt4iHQr7.gif"></p>
+<p><img src="https://i.loli.net/2020/01/12/lPeLST9Rt4iHQr7.gif" alt=""></p>
 <blockquote>
-<p>发布地址：<br><a target="_blank" rel="noopener" href="https://amazfitwatchfaces.com/mi-band-4/view/11723">amazfitwatchfaces</a><br><a target="_blank" rel="noopener" href="https://github.com/Macyrate/EVA_font_watchface">GitHub</a><br><a target="_blank" rel="noopener" href="http://watchface.pingx.tech/h5/#/pages/detail/detail?id=1058400">米坛</a></p>
+<p>发布地址：<br>
+<a target="_blank" rel="noopener" href="https://amazfitwatchfaces.com/mi-band-4/view/11723">amazfitwatchfaces</a><br>
+<a target="_blank" rel="noopener" href="https://github.com/Macyrate/EVA_font_watchface">GitHub</a><br>
+<a target="_blank" rel="noopener" href="http://watchface.pingx.tech/h5/#/pages/detail/detail?id=1058400">米坛</a></p>
 </blockquote>
 
     </div>

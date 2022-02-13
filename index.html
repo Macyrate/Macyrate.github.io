@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -251,6 +251,89 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2022/02/14/CSharpNote7-AttributeAndReflection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽寿昌分社 | Macyrate">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/14/CSharpNote7-AttributeAndReflection/" class="post-title-link" itemprop="url">C#杂记之柒：特性与反射</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-14 00:04:50" itemprop="dateCreated datePublished" datetime="2022-02-14T00:04:50+08:00">2022-02-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>其实19年在实习期间写CFET的时候，就有用到过Attribute这个特性<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，但当时并没有研究过它的作用和原理，只是照着文档给的案例使用。最近准备看看Unity中是如何用Lua实现热更新的，发现attribute满天飞，这就不得不理解一下了。</p>
+<p>简单看了看，attribute似乎和反射息息相关，正好反射这块我也不太了解，这次就将一些相关的概念一并记录吧。</p>
+<h1>特性 Attribute</h1>
+<p>特性是一种标签，可以用方括号贴在各种元素<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>之前，给这些元素添加<strong>元数据</strong>。元数据包括编译器指令、注释、描述、方法、类等信息。</p>
+<p>许多特性都附带一些参数，如在声明<code>element</code>的时候，通过带参的attribute附加元数据，按下面的格式使用：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">SomeAttribute(positional_parameters, name_parameter = value, ...)</span>]</span><br><span class="line">element</span><br></pre></td></tr></table></figure>
+<p>特性实际上是<code>System.Attribute</code>的一系列派生类，它们的后缀均为&quot;Attribute&quot;，在打标签的时候这个后缀可以省略掉。</p>
+<h2 id="预定义的Attribute"><a class="header-anchor" href="#预定义的Attribute">¶</a>预定义的Attribute</h2>
+<p>微软在.NET库里已经内置了一堆<code>System.Attribute</code>的派生类，我们可能只会接触到其中一小部分，这里举几种常用的为例。</p>
+<h3 id="ObsoleteAttribute"><a class="header-anchor" href="#ObsoleteAttribute">¶</a>ObsoleteAttribute</h3>
+<p><code>Obsolete</code>用于指示过时、弃用的元素。这些元素被认为不应该使用，因此在有调用到这种元素的地方，会产生Warning，并且附带参数<code>message</code>所包含的提示信息。如果建议使用某种新方案，就可以写在提示信息里。</p>
+<p><img src="https://s2.loli.net/2022/02/07/tkSGJRc4mFe1w2y.png" alt="对过时元素告警"></p>
+<p>另外，还有可选的第二个参数<code>iserror</code>，如果被设置为<code>true</code>，则会产生Error而不是Warning，阻止编译。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/14/CSharpNote7-AttributeAndReflection/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2022/02/07/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -289,11 +372,13 @@
     
     <div class="post-body" itemprop="articleBody">
           <blockquote>
-<p>注：以下文稿写于2020年，虽未完整，为了不卡杂记的序号，还是发出来了。<br>日后会在这里添加更多内容，也可能另起一篇拾遗（</p>
+<p>注：以下文稿写于2020年，虽未完整，为了不卡杂记的序号，还是发出来了。<br>
+日后会在这里添加更多内容，也可能另起一篇拾遗（</p>
 </blockquote>
 <p>这一篇是真正的“杂”记。这段时间在刷LeetCode的同时，阅览了一些Java中常见的问题，鉴于Java与C#的殊途同归，也有了些收获。</p>
 <p>为查漏补缺，将之前理解还不够明了的部分记在这里，主要是涉及OOP思想的一些概念。</p>
-<h1 id="关于多态"><a href="#关于多态" class="headerlink" title="关于多态"></a>关于多态</h1><p>面向对象设计有四大特征：</p>
+<h1>关于多态</h1>
+<p>面向对象设计有四大特征：</p>
 <ul>
 <li>抽象：通过类和接口的属性与方法实现</li>
 <li>继承：通过类和接口的继承实现</li>
@@ -380,54 +465,58 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>以下所介绍的部分命令，在设备上是由适合嵌入式 Linux 的工具集 BusyBox 提供，行为和 Linux 桌面发行版上不完全一致，这里均采用 BusyBox 所提供的指令用法。</p>
-<h1 id="ifconfig：查看接口状态"><a href="#ifconfig：查看接口状态" class="headerlink" title="ifconfig：查看接口状态"></a>ifconfig：查看接口状态</h1><p><code>ifconfig</code> 可设置网卡接口的状态，或是显示目前的设置。以下是一些主要的设置参数。</p>
+<h1>ifconfig：查看接口状态</h1>
+<p><code>ifconfig</code> 可设置网卡接口的状态，或是显示目前的设置。以下是一些主要的设置参数。</p>
 <p>语法格式：<code>ifconfig &lt; -a &gt; [网卡名称] &lt;参数&gt;</code></p>
 <table>
 <thead>
 <tr>
-<th align="left">参数</th>
-<th align="left">作用</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">作用</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">add &lt;地址&gt;</td>
-<td align="left">设置网卡的IPv6地址。</td>
+<tbody>
+<tr>
+<td style="text-align:left">add &lt;地址&gt;</td>
+<td style="text-align:left">设置网卡的IPv6地址。</td>
 </tr>
 <tr>
-<td align="left">del &lt;地址&gt;</td>
-<td align="left">删除网卡的IPv6地址。</td>
+<td style="text-align:left">del &lt;地址&gt;</td>
+<td style="text-align:left">删除网卡的IPv6地址。</td>
 </tr>
 <tr>
-<td align="left">up</td>
-<td align="left">启动指定的网卡。</td>
+<td style="text-align:left">up</td>
+<td style="text-align:left">启动指定的网卡。</td>
 </tr>
 <tr>
-<td align="left">down</td>
-<td align="left">关闭指定的网卡。</td>
+<td style="text-align:left">down</td>
+<td style="text-align:left">关闭指定的网卡。</td>
 </tr>
 <tr>
-<td align="left">metric &lt;数目&gt;</td>
-<td align="left">指定在计算数据包的转送次数时，所要加上的数目。</td>
+<td style="text-align:left">metric &lt;数目&gt;</td>
+<td style="text-align:left">指定在计算数据包的转送次数时，所要加上的数目。</td>
 </tr>
 <tr>
-<td align="left">mtu &lt;字节&gt;</td>
-<td align="left">设置网卡的MTU（最大数据包大小）。</td>
+<td style="text-align:left">mtu &lt;字节&gt;</td>
+<td style="text-align:left">设置网卡的MTU（最大数据包大小）。</td>
 </tr>
 <tr>
-<td align="left">netmask &lt;子网掩码&gt;</td>
-<td align="left">设置网卡的子网掩码。</td>
+<td style="text-align:left">netmask &lt;子网掩码&gt;</td>
+<td style="text-align:left">设置网卡的子网掩码。</td>
 </tr>
 <tr>
-<td align="left">-broadcast &lt;地址&gt;</td>
-<td align="left">将要送往指定地址的数据包当成广播数据包来处理。</td>
+<td style="text-align:left">-broadcast &lt;地址&gt;</td>
+<td style="text-align:left">将要送往指定地址的数据包当成广播数据包来处理。</td>
 </tr>
 <tr>
-<td align="left">[IP地址]</td>
-<td align="left">指定网卡的IP地址。</td>
+<td style="text-align:left">[IP地址]</td>
+<td style="text-align:left">指定网卡的IP地址。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>直接输入 <code>ifconfig</code> 就会列出目前已激活的网卡，不论这个卡是否有给予 IP ，都会被显示出来。带接口的 <code>ifconfig eth0</code> 则仅会表示接口 eth0 的相关数据，无论其是否启动。使用 <code>-a</code> 选项，则会展示所有网卡的属性。</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ifconfig ra8</span></span><br><span class="line">ra8       Link encap:Ethernet  HWaddr 02:A1:BB:01:23:48  </span><br><span class="line">          inet6 addr: fe80::a1:bbff:fe01:2348/64 Scope:Link</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:130 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:61 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000 </span><br><span class="line">          RX bytes:13971 (13.6 KiB)  TX bytes:7767 (7.5 KiB)</span><br></pre></td></tr></table></figure>
+<h2 id="示例"><a class="header-anchor" href="#示例">¶</a>示例</h2>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ifconfig ra8</span></span><br><span class="line">ra8       Link encap:Ethernet  HWaddr 02:A1:BB:01:23:48  </span><br><span class="line">          inet6 addr: fe80::a1:bbff:fe01:2348/64 Scope:Link</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:130 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:61 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000 </span><br><span class="line">          RX bytes:13971 (13.6 KiB)  TX bytes:7767 (7.5 KiB)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/08/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C/#more" rel="contents">
@@ -498,21 +587,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="定位linux内存异常问题思路"><a href="#定位linux内存异常问题思路" class="headerlink" title="定位linux内存异常问题思路"></a>定位linux内存异常问题思路</h1><h2 id="内存访问异常"><a href="#内存访问异常" class="headerlink" title="内存访问异常"></a>内存访问异常</h2><ul>
+          <h1>定位linux内存异常问题思路</h1>
+<h2 id="内存访问异常"><a class="header-anchor" href="#内存访问异常">¶</a>内存访问异常</h2>
+<ul>
 <li>空指针访问：常见，易解决</li>
 <li>“踩内存”：对不属于你的内存进行读写，难点在于踩内存发生的时间与程序崩溃的时间没有任何关系</li>
 </ul>
-<h2 id="被踩内存-踩内存的关系分类"><a href="#被踩内存-踩内存的关系分类" class="headerlink" title="被踩内存/踩内存的关系分类"></a>被踩内存/踩内存的关系分类</h2><ol>
-<li>越界踩内存<br> 定义或申请的内存小了</li>
-<li>使用已释放的内存<br> 释放掉的内存又被使用</li>
-<li>随机踩内存（最难排查）<br> 踩坏的位置与使用的内存没有直接关系，每次崩溃的情况可能都不一样</li>
+<h2 id="被踩内存-踩内存的关系分类"><a class="header-anchor" href="#被踩内存-踩内存的关系分类">¶</a>被踩内存/踩内存的关系分类</h2>
+<ol>
+<li>越界踩内存<br>
+定义或申请的内存小了</li>
+<li>使用已释放的内存<br>
+释放掉的内存又被使用</li>
+<li>随机踩内存（最难排查）<br>
+踩坏的位置与使用的内存没有直接关系，每次崩溃的情况可能都不一样</li>
 </ol>
-<h2 id="被踩坏内存的位置分类"><a href="#被踩坏内存的位置分类" class="headerlink" title="被踩坏内存的位置分类"></a>被踩坏内存的位置分类</h2><ol>
-<li>堆踩坏<br> <code>malloc/new/kmalloc/vmalloc</code>申请的内存</li>
+<h2 id="被踩坏内存的位置分类"><a class="header-anchor" href="#被踩坏内存的位置分类">¶</a>被踩坏内存的位置分类</h2>
+<ol>
+<li>堆踩坏<br>
+<code>malloc/new/kmalloc/vmalloc</code>申请的内存</li>
 <li>栈踩坏</li>
 <li>全局变量踩坏</li>
 </ol>
-<h2 id="被踩坏内存的内容分类"><a href="#被踩坏内存的内容分类" class="headerlink" title="被踩坏内存的内容分类"></a>被踩坏内存的内容分类</h2><ol>
+<h2 id="被踩坏内存的内容分类"><a class="header-anchor" href="#被踩坏内存的内容分类">¶</a>被踩坏内存的内容分类</h2>
+<ol>
 <li>字符串</li>
 <li>指针</li>
 <li>随机值</li>
@@ -520,81 +618,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/04/13/Linux%E5%86%85%E6%A0%B8%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/09/10/WLAN-Note-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
-      <meta itemprop="name" content="Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽寿昌分社 | Macyrate">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/09/10/WLAN-Note-1/" class="post-title-link" itemprop="url">WLAN笔记-壹</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-10 15:52:07" itemprop="dateCreated datePublished" datetime="2020-09-10T15:52:07+08:00">2020-09-10</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="WLAN历史"><a href="#WLAN历史" class="headerlink" title="WLAN历史"></a>WLAN历史</h1><p>WLAN是Wireless Local Area Network(无线局域网)的缩写，实际上就是要在不采用网线的情况下，提供以太网的互联功能。</p>
-<p>我们更常见到的词是Wi-Fi(Wireless Fidelity, 无线保真)，但其实Wi-Fi是实现WLAN的技术之一，它遵循IEEE 802.11标准。实现WLAN的技术还可以是IrDA红外，Bluetooth蓝牙，HomeRF，乃至于GSM和LTE等，但Wi-Fi具有巨大的优势，以至于现在说到WLAN，基本就等于Wi-Fi。</p>
-<p>Wi-Fi同时作为一个商标，被WiFi联盟WFA持有，新产品要通过Wi-Fi联盟的测试和认证后，才被允许使用“Wi-Fi”logo。这实际上是为了保证产品之间的兼容性。</p>
-<p>Wi-Fi技术伴随着802.11标准演进。这一过程带来了更多的子载波、更高的调制方式、更高的编码率、更短的GI、更宽的带宽、还有MAC层的报文聚合等等。当然，它们的共同目的都是不断提升无线网络的吞吐量，降低时延。</p>
-<p><img src="https://i.loli.net/2020/09/10/SBMczewQtKh6NoU.jpg" alt="历代Wi-Fi"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/10/WLAN-Note-1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

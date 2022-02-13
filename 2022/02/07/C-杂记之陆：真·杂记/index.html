@@ -21,12 +21,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","version":"8.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="注：以下文稿写于2020年，虽未完整，为了不卡杂记的序号，还是发出来了。日后会在这里添加更多内容，也可能另起一篇拾遗（  这一篇是真正的“杂”记。这段时间在刷LeetCode的同时，阅览了一些Java中常见的问题，鉴于Java与C#的殊途同归，也有了些收获。 为查漏补缺，将之前理解还不够明了的部分记在这里，主要是涉及OOP思想的一些概念。 关于多态面向对象设计有四大特征：  抽象：通过类和接口的">
+<meta name="description" content="注：以下文稿写于2020年，虽未完整，为了不卡杂记的序号，还是发出来了。 日后会在这里添加更多内容，也可能另起一篇拾遗（  这一篇是真正的“杂”记。这段时间在刷LeetCode的同时，阅览了一些Java中常见的问题，鉴于Java与C#的殊途同归，也有了些收获。 为查漏补缺，将之前理解还不够明了的部分记在这里，主要是涉及OOP思想的一些概念。 关于多态 面向对象设计有四大特征：  抽象：通过类和接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#杂记之陆：真·杂记">
 <meta property="og:url" content="https://hakurei.red/2022/02/07/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/index.html">
 <meta property="og:site_name" content="博丽寿昌分社 | Macyrate">
-<meta property="og:description" content="注：以下文稿写于2020年，虽未完整，为了不卡杂记的序号，还是发出来了。日后会在这里添加更多内容，也可能另起一篇拾遗（  这一篇是真正的“杂”记。这段时间在刷LeetCode的同时，阅览了一些Java中常见的问题，鉴于Java与C#的殊途同归，也有了些收获。 为查漏补缺，将之前理解还不够明了的部分记在这里，主要是涉及OOP思想的一些概念。 关于多态面向对象设计有四大特征：  抽象：通过类和接口的">
+<meta property="og:description" content="注：以下文稿写于2020年，虽未完整，为了不卡杂记的序号，还是发出来了。 日后会在这里添加更多内容，也可能另起一篇拾遗（  这一篇是真正的“杂”记。这段时间在刷LeetCode的同时，阅览了一些Java中常见的问题，鉴于Java与C#的殊途同归，也有了些收获。 为查漏补缺，将之前理解还不够明了的部分记在这里，主要是涉及OOP思想的一些概念。 关于多态 面向对象设计有四大特征：  抽象：通过类和接">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-07T01:51:35.000Z">
 <meta property="article:modified_time" content="2022-02-07T01:51:35.000Z">
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%A4%9A%E6%80%81"><span class="nav-number">1.</span> <span class="nav-text">关于多态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text">关于接口和抽象类的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7Property%E5%92%8C%E5%AD%97%E6%AE%B5Field"><span class="nav-number">3.</span> <span class="nav-text">属性Property和字段Field</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E9%87%8Fconst%E5%92%8C%E5%8F%AA%E8%AF%BBreadonly"><span class="nav-number">4.</span> <span class="nav-text">常量const和只读readonly</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%8F%E3%80%81%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91"><span class="nav-number">5.</span> <span class="nav-text">宏、条件编译</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">关于多态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">关于接口和抽象类的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">属性Property和字段Field</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">常量const和只读readonly</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">宏、条件编译</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -163,7 +163,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -302,11 +302,13 @@
     
     <div class="post-body" itemprop="articleBody">
         <blockquote>
-<p>注：以下文稿写于2020年，虽未完整，为了不卡杂记的序号，还是发出来了。<br>日后会在这里添加更多内容，也可能另起一篇拾遗（</p>
+<p>注：以下文稿写于2020年，虽未完整，为了不卡杂记的序号，还是发出来了。<br>
+日后会在这里添加更多内容，也可能另起一篇拾遗（</p>
 </blockquote>
 <p>这一篇是真正的“杂”记。这段时间在刷LeetCode的同时，阅览了一些Java中常见的问题，鉴于Java与C#的殊途同归，也有了些收获。</p>
 <p>为查漏补缺，将之前理解还不够明了的部分记在这里，主要是涉及OOP思想的一些概念。</p>
-<h1 id="关于多态"><a href="#关于多态" class="headerlink" title="关于多态"></a>关于多态</h1><p>面向对象设计有四大特征：</p>
+<h1>关于多态</h1>
+<p>面向对象设计有四大特征：</p>
 <ul>
 <li>抽象：通过类和接口的属性与方法实现</li>
 <li>继承：通过类和接口的继承实现</li>
@@ -322,16 +324,15 @@
 <p>这样，如果一个父类有多个子类，它们又分别用不同方式重写了继承下来的同一个方法，那么在把这些子类都当父类使用时，就会展现出多态性：明明是对同一个类的对象调用了同一个方法，但行为却完全不同。</p>
 <p>举个例子，假如有个<code>扬声器</code>类，包含一个<code>大叫()</code>方法，调用时会“嘤嘤嘤”；而继承自它的有大叫“洒↓比↑”的<code>喇叭</code>类和大叫“哼，哼，啊啊啊啊啊啊啊”的<code>野兽先辈</code>类：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这段代码甚至真的可以跑，C#支持用汉字做标识符，大概是因为用了Unicode</span></span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">PlayGround</span></span><br><span class="line">&#123;</span><br><span class="line">    class 扬声器</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> 大叫() =&gt; Console.WriteLine(<span class="string">&quot;嘤嘤嘤&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class 喇叭 : 扬声器</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> 大叫() =&gt; Console.WriteLine(<span class="string">&quot;洒↓比↑&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class 野兽先辈 : 扬声器</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> 大叫() =&gt; Console.WriteLine(<span class="string">&quot;哼，哼，啊啊啊啊啊啊啊&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class 屑狐狸 : 扬声器</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> 大叫() =&gt; Console.WriteLine(<span class="string">&quot;呜呜呜呜，好可怜啊&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">var</span> 一堆扬声器 = <span class="keyword">new</span> List&lt;扬声器&gt;() &#123; <span class="keyword">new</span> 扬声器(), <span class="keyword">new</span> 喇叭(), <span class="keyword">new</span> 野兽先辈(), <span class="keyword">new</span> 屑狐狸() &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">var</span> 某个扬声器 <span class="keyword">in</span> 一堆扬声器)</span><br><span class="line">            &#123;</span><br><span class="line">                某个扬声器.大叫();</span><br><span class="line">                <span class="comment">// 输出：</span></span><br><span class="line">                <span class="comment">// 嘤嘤嘤</span></span><br><span class="line">                <span class="comment">// 洒↓比↑</span></span><br><span class="line">                <span class="comment">// 哼，哼，啊啊啊啊啊啊啊</span></span><br><span class="line">                <span class="comment">// 呜呜呜呜，好可怜啊</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <span id="more"></span>
-
 <p>不过，另外有一种操作是“成员隐藏”，在派生类中用<code>new</code>修饰符对基类已有的成员重新进行定义，在这种情况下体现不出多态，因为向上转型时调用的仍然会是基类已经定义的成员。</p>
 <p>在竞技世界面试中，还被问到这样一个问题：<strong>多态的实现方法是什么？</strong></p>
 <p>我确实没搞明白什么叫“实现方式”，于是按照上面的部分答了，但那其实是多态存在的必要条件。</p>
 <p>其实现在理解来，实现方式就是指什么情况下会体现出多态。</p>
 <p>方式一是重写，就像上面代码中的例子；方式二是接口，不同类对接口中方法的实现不同造成多态；方式三是抽象类和抽象方法，子类对抽象方法进行重写时的实现不同造成多态。</p>
 <p>（其实我对着这几句话想了半天，觉得它们说的几乎是同一件事……）</p>
-<h1 id="关于接口和抽象类的区别"><a href="#关于接口和抽象类的区别" class="headerlink" title="关于接口和抽象类的区别"></a>关于接口和抽象类的区别</h1><p>这两个都是无法被实例化的东西。</p>
+<h1>关于接口和抽象类的区别</h1>
+<p>这两个都是无法被实例化的东西。</p>
 <p>在较早版本的Java中，接口仅包含公有属性和方法，而且方法全部都是隐式抽象方法，没有任何实现，也不可以定义静态方法，仅仅是对实现接口的类的一种规约。</p>
 <p>但在Java 8之后可以定义静态方法，而且方法还可以有方法体了。</p>
 <p>C#情况也差不多，接口里可以包含方法(包括static方法)、属性、索引器、事件的声明。原本的接口完全是抽象的，不包含任何实现代码。</p>
@@ -342,26 +343,25 @@
 <p>接口不能声明实例数据，如<strong>字段</strong>、自动实现的属性或类似属性的事件。</p>
 </blockquote>
 <p>字段和属性有什么区别？</p>
-<h1 id="属性Property和字段Field"><a href="#属性Property和字段Field" class="headerlink" title="属性Property和字段Field"></a>属性Property和字段Field</h1><p>以前在学习C++和Java的时候，我往往把“属性”和“数据成员”当作同一种东西，而且它们在课本上表现得确实就是同一种东西。但在实际的语言中，数据成员被称为<strong>字段</strong>，和属性有一些不同。</p>
+<h1>属性Property和字段Field</h1>
+<p>以前在学习C++和Java的时候，我往往把“属性”和“数据成员”当作同一种东西，而且它们在课本上表现得确实就是同一种东西。但在实际的语言中，数据成员被称为<strong>字段</strong>，和属性有一些不同。</p>
 <p>字段就像SQL里所表述的，它是真正承载数据的部分。一般情况下，我们趋向于不直接暴露字段，而是将它设为<code>private</code>。在命名规范上，字段一般使用驼峰命名法，即第一个单词首字母小写，其它首字母大写。由于字段一般是私有的，命名上往往还会加上下划线前缀，如<code>private string _myField</code>。</p>
 <p>属性其实是上一篇中所提到的get/set访问器的外壳。它自己不承载数据，而是将字段暴露给外界进行读/写，更像是一种方法。属性对应的字段被称为属性的“后备变量”。属性和方法一样采用帕斯卡命名法，即每个单词的首字母都大写。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="built_in">string</span> _myField;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">string</span> MyProperty</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> _myField;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">    &#123;</span><br><span class="line">        _myField = <span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>由此延伸出的是<strong>自动属性</strong>，这是在属性的访问器不需要进行特别的定义时使用的。实际上，上面的例子就可以使用自动属性：</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">string</span> MyProperty&#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br></pre></td></tr></table></figure>
-
 <p>自动属性当然不是没有对应的字段，而是由编译器自动创建了一个隐藏的后备变量。</p>
 <p>使用属性而不是直接使用字段的一个好处是，你可以给get/set单独设置访问控制符，甚至可以不设置set访问器，使其成为只读属性：</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使set访问器为private</span></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">string</span> MyProperty&#123; <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//只读属性</span></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">string</span> MyProperty&#123; <span class="keyword">get</span>; &#125;</span><br></pre></td></tr></table></figure>
-
 <p>另外，还可以在用属性读写字段的过程中做一些别的操作，比如验证值的合法性，就不举例了。</p>
-<h1 id="常量const和只读readonly"><a href="#常量const和只读readonly" class="headerlink" title="常量const和只读readonly"></a>常量const和只读readonly</h1><p>被<code>const</code>和<code>readonly</code>修饰的字段都不能被修改，但它们也有区别。</p>
+<h1>常量const和只读readonly</h1>
+<p>被<code>const</code>和<code>readonly</code>修饰的字段都不能被修改，但它们也有区别。</p>
 <p><code>const</code>常量是在<strong>编译时</strong>被编译器确定，用其值取代了所有使用到它的地方，类似于C语言的宏定义。</p>
 <p>而<code>readonly</code>的值是在<strong>运行时</strong>被构造函数决定的，它仍然是个变量，只不过它的值只能在构造函数中分配。对于引用类型，<code>readonly</code>会使其自始至终只引用同一个实例，但实例本身可以修改。比如一个<code>readonly</code>的<code>List&lt;T&gt;</code>，不能在构造函数之外对其直接赋值，但是可以调用它的Add()方法，向其中添加元素。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">private</span> <span class="keyword">readonly</span> List&lt;<span class="built_in">int</span>&gt; list = <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt; &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        list.Add(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 报错，无法对静态只读字段赋值(静态构造函数或变量初始值中除外)</span></span><br><span class="line">        list = <span class="keyword">new</span> List&lt;<span class="built_in">int</span>&gt; &#123; <span class="number">5</span>, <span class="number">6</span> &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>这类似于C语言的指针常量：指针本身，即 <strong>“指针指向的是什么地址”</strong> 不能修改，但 <strong>“指向的地址上写了什么东西”</strong> 是可以修改的。</p>
-<h1 id="宏、条件编译"><a href="#宏、条件编译" class="headerlink" title="宏、条件编译"></a>宏、条件编译</h1><p>注意，<strong>C#没有宏定义这一机制！</strong></p>
+<h1>宏、条件编译</h1>
+<p>注意，<strong>C#没有宏定义这一机制！</strong></p>
 <p>确切地说，C#的预处理器不会像C语言一样，将源代码的内容根据宏定义进行替换。像<code>#define ...</code>这样的预处理器指令，并不是用来进行宏定义的，它仅仅用于设置条件编译符号。而且，这些符号也不能像在C语言中一样被分配值。</p>
 <p>条件编译符号还可以通过系统环境变量、编译器命令行选项提供。</p>
 <p>条件编译符号的使用场景当然是条件编译。配合另外几条预处理器指令，可以选择一定情况下编译哪些代码：</p>
@@ -374,7 +374,6 @@
 </ol>
 <p>比如：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意符号的定义和取消要放在文件最前面</span></span><br><span class="line"><span class="comment">// #define DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VC7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> DEBUG</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Debug build&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> VC7</span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;Visual Studio 7&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    Console.WriteLine(<span class="string">&quot;No symbol defined&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出&quot;Visual Studio 7&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>另外，还有通过特性attribute实现条件编译的方法。具体在下一篇的特性部分记录。</p>
 <!-- # CLR内存机制
 
@@ -450,6 +449,9 @@ C#实际上并不需要怎么关心内存管理，自动垃圾收集非常强大
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/02/14/CSharpNote7-AttributeAndReflection/" rel="next" title="C#杂记之柒：特性与反射">
+                  C#杂记之柒：特性与反射 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

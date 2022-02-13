@@ -21,12 +21,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","version":"8.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。 char foo[bar] 和 char* foochar foo[bar]这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”： 123&#x2F;&#x2F;这两行都定义了相同的字符串&quot;">
+<meta name="description" content="写数据库管理系统时遇到了不少关于C字符串的问题，要命的是C的字符串种类实在是太多了，今天试着搜集一些资料总结一下。 char foo[bar] 和 char* foo char foo[bar]这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”： 123&#x2F;&#x2F;这两行都定义了相同的字符串&quot;Hel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从C++里的一大堆字符串说起">
 <meta property="og:url" content="https://hakurei.red/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/index.html">
 <meta property="og:site_name" content="博丽寿昌分社 | Macyrate">
-<meta property="og:description" content="写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。 char foo[bar] 和 char* foochar foo[bar]这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”： 123&#x2F;&#x2F;这两行都定义了相同的字符串&quot;">
+<meta property="og:description" content="写数据库管理系统时遇到了不少关于C字符串的问题，要命的是C的字符串种类实在是太多了，今天试着搜集一些资料总结一下。 char foo[bar] 和 char* foo char foo[bar]这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”： 123&#x2F;&#x2F;这两行都定义了相同的字符串&quot;Hel">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-30T10:19:09.000Z">
 <meta property="article:modified_time" content="2019-12-30T10:19:09.000Z">
@@ -150,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#char-foo-bar-%E5%92%8C-char-foo"><span class="nav-number">1.</span> <span class="nav-text">char foo[bar] 和 char* foo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CString"><span class="nav-number">2.</span> <span class="nav-text">CString</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#string"><span class="nav-number">3.</span> <span class="nav-text">string</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LPSTR%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%90%84%E7%A7%8D%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F%E7%9A%84"><span class="nav-number">4.</span> <span class="nav-text">LPSTR，以及各种乱七八糟的</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">char foo[bar] 和 char* foo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">CString</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">string</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">LPSTR，以及各种乱七八糟的</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -303,30 +303,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。</p>
-<h1 id="char-foo-bar-和-char-foo"><a href="#char-foo-bar-和-char-foo" class="headerlink" title="char foo[bar] 和 char* foo"></a>char foo[bar] 和 char* foo</h1><p><code>char foo[bar]</code>这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”：</p>
+        <p>写数据库管理系统时遇到了不少关于C<ins>字符串的问题，要命的是C</ins>的字符串种类实在是太多了，今天试着搜集一些资料总结一下。</p>
+<h1>char foo[bar] 和 char* foo</h1>
+<p><code>char foo[bar]</code>这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这两行都定义了相同的字符串&quot;Hello&quot;</span></span><br><span class="line"><span class="keyword">char</span> foo1[] = <span class="string">&quot;Hello&quot;</span>;      <span class="comment">//末尾有隐藏的&#x27;\0&#x27;</span></span><br><span class="line"><span class="keyword">char</span> foo2[<span class="number">6</span>] = &#123;<span class="string">&#x27;H&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><code>char* foo</code>是声明了一个字符指针，指向单个字符，可以将其当作以<code>&#39;\0&#39;</code>为末尾的字符串的首字符地址。如果要把字符串赋给它，需要先申请内存空间，再使用<code>memcpy()</code>或<code>strcpy()</code>。当然，也可以不分配空间，直接用<strong>十分危险的指针赋值</strong>。</p>
+<p><code>char* foo</code>是声明了一个字符指针，指向单个字符，可以将其当作以<code>'\0'</code>为末尾的字符串的首字符地址。如果要把字符串赋给它，需要先申请内存空间，再使用<code>memcpy()</code>或<code>strcpy()</code>。当然，也可以不分配空间，直接用<strong>十分危险的指针赋值</strong>。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>* foo1 = (<span class="keyword">char</span>*)<span class="built_in">calloc</span>(<span class="number">6</span>, <span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">char</span>));</span><br><span class="line"><span class="built_in">strcpy</span>(foo1, <span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* foo2 = <span class="string">&quot;Hello&quot;</span>;</span><br></pre></td></tr></table></figure>
-
 <span id="more"></span>
-
-<h1 id="CString"><a href="#CString" class="headerlink" title="CString"></a>CString</h1><p><code>CString</code>是<code>MFC</code>的类，使用它需要包含<code>afx.h</code>。</p>
+<h1>CString</h1>
+<p><code>CString</code>是<code>MFC</code>的类，使用它需要包含<code>afx.h</code>。</p>
 <p><strong>什么是MFC？</strong></p>
 <blockquote>
 <p>微软基础类库（英语：<strong>M</strong>icrosoft <strong>F</strong>oundation <strong>C</strong>lasses，简称<strong>MFC</strong>）是一个微软公司提供的类库（class libraries），以C++类的形式封装了Windows API，并且包含一个（也是微软产品的唯一一个）应用程序框架，以减少应用程序开发人员的工作量。其中包含的类包含大量Windows句柄封装类和很多Windows的内建控件和组件的封装类。</p>
 </blockquote>
 <p>总之，作为Visual C++的一部分，这是一个上古遗留之物。不愧是十年前的课设……</p>
 <p>CString是MFC中最常用的字符串类。其数据成员只有一个，那就是字符串在内存中的起始地址。它还有许多方法，如多种构造函数、用于连接和比较的运算符重载、用于格式化的<code>Format</code>，以及各种用于对字符串进行替换、查找、删除的方法。这个类将C++中极为复杂、包含大量内存操作的字符串操作简化了不少。</p>
-<h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1><p>string之前一直弄不太明白。这明明是每个语言都应该有的基本东西，但是鉴于C和C++之间乱七八糟的关系以及错综复杂的各种标准，就连这种“基本”也轮廓模糊到让人难以提起兴趣探索。</p>
-<p>需要知道的是，<strong>string是C++标准库中的类。</strong>确切地说，string类定义于C++标准库的<code>&lt;string&gt;</code>头文件。</p>
-<p>关键的问题是，什么是<a target="_blank" rel="noopener" href="https://zh.cppreference.com/w/cpp/header">C++标准库</a>？这个名字很容易和标准模板库（Standard Template Libraries, STL）混淆，但实际上它们最开始是不同的东西。C++被标准化最早是1998年的<code>ISO/IEC 14882:1998</code>，即所谓的C++98。而STL始于C++尚未被标准化的1993年，它很大程度上影响了几年后C++标准中标准库的制定，因此其内容与C++标准库有非常大的重合。但需要注意的是，<strong>STL不完全是C++标准库的一部分</strong>，C++标准里也从来没有“STL”这一说法。C++标准库中的“STL”可以说是STL的一个“Fork”。</p>
-<p>C++标准库包含一系列不带<code>.h</code>后缀的头文件，用尖括号引用。其中除宏定义以外的内容包含在名称空间<code>std</code>中，这也是许多C++程序都有一句<code>using namespace std;</code>的原因。</p>
+<h1>string</h1>
+<p>string之前一直弄不太明白。这明明是每个语言都应该有的基本东西，但是鉴于C和C++之间乱七八糟的关系以及错综复杂的各种标准，就连这种“基本”也轮廓模糊到让人难以提起兴趣探索。</p>
+<p>需要知道的是，**string是C<ins>标准库中的类。**确切地说，string类定义于C</ins>标准库的<code>&lt;string&gt;</code>头文件。</p>
+<p>关键的问题是，什么是<a target="_blank" rel="noopener" href="https://zh.cppreference.com/w/cpp/header">C++标准库</a>？这个名字很容易和标准模板库（Standard Template Libraries, STL）混淆，但实际上它们最开始是不同的东西。C<ins>被标准化最早是1998年的<code>ISO/IEC 14882:1998</code>，即所谓的C</ins>98。而STL始于C<ins>尚未被标准化的1993年，它很大程度上影响了几年后C</ins>标准中标准库的制定，因此其内容与C<ins>标准库有非常大的重合。但需要注意的是，**STL不完全是C</ins>标准库的一部分**，C<ins>标准里也从来没有“STL”这一说法。C</ins>标准库中的“STL”可以说是STL的一个“Fork”。</p>
+<p>C<ins>标准库包含一系列不带<code>.h</code>后缀的头文件，用尖括号引用。其中除宏定义以外的内容包含在名称空间<code>std</code>中，这也是许多C</ins>程序都有一句<code>using namespace std;</code>的原因。</p>
 <p>这是<a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/algorithm/qsort">cppreference</a>上对<code>std::qsort</code>的一段示例：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>     <span class="comment">//C++输入/输出流标准头文件</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span>      <span class="comment">//C++标准库中来自C标准库的部分，去掉.h并在前面加c</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span>      <span class="comment">//同上</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">-2</span>, <span class="number">99</span>, <span class="number">0</span>, <span class="number">-743</span>, <span class="number">2</span>, INT_MIN, <span class="number">4</span>&#125;;</span><br><span class="line">    <span class="keyword">constexpr</span> std::<span class="keyword">size_t</span> size = <span class="keyword">sizeof</span> a / <span class="keyword">sizeof</span> *a;</span><br><span class="line"> </span><br><span class="line">    std::<span class="built_in">qsort</span>(a, size, <span class="keyword">sizeof</span> *a, [](<span class="keyword">const</span> <span class="keyword">void</span>* a, <span class="keyword">const</span> <span class="keyword">void</span>* b)     <span class="comment">//指定名称空间std</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> arg1 = *<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">int</span>*&gt;(a);</span><br><span class="line">        <span class="keyword">int</span> arg2 = *<span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> <span class="keyword">int</span>*&gt;(b);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span>(arg1 &lt; arg2) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(arg1 &gt; arg2) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//  return (arg1 &gt; arg2) - (arg1 &lt; arg2); // possible shortcut</span></span><br><span class="line">    <span class="comment">//  return arg1 - arg2; // erroneous shortcut (fails if INT_MIN is present)</span></span><br><span class="line">    &#125;);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> ai : a)</span><br><span class="line">        std::cout &lt;&lt; ai &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="LPSTR，以及各种乱七八糟的"><a href="#LPSTR，以及各种乱七八糟的" class="headerlink" title="LPSTR，以及各种乱七八糟的"></a>LPSTR，以及各种乱七八糟的</h1><p>这就是较为难以理解的东西了，名字让人一头雾水。<code>LPSTR</code>算是最简单的形式，还有什么<code>LPCTSTR</code>,<code>PCTSTR</code>等等，这都是些啥？</p>
+<h1>LPSTR，以及各种乱七八糟的</h1>
+<p>这就是较为难以理解的东西了，名字让人一头雾水。<code>LPSTR</code>算是最简单的形式，还有什么<code>LPCTSTR</code>,<code>PCTSTR</code>等等，这都是些啥？</p>
 <p>其实这些全大写的神秘数据类型依然来自MFC，它们都是Windows特色数据类型。STR显然代表的是字符串，重要的是它们的前缀。</p>
 <p>前缀中主要包含这么几个字母：</p>
 <ul>

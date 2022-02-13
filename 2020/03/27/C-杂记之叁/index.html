@@ -21,20 +21,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","version":"8.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="准备完了开题答辩，弄完了笔试，又咸鱼了数天、玩了数天《动物森友会》，一下子离上一篇C#杂记过了三个星期。  所以接下来要填的坑是LINQ和异步。弄完了这个，C#最大的几块拼图才得以完整，大抵能够叫是入了门。 查询表达式所谓的LINQ，是语言集成查询Language INtegrated Query的缩写。通过引用命名空间System.Linq，可以用可读性极强的、类似SQL查询语句形式的代码对一些">
+<meta name="description" content="准备完了开题答辩，弄完了笔试，又咸鱼了数天、玩了数天《动物森友会》，一下子离上一篇C#杂记过了三个星期。  所以接下来要填的坑是LINQ和异步。弄完了这个，C#最大的几块拼图才得以完整，大抵能够叫是入了门。 查询表达式 所谓的LINQ，是语言集成查询Language INtegrated Query的缩写。通过引用命名空间System.Linq，可以用可读性极强的、类似SQL查询语句形式的代码对一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#杂记之叁：LINQ">
 <meta property="og:url" content="https://hakurei.red/2020/03/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%8F%81/index.html">
 <meta property="og:site_name" content="博丽寿昌分社 | Macyrate">
-<meta property="og:description" content="准备完了开题答辩，弄完了笔试，又咸鱼了数天、玩了数天《动物森友会》，一下子离上一篇C#杂记过了三个星期。  所以接下来要填的坑是LINQ和异步。弄完了这个，C#最大的几块拼图才得以完整，大抵能够叫是入了门。 查询表达式所谓的LINQ，是语言集成查询Language INtegrated Query的缩写。通过引用命名空间System.Linq，可以用可读性极强的、类似SQL查询语句形式的代码对一些">
+<meta property="og:description" content="准备完了开题答辩，弄完了笔试，又咸鱼了数天、玩了数天《动物森友会》，一下子离上一篇C#杂记过了三个星期。  所以接下来要填的坑是LINQ和异步。弄完了这个，C#最大的几块拼图才得以完整，大抵能够叫是入了门。 查询表达式 所谓的LINQ，是语言集成查询Language INtegrated Query的缩写。通过引用命名空间System.Linq，可以用可读性极强的、类似SQL查询语句形式的代码对一">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/03/27/CPuc8SVgWGXTkEA.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/03/27/OCPcmBo3hr4zkt5.jpg">
 <meta property="article:published_time" content="2020-03-27T15:32:14.000Z">
 <meta property="article:modified_time" content="2020-03-27T15:32:14.000Z">
 <meta property="article:author" content="Macyrate">
-<meta property="article:tag" content="笔记">
 <meta property="article:tag" content="C Sharp">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2020/03/27/CPuc8SVgWGXTkEA.jpg">
 
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">查询表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%81%9A%E5%90%88"><span class="nav-number">3.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.</span> <span class="nav-text">分组查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#join%E6%9F%A5%E8%AF%A2"><span class="nav-number">5.</span> <span class="nav-text">join查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%A4%E5%B9%B6%E5%B7%AE"><span class="nav-number">6.</span> <span class="nav-text">交并差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">查询表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">聚合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">分组查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">join查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">交并差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,12 +307,11 @@
         <p>准备完了开题答辩，弄完了笔试，又咸鱼了数天、玩了数天《动物森友会》，一下子离上一篇C#杂记过了三个星期。</p>
 <p><img src="https://i.loli.net/2020/03/27/CPuc8SVgWGXTkEA.jpg" alt="朔月"></p>
 <p>所以接下来要填的坑是LINQ和异步。弄完了这个，C#最大的几块拼图才得以完整，大抵能够叫是入了门。</p>
-<h1 id="查询表达式"><a href="#查询表达式" class="headerlink" title="查询表达式"></a>查询表达式</h1><p>所谓的LINQ，是语言集成查询<strong>L</strong>anguage <strong>IN</strong>tegrated <strong>Q</strong>uery的缩写。通过引用命名空间<code>System.Linq</code>，可以用可读性极强的、类似SQL查询语句形式的代码对一些数据结构，甚至直接对数据库进行便捷的操作，如查询、排序、分组等，而不必编写大量逻辑复杂的循环代码。<!--尤其是在与异步流式处理相结合时，可以优雅地将C#的性能发挥到极致。(存疑)-->LINQ的操作十分高深，这里我仅学习一些基础、常用的LINQ功能。</p>
+<h1>查询表达式</h1>
+<p>所谓的LINQ，是语言集成查询<strong>L</strong>anguage <strong>IN</strong>tegrated <strong>Q</strong>uery的缩写。通过引用命名空间<code>System.Linq</code>，可以用可读性极强的、类似SQL查询语句形式的代码对一些数据结构，甚至直接对数据库进行便捷的操作，如查询、排序、分组等，而不必编写大量逻辑复杂的循环代码。<!--尤其是在与异步流式处理相结合时，可以优雅地将C#的性能发挥到极致。(存疑)-->LINQ的操作十分高深，这里我仅学习一些基础、常用的LINQ功能。</p>
 <p>以下是一个典型的LINQ查询示例：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//数据源</span></span><br><span class="line">    <span class="built_in">string</span>[] name = &#123;<span class="string">&quot;Alonso&quot;</span>, <span class="string">&quot;Zheng&quot;</span>, <span class="string">&quot;Smith&quot;</span>, <span class="string">&quot;Jones&quot;</span>, <span class="string">&quot;Smythe&quot;</span>, <span class="string">&quot;Small&quot;</span>, <span class="string">&quot;Ruiz&quot;</span>, <span class="string">&quot;Hsieh&quot;</span>, <span class="string">&quot;Jorgenson&quot;</span>, <span class="string">&quot;Ilyich&quot;</span>, <span class="string">&quot;Singh&quot;</span>, <span class="string">&quot;Samba&quot;</span>, <span class="string">&quot;Fatimah&quot;</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询表达式</span></span><br><span class="line">    <span class="keyword">var</span> queryResults = </span><br><span class="line">        <span class="keyword">from</span> n <span class="keyword">in</span> names</span><br><span class="line">        <span class="keyword">where</span> n.StartWith(<span class="string">&quot;S&quot;</span>)</span><br><span class="line">        <span class="keyword">select</span> n;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//迭代查询结果</span></span><br><span class="line">    WriteLine(<span class="string">&quot;Name beginning with S:&quot;</span>);</span><br><span class="line">    <span class="keyword">foreach</span>(<span class="keyword">var</span> item <span class="keyword">in</span> queryResults)&#123;</span><br><span class="line">        WriteLine(item);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Write(<span class="string">&quot;Program finished. Press Enter/Return to continue:&quot;</span>);</span><br><span class="line">    ReadLine();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <span id="more"></span>
-
 <p>这段代码查询字符串数组<code>name</code>中以<code>S</code>开头的元素，收入<code>queryResults</code>中，并将它们输出。其中类似SQL语句，包含“from…in…where…select”的部分被称为“查询表达式”。</p>
 <p><code>from...in...</code>子句指定了要查询的数据，这里例子中是数组<code>names</code>中的每一个元素<code>n</code>。数据是指数据源中的元素，而LINQ支持的数据源必须支持<code>IEnumerable&lt;T&gt;</code>接口，这是C#中所有的数据、集合都支持的。</p>
 <p><code>where</code>子句不是必需的，它用表达式（<strong>也包括Lambda表达式</strong>）作为查询条件，针对每个<code>n</code>，查询条件能返回一个bool值，以此限定查询结果的范围。</p>
@@ -321,66 +320,66 @@
 <p>实际上，直到访问查询结果之前，LINQ查询都并没有真的进行。查询结果变量只是保存了“执行查询的计划”，这被叫做查询的“延迟执行”。</p>
 <p>除了上述的构造查询表达式之外，还可以用LINQ支持的一系列扩展方法实现类似的功能。比如在<a href="https://hakurei.red/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/">C#杂记之壹：委托与事件</a>里我曾写到的，当引用<code>System.Linq</code>命名空间后，<code>IEnumerable&lt;T&gt;</code>接口中就会多出一些扩展方法，比如其中的<code>Where()</code>方法，它接受一个<code>Func&lt;TSource, bool&gt;</code>委托作为参数，用于筛选数据源中的元素，类似于查询表达式中的查询条件。这行代码里，用到两个Lambda表达式作为委托：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> queryResults = numList.Where(i =&gt; i &lt; <span class="number">5</span>).Select(i =&gt; i * <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//上面的方法语法等同于以下的查询表达式：</span></span><br><span class="line"><span class="keyword">var</span> queryResults = </span><br><span class="line">    <span class="keyword">from</span> i <span class="keyword">in</span> numList</span><br><span class="line">    <span class="keyword">where</span> i &lt; <span class="number">5</span></span><br><span class="line">    <span class="keyword">select</span> i * <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>用了几次LINQ之后，我发现用扩展方法写反而更常见，甚至也更方便。</p>
 </blockquote>
-<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><p>在查询表达式中使用<code>orderby</code>子句，可以对查询结果进行排序。该子句默认按照排序依据升序，如果在子句末尾使用<code>descending</code>关键字就可改为降序。下面的例子里，<code>orderby</code>子句依据字符串元素的最后一个字符，对查询结果进行降序排序：</p>
+<h1>排序</h1>
+<p>在查询表达式中使用<code>orderby</code>子句，可以对查询结果进行排序。该子句默认按照排序依据升序，如果在子句末尾使用<code>descending</code>关键字就可改为降序。下面的例子里，<code>orderby</code>子句依据字符串元素的最后一个字符，对查询结果进行降序排序：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> queryResults = </span><br><span class="line">    <span class="keyword">from</span> n <span class="keyword">in</span> names</span><br><span class="line">    <span class="keyword">where</span> n.StartWith(<span class="string">&quot;S&quot;</span>)</span><br><span class="line">    <span class="keyword">orderby</span> n.Substring(n.length<span class="number">-1</span>) <span class="keyword">descending</span></span><br><span class="line">    <span class="keyword">select</span> n ;</span><br></pre></td></tr></table></figure>
-
 <p>至于多级排序，形式也十分简单：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//三级排序，最后是构造匿名类型，迭代访问时用var即可</span></span><br><span class="line"><span class="keyword">var</span> queryResults = </span><br><span class="line">    <span class="keyword">from</span> c <span class="keyword">in</span> cunstomers</span><br><span class="line">    <span class="keyword">orderby</span> c.Region, c.Country <span class="keyword">descending</span>, c.City</span><br><span class="line">    <span class="keyword">select</span> <span class="keyword">new</span> &#123;c.ID, c.Region, c.Country, c.City&#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h1><p>有时我们并不关注每一条查询结果的细节，所要的只是关于查询结果的一个统计值，这就是所谓的聚合运算。既然学过SQL，这几个基本聚合运算符也是“老朋友”了：</p>
+<h1>聚合</h1>
+<p>有时我们并不关注每一条查询结果的细节，所要的只是关于查询结果的一个统计值，这就是所谓的聚合运算。既然学过SQL，这几个基本聚合运算符也是“老朋友”了：</p>
 <table>
 <thead>
 <tr>
-<th align="left">运算符</th>
-<th align="left">说明</th>
+<th style="text-align:left">运算符</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">Count()</td>
-<td align="left">结果的个数</td>
+<tbody>
+<tr>
+<td style="text-align:left">Count()</td>
+<td style="text-align:left">结果的个数</td>
 </tr>
 <tr>
-<td align="left">Min()</td>
-<td align="left">结果中的最小值</td>
+<td style="text-align:left">Min()</td>
+<td style="text-align:left">结果中的最小值</td>
 </tr>
 <tr>
-<td align="left">Max()</td>
-<td align="left">结果中的最大值</td>
+<td style="text-align:left">Max()</td>
+<td style="text-align:left">结果中的最大值</td>
 </tr>
 <tr>
-<td align="left">Average()</td>
-<td align="left">数字结果的平均值</td>
+<td style="text-align:left">Average()</td>
+<td style="text-align:left">数字结果的平均值</td>
 </tr>
 <tr>
-<td align="left">Sum()</td>
-<td align="left">数字结果的总和</td>
+<td style="text-align:left">Sum()</td>
+<td style="text-align:left">数字结果的总和</td>
 </tr>
 <tr>
-<td align="left">Distinct()</td>
-<td align="left">结果去重（其实不是聚合）</td>
+<td style="text-align:left">Distinct()</td>
+<td style="text-align:left">结果去重（其实不是聚合）</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><strong>不过，LINQ与SQL仍有所不同，聚合运算符不是像SQL里一样写在select子句里，而是结果集所支持的方法。</strong></p>
 <p>SQL的形式：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(column_name) <span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
-
 <p>LINQ的形式，聚合运算时可以可选地传入委托作为元素的转换函数，然后对转换后的结果进行聚合：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WriteLine(queryReusults.Max(i =&gt; i * <span class="number">5</span> + <span class="number">2</span>));</span><br></pre></td></tr></table></figure>
-
-<h1 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h1><p>LINQ的分组查询类似于SQL的<code>GROUP BY</code>，配合聚合函数使用得到分组聚合值，用<code>group...by...into...</code>子句实现。</p>
+<h1>分组查询</h1>
+<p>LINQ的分组查询类似于SQL的<code>GROUP BY</code>，配合聚合函数使用得到分组聚合值，用<code>group...by...into...</code>子句实现。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> queryResults = </span><br><span class="line">    <span class="keyword">from</span> c <span class="keyword">in</span> customers</span><br><span class="line">    <span class="keyword">group</span> c <span class="keyword">by</span> c.Region <span class="keyword">into</span> cg</span><br><span class="line">    <span class="keyword">select</span> <span class="keyword">new</span> &#123; TotalSales = cg.Sum(c =&gt; c.sales), Region = cg.Key &#125;;</span><br></pre></td></tr></table></figure>
-
 <p>上面这个例子，首先用group by into对数据源<code>customers</code>进行分组，得到新的结果集<code>cg</code>。通过分组查询得到的这个临时结果集实现了<code>IGrouping</code>接口，它包含<code>Key</code>属性，表示分组所依据的值，也就是<code>by</code>后面所接的表达式（本例中是表示客户地区的<code>c.Region</code>）之值。</p>
 <p>最后的<code>select</code>子句依然是构造匿名类型，这在需要投影多个属性时是很有用的。</p>
-<h1 id="join查询"><a href="#join查询" class="headerlink" title="join查询"></a>join查询</h1><p>和SQL中一样，join查询是用在需要用另外的数据源作为参考来进行查询，或者需要从多个数据源中汇集信息时的。SQL中实现多表查询至少有两种方法，一是使用JOIN，二是引用多个表然后把连接条件写在where子句中。但由于LINQ的<code>from...in...</code>子句只能引用一个数据源，所以第二种方案是行不通的，需要使用<code>join...in...on...</code>子句来实现。</p>
+<h1>join查询</h1>
+<p>和SQL中一样，join查询是用在需要用另外的数据源作为参考来进行查询，或者需要从多个数据源中汇集信息时的。SQL中实现多表查询至少有两种方法，一是使用JOIN，二是引用多个表然后把连接条件写在where子句中。但由于LINQ的<code>from...in...</code>子句只能引用一个数据源，所以第二种方案是行不通的，需要使用<code>join...in...on...</code>子句来实现。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> queryResults = </span><br><span class="line">    <span class="keyword">from</span> c <span class="keyword">in</span> customers</span><br><span class="line">    <span class="keyword">join</span> o <span class="keyword">in</span> orders <span class="keyword">on</span> c.ID <span class="keyword">equals</span> o.ID</span><br><span class="line">    <span class="keyword">select</span> <span class="keyword">new</span> &#123; </span><br><span class="line">        c.ID, </span><br><span class="line">        c.City, </span><br><span class="line">        SalesBefore = c.Sales, </span><br><span class="line">        NewOrder = o.Amount, </span><br><span class="line">        SalesAfter = c.Sales + o.Amount</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
-
 <p>上面的例子是一个简单的内连接（Inner Join），其实<a target="_blank" rel="noopener" href="https://www.c-sharpcorner.com/UploadFile/ff2f08/sql-join-in-linq-linq-to-entity-linq-to-sql/">LINQ也能实现外连接</a>，只是不算那么优雅（而且好像也没多大卯月）。</p>
-<h1 id="交并差"><a href="#交并差" class="headerlink" title="交并差"></a>交并差</h1><p>这是LINQ为IEnumerable带来的非常贴心的功能，仅三个简单的扩展方法。</p>
+<h1>交并差</h1>
+<p>这是LINQ为IEnumerable带来的非常贴心的功能，仅三个简单的扩展方法。</p>
 <p>取并集：Union()</p>
 <p>取交集：Intersect()</p>
 <p>取差集：Except()</p>
@@ -388,8 +387,8 @@
 <p>这几个方法返回的类型都是IEnumerable，需要在调用之后再使用ToList()或者ToArray()之类的方法。</p>
 <p>你甚至可以用这玩意一行代码秒掉<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/intersection-of-two-arrays/">LeetCode 349 两个数组的交集</a>：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">int</span>[] <span class="title">Intersection</span>(<span class="params"><span class="built_in">int</span>[] nums1, <span class="built_in">int</span>[] nums2</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> nums1.Intersect(nums2).ToArray();        <span class="comment">//LINQ完事，别想算法了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>基础形式：<strong>from…in…where…select…</strong></p>
+<h1>总结</h1>
+<p>基础形式：<strong>from…in…where…select…</strong></p>
 <p>其中：</p>
 <p>from…in…指定数据源是什么；</p>
 <p>可选的where指定按照什么条件筛选；</p>
@@ -442,8 +441,8 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
               <a href="/tags/C-Sharp/" rel="tag"># C Sharp</a>
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
           </div>
 
         

@@ -21,12 +21,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","version":"8.7.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="如果你只是想要在自己站点的左下角加一个极其Stable的音乐播放器，而不想听我废话自己踩的坑，请直接跳转：“Show me the CODE!”   早期尝试网易云iframe今天，我试图解决一个历史遗留问题。 之前我博客上的音乐播放器一直都是网易云的外链iframe，就这个样式的：   我一直把这个玩意放在sidebar里。但是问题是，移动版视图下sidebar是不展示的，只有header能够显">
+<meta name="description" content="如果你只是想要在自己站点的左下角加一个极其Stable的音乐播放器，而不想听我废话自己踩的坑，请直接跳转： “Show me the CODE!”  早期尝试 ¶网易云iframe 今天，我试图解决一个历史遗留问题。 之前我博客上的音乐播放器一直都是网易云的外链iframe，就这个样式的：  我一直把这个玩意放在sidebar里。但是问题是，移动版视图下sidebar是不展示的，只有header能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为Hexo博客添加全局APlayer播放器">
 <meta property="og:url" content="https://hakurei.red/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/index.html">
 <meta property="og:site_name" content="博丽寿昌分社 | Macyrate">
-<meta property="og:description" content="如果你只是想要在自己站点的左下角加一个极其Stable的音乐播放器，而不想听我废话自己踩的坑，请直接跳转：“Show me the CODE!”   早期尝试网易云iframe今天，我试图解决一个历史遗留问题。 之前我博客上的音乐播放器一直都是网易云的外链iframe，就这个样式的：   我一直把这个玩意放在sidebar里。但是问题是，移动版视图下sidebar是不展示的，只有header能够显">
+<meta property="og:description" content="如果你只是想要在自己站点的左下角加一个极其Stable的音乐播放器，而不想听我废话自己踩的坑，请直接跳转： “Show me the CODE!”  早期尝试 ¶网易云iframe 今天，我试图解决一个历史遗留问题。 之前我博客上的音乐播放器一直都是网易云的外链iframe，就这个样式的：  我一直把这个玩意放在sidebar里。但是问题是，移动版视图下sidebar是不展示的，只有header能">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/01/12/Dmhzxi8XFIQK7np.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/01/12/Sb8tgk2FZLrnu3i.jpg">
@@ -156,7 +156,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A9%E6%9C%9F%E5%B0%9D%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">早期尝试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E6%98%93%E4%BA%91iframe"><span class="nav-number">1.1.</span> <span class="nav-text">网易云iframe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%8E%E6%9C%88%E6%B5%A9%E7%A9%BA%E9%9F%B3%E4%B9%90"><span class="nav-number">1.2.</span> <span class="nav-text">明月浩空音乐</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#APlayer"><span class="nav-number">2.</span> <span class="nav-text">APlayer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Show-me-the-CODE"><span class="nav-number">3.</span> <span class="nav-text">Show me the CODE!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bonus%EF%BC%9A%E4%BD%BF%E7%94%A8pjax%EF%BC%8C%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC%E4%B8%8D%E9%87%8D%E6%96%B0%E6%92%AD%E6%94%BE"><span class="nav-number">4.</span> <span class="nav-text">Bonus：使用pjax，页面跳转不重新播放</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">早期尝试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E6%98%93%E4%BA%91iframe"><span class="nav-number">1.1.</span> <span class="nav-text">网易云iframe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%8E%E6%9C%88%E6%B5%A9%E7%A9%BA%E9%9F%B3%E4%B9%90"><span class="nav-number">1.2.</span> <span class="nav-text">明月浩空音乐</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">APlayer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">Show me the CODE!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">Bonus：使用pjax，页面跳转不重新播放</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -171,7 +171,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -309,23 +309,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <div class="note info"><p>如果你只是想要在自己站点的左下角加一个极其Stable的音乐播放器，而不想听我废话自己踩的坑，请直接跳转：<br><a href="/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/#Show-me-the-CODE">“Show me the CODE!”</a></p>
+        <div class="note info"><p>如果你只是想要在自己站点的左下角加一个极其Stable的音乐播放器，而不想听我废话自己踩的坑，请直接跳转：<br>
+<a href="/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/#Show-me-the-CODE">“Show me the CODE!”</a></p>
 </div>
-
-<h1 id="早期尝试"><a href="#早期尝试" class="headerlink" title="早期尝试"></a>早期尝试</h1><h2 id="网易云iframe"><a href="#网易云iframe" class="headerlink" title="网易云iframe"></a>网易云iframe</h2><p>今天，我试图解决一个历史遗留问题。</p>
+<h1>早期尝试</h1>
+<h2 id="网易云iframe"><a class="header-anchor" href="#网易云iframe">¶</a>网易云iframe</h2>
+<p>今天，我试图解决一个历史遗留问题。</p>
 <p>之前我博客上的音乐播放器一直都是网易云的外链iframe，就这个样式的：</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1384318412&auto=0&height=66"></iframe>
-
 <p>我一直把这个玩意放在sidebar里。但是问题是，移动版视图下sidebar是不展示的，只有header能够显示出来，而且还需要用toggle展开。我使用的主题是<code>NexT</code>，试验了一下，需要修改的地方是：</p>
 <p><code>\themes\next\layout\_partials\header\index.swig</code></p>
 <p>由于toggle展开的是<code>site-nav</code>，将源码修改如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; partial(&#x27;_partials/header/brand.swig&#x27;, &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">&quot;site-nav&quot;</span>&gt;</span></span><br><span class="line">  &#123;&#123; partial(&#x27;_partials/header/menu.swig&#x27;, &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line">  <span class="comment">&lt;!--网易云iframe--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">src</span>=<span class="string">&quot;//music.163.com/outchain/player?type=2&amp;id=1384318412&amp;auto=0&amp;height=66&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--网易云iframe end--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;%- if theme.algolia_search.enable or theme.local_search.enable %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;site-search&quot;</span>&gt;</span></span><br><span class="line">    &#123;&#123; partial(&#x27;_partials/search/index.swig&#x27;, &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;- next_inject(&#x27;header&#x27;) &#125;&#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://i.loli.net/2020/01/12/Dmhzxi8XFIQK7np.jpg" alt="site-nav中的iframe.jpg"></p>
 <p>这个效果属实🍔🍔。并且在桌面版视图下还会把sidebar压下去，不太理想。</p>
 <span id="more"></span>
-
-<h2 id="明月浩空音乐"><a href="#明月浩空音乐" class="headerlink" title="明月浩空音乐"></a>明月浩空音乐</h2><p>有没有悬浮式的播放器呢？有的。随便查一查就看到了这篇文章：<a target="_blank" rel="noopener" href="https://leafjame.github.io/posts/2636059693.html">一款炫丽的网页播放器插件</a>，这里介绍了<code>绚丽彩虹播放器</code>，确实是够绚丽的，点进去一看还是个东方二次元，连域名都叫<code>badapple.top</code>，爱了。</p>
+<h2 id="明月浩空音乐"><a class="header-anchor" href="#明月浩空音乐">¶</a>明月浩空音乐</h2>
+<p>有没有悬浮式的播放器呢？有的。随便查一查就看到了这篇文章：<a target="_blank" rel="noopener" href="https://leafjame.github.io/posts/2636059693.html">一款炫丽的网页播放器插件</a>，这里介绍了<code>绚丽彩虹播放器</code>，确实是够绚丽的，点进去一看还是个东方二次元，连域名都叫<code>badapple.top</code>，爱了。</p>
 <p>一阵操作之后，预览的效果确实挺理想的，可是到我网站上就只能播放第一首曲子了，和上面那篇文章的评论区里一位老哥说的一模一样：</p>
 <p><img src="https://i.loli.net/2020/01/12/Sb8tgk2FZLrnu3i.jpg" alt="出现了绚丽的问题"></p>
 <p>在我试图解决这个问题的时候，<code>badapple.top</code>突然就503了，回想起上面最后的更新日期是2018年，我就感到一阵不妙。不一会儿我就发现了和这绚丽播放器几乎<code> 完 全 一 致 </code>的替代品<a target="_blank" rel="noopener" href="https://music.ain19.com/">AIP播放器</a>，并且找出了前面问题的解决方案。可是，这两个东西相似度怎么能够这么高？？</p>
@@ -333,17 +333,16 @@
 <p>本来如果我不太在意这个插件的安全性，折腾播放器的经历到这里就应该结束了。可是AIP播放器它不能自由修改主题色，而默认的颜色偏偏还是绿的，强迫症让我不能忍。看了看它的加载方式，是用<code>\theme\next\layout\_layout.swig</code>中插入的JS脚本加载远端服务器上的CSS，JS、CSS、播放列表都在远端，这可没法随便改了。</p>
 <p>当然，也许我可以自己写一个CSS（在NexT里用的是Stylus）来覆盖它的设定——可惜我不会。</p>
 <p>那咋办嘛，只能再看看有没有其他选择了。如此“简单”的需求难道会没有对应的开源软件吗？</p>
-<h1 id="APlayer"><a href="#APlayer" class="headerlink" title="APlayer"></a>APlayer</h1><p>在寻找替代品的过程中，我曾看到过这篇文章：<a target="_blank" rel="noopener" href="https://diygod.me/best-players-in-hexo/">可能是目前最好用的两个 Hexo 播放器插件</a>，讲的是开源的<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/hexo-tag-aplayer">hexo-tag-aplayer</a>，这是一个给hexo使用的<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/APlayer">APlayer</a>。</p>
+<h1>APlayer</h1>
+<p>在寻找替代品的过程中，我曾看到过这篇文章：<a target="_blank" rel="noopener" href="https://diygod.me/best-players-in-hexo/">可能是目前最好用的两个 Hexo 播放器插件</a>，讲的是开源的<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/hexo-tag-aplayer">hexo-tag-aplayer</a>，这是一个给hexo使用的<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/APlayer">APlayer</a>。</p>
 <p>然而在看了它的文档之后，我没有第一时间get到它的点，特别是不知道要咋用。README.md里关于用法仅有一句：</p>
 <figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% aplayer title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这是个啥？当时我虽然知道Hexo的<code>Tag Plugins</code>，准确地说是NexT带来的<a target="_blank" rel="noopener" href="https://theme-next.org/docs/tag-plugins/note">Bootstrap Callout</a>——不得不说，<code>Tag Plugins</code>这个名字起得真是沙雕，它太容易和<code>tags</code>混淆了——但是我因为没什么机会用到，并没有细看过它的格式，所以也并不明白这<code>&#123;&#37; &#37;&#125;</code>是个什么操作。</p>
+<p>这是个啥？当时我虽然知道Hexo的<code>Tag Plugins</code>，准确地说是NexT带来的<a target="_blank" rel="noopener" href="https://theme-next.org/docs/tag-plugins/note">Bootstrap Callout</a>——不得不说，<code>Tag Plugins</code>这个名字起得真是沙雕，它太容易和<code>tags</code>混淆了——但是我因为没什么机会用到，并没有细看过它的格式，所以也并不明白这<code>&#123;% %&#125;</code>是个什么操作。</p>
 <p>现在必须得找其他方法的话，那就只好研究一下了。看了些Issues才搞明白原来是写在md文件里的，这与我的想法背道而驰——我希望能放在所有页面的固定位置，如果能做到网易云音乐网页版那样跳转页面而播放进度不变就再好不过了。</p>
 <p>经过一段时间的测试之后，我发现如果使用<code>hexo-tag-aplayer</code>最好的解决方案就是如这个<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/hexo-tag-aplayer/issues/58">issue</a>所言，在md里插入播放器后，再把生成的html文件里对应部分复制到header的<code>index.swig</code>里。可是这不就是个威力加强版的网易云iframe了吗？！</p>
 <p>其实如果不是因为另一个问题，也还勉强能用。它的<code>fixed</code>模式（文档里翻译为“固定模式”）总让人感觉不太对劲，播放列表竟然是向上展开，如果放在header里，本来位置就很靠上，向上展开之后有一部分会伸出页面之外。虽然有一个默认值为<code>340px</code>的参数<code>listmaxheight</code>表示播放列表展开的高度，但我将其调为负值时，不但没有变成向下展开，而且还把播放列表倒过来了……</p>
 <blockquote><p>当你感到迷惑，就应该去查Issues，大概率会有人和你遇到同样的迷惑问题。</p>
 <footer><strong>沃兹·吉硕德</strong></footer></blockquote>
-
 <p>所以我又查到一个<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/hexo-tag-aplayer/issues/79">issue</a>，什么？<code>吸底</code>？这正是我想要的——这说的不就是<strong>原版</strong>APlayer吗？！</p>
 <p><img src="https://i.loli.net/2020/01/12/Rm4tpK1sBMrdcyT.jpg" alt="APlayer吸底模式"></p>
 <p>在APlayer的文档里，对<code>fixed</code>模式的描述是<code>吸底</code>，这才是我所期望的功能，前面被“固定模式”这个沙雕翻译给整蒙了。那么，原版APlayer又是怎么用的呢？</p>
@@ -351,7 +350,6 @@
 <p>看到这里，我的迷惑更上一层楼，有一定前端知识的人应该很快就能看懂这里在说什么，但是我显然不是……</p>
 <p>好在这时看到这篇文章：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1157669">添加全站 APlayer 播放器</a>，看起来把这段代码加到<code>_layout.swig</code>的body里就OK了：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;aplayer&quot;</span> <span class="attr">data-id</span>=<span class="string">&quot;534542404&quot;</span> <span class="attr">data-server</span>=<span class="string">&quot;netease&quot;</span> <span class="attr">data-type</span>=<span class="string">&quot;song&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>但是依然不行：</p>
 <blockquote>
 <p>这里的外部调用链接没有包含版本号，默认加载最新 release 版本；正常来说不会出什么问题，但是如果需要 100% 稳定运行，建议自行加上版本号。</p>
@@ -360,14 +358,15 @@
 <p><img src="https://i.loli.net/2020/01/12/tmUfeSh5KFILic7.jpg" alt="虚假的MetingJS文档"></p>
 <p>（都不Supported你贴个啥APLAYER啊！！）</p>
 <p>好，那就自己加上版本号。这里从<code>jsDelivr</code>引用了三个文件，APlayer的CSS和JS，Meting的JS。最新的（截至2019年11月25日）稳定版本使用如下，你也可以去<code>jsDelivr</code>自行查找。</p>
-<h1 id="Show-me-the-CODE"><a href="#Show-me-the-CODE" class="headerlink" title="Show me the CODE!"></a>Show me the CODE!</h1><p>如果你和我一样使用<code>NexT</code>主题，请复制以下代码，定位到<code>\theme\next\layout\_layout.swig</code>，将其粘贴到body体内即可。如果是其他情况，<strong>大同小异！大同小异！</strong></p>
+<h1>Show me the CODE!</h1>
+<p>如果你和我一样使用<code>NexT</code>主题，请复制以下代码，定位到<code>\theme\next\layout\_layout.swig</code>，将其粘贴到body体内即可。如果是其他情况，<strong>大同小异！大同小异！</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 引用依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 我使用的APlayer本体 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;aplayer&quot;</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">data-id</span>=<span class="string">&quot;2465890057&quot;</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">data-server</span>=<span class="string">&quot;netease&quot;</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">data-type</span>=<span class="string">&quot;playlist&quot;</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">data-fixed</span>=<span class="string">&quot;true&quot;</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">data-autoplay</span>=<span class="string">&quot;true&quot;</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">data-order</span>=<span class="string">&quot;random&quot;</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">data-volume</span>=<span class="string">&quot;0.55&quot;</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">data-theme</span>=<span class="string">&quot;#cc543a&quot;</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">data-preload</span>=<span class="string">&quot;auto&quot;</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--如果将本体放在body里面导致页面加载出现问题，请尝试放到body体后面--&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>  APlayer的属性设置，请查阅<a target="_blank" rel="noopener" href="https://aplayer.js.org/#/zh-Hans/?id=%E5%8F%82%E6%95%B0">APlayer中文文档-参数</a>以及能让你使用音乐平台的<a target="_blank" rel="noopener" href="https://github.com/metowolf/MetingJS">MetingJS</a>。</p>
+<p>APlayer的属性设置，请查阅<a target="_blank" rel="noopener" href="https://aplayer.js.org/#/zh-Hans/?id=%E5%8F%82%E6%95%B0">APlayer中文文档-参数</a>以及能让你使用音乐平台的<a target="_blank" rel="noopener" href="https://github.com/metowolf/MetingJS">MetingJS</a>。</p>
 <blockquote>
 <p><strong>注意：</strong> 如果你使用上述代码，请以<code>data-xxx</code>格式书写参数名！</p>
 </blockquote>
-<h1 id="Bonus：使用pjax，页面跳转不重新播放"><a href="#Bonus：使用pjax，页面跳转不重新播放" class="headerlink" title="Bonus：使用pjax，页面跳转不重新播放"></a>Bonus：使用pjax，页面跳转不重新播放</h1><p><strong>最后一步！</strong></p>
+<h1>Bonus：使用pjax，页面跳转不重新播放</h1>
+<p><strong>最后一步！</strong></p>
 <p><a target="_blank" rel="noopener" href="https://music.163.com/">网易云音乐网页版</a>底部的播放器，无论在网易云里如何跳转页面，只要还在当前标签页都是不重新加载的，这样就可以使正在播放中的音乐不随页面跳转中断。怎样实现这个功能呢？</p>
 <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/23720144">知乎-网易云音乐网页版底部的播放器是如何实现在切换网页时不停止播放音乐的？</a></p>
 <p>这篇文章讲述了pjax的使用：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1096366">迷你音乐播放器及实现全站pjax无刷新加载</a></p>
@@ -379,7 +378,6 @@
 <p><strong>然而，全部木大！</strong> 该跳还是跳了，也许是我姿势不对。</p>
 <p>我转念一想，<code>NexT</code>这种历史悠久的主题，<code>pjax</code>这么好用的技术，岂有不内置的道理？鬼使神差之下，我打开主题的<code>_config.yml</code>一搜，还真的有：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Easily enable fast Ajax navigation on your website.</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/theme-next-pjax</span></span><br><span class="line"><span class="comment"># For moreinformation: https://github.com/MoOx/pjax</span></span><br><span class="line"><span class="attr">pjax:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
 <p>仅仅直接在这里把选项置为<code>true</code>是不行的，因为虽然配置文件里已经写了选项，但其实并没有安装对应的插件。关于如何使用，<a target="_blank" rel="noopener" href="https://github.com/theme-next/theme-next-pjax">Dependencies</a>的文档里说得极为清楚，在此就不赘述了。</p>
 <p>开启之后，全站都实现了无刷新加载，接下来你就随便戳吧，音乐始终会在左下角播放的。</p>
 <p>至此，一整天的折腾之旅才算是终于告一段落了。</p>

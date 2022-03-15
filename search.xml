@@ -3037,4 +3037,59 @@ C#实际上并不需要怎么关心内存管理，自动垃圾收集非常强大
         <tag>Linux</tag>
       </tags>
   </entry>
+  <entry>
+    <title>自定义的==运算符，我们应该保留吗？</title>
+    <url>/2022/03/16/UnityCustomEqualOperator/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote>
+<p>该文章译自Unity官网博客，原文：<a href="https://blog.unity.com/technology/custom-operator-should-we-keep-it">Custom == operator, should we keep it?</a></p>
+<p>TL;DR: Unity的<code>==</code>是魔改版，与原生C#里的行为不一样。所以不要对<code>UnityEngine.Object</code>派生出的任何东西（包括<code>MonoBehaviour</code>）使用C#的空值相关语法糖，包括<code>?.</code>，<code>??</code>，<code>??=</code>等等（三元运算符可以用），而应该老老实实使用<code>== null</code>来判空。</p>
+</blockquote>
+<h1>正文</h1>
+<p>当你在Unity中进行这样的操作时：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (myGameObject == <span class="literal">null</span>) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Unity对<code>==</code>运算符做了一些特殊处理。与大多数人所期望的不同，我们对<code>==</code>运算符有一个特殊实现。</p>
+<p>这样做是为了达到两个目的：</p>
+<ol>
+<li>当一个<code>MonoBehaviour</code>有字段时，仅仅在编辑器中（备注 1），我们不会将这些字段设置为“真null”，而是设置为一个“假null”对象。我们自定义的<code>==</code>操作符能够检查某物是否是这种假null，并采取相应的行为。虽然这种机制怪怪的，但它能让我们在假null中存储信息，这样当你对它调用一个方法，或者读取一个属性时，它可以给你更多的上下文信息。如果没有这个技巧，你只会得到一个<code>NullReferenceException</code>，一个堆栈跟踪，但你不知道到底哪个<code>GameObject</code>的<code>MonoBehaviour</code>的字段是空的。而有了这个技巧，我们就可以在检查器中突出显示<code>GameObject</code>，也可以给你更多的提示：“看起来你正在访问这个<code>MonoBehaviour</code>中的一个未初始化的字段，请用Inspector将这个字段指向某个东西”。</li>
+</ol>
+<span id="more"></span>
+<p>目的二就有点复杂了：</p>
+<ol>
+<li>当你得到一个<code>GameObject</code>类型的C#对象时（备注 2），它几乎什么都不包含。这是因为Unity引擎是一个C/C<ins>引擎。<code>GameObject</code>的所有实际信息（名称、Component列表、HideFlags等）都在C</ins>端。C#对象只有一个指向本地对象的指针。我们称这些C#对象为“包装对象”。这些C<ins>对象的生命周期，如<code>GameObject</code>和其他所有从<code>UnityEngine.Object</code>派生的对象，都是被明确地托管的。当你加载一个新场景，或者当你对它们调用<code>Object.Destroy(myObject);</code>时，这些对象会被销毁。C#对象的生命周期通过垃圾回收以C#的方式管理。这意味着可能有一个仍然存在的C#包装对象，包装着已经被销毁的C</ins>对象。如果你把这个C#对象和null进行比较，我们自定义的<code>==</code>操作符在这种情况下会返回<code>true</code>，尽管实际的C#变量实际上并不是真正的null。</li>
+</ol>
+<p>虽然这两个理由非常合理，但自定义判空也带来了一堆缺点。</p>
+<ul>
+<li>违反直觉。</li>
+<li>将两个<code>UnityEngine.Object</code>互相比较或者与<code>null</code>比较，比你想象中的要慢。</li>
+<li>自定义的<code>==</code>运算符不是线程安全的，所以你不能在主线程之外比较对象（这个我们可以解决）。</li>
+<li>它和<code>??</code>运算符的行为不一致，虽然后者也会判空，但它做的是纯C#的判空，不能绕过它来调用我们的自定义判空。</li>
+</ul>
+<p>考虑到这些优缺点，如果我们从头构建API，我们会选择不做自定义判空，而是设计一个<code>myObject.destroy</code>属性，让你用它来检查对象是否已经死亡，同时接受这样的事实：如果你真的在空字段上调用函数，我们没法再给出较好的错误信息。</p>
+<p>我们正在考虑是否应该做出改变。这是我们对“修整旧事物”和“不破坏旧项目”之间正确平衡的不断探索中的一步。为此，我们想知道你的想法。对于Unity5更新，我们一直在努力让Unity能够自动升级你的脚本（详见之后的博文）。不幸的是，对于这种情况，我们无法自动升级你的脚本。(因为我们无法区分“这是一个实际想要旧行为的旧脚本”，和“这是一个实际想要新行为的新脚本”）。</p>
+<p>我们倾向于“删除自定义的<code>==</code>运算符”，但是很让人纠结，因为这将改变你的项目中目前所有判空的意义。对于对象不是“真正的null”而是一个被destroy的对象的情况，<code>== null</code>判空曾经返回<code>true</code>，如果我们做了改变，它将返回<code>false</code>。如果你想检查你的变量是否指向一个被destroy的对象，你需要将代码改为检查<code>if (myObject.destroy) &#123;&#125;</code>。我们对此有点紧张，因为如果你没有读过这篇博文，十有八九就算你读过，也很容易意识不到这种行为的改变，何况大多数人根本都没意识到这种自定义判空的存在（备注 3）。</p>
+<p>即使我们要改变它，也应该在Unity5里做，毕竟我们希望让用户在非主要版本更新里能少受点折磨。</p>
+<p>你觉得我们怎么做好？是给你一个更清晰的体验，但你必须为此改变项目中的判空逻辑，还是保持原样？</p>
+<p>以上，Lucas (<a href="https://twitter.com/lucasmeijer">@lucasmeijer</a>)</p>
+<hr>
+<h1>备注</h1>
+<ol>
+<li>
+<p>我们只在编辑器中这样做。这就是为什么当你调用<code>GetComponent()</code>查询一个不存在的组件时，你会发现发生了C#的内存分配，因为我们在新分配的假null中生成了这个自定义的警告字符串。这种内存分配不会发生在构建出的游戏中。这是一个很好的例子，如果你要对你的游戏做性能分析，你总该分析实际的电脑端或移动端，而不是在编辑器里进行分析，因为我们在编辑器里对安全性、使用方法做了很多额外的检查便于你开展工作，但却牺牲了一些性能。当对性能表现和内存分配进行分析时，绝对不要对编辑器进行分析，而是总应对构建出的游戏进行分析。</p>
+</li>
+<li>
+<p>这不仅适用于GameObject，而且适用于所有从UnityEngine.Object派生出来的东西。</p>
+</li>
+<li>
+<p>有趣的故事：我在优化<code>GetComponent&lt;T&gt;()</code>性能时遇到了这个问题，在为<code>Transform</code>组件实现一些缓存时，我没得到任何性能提升。然后<a href="https://twitter.com/jonasechterhoff">@jonasechterhoff</a>看了看这个问题，也得出了同样的结论。缓存代码看起来像这样：</p>
+</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> Transform m_CachedTransform</span><br><span class="line"><span class="keyword">public</span> Transform transform</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (m_CachedTransform == <span class="literal">null</span>)</span><br><span class="line">            m_CachedTransform = InternalGetTransform();</span><br><span class="line">        <span class="keyword">return</span> m_CachedTransform;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>事实证明，我们的两位工程师没有料到判空的开销比预期的高，这就是没看到缓存带来的速度优势的原因。“如果就连我们都踩坑了，那么踩坑的用户会有多少呢？”，于是乎就有了这篇博文:)</p>
+]]></content>
+      <tags>
+        <tag>Unity</tag>
+        <tag>C Sharp</tag>
+        <tag>译文</tag>
+      </tags>
+  </entry>
 </search>

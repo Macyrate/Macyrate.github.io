@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#93251A">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="该文章译自Unity官网博客，原文：Custom &#x3D;&#x3D; operator, should we keep it? TL;DR: Unity的&#x3D;&#x3D;是魔改版，与原生C#里的行为不一样。所以不要对UnityEngine.Object派生出的任何东西（包括MonoBehaviour）使用C#的空值相关语法糖，包括?.，??，??&#x3D;等等（三元运算符可以用），而应该老老实实使用&#x3D;&#x3D; null来判空。  正文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义的&#x3D;&#x3D;运算符，我们应该保留吗？">
+<meta property="og:url" content="https://hakurei.red/2022/03/16/UnityCustomEqualOperator/index.html">
+<meta property="og:site_name" content="博丽寿昌分社 | Macyrate">
+<meta property="og:description" content="该文章译自Unity官网博客，原文：Custom &#x3D;&#x3D; operator, should we keep it? TL;DR: Unity的&#x3D;&#x3D;是魔改版，与原生C#里的行为不一样。所以不要对UnityEngine.Object派生出的任何东西（包括MonoBehaviour）使用C#的空值相关语法糖，包括?.，??，??&#x3D;等等（三元运算符可以用），而应该老老实实使用&#x3D;&#x3D; null来判空。  正文">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-15T16:20:12.000Z">
+<meta property="article:modified_time" content="2022-03-15T16:20:12.000Z">
+<meta property="article:author" content="Macyrate">
+<meta property="article:tag" content="Unity">
+<meta property="article:tag" content="C Sharp">
+<meta property="article:tag" content="译文">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hakurei.red/2022/03/16/UnityCustomEqualOperator/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hakurei.red/2022/03/16/UnityCustomEqualOperator/","path":"2022/03/16/UnityCustomEqualOperator/","title":"自定义的==运算符，我们应该保留吗？"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>自定义的==运算符，我们应该保留吗？ | 博丽寿昌分社 | Macyrate</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <img src="https://s2.loli.net/2022/02/05/QtVxf1gwNrzSCps.png">
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-lab"><a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>实验</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">备注</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Macyrate"
+      src="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+  <p class="site-author-name" itemprop="name">Macyrate</p>
+  <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Macyrate" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:macyrate@foxmail.com" title="E-Mail → mailto:macyrate@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6010944415" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;6010944415" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://steamcommunity.com/profiles/76561198313695590/" title="Steam → https:&#x2F;&#x2F;steamcommunity.com&#x2F;profiles&#x2F;76561198313695590&#x2F;" rel="noopener" target="_blank"><i class="fab fa-steam fa-fw"></i>Steam</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://music.163.com/#/user/home?id=36445171" title="Netease → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;36445171" rel="noopener" target="_blank"><i class="fas fa-music fa-fw"></i>Netease</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/macyrate" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;macyrate" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.viseator.com/" title="https:&#x2F;&#x2F;www.viseator.com&#x2F;" rel="noopener" target="_blank">viseator</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://sukunahust.com/" title="http:&#x2F;&#x2F;sukunahust.com&#x2F;" rel="noopener" target="_blank">Sukuna</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://touhoudog.net/" title="http:&#x2F;&#x2F;touhoudog.net&#x2F;" rel="noopener" target="_blank">充满魔力的土地下</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://kourindou.exblog.jp/" title="https:&#x2F;&#x2F;kourindou.exblog.jp&#x2F;" rel="noopener" target="_blank">博麗幻想書譜</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2022/03/16/UnityCustomEqualOperator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/02/23/5FnPOvDaUVpytfX.jpg">
+      <meta itemprop="name" content="Macyrate">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽寿昌分社 | Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="自定义的==运算符，我们应该保留吗？ | 博丽寿昌分社 | Macyrate">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自定义的==运算符，我们应该保留吗？
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-16 00:20:12" itemprop="dateCreated datePublished" datetime="2022-03-16T00:20:12+08:00">2022-03-16</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>该文章译自Unity官网博客，原文：<a target="_blank" rel="noopener" href="https://blog.unity.com/technology/custom-operator-should-we-keep-it">Custom == operator, should we keep it?</a></p>
+<p>TL;DR: Unity的<code>==</code>是魔改版，与原生C#里的行为不一样。所以不要对<code>UnityEngine.Object</code>派生出的任何东西（包括<code>MonoBehaviour</code>）使用C#的空值相关语法糖，包括<code>?.</code>，<code>??</code>，<code>??=</code>等等（三元运算符可以用），而应该老老实实使用<code>== null</code>来判空。</p>
+</blockquote>
+<h1>正文</h1>
+<p>当你在Unity中进行这样的操作时：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (myGameObject == <span class="literal">null</span>) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Unity对<code>==</code>运算符做了一些特殊处理。与大多数人所期望的不同，我们对<code>==</code>运算符有一个特殊实现。</p>
+<p>这样做是为了达到两个目的：</p>
+<ol>
+<li>当一个<code>MonoBehaviour</code>有字段时，仅仅在编辑器中（备注 1），我们不会将这些字段设置为“真null”，而是设置为一个“假null”对象。我们自定义的<code>==</code>操作符能够检查某物是否是这种假null，并采取相应的行为。虽然这种机制怪怪的，但它能让我们在假null中存储信息，这样当你对它调用一个方法，或者读取一个属性时，它可以给你更多的上下文信息。如果没有这个技巧，你只会得到一个<code>NullReferenceException</code>，一个堆栈跟踪，但你不知道到底哪个<code>GameObject</code>的<code>MonoBehaviour</code>的字段是空的。而有了这个技巧，我们就可以在检查器中突出显示<code>GameObject</code>，也可以给你更多的提示：“看起来你正在访问这个<code>MonoBehaviour</code>中的一个未初始化的字段，请用Inspector将这个字段指向某个东西”。</li>
+</ol>
+<span id="more"></span>
+<p>目的二就有点复杂了：</p>
+<ol>
+<li>当你得到一个<code>GameObject</code>类型的C#对象时（备注 2），它几乎什么都不包含。这是因为Unity引擎是一个C/C<ins>引擎。<code>GameObject</code>的所有实际信息（名称、Component列表、HideFlags等）都在C</ins>端。C#对象只有一个指向本地对象的指针。我们称这些C#对象为“包装对象”。这些C<ins>对象的生命周期，如<code>GameObject</code>和其他所有从<code>UnityEngine.Object</code>派生的对象，都是被明确地托管的。当你加载一个新场景，或者当你对它们调用<code>Object.Destroy(myObject);</code>时，这些对象会被销毁。C#对象的生命周期通过垃圾回收以C#的方式管理。这意味着可能有一个仍然存在的C#包装对象，包装着已经被销毁的C</ins>对象。如果你把这个C#对象和null进行比较，我们自定义的<code>==</code>操作符在这种情况下会返回<code>true</code>，尽管实际的C#变量实际上并不是真正的null。</li>
+</ol>
+<p>虽然这两个理由非常合理，但自定义判空也带来了一堆缺点。</p>
+<ul>
+<li>违反直觉。</li>
+<li>将两个<code>UnityEngine.Object</code>互相比较或者与<code>null</code>比较，比你想象中的要慢。</li>
+<li>自定义的<code>==</code>运算符不是线程安全的，所以你不能在主线程之外比较对象（这个我们可以解决）。</li>
+<li>它和<code>??</code>运算符的行为不一致，虽然后者也会判空，但它做的是纯C#的判空，不能绕过它来调用我们的自定义判空。</li>
+</ul>
+<p>考虑到这些优缺点，如果我们从头构建API，我们会选择不做自定义判空，而是设计一个<code>myObject.destroy</code>属性，让你用它来检查对象是否已经死亡，同时接受这样的事实：如果你真的在空字段上调用函数，我们没法再给出较好的错误信息。</p>
+<p>我们正在考虑是否应该做出改变。这是我们对“修整旧事物”和“不破坏旧项目”之间正确平衡的不断探索中的一步。为此，我们想知道你的想法。对于Unity5更新，我们一直在努力让Unity能够自动升级你的脚本（详见之后的博文）。不幸的是，对于这种情况，我们无法自动升级你的脚本。(因为我们无法区分“这是一个实际想要旧行为的旧脚本”，和“这是一个实际想要新行为的新脚本”）。</p>
+<p>我们倾向于“删除自定义的<code>==</code>运算符”，但是很让人纠结，因为这将改变你的项目中目前所有判空的意义。对于对象不是“真正的null”而是一个被destroy的对象的情况，<code>== null</code>判空曾经返回<code>true</code>，如果我们做了改变，它将返回<code>false</code>。如果你想检查你的变量是否指向一个被destroy的对象，你需要将代码改为检查<code>if (myObject.destroy) &#123;&#125;</code>。我们对此有点紧张，因为如果你没有读过这篇博文，十有八九就算你读过，也很容易意识不到这种行为的改变，何况大多数人根本都没意识到这种自定义判空的存在（备注 3）。</p>
+<p>即使我们要改变它，也应该在Unity5里做，毕竟我们希望让用户在非主要版本更新里能少受点折磨。</p>
+<p>你觉得我们怎么做好？是给你一个更清晰的体验，但你必须为此改变项目中的判空逻辑，还是保持原样？</p>
+<p>以上，Lucas (<a target="_blank" rel="noopener" href="https://twitter.com/lucasmeijer">@lucasmeijer</a>)</p>
+<hr>
+<h1>备注</h1>
+<ol>
+<li>
+<p>我们只在编辑器中这样做。这就是为什么当你调用<code>GetComponent()</code>查询一个不存在的组件时，你会发现发生了C#的内存分配，因为我们在新分配的假null中生成了这个自定义的警告字符串。这种内存分配不会发生在构建出的游戏中。这是一个很好的例子，如果你要对你的游戏做性能分析，你总该分析实际的电脑端或移动端，而不是在编辑器里进行分析，因为我们在编辑器里对安全性、使用方法做了很多额外的检查便于你开展工作，但却牺牲了一些性能。当对性能表现和内存分配进行分析时，绝对不要对编辑器进行分析，而是总应对构建出的游戏进行分析。</p>
+</li>
+<li>
+<p>这不仅适用于GameObject，而且适用于所有从UnityEngine.Object派生出来的东西。</p>
+</li>
+<li>
+<p>有趣的故事：我在优化<code>GetComponent&lt;T&gt;()</code>性能时遇到了这个问题，在为<code>Transform</code>组件实现一些缓存时，我没得到任何性能提升。然后<a target="_blank" rel="noopener" href="https://twitter.com/jonasechterhoff">@jonasechterhoff</a>看了看这个问题，也得出了同样的结论。缓存代码看起来像这样：</p>
+</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Transform m_CachedTransform</span><br><span class="line"><span class="keyword">public</span> Transform transform</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (m_CachedTransform == <span class="literal">null</span>)</span><br><span class="line">            m_CachedTransform = InternalGetTransform();</span><br><span class="line">        <span class="keyword">return</span> m_CachedTransform;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>事实证明，我们的两位工程师没有料到判空的开销比预期的高，这就是没看到缓存带来的速度优势的原因。“如果就连我们都踩坑了，那么踩坑的用户会有多少呢？”，于是乎就有了这篇博文:)</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>A1高闪来一个好吗</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://i.loli.net/2020/04/15/glvwN8eEY3MHiTS.png" alt="Macyrate 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Macyrate
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://hakurei.red/2022/03/16/UnityCustomEqualOperator/" title="自定义的&#x3D;&#x3D;运算符，我们应该保留吗？">https://hakurei.red/2022/03/16/UnityCustomEqualOperator/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Unity/" rel="tag"># Unity</a>
+              <a href="/tags/C-Sharp/" rel="tag"># C Sharp</a>
+              <a href="/tags/%E8%AF%91%E6%96%87/" rel="tag"># 译文</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/14/CSharpNote7-AttributeAndReflection/" rel="prev" title="C#杂记之柒：特性与反射">
+                  <i class="fa fa-chevron-left"></i> C#杂记之柒：特性与反射
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+  <!-- APlayer start -->
+  <!-- Native Mode
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/js/music.js"></script>
+  -->
+
+  <!--MetingJS Mode-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div class="aplayer" 
+  data-id="4928780612" 
+  data-server="netease" 
+  data-type="playlist" 
+  data-fixed="true" 
+  data-autoplay="true" 
+  data-order="random" 
+  data-volume="0.40" 
+  data-theme="#93251A"
+  data-preload="auto" >
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  <meting-js
+    server="netease"
+    type="playlist"
+    id="60198">
+  </meting-js>
+  <!-- APlayer end -->
+
+  <!--TypeKit start-->
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'tzu7ura',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+  <!--TypeKit end-->
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Macyrate & Hakurei Reimu</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://thwiki.cc/%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6" class="theme-link" rel="noopener" target="_blank">博丽大结界</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.2/dist/gitalk.css">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"//cdn.jsdelivr.net/gh/macyrate/gitalk@2.0.2/dist/gitalk.min.js"},"path_md5":"3c7d067d2703dddf9414deaf2e346895"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

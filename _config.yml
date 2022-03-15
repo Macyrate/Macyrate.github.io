@@ -126,10 +126,7 @@ markdown:
   plugins:
     - markdown-it-abbr
     - markdown-it-footnote
-    - markdown-it-ins
-    - markdown-it-sub
     - markdown-it-sup
-    - markdown-it-task-checkbox
   # 锚点设置（因为我没有尝试相关内容，所以就不翻译相关说明了）
   anchors:
     level: 2

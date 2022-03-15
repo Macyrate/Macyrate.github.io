@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#93251A" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.1">
+<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -344,7 +344,7 @@
 <p>在对系统管理模块进行的测试过程中，我们常常遇到极为“神秘”的问题：所有的功能都能按照预期实现，但在一个随机的时间节点，或是对<code>RM_FileScan*</code>等进行free操作时会引发“堆损坏”错误，即<strong>HEAP CORRUPTION DETECTED</strong>。</p>
 <p>一开始我以为这是HustBase框架本身的问题，因为任务书中指定的开发环境应为VS2010，而我使用的是VS2019。但其他同样使用VS2019进行开发的小组并没有出现同样问题，于是我们认为这是由某处访问越界造成的，尤其是早期版本中我使用了大量的<code>memcpy( )</code>函数，这很容易造成访问越界。但当我逐渐用<code>strcpy( )</code>或严谨的指针操作取代<code>memcpy( )</code>，并且对所有写内存操作进行检查后，该问题仍然存在。</p>
 <p>最后我们发现，这个问题出现在内存分配时：</p>
- <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FileScan = (RM_FileScan*)<span class="built_in">calloc</span>(<span class="number">1</span>, <span class="built_in"><span class="keyword">sizeof</span></span>(FileScan));</span><br></pre></td></tr></table></figure>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FileScan = (RM_FileScan*)<span class="built_in">calloc</span>(<span class="number">1</span>, <span class="built_in">sizeof</span>(FileScan));</span><br></pre></td></tr></table></figure>
 <p>在<code>sizeof( )</code>中，我错误地填写了<code>FileScan</code>，而非其作为指针指向的<code>RM_FileScan</code>结构体。因此，这一语句为指针分配了一个指针本身长度的内存空间，即4字节。但后面我将一个结构体填入了这块内存空间，这造成了越界。</p>
 <p>由于对<code>FileScan</code>的内存分配几乎在系统管理模块的每个功能函数中都需要使用，这才使无论使用什么功能，都会随机出现该错误。对内存进行操作时，看清楚自己在写什么东西太重要了！</p>
 </li>

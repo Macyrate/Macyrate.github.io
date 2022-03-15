@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#93251A" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.1">
+<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -343,7 +343,7 @@
 <h1>APlayer</h1>
 <p>在寻找替代品的过程中，我曾看到过这篇文章：<a target="_blank" rel="noopener" href="https://diygod.me/best-players-in-hexo/">可能是目前最好用的两个 Hexo 播放器插件</a>，讲的是开源的<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/hexo-tag-aplayer">hexo-tag-aplayer</a>，这是一个给hexo使用的<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/APlayer">APlayer</a>。</p>
 <p>然而在看了它的文档之后，我没有第一时间get到它的点，特别是不知道要咋用。README.md里关于用法仅有一句：</p>
-<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% aplayer title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">aplayer</span> title author url [picture_url, narrow, autoplay, width:xxx, lrc:xxx] %&#125;</span></span><br></pre></td></tr></table></figure>
 <p>这是个啥？当时我虽然知道Hexo的<code>Tag Plugins</code>，准确地说是NexT带来的<a target="_blank" rel="noopener" href="https://theme-next.org/docs/tag-plugins/note">Bootstrap Callout</a>——不得不说，<code>Tag Plugins</code>这个名字起得真是沙雕，它太容易和<code>tags</code>混淆了——但是我因为没什么机会用到，并没有细看过它的格式，所以也并不明白这<code>&#123;% %&#125;</code>是个什么操作。</p>
 <p>现在必须得找其他方法的话，那就只好研究一下了。看了些Issues才搞明白原来是写在md文件里的，这与我的想法背道而驰——我希望能放在所有页面的固定位置，如果能做到网易云音乐网页版那样跳转页面而播放进度不变就再好不过了。</p>
 <p>经过一段时间的测试之后，我发现如果使用<code>hexo-tag-aplayer</code>最好的解决方案就是如这个<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/hexo-tag-aplayer/issues/58">issue</a>所言，在md里插入播放器后，再把生成的html文件里对应部分复制到header的<code>index.swig</code>里。可是这不就是个威力加强版的网易云iframe了吗？！</p>

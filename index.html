@@ -305,7 +305,7 @@
 <p>Unity对<code>==</code>运算符做了一些特殊处理。与大多数人所期望的不同，我们对<code>==</code>运算符有一个特殊实现。</p>
 <p>这样做是为了达到两个目的：</p>
 <ol>
-<li>当一个<code>MonoBehaviour</code>有字段时，仅仅在编辑器中（备注 1），我们不会将这些字段设置为“真null”，而是设置为一个“假null”对象。我们自定义的<code>==</code>操作符能够检查某物是否是这种假null，并采取相应的行为。虽然这种机制怪怪的，但它能让我们在假null中存储信息，这样当你对它调用一个方法，或者读取一个属性时，它可以给你更多的上下文信息。如果没有这个技巧，你只会得到一个<code>NullReferenceException</code>，一个堆栈跟踪，但你不知道到底哪个<code>GameObject</code>的<code>MonoBehaviour</code>的字段是空的。而有了这个技巧，我们就可以在检查器中突出显示<code>GameObject</code>，也可以给你更多的提示：“看起来你正在访问这个<code>MonoBehaviour</code>中的一个未初始化的字段，请用Inspector将这个字段指向某个东西”。</li>
+<li>当一个<code>MonoBehaviour</code>有字段时，仅仅在编辑器中<sup>1</sup>，我们不会将这些字段设置为“真null”，而是设置为一个“假null”对象。我们自定义的<code>==</code>操作符能够检查某物是否是这种假null，并采取相应的行为。虽然这种机制怪怪的，但它能让我们在假null中存储信息，这样当你对它调用一个方法，或者读取一个属性时，它可以给你更多的上下文信息。如果没有这个技巧，你只会得到一个<code>NullReferenceException</code>，一个堆栈跟踪，但你不知道到底哪个<code>GameObject</code>的<code>MonoBehaviour</code>的字段是空的。而有了这个技巧，我们就可以在检查器中突出显示<code>GameObject</code>，也可以给你更多的提示：“看起来你正在访问这个<code>MonoBehaviour</code>中的一个未初始化的字段，请用Inspector将这个字段指向某个东西”。</li>
 </ol>
           <!--noindex-->
             <div class="post-button">

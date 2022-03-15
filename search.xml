@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World!</title>
-    <url>/2016/11/23/Hello%20World!/</url>
-    <content><![CDATA[<p>迈向web世界的第一步。</p>
-<p>今后也要努力学习科学技术，做一个对社会有用的新世纪大好青年！</p>
-<p><img src="https://i.loli.net/2020/01/12/FA5mlze3Bs9bIQG.jpg" alt="辉夜"></p>
-]]></content>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Flash暴力膜-说明</title>
     <url>/2016/12/08/Flash%E6%9A%B4%E5%8A%9B%E8%86%9C-%E8%AF%B4%E6%98%8E/</url>
     <content><![CDATA[<p>这篇文章是对“Flash暴力膜”一文的说明。</p>
@@ -37,6 +26,17 @@
       <tags>
         <tag>Flash</tag>
         <tag>动画</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World!</title>
+    <url>/2016/11/23/Hello%20World!/</url>
+    <content><![CDATA[<p>迈向web世界的第一步。</p>
+<p>今后也要努力学习科学技术，做一个对社会有用的新世纪大好青年！</p>
+<p><img src="https://i.loli.net/2020/01/12/FA5mlze3Bs9bIQG.jpg" alt="辉夜"></p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -308,10 +308,10 @@
 </blockquote>
 ]]></content>
       <tags>
-        <tag>Unity</tag>
-        <tag>C Sharp</tag>
         <tag>游戏</tag>
         <tag>笔记</tag>
+        <tag>Unity</tag>
+        <tag>C Sharp</tag>
       </tags>
   </entry>
   <entry>
@@ -359,10 +359,10 @@
 </blockquote>
 ]]></content>
       <tags>
-        <tag>Unity</tag>
-        <tag>C Sharp</tag>
         <tag>游戏</tag>
         <tag>笔记</tag>
+        <tag>Unity</tag>
+        <tag>C Sharp</tag>
       </tags>
   </entry>
   <entry>
@@ -769,42 +769,6 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
       </tags>
   </entry>
   <entry>
-    <title>Aseprite和Photoshop入门成果</title>
-    <url>/2019/12/03/Aseprite%E5%92%8CPhotoshop%E5%85%A5%E9%97%A8%E6%88%90%E6%9E%9C/</url>
-    <content><![CDATA[<p>由于准备solo操作，美工大部分就得自己搞定了。</p>
-<h1>Aseprite</h1>
-<p>Pixel Art其实很早就想玩一玩，不过之前一直没有找到合适的工具。如今因为要做游戏的任务驱动，终于开始尝试了。也因此，认真搜索资料之下就知道了<code>Aseprite</code>这个🐂🍺到爆炸的像素画制作软件，Steam售价38元，非常划算。</p>
-<iframe src="https://store.steampowered.com/widget/431730/" frameborder="0" width="646" height="190"></iframe>
-<p>我学习的是Youtube上MortMort这位小哥的教学视频，讲得非常清晰：</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLR3Ra9cf8aV06i2jKmgKvcYVHI86-4K_b" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>如果没有代理，可以在bilibili观看该系列视频的<a href="https://www.bilibili.com/video/av14603015">第一部分</a>：</p>
-<iframe src="//player.bilibili.com/player.html?aid=14603015&cid=23810173&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-<p>这是我在还没有看教学视频之前，自己胡乱尝试下摸索了将近一整天完成的<a href="https://www.pixiv.net/artworks/78095634">第一幅作品</a>：</p>
-<p><img src="https://i.loli.net/2020/01/12/rWmnCw9V1uBeDH6.gif" alt="youmu"></p>
-<span id="more"></span>
-<p>虽然看起来比较憨憨，但是基本上熟悉了Aseprita的大部分功能。甚至，还进了Pixiv动图日榜？（说明一天根本没几张动图投稿嘛）</p>
-<p><img src="https://i.loli.net/2020/01/12/SCUkuMRXxmgA5Yz.png" alt="进了排行榜？"></p>
-<p>最大的感受就是，和制作了《幻想乡萃夜祭》的<a href="https://www.pixiv.net/member.php?id=205166">煮茶</a>julao相比，我画的就是个🔨！这种像素数少的画反而极其考验抽象思维能力和绘画功底，因为每一个像素都有其表现作用。如果精打细算充分利用的话，完全可以在极为有限的像素中表现出大量的细节，令人赏心悦目：</p>
-<p><img src="https://i.loli.net/2020/01/12/vmK8GTFi9q2QkVj.png" alt="煮茶NB！"></p>
-<p>不过，我暂且还是程序员，不是专业像素艺术家，这边的技能树还是慢慢点吧……</p>
-<h1>Photoshop</h1>
-<p>Photoshop可谓是博大精深，我目前仅仅学习了PS CC自带的教程，能把它当作Windows画图高级版使用了……</p>
-<p>这是今晚试着作出的東方project传统艺能启动页面：</p>
-<p><img src="https://i.loli.net/2020/01/12/u4XcFYiphUo8WS9.png" alt="启动页面"></p>
-<p>其中使用的字体<code>汉仪昌黎宋刻本(原版)W</code>和<code>Mithril</code>来自<a href="http://www.hanyi.com.cn/font-list">汉仪字库</a>，汉仪确实是个非常nice的厂。</p>
-<p>说到字体，就还有一个不错的网站：<a href="https://www.likefont.com/">识字体 - www.likefont.com</a>，顾名思义这就是个用图片识别字体的网站，准确度相当高。</p>
-<p>那么明天试着把<code>少女祈祷中</code>弄上，再去Unity里做个游戏主界面？有了主界面怎能没有音乐……？得想法子整个活，把<code>623532 623532 623532 7175</code>的ZUN节传统艺能搞起来。</p>
-<blockquote>
-<p>所以说这一个星期我也太摸了吧……</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>游戏</tag>
-        <tag>动画</tag>
-        <tag>图像</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>191207</title>
     <url>/2019/12/07/191207/</url>
     <content><![CDATA[<p>12月4日中午，腾讯代理的国行版Nintendo Switch发布，这也是我所一直等待的。</p>
@@ -880,16 +844,52 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 </blockquote>
 ]]></content>
       <tags>
+        <tag>游戏</tag>
         <tag>Unity</tag>
         <tag>C Sharp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Aseprite和Photoshop入门成果</title>
+    <url>/2019/12/03/Aseprite%E5%92%8CPhotoshop%E5%85%A5%E9%97%A8%E6%88%90%E6%9E%9C/</url>
+    <content><![CDATA[<p>由于准备solo操作，美工大部分就得自己搞定了。</p>
+<h1>Aseprite</h1>
+<p>Pixel Art其实很早就想玩一玩，不过之前一直没有找到合适的工具。如今因为要做游戏的任务驱动，终于开始尝试了。也因此，认真搜索资料之下就知道了<code>Aseprite</code>这个🐂🍺到爆炸的像素画制作软件，Steam售价38元，非常划算。</p>
+<iframe src="https://store.steampowered.com/widget/431730/" frameborder="0" width="646" height="190"></iframe>
+<p>我学习的是Youtube上MortMort这位小哥的教学视频，讲得非常清晰：</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLR3Ra9cf8aV06i2jKmgKvcYVHI86-4K_b" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>如果没有代理，可以在bilibili观看该系列视频的<a href="https://www.bilibili.com/video/av14603015">第一部分</a>：</p>
+<iframe src="//player.bilibili.com/player.html?aid=14603015&cid=23810173&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<p>这是我在还没有看教学视频之前，自己胡乱尝试下摸索了将近一整天完成的<a href="https://www.pixiv.net/artworks/78095634">第一幅作品</a>：</p>
+<p><img src="https://i.loli.net/2020/01/12/rWmnCw9V1uBeDH6.gif" alt="youmu"></p>
+<span id="more"></span>
+<p>虽然看起来比较憨憨，但是基本上熟悉了Aseprita的大部分功能。甚至，还进了Pixiv动图日榜？（说明一天根本没几张动图投稿嘛）</p>
+<p><img src="https://i.loli.net/2020/01/12/SCUkuMRXxmgA5Yz.png" alt="进了排行榜？"></p>
+<p>最大的感受就是，和制作了《幻想乡萃夜祭》的<a href="https://www.pixiv.net/member.php?id=205166">煮茶</a>julao相比，我画的就是个🔨！这种像素数少的画反而极其考验抽象思维能力和绘画功底，因为每一个像素都有其表现作用。如果精打细算充分利用的话，完全可以在极为有限的像素中表现出大量的细节，令人赏心悦目：</p>
+<p><img src="https://i.loli.net/2020/01/12/vmK8GTFi9q2QkVj.png" alt="煮茶NB！"></p>
+<p>不过，我暂且还是程序员，不是专业像素艺术家，这边的技能树还是慢慢点吧……</p>
+<h1>Photoshop</h1>
+<p>Photoshop可谓是博大精深，我目前仅仅学习了PS CC自带的教程，能把它当作Windows画图高级版使用了……</p>
+<p>这是今晚试着作出的東方project传统艺能启动页面：</p>
+<p><img src="https://i.loli.net/2020/01/12/u4XcFYiphUo8WS9.png" alt="启动页面"></p>
+<p>其中使用的字体<code>汉仪昌黎宋刻本(原版)W</code>和<code>Mithril</code>来自<a href="http://www.hanyi.com.cn/font-list">汉仪字库</a>，汉仪确实是个非常nice的厂。</p>
+<p>说到字体，就还有一个不错的网站：<a href="https://www.likefont.com/">识字体 - www.likefont.com</a>，顾名思义这就是个用图片识别字体的网站，准确度相当高。</p>
+<p>那么明天试着把<code>少女祈祷中</code>弄上，再去Unity里做个游戏主界面？有了主界面怎能没有音乐……？得想法子整个活，把<code>623532 623532 623532 7175</code>的ZUN节传统艺能搞起来。</p>
+<blockquote>
+<p>所以说这一个星期我也太摸了吧……</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>动画</tag>
         <tag>游戏</tag>
+        <tag>图像</tag>
       </tags>
   </entry>
   <entry>
     <title>191226</title>
     <url>/2019/12/26/191226/</url>
     <content><![CDATA[<p>冬至已经过了好几天，这次我没能在节气当天写随笔了——也许是一个危险的信号，象征着“持之以恒”依然不存在于我的字典中？</p>
-<p>近期在做本科阶段最后的课程设计：综合能力培养。选择的是数据库方向（这算是几个月前“大数据开发”的历史遗留），三人一组用C<ins>编写一个数据库系统。C</ins>对我几乎是“未曾设想的道路”了。</p>
+<p>近期在做本科阶段最后的课程设计：综合能力培养。选择的是数据库方向（这算是几个月前“大数据开发”的历史遗留），三人一组用C++编写一个数据库系统。C++对我几乎是“未曾设想的道路”了。</p>
 <p>啊，思绪繁杂。不过既然叫随笔，也不该讲求甚么“章法”，就依照“随笔”其名，想一出是一出地写吧。</p>
 <p>首先还是在做数据库系统时遇到了海量的问题。这回是不怎么能“倚靠大佬”，相互借鉴交融并包了，所以基本上除了在一筹莫展时从GitHub上稍微看看往届学长的思路之外，都是自己老老实实写出来的东西。这个时候就能体现出“亲力亲为”太少的问题了，功夫是真的不行：一天可能摸不出50行代码，而且逻辑混乱，调试痛苦，维护困难。要说这水平是大二时候的我，倒也勉强可以接受，但是大学四年差不多就剩一个学期了，就连差强人意都算不上。</p>
 <blockquote>
@@ -914,7 +914,7 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
   <entry>
     <title>从C++里的一大堆字符串说起</title>
     <url>/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/</url>
-    <content><![CDATA[<p>写数据库管理系统时遇到了不少关于C<ins>字符串的问题，要命的是C</ins>的字符串种类实在是太多了，今天试着搜集一些资料总结一下。</p>
+    <content><![CDATA[<p>写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。</p>
 <h1>char foo[bar] 和 char* foo</h1>
 <p><code>char foo[bar]</code>这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这两行都定义了相同的字符串&quot;Hello&quot;</span></span><br><span class="line"><span class="type">char</span> foo1[] = <span class="string">&quot;Hello&quot;</span>;      <span class="comment">//末尾有隐藏的&#x27;\0&#x27;</span></span><br><span class="line"><span class="type">char</span> foo2[<span class="number">6</span>] = &#123;<span class="string">&#x27;H&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125;;</span><br></pre></td></tr></table></figure>
@@ -931,9 +931,9 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 <p>CString是MFC中最常用的字符串类。其数据成员只有一个，那就是字符串在内存中的起始地址。它还有许多方法，如多种构造函数、用于连接和比较的运算符重载、用于格式化的<code>Format</code>，以及各种用于对字符串进行替换、查找、删除的方法。这个类将C++中极为复杂、包含大量内存操作的字符串操作简化了不少。</p>
 <h1>string</h1>
 <p>string之前一直弄不太明白。这明明是每个语言都应该有的基本东西，但是鉴于C和C++之间乱七八糟的关系以及错综复杂的各种标准，就连这种“基本”也轮廓模糊到让人难以提起兴趣探索。</p>
-<p>需要知道的是，**string是C<ins>标准库中的类。**确切地说，string类定义于C</ins>标准库的<code>&lt;string&gt;</code>头文件。</p>
-<p>关键的问题是，什么是<a href="https://zh.cppreference.com/w/cpp/header">C++标准库</a>？这个名字很容易和标准模板库（Standard Template Libraries, STL）混淆，但实际上它们最开始是不同的东西。C<ins>被标准化最早是1998年的<code>ISO/IEC 14882:1998</code>，即所谓的C</ins>98。而STL始于C<ins>尚未被标准化的1993年，它很大程度上影响了几年后C</ins>标准中标准库的制定，因此其内容与C<ins>标准库有非常大的重合。但需要注意的是，**STL不完全是C</ins>标准库的一部分**，C<ins>标准里也从来没有“STL”这一说法。C</ins>标准库中的“STL”可以说是STL的一个“Fork”。</p>
-<p>C<ins>标准库包含一系列不带<code>.h</code>后缀的头文件，用尖括号引用。其中除宏定义以外的内容包含在名称空间<code>std</code>中，这也是许多C</ins>程序都有一句<code>using namespace std;</code>的原因。</p>
+<p>需要知道的是，**string是C++标准库中的类。**确切地说，string类定义于C++标准库的<code>&lt;string&gt;</code>头文件。</p>
+<p>关键的问题是，什么是<a href="https://zh.cppreference.com/w/cpp/header">C++标准库</a>？这个名字很容易和标准模板库（Standard Template Libraries, STL）混淆，但实际上它们最开始是不同的东西。C++被标准化最早是1998年的<code>ISO/IEC 14882:1998</code>，即所谓的C++98。而STL始于C++尚未被标准化的1993年，它很大程度上影响了几年后C++标准中标准库的制定，因此其内容与C++标准库有非常大的重合。但需要注意的是，<strong>STL不完全是C++标准库的一部分</strong>，C++标准里也从来没有“STL”这一说法。C++标准库中的“STL”可以说是STL的一个“Fork”。</p>
+<p>C++标准库包含一系列不带<code>.h</code>后缀的头文件，用尖括号引用。其中除宏定义以外的内容包含在名称空间<code>std</code>中，这也是许多C++程序都有一句<code>using namespace std;</code>的原因。</p>
 <p>这是<a href="https://en.cppreference.com/w/cpp/algorithm/qsort">cppreference</a>上对<code>std::qsort</code>的一段示例：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>     <span class="comment">//C++输入/输出流标准头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdlib&gt;</span>      <span class="comment">//C++标准库中来自C标准库的部分，去掉.h并在前面加c</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;climits&gt;</span>      <span class="comment">//同上</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a[] = &#123;<span class="number">-2</span>, <span class="number">99</span>, <span class="number">0</span>, <span class="number">-743</span>, <span class="number">2</span>, INT_MIN, <span class="number">4</span>&#125;;</span><br><span class="line">    <span class="keyword">constexpr</span> std::<span class="type">size_t</span> size = <span class="keyword">sizeof</span> a / <span class="keyword">sizeof</span> *a;</span><br><span class="line"> </span><br><span class="line">    std::<span class="built_in">qsort</span>(a, size, <span class="keyword">sizeof</span> *a, [](<span class="type">const</span> <span class="type">void</span>* a, <span class="type">const</span> <span class="type">void</span>* b)     <span class="comment">//指定名称空间std</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> arg1 = *<span class="built_in">static_cast</span>&lt;<span class="type">const</span> <span class="type">int</span>*&gt;(a);</span><br><span class="line">        <span class="type">int</span> arg2 = *<span class="built_in">static_cast</span>&lt;<span class="type">const</span> <span class="type">int</span>*&gt;(b);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span>(arg1 &lt; arg2) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(arg1 &gt; arg2) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//  return (arg1 &gt; arg2) - (arg1 &lt; arg2); // possible shortcut</span></span><br><span class="line">    <span class="comment">//  return arg1 - arg2; // erroneous shortcut (fails if INT_MIN is present)</span></span><br><span class="line">    &#125;);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> ai : a)</span><br><span class="line">        std::cout &lt;&lt; ai &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1>LPSTR，以及各种乱七八糟的</h1>
@@ -952,10 +952,10 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 </blockquote>
 ]]></content>
       <tags>
-        <tag>标准</tag>
-        <tag>考古</tag>
         <tag>C</tag>
         <tag>数据结构</tag>
+        <tag>考古</tag>
+        <tag>标准</tag>
       </tags>
   </entry>
   <entry>
@@ -979,7 +979,7 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 <li>
 <p>对MFC、Windows API的不熟悉</p>
 <p>MFC实在是极其古老的东西，可以说早就停止支持，但本沿袭了十年的工程中仍然大量使用，尤其是HustBase.cpp中不得不使用。关于MFC的文档缺乏系统性和本地化，阅读起来较为困难。</p>
-<p><a href="http://xn--Windows-mw3kp9c65yz8keseqqwywxnmdwt1fw2e.NET">如今的Windows开发基本上是用.NET</a> Framework和C#进行的，C<ins>的实现非常佶屈聱牙，仅仅是启动一个选择路径的窗口就要耗去一整天时间搜集资料。类似的过程，加上对C</ins>遗忘较多，让我在开发初期花费了大量时间。</p>
+<p><a href="http://xn--Windows-mw3kp9c65yz8keseqqwywxnmdwt1fw2e.NET">如今的Windows开发基本上是用.NET</a> Framework和C#进行的，C++的实现非常佶屈聱牙，仅仅是启动一个选择路径的窗口就要耗去一整天时间搜集资料。类似的过程，加上对C++遗忘较多，让我在开发初期花费了大量时间。</p>
 </li>
 </ol>
 <span id="more"></span>
@@ -1274,9 +1274,9 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 <p>也许这个字确实存在其出处，但在这数十年间终于连其最后的出典也散佚。如今留下的只有这永存的痕迹，作为描绘“现实”的字符集中唯一的“幻想”，与相信着车库中有喷火龙的人类一起迈向宇宙的终焉。</p>
 ]]></content>
       <tags>
-        <tag>标准</tag>
-        <tag>考古</tag>
         <tag>东方Project</tag>
+        <tag>考古</tag>
+        <tag>标准</tag>
       </tags>
   </entry>
   <entry>
@@ -1384,8 +1384,8 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 </blockquote>
 ]]></content>
       <tags>
-        <tag>C Sharp</tag>
         <tag>笔记</tag>
+        <tag>C Sharp</tag>
       </tags>
   </entry>
   <entry>
@@ -1444,8 +1444,8 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 </blockquote>
 ]]></content>
       <tags>
-        <tag>C Sharp</tag>
         <tag>笔记</tag>
+        <tag>C Sharp</tag>
       </tags>
   </entry>
   <entry>
@@ -1540,9 +1540,9 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 ]]></content>
       <tags>
         <tag>随笔</tag>
+        <tag>游戏</tag>
         <tag>Unity</tag>
         <tag>C Sharp</tag>
-        <tag>游戏</tag>
         <tag>东方Project</tag>
       </tags>
   </entry>
@@ -1722,8 +1722,8 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 <p><img src="https://i.loli.net/2020/03/27/OCPcmBo3hr4zkt5.jpg" alt="博物馆庆典"></p>
 ]]></content>
       <tags>
-        <tag>C Sharp</tag>
         <tag>笔记</tag>
+        <tag>C Sharp</tag>
       </tags>
   </entry>
   <entry>
@@ -1852,8 +1852,8 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 </blockquote>
 ]]></content>
       <tags>
-        <tag>C Sharp</tag>
         <tag>笔记</tag>
+        <tag>C Sharp</tag>
       </tags>
   </entry>
   <entry>
@@ -2039,8 +2039,8 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 </blockquote>
 ]]></content>
       <tags>
-        <tag>C Sharp</tag>
         <tag>笔记</tag>
+        <tag>C Sharp</tag>
       </tags>
   </entry>
   <entry>
@@ -2268,59 +2268,8 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 </blockquote>
 ]]></content>
       <tags>
+        <tag>折腾</tag>
         <tag>计算机网络</tag>
-        <tag>折腾</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VS Code C语言开发环境配置</title>
-    <url>/2020/09/01/VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>由于安全上的要求，我司的开发环境比较复杂，涉及到Citrix非涉密/涉密桌面和远程Linux编译服务器等等，在这样的环境下用VS Code需要经过一系列的折腾，这篇文章简要记录了我最初的配置流程。</p>
-<h1>安装VS Code</h1>
-<p>首先，在非涉密桌面访问<a href="https://code.visualstudio.com/">VS Code官网</a>下载最新安装包，然后安装到<strong>Q盘中（重要！）</strong>。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件就没了。</p>
-<p>不要急着删除安装包，将它<strong>复制</strong>到T盘（直接剪切可能会报权限错误），转移到涉密桌面。如果之前你已经启动了涉密桌面，可以尝试用快捷键<code>Ctrl + Alt + Tab</code>进行切换。</p>
-<p>到涉密桌面环境后，安装VS Code——这次可以装在C盘里，涉密桌面的C盘是不会被重置的。注意，安装时会有几个选项，询问是否要加入右键菜单以及PATH等，请把所有的勾都勾上。</p>
-<h1>安装扩展</h1>
-<p>众所周知，VS Code最重要的是扩展。由于涉密桌面没有外网，我们要安装扩展只能先从非涉密桌面下载，再通过T盘转移。</p>
-<p>但是，VS Code默认存放扩展的目录在C盘，这导致非涉密桌面一旦重启，你的扩展就会全部消失。所以，装扩展之前要先更改非涉密桌面中VS Code存放扩展的目录。</p>
-<p>我没有在设置里找到直接修改的方法，但你可以通过以下的方法来间接修改。</p>
-<p>首先进入VS Code的安装目录（没忘记装在哪了吧），新建一个文件夹，命名为<code>extensions</code>。</p>
-<p>在桌面上VS Code的快捷方式上右键打开属性（假如桌面上没有，就去安装目录里找到code.exe，右键发送-&gt;桌面快捷方式），找到<code>目标(T)</code>一栏，在已有内容的后面添上:</p>
-<figure class="highlight dsconfig"><table><tr><td class="code"><pre><span class="line"><span class="built_in">--extensions-dir</span> <span class="string">&quot;(你刚才创建的extensions文件夹的完整路径)&quot;</span></span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>这实际上是为VS Code设置了一个启动参数，说明要从你新建的这个<code>extensions</code>文件夹读取扩展，同时，你下载的扩展也会被放到这里。以后只要从这个快捷方式启动VS Code，不管重启VDI几次扩展都还在，因为extensions文件夹是在Q盘里的。</p>
-<p>好了，接下来启动VS Code。</p>
-<p>VS Code最左侧的边栏中有一个由四个方块组成的图标，那就是扩展管理。点击它后，你可以使用上面的搜索框寻找应用商店里的扩展，它们全都是托管在GitHub上的开源项目。</p>
-<p>第一个要安装的是中文语言包，搜索<code>Chinese</code>就有了。安装之后，按<code>Ctrl + Shift + P</code>启动VS Code命令面板，输入<code>language</code>，选择<code>Configure Display Language</code>，将显示语言配置为<code>zh-cn</code>。重启VS Code，令人安心的中文就出来了。</p>
-<p>第二个是<code>C/C++</code>扩展，它为C语言提供了IntelliSense代码补全、调试功能等等，搜索安装即可。安装完后，右下角还会出现一个小框，那是它正在安装几个依赖包。</p>
-<p>第三个是<code>Code Runner</code>扩展，安装它之后你的编辑器窗口右上会有个播放键，点击就可以运行代码了。对于C语言，它会调用gcc编译器将代码编译运行。对它的使用我目前还不熟悉，安装聊胜于无。</p>
-<p>第四个是<code>Bracket Pair Colorizer 2</code>，它将各组配对的括号用不同的颜色表示，</p>
-<p>扩展安装全部完成之后，将你的<code>extensions</code>文件夹整个通过T盘复制到涉密桌面里VS Code的安装目录下。</p>
-<p>最后，在涉密桌面的快捷方式里也设置一遍启动参数，启动VS Code，你会发现扩展已经全部转移过来了。</p>
-<h1>安装编译器</h1>
-<p>你还需要一个编译器才能将C语言源代码转换成可执行程序。</p>
-<p>在Windows平台使用比较广泛的是MinGW，它包含了著名的GCC编译器。但是在公司的网络环境下，下载MinGW十分缓慢，有没有别的办法?</p>
-<p>Dev-C<ins>是一个开箱即用的轻便C/C</ins> IDE，它也内置了我们需要的GCC编译器。我们可以借此来个“曲线救国”。为了让下载快一点，你可以到腾讯软件中心的网页版下载其<a href="https://pc.qq.com/detail/16/detail_163136.html">镜像</a>，进入链接后选择“普通下载”即可。</p>
-<p>安装时的安装语言列表可能会有乱码，先选择English。安装完成之后出现引导界面，就可以选择简体中文UI了。</p>
-<p>为了方便地使用GCC编译器，应该将其添加到环境变量。</p>
-<p>先来到Dev-C++的安装目录，找到<code>MinGW64\bin</code>文件夹，复制其路径。打开开始菜单，输入<code>env</code>就能快速导航到环境变量设置。将之前复制的路径粘贴到PATH环境变量的末尾，一路确定保存，再新开启一个命令行输入<code>gcc</code>试试。如果提示“fatal error: no input files”，就说明GCC的环境变量已经配置好了。</p>
-<p>在VS Code中按<code>Ctrl + ~</code>(即键盘左上角Esc下面的那个键)可以开启内置终端。默认的终端是cmd，但你可以将其改为<code>pwsh</code>以使用几乎完全兼容cmd且功能强大得多的PowerShell。</p>
-<h1>测试一下</h1>
-<p>接下来，用VS Code打开一个文件夹，新建一个C语言源文件，随便写点什么，比如Hello World：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World!\n&quot;</span>);</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后，在终端中执行<code>gcc 源文件名 -o 输出文件名</code>，你的源码就被编译出来了。用命令行运行编译出的可执行文件，将在终端中输出<code>Hello World!</code>。</p>
-<h1>最后</h1>
-<p>以上就是VS Code的基本。要进行调试其实也是可以的，但那个配置起来也相当麻烦，是另一个故事了（我自己也还没配好，鸽了）。</p>
-<p>顺带一提，为了快速插入代码规范要求的源文件/函数注释，可以使用VS Code的“代码片段”功能，按<code>Ctrl + Shift + P</code>启动VS Code命令面板，输入<code>snippet</code>配置用户代码片段，选择C语言，使用方法已经写在文件注释里了。</p>
-<p>得益于大量的扩展，还有很多好玩的东西。比如SSH扩展能让你在VS Code中直接连到编译服务器，此时VS Code的终端就是远程Linux服务器的终端，左侧的资源管理器也可以管理Linux服务器的文件。由于在Windows 7一类的老版系统里没有内置OpenSSH，要实现这个还得折腾一回，这里给出两篇相关文章：</p>
-<p><a href="https://www.mcclellandlegge.com/2017-02-24-installsshd/">Installing OpenSSH on Windows 7</a></p>
-<p>如果依照上面的文章配置时出现问题，请看这里：</p>
-<p><a href="https://blog.csdn.net/Mr_Cat123/article/details/103100174">vscode进行远程服务器 An SSH installation couldn’t be found</a></p>
-]]></content>
-      <tags>
-        <tag>工具</tag>
-        <tag>C</tag>
-        <tag>折腾</tag>
       </tags>
   </entry>
   <entry>
@@ -2368,9 +2317,9 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
 </ol>
 ]]></content>
       <tags>
-        <tag>计算机网络</tag>
         <tag>笔记</tag>
         <tag>标准</tag>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
@@ -2483,6 +2432,57 @@ A：Aethetics，美学——交互唤起的情绪反应。</p>
       </tags>
   </entry>
   <entry>
+    <title>VS Code C语言开发环境配置</title>
+    <url>/2020/09/01/VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>由于安全上的要求，我司的开发环境比较复杂，涉及到Citrix非涉密/涉密桌面和远程Linux编译服务器等等，在这样的环境下用VS Code需要经过一系列的折腾，这篇文章简要记录了我最初的配置流程。</p>
+<h1>安装VS Code</h1>
+<p>首先，在非涉密桌面访问<a href="https://code.visualstudio.com/">VS Code官网</a>下载最新安装包，然后安装到<strong>Q盘中（重要！）</strong>。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件就没了。</p>
+<p>不要急着删除安装包，将它<strong>复制</strong>到T盘（直接剪切可能会报权限错误），转移到涉密桌面。如果之前你已经启动了涉密桌面，可以尝试用快捷键<code>Ctrl + Alt + Tab</code>进行切换。</p>
+<p>到涉密桌面环境后，安装VS Code——这次可以装在C盘里，涉密桌面的C盘是不会被重置的。注意，安装时会有几个选项，询问是否要加入右键菜单以及PATH等，请把所有的勾都勾上。</p>
+<h1>安装扩展</h1>
+<p>众所周知，VS Code最重要的是扩展。由于涉密桌面没有外网，我们要安装扩展只能先从非涉密桌面下载，再通过T盘转移。</p>
+<p>但是，VS Code默认存放扩展的目录在C盘，这导致非涉密桌面一旦重启，你的扩展就会全部消失。所以，装扩展之前要先更改非涉密桌面中VS Code存放扩展的目录。</p>
+<p>我没有在设置里找到直接修改的方法，但你可以通过以下的方法来间接修改。</p>
+<p>首先进入VS Code的安装目录（没忘记装在哪了吧），新建一个文件夹，命名为<code>extensions</code>。</p>
+<p>在桌面上VS Code的快捷方式上右键打开属性（假如桌面上没有，就去安装目录里找到code.exe，右键发送-&gt;桌面快捷方式），找到<code>目标(T)</code>一栏，在已有内容的后面添上:</p>
+<figure class="highlight dsconfig"><table><tr><td class="code"><pre><span class="line"><span class="built_in">--extensions-dir</span> <span class="string">&quot;(你刚才创建的extensions文件夹的完整路径)&quot;</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>这实际上是为VS Code设置了一个启动参数，说明要从你新建的这个<code>extensions</code>文件夹读取扩展，同时，你下载的扩展也会被放到这里。以后只要从这个快捷方式启动VS Code，不管重启VDI几次扩展都还在，因为extensions文件夹是在Q盘里的。</p>
+<p>好了，接下来启动VS Code。</p>
+<p>VS Code最左侧的边栏中有一个由四个方块组成的图标，那就是扩展管理。点击它后，你可以使用上面的搜索框寻找应用商店里的扩展，它们全都是托管在GitHub上的开源项目。</p>
+<p>第一个要安装的是中文语言包，搜索<code>Chinese</code>就有了。安装之后，按<code>Ctrl + Shift + P</code>启动VS Code命令面板，输入<code>language</code>，选择<code>Configure Display Language</code>，将显示语言配置为<code>zh-cn</code>。重启VS Code，令人安心的中文就出来了。</p>
+<p>第二个是<code>C/C++</code>扩展，它为C语言提供了IntelliSense代码补全、调试功能等等，搜索安装即可。安装完后，右下角还会出现一个小框，那是它正在安装几个依赖包。</p>
+<p>第三个是<code>Code Runner</code>扩展，安装它之后你的编辑器窗口右上会有个播放键，点击就可以运行代码了。对于C语言，它会调用gcc编译器将代码编译运行。对它的使用我目前还不熟悉，安装聊胜于无。</p>
+<p>第四个是<code>Bracket Pair Colorizer 2</code>，它将各组配对的括号用不同的颜色表示，</p>
+<p>扩展安装全部完成之后，将你的<code>extensions</code>文件夹整个通过T盘复制到涉密桌面里VS Code的安装目录下。</p>
+<p>最后，在涉密桌面的快捷方式里也设置一遍启动参数，启动VS Code，你会发现扩展已经全部转移过来了。</p>
+<h1>安装编译器</h1>
+<p>你还需要一个编译器才能将C语言源代码转换成可执行程序。</p>
+<p>在Windows平台使用比较广泛的是MinGW，它包含了著名的GCC编译器。但是在公司的网络环境下，下载MinGW十分缓慢，有没有别的办法?</p>
+<p>Dev-C++是一个开箱即用的轻便C/C++ IDE，它也内置了我们需要的GCC编译器。我们可以借此来个“曲线救国”。为了让下载快一点，你可以到腾讯软件中心的网页版下载其<a href="https://pc.qq.com/detail/16/detail_163136.html">镜像</a>，进入链接后选择“普通下载”即可。</p>
+<p>安装时的安装语言列表可能会有乱码，先选择English。安装完成之后出现引导界面，就可以选择简体中文UI了。</p>
+<p>为了方便地使用GCC编译器，应该将其添加到环境变量。</p>
+<p>先来到Dev-C++的安装目录，找到<code>MinGW64\bin</code>文件夹，复制其路径。打开开始菜单，输入<code>env</code>就能快速导航到环境变量设置。将之前复制的路径粘贴到PATH环境变量的末尾，一路确定保存，再新开启一个命令行输入<code>gcc</code>试试。如果提示“fatal error: no input files”，就说明GCC的环境变量已经配置好了。</p>
+<p>在VS Code中按<code>Ctrl + ~</code>(即键盘左上角Esc下面的那个键)可以开启内置终端。默认的终端是cmd，但你可以将其改为<code>pwsh</code>以使用几乎完全兼容cmd且功能强大得多的PowerShell。</p>
+<h1>测试一下</h1>
+<p>接下来，用VS Code打开一个文件夹，新建一个C语言源文件，随便写点什么，比如Hello World：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World!\n&quot;</span>);</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，在终端中执行<code>gcc 源文件名 -o 输出文件名</code>，你的源码就被编译出来了。用命令行运行编译出的可执行文件，将在终端中输出<code>Hello World!</code>。</p>
+<h1>最后</h1>
+<p>以上就是VS Code的基本。要进行调试其实也是可以的，但那个配置起来也相当麻烦，是另一个故事了（我自己也还没配好，鸽了）。</p>
+<p>顺带一提，为了快速插入代码规范要求的源文件/函数注释，可以使用VS Code的“代码片段”功能，按<code>Ctrl + Shift + P</code>启动VS Code命令面板，输入<code>snippet</code>配置用户代码片段，选择C语言，使用方法已经写在文件注释里了。</p>
+<p>得益于大量的扩展，还有很多好玩的东西。比如SSH扩展能让你在VS Code中直接连到编译服务器，此时VS Code的终端就是远程Linux服务器的终端，左侧的资源管理器也可以管理Linux服务器的文件。由于在Windows 7一类的老版系统里没有内置OpenSSH，要实现这个还得折腾一回，这里给出两篇相关文章：</p>
+<p><a href="https://www.mcclellandlegge.com/2017-02-24-installsshd/">Installing OpenSSH on Windows 7</a></p>
+<p>如果依照上面的文章配置时出现问题，请看这里：</p>
+<p><a href="https://blog.csdn.net/Mr_Cat123/article/details/103100174">vscode进行远程服务器 An SSH installation couldn’t be found</a></p>
+]]></content>
+      <tags>
+        <tag>工具</tag>
+        <tag>C</tag>
+        <tag>折腾</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C#杂记之陆：真·杂记</title>
     <url>/2022/02/07/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/</url>
     <content><![CDATA[<blockquote>
@@ -2582,8 +2582,8 @@ C#实际上并不需要怎么关心内存管理，自动垃圾收集非常强大
 > 在公司太久没机会写代码，手痒，想要重拾C#，去开源社区做“第二份工作”了。      
 > 语言特性不用就会生疏，我用以复健的工具是《深入解析C# (第4版)》， -->]]></content>
       <tags>
-        <tag>CSharp</tag>
         <tag>笔记</tag>
+        <tag>CSharp</tag>
       </tags>
   </entry>
   <entry>
@@ -2683,8 +2683,8 @@ C#实际上并不需要怎么关心内存管理，自动垃圾收集非常强大
 </section>
 ]]></content>
       <tags>
-        <tag>CSharp</tag>
         <tag>笔记</tag>
+        <tag>CSharp</tag>
       </tags>
   </entry>
   <entry>
@@ -2700,12 +2700,12 @@ C#实际上并不需要怎么关心内存管理，自动垃圾收集非常强大
 <p>Unity对<code>==</code>运算符做了一些特殊处理。与大多数人所期望的不同，我们对<code>==</code>运算符有一个特殊实现。</p>
 <p>这样做是为了达到两个目的：</p>
 <ol>
-<li>当一个<code>MonoBehaviour</code>有字段时，仅仅在编辑器中（备注 1），我们不会将这些字段设置为“真null”，而是设置为一个“假null”对象。我们自定义的<code>==</code>操作符能够检查某物是否是这种假null，并采取相应的行为。虽然这种机制怪怪的，但它能让我们在假null中存储信息，这样当你对它调用一个方法，或者读取一个属性时，它可以给你更多的上下文信息。如果没有这个技巧，你只会得到一个<code>NullReferenceException</code>，一个堆栈跟踪，但你不知道到底哪个<code>GameObject</code>的<code>MonoBehaviour</code>的字段是空的。而有了这个技巧，我们就可以在检查器中突出显示<code>GameObject</code>，也可以给你更多的提示：“看起来你正在访问这个<code>MonoBehaviour</code>中的一个未初始化的字段，请用Inspector将这个字段指向某个东西”。</li>
+<li>当一个<code>MonoBehaviour</code>有字段时，仅仅在编辑器中<sup>1</sup>，我们不会将这些字段设置为“真null”，而是设置为一个“假null”对象。我们自定义的<code>==</code>操作符能够检查某物是否是这种假null，并采取相应的行为。虽然这种机制怪怪的，但它能让我们在假null中存储信息，这样当你对它调用一个方法，或者读取一个属性时，它可以给你更多的上下文信息。如果没有这个技巧，你只会得到一个<code>NullReferenceException</code>，一个堆栈跟踪，但你不知道到底哪个<code>GameObject</code>的<code>MonoBehaviour</code>的字段是空的。而有了这个技巧，我们就可以在检查器中突出显示<code>GameObject</code>，也可以给你更多的提示：“看起来你正在访问这个<code>MonoBehaviour</code>中的一个未初始化的字段，请用Inspector将这个字段指向某个东西”。</li>
 </ol>
 <span id="more"></span>
 <p>目的二就有点复杂了：</p>
 <ol>
-<li>当你得到一个<code>GameObject</code>类型的C#对象时（备注 2），它几乎什么都不包含。这是因为Unity引擎是一个C/C<ins>引擎。<code>GameObject</code>的所有实际信息（名称、Component列表、HideFlags等）都在C</ins>端。C#对象只有一个指向本地对象的指针。我们称这些C#对象为“包装对象”。这些C<ins>对象的生命周期，如<code>GameObject</code>和其他所有从<code>UnityEngine.Object</code>派生的对象，都是被明确地托管的。当你加载一个新场景，或者当你对它们调用<code>Object.Destroy(myObject);</code>时，这些对象会被销毁。C#对象的生命周期通过垃圾回收以C#的方式管理。这意味着可能有一个仍然存在的C#包装对象，包装着已经被销毁的C</ins>对象。如果你把这个C#对象和null进行比较，我们自定义的<code>==</code>操作符在这种情况下会返回<code>true</code>，尽管实际的C#变量实际上并不是真正的null。</li>
+<li>当你得到一个<code>GameObject</code>类型的C#对象时<sup>2</sup>，它几乎什么都不包含。这是因为Unity引擎是一个C/C++引擎。<code>GameObject</code>的所有实际信息（名称、Component列表、HideFlags等）都在C++端。C#对象只有一个指向本地对象的指针。我们称这些C#对象为“包装对象”。这些C++对象的生命周期，如<code>GameObject</code>和其他所有从<code>UnityEngine.Object</code>派生的对象，都是被明确地托管的。当你加载一个新场景，或者当你对它们调用<code>Object.Destroy(myObject);</code>时，这些对象会被销毁。C#对象的生命周期通过垃圾回收以C#的方式管理。这意味着可能有一个仍然存在的C#包装对象，包装着已经被销毁的C++对象。如果你把这个C#对象和null进行比较，我们自定义的<code>==</code>操作符在这种情况下会返回<code>true</code>，尽管实际的C#变量实际上并不是真正的null。</li>
 </ol>
 <p>虽然这两个理由非常合理，但自定义判空也带来了一堆缺点。</p>
 <ul>
@@ -2716,7 +2716,7 @@ C#实际上并不需要怎么关心内存管理，自动垃圾收集非常强大
 </ul>
 <p>考虑到这些优缺点，如果我们从头构建API，我们会选择不做自定义判空，而是设计一个<code>myObject.destroy</code>属性，让你用它来检查对象是否已经死亡，同时接受这样的事实：如果你真的在空字段上调用函数，我们没法再给出较好的错误信息。</p>
 <p>我们正在考虑是否应该做出改变。这是我们对“修整旧事物”和“不破坏旧项目”之间正确平衡的不断探索中的一步。为此，我们想知道你的想法。对于Unity5更新，我们一直在努力让Unity能够自动升级你的脚本（详见之后的博文）。不幸的是，对于这种情况，我们无法自动升级你的脚本。(因为我们无法区分“这是一个实际想要旧行为的旧脚本”，和“这是一个实际想要新行为的新脚本”）。</p>
-<p>我们倾向于“删除自定义的<code>==</code>运算符”，但是很让人纠结，因为这将改变你的项目中目前所有判空的意义。对于对象不是“真正的null”而是一个被destroy的对象的情况，<code>== null</code>判空曾经返回<code>true</code>，如果我们做了改变，它将返回<code>false</code>。如果你想检查你的变量是否指向一个被destroy的对象，你需要将代码改为检查<code>if (myObject.destroy) &#123;&#125;</code>。我们对此有点紧张，因为如果你没有读过这篇博文，十有八九就算你读过，也很容易意识不到这种行为的改变，何况大多数人根本都没意识到这种自定义判空的存在（备注 3）。</p>
+<p>我们倾向于“删除自定义的<code>==</code>运算符”，但是很让人纠结，因为这将改变你的项目中目前所有判空的意义。对于对象不是“真正的null”而是一个被destroy的对象的情况，<code>== null</code>判空曾经返回<code>true</code>，如果我们做了改变，它将返回<code>false</code>。如果你想检查你的变量是否指向一个被destroy的对象，你需要将代码改为检查<code>if (myObject.destroy) &#123;&#125;</code>。我们对此有点紧张，因为如果你没有读过这篇博文，十有八九就算你读过，也很容易意识不到这种行为的改变，何况大多数人根本都没意识到这种自定义判空的存在<sup>3</sup>。</p>
 <p>即使我们要改变它，也应该在Unity5里做，毕竟我们希望让用户在非主要版本更新里能少受点折磨。</p>
 <p>你觉得我们怎么做好？是给你一个更清晰的体验，但你必须为此改变项目中的判空逻辑，还是保持原样？</p>
 <p>以上，Lucas (<a href="https://twitter.com/lucasmeijer">@lucasmeijer</a>)</p>

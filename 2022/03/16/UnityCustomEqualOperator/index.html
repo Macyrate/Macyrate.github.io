@@ -319,12 +319,12 @@
 <p>Unity对<code>==</code>运算符做了一些特殊处理。与大多数人所期望的不同，我们对<code>==</code>运算符有一个特殊实现。</p>
 <p>这样做是为了达到两个目的：</p>
 <ol>
-<li>当一个<code>MonoBehaviour</code>有字段时，仅仅在编辑器中（备注 1），我们不会将这些字段设置为“真null”，而是设置为一个“假null”对象。我们自定义的<code>==</code>操作符能够检查某物是否是这种假null，并采取相应的行为。虽然这种机制怪怪的，但它能让我们在假null中存储信息，这样当你对它调用一个方法，或者读取一个属性时，它可以给你更多的上下文信息。如果没有这个技巧，你只会得到一个<code>NullReferenceException</code>，一个堆栈跟踪，但你不知道到底哪个<code>GameObject</code>的<code>MonoBehaviour</code>的字段是空的。而有了这个技巧，我们就可以在检查器中突出显示<code>GameObject</code>，也可以给你更多的提示：“看起来你正在访问这个<code>MonoBehaviour</code>中的一个未初始化的字段，请用Inspector将这个字段指向某个东西”。</li>
+<li>当一个<code>MonoBehaviour</code>有字段时，仅仅在编辑器中<sup>1</sup>，我们不会将这些字段设置为“真null”，而是设置为一个“假null”对象。我们自定义的<code>==</code>操作符能够检查某物是否是这种假null，并采取相应的行为。虽然这种机制怪怪的，但它能让我们在假null中存储信息，这样当你对它调用一个方法，或者读取一个属性时，它可以给你更多的上下文信息。如果没有这个技巧，你只会得到一个<code>NullReferenceException</code>，一个堆栈跟踪，但你不知道到底哪个<code>GameObject</code>的<code>MonoBehaviour</code>的字段是空的。而有了这个技巧，我们就可以在检查器中突出显示<code>GameObject</code>，也可以给你更多的提示：“看起来你正在访问这个<code>MonoBehaviour</code>中的一个未初始化的字段，请用Inspector将这个字段指向某个东西”。</li>
 </ol>
 <span id="more"></span>
 <p>目的二就有点复杂了：</p>
 <ol>
-<li>当你得到一个<code>GameObject</code>类型的C#对象时（备注 2），它几乎什么都不包含。这是因为Unity引擎是一个C/C<ins>引擎。<code>GameObject</code>的所有实际信息（名称、Component列表、HideFlags等）都在C</ins>端。C#对象只有一个指向本地对象的指针。我们称这些C#对象为“包装对象”。这些C<ins>对象的生命周期，如<code>GameObject</code>和其他所有从<code>UnityEngine.Object</code>派生的对象，都是被明确地托管的。当你加载一个新场景，或者当你对它们调用<code>Object.Destroy(myObject);</code>时，这些对象会被销毁。C#对象的生命周期通过垃圾回收以C#的方式管理。这意味着可能有一个仍然存在的C#包装对象，包装着已经被销毁的C</ins>对象。如果你把这个C#对象和null进行比较，我们自定义的<code>==</code>操作符在这种情况下会返回<code>true</code>，尽管实际的C#变量实际上并不是真正的null。</li>
+<li>当你得到一个<code>GameObject</code>类型的C#对象时<sup>2</sup>，它几乎什么都不包含。这是因为Unity引擎是一个C/C++引擎。<code>GameObject</code>的所有实际信息（名称、Component列表、HideFlags等）都在C++端。C#对象只有一个指向本地对象的指针。我们称这些C#对象为“包装对象”。这些C++对象的生命周期，如<code>GameObject</code>和其他所有从<code>UnityEngine.Object</code>派生的对象，都是被明确地托管的。当你加载一个新场景，或者当你对它们调用<code>Object.Destroy(myObject);</code>时，这些对象会被销毁。C#对象的生命周期通过垃圾回收以C#的方式管理。这意味着可能有一个仍然存在的C#包装对象，包装着已经被销毁的C++对象。如果你把这个C#对象和null进行比较，我们自定义的<code>==</code>操作符在这种情况下会返回<code>true</code>，尽管实际的C#变量实际上并不是真正的null。</li>
 </ol>
 <p>虽然这两个理由非常合理，但自定义判空也带来了一堆缺点。</p>
 <ul>
@@ -335,7 +335,7 @@
 </ul>
 <p>考虑到这些优缺点，如果我们从头构建API，我们会选择不做自定义判空，而是设计一个<code>myObject.destroy</code>属性，让你用它来检查对象是否已经死亡，同时接受这样的事实：如果你真的在空字段上调用函数，我们没法再给出较好的错误信息。</p>
 <p>我们正在考虑是否应该做出改变。这是我们对“修整旧事物”和“不破坏旧项目”之间正确平衡的不断探索中的一步。为此，我们想知道你的想法。对于Unity5更新，我们一直在努力让Unity能够自动升级你的脚本（详见之后的博文）。不幸的是，对于这种情况，我们无法自动升级你的脚本。(因为我们无法区分“这是一个实际想要旧行为的旧脚本”，和“这是一个实际想要新行为的新脚本”）。</p>
-<p>我们倾向于“删除自定义的<code>==</code>运算符”，但是很让人纠结，因为这将改变你的项目中目前所有判空的意义。对于对象不是“真正的null”而是一个被destroy的对象的情况，<code>== null</code>判空曾经返回<code>true</code>，如果我们做了改变，它将返回<code>false</code>。如果你想检查你的变量是否指向一个被destroy的对象，你需要将代码改为检查<code>if (myObject.destroy) &#123;&#125;</code>。我们对此有点紧张，因为如果你没有读过这篇博文，十有八九就算你读过，也很容易意识不到这种行为的改变，何况大多数人根本都没意识到这种自定义判空的存在（备注 3）。</p>
+<p>我们倾向于“删除自定义的<code>==</code>运算符”，但是很让人纠结，因为这将改变你的项目中目前所有判空的意义。对于对象不是“真正的null”而是一个被destroy的对象的情况，<code>== null</code>判空曾经返回<code>true</code>，如果我们做了改变，它将返回<code>false</code>。如果你想检查你的变量是否指向一个被destroy的对象，你需要将代码改为检查<code>if (myObject.destroy) &#123;&#125;</code>。我们对此有点紧张，因为如果你没有读过这篇博文，十有八九就算你读过，也很容易意识不到这种行为的改变，何况大多数人根本都没意识到这种自定义判空的存在<sup>3</sup>。</p>
 <p>即使我们要改变它，也应该在Unity5里做，毕竟我们希望让用户在非主要版本更新里能少受点折磨。</p>
 <p>你觉得我们怎么做好？是给你一个更清晰的体验，但你必须为此改变项目中的判空逻辑，还是保持原样？</p>
 <p>以上，Lucas (<a target="_blank" rel="noopener" href="https://twitter.com/lucasmeijer">@lucasmeijer</a>)</p>

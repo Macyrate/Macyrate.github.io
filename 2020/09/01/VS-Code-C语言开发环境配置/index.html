@@ -334,7 +334,7 @@
 <h1>安装编译器</h1>
 <p>你还需要一个编译器才能将C语言源代码转换成可执行程序。</p>
 <p>在Windows平台使用比较广泛的是MinGW，它包含了著名的GCC编译器。但是在公司的网络环境下，下载MinGW十分缓慢，有没有别的办法?</p>
-<p>Dev-C<ins>是一个开箱即用的轻便C/C</ins> IDE，它也内置了我们需要的GCC编译器。我们可以借此来个“曲线救国”。为了让下载快一点，你可以到腾讯软件中心的网页版下载其<a target="_blank" rel="noopener" href="https://pc.qq.com/detail/16/detail_163136.html">镜像</a>，进入链接后选择“普通下载”即可。</p>
+<p>Dev-C++是一个开箱即用的轻便C/C++ IDE，它也内置了我们需要的GCC编译器。我们可以借此来个“曲线救国”。为了让下载快一点，你可以到腾讯软件中心的网页版下载其<a target="_blank" rel="noopener" href="https://pc.qq.com/detail/16/detail_163136.html">镜像</a>，进入链接后选择“普通下载”即可。</p>
 <p>安装时的安装语言列表可能会有乱码，先选择English。安装完成之后出现引导界面，就可以选择简体中文UI了。</p>
 <p>为了方便地使用GCC编译器，应该将其添加到环境变量。</p>
 <p>先来到Dev-C++的安装目录，找到<code>MinGW64\bin</code>文件夹，复制其路径。打开开始菜单，输入<code>env</code>就能快速导航到环境变量设置。将之前复制的路径粘贴到PATH环境变量的末尾，一路确定保存，再新开启一个命令行输入<code>gcc</code>试试。如果提示“fatal error: no input files”，就说明GCC的环境变量已经配置好了。</p>

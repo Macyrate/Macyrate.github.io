@@ -1,7 +1,7 @@
 ---
 title: C#杂记之柒：特性与反射
 tags:
-  - CSharp
+  - C Sharp
   - 笔记
 date: 2022-02-14 00:04:50
 ---

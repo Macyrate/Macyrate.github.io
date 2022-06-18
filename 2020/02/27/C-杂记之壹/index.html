@@ -16,9 +16,9 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
@@ -26,7 +26,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#杂记之壹：委托与事件">
 <meta property="og:url" content="https://hakurei.red/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/index.html">
-<meta property="og:site_name" content="博丽大智分社 | Macyrate">
+<meta property="og:site_name" content="博丽东亭分社 | Macyrate">
 <meta property="og:description" content="此前虽然接触过C#中的一些较为高级的操作，但基本是只知其有，不知在哪些场景下可以应用。这几天写着代码就顿觉冗杂不堪，虽然能跑但看起来十分难受，希望寻求一些函数式编程之类的魔法来简化流程。 那首先要理解的还是委托和事件。虽然学完了也不一定会用，但看懂一点总是好的。 委托 ¶定义 如之前所说，委托类似于函数指针。或者说，委托&#x2F;是&#x2F;一种&#x2F;存储&#x2F;函数引用&#x2F;的&#x2F;类型(注意断句)。由于函数的参数须是变量、常量">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/02/27/xVONQiE1hJIrWf2.jpg">
@@ -47,7 +47,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hakurei.red/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/","path":"2020/02/27/C-杂记之壹/","title":"C#杂记之壹：委托与事件"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>C#杂记之壹：委托与事件 | 博丽大智分社 | Macyrate</title>
+<title>C#杂记之壹：委托与事件 | 博丽东亭分社 | Macyrate</title>
   
 
 
@@ -77,7 +77,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <img src="https://s2.loli.net/2022/03/16/RqwlkTzOjImG5xM.png">
+      <img src="https://s2.loli.net/2022/04/12/6X3BmpW7eu1i8Dn.png">
       <i class="logo-line"></i>
     </a>
   </div>
@@ -174,7 +174,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -200,7 +200,7 @@
       </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.loli.net/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -270,12 +270,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽大智分社 | Macyrate">
+      <meta itemprop="name" content="博丽东亭分社 | Macyrate">
       <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="C#杂记之壹：委托与事件 | 博丽大智分社 | Macyrate">
+      <meta itemprop="name" content="C#杂记之壹：委托与事件 | 博丽东亭分社 | Macyrate">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -373,7 +373,7 @@
 <p>原型：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">EventHandler</span>(<span class="params"><span class="built_in">object</span> sender, EventArgs e</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">EventHandler</span>&lt;<span class="title">TEventArgs</span>&gt;(<span class="params"><span class="built_in">object</span> sender, TEventArgs e</span>)</span>;</span><br></pre></td></tr></table></figure>
 <p>这两个参数，第一个是事件源，在引发事件时填写<code>this</code>即可；第二个参数的类型派生自<code>System.EventArgs</code>，包含任意个事件参数。派生自<code>System.EventArgs</code>的类有很多很多，其中都是C#预先定义的事件形参。</p>
-<p>而泛型委托<code>EventHandler&lt;TEventArgs&gt;</code>的区别在于，第二项参数可以不派生自<code>System.EventArgs</code>，而是根据泛型类型参数<code>TEventArgs</code>决定。这意味着，如果希望在引发事件时传入10种参数，你需要根据<code>TEventArgs</code>写一个类，在里面定义10项属性。引发事件时，实例化这个类，把构造出的对象传到第二项参数里。</p>
+<p>而泛型委托<code>EventHandler&lt;TEventArgs&gt;</code>的区别在于，第二项参数可以不派生自<code>System.EventArgs</code>，而是泛型类型<code>TEventArgs</code>。这意味着，假如希望在引发事件时传入10种参数，你可以写一个类作为<code>TEventArgs</code>，在里面定义10项属性。引发事件时，实例化这个类，把构造出的对象传到第二项参数里。</p>
 <p>这个过程相当于是引发事件的类填了一张表格寄出去。表格的格式是预先设计好的，无论是派生自<code>System.EventArgs</code>的类，还是泛型委托里根据泛型类型参数自己写的那个类，其属性是在填写表格之前就确定了的。寄出去的除了填写完整的表格<code>e</code>之外，信封上还有你的联系方式<code>sender</code>。这样，收件人（发布器类）才能知道信是谁寄来的，也能够确定信里表格的格式是符合要求的。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个定义的例子</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="keyword">event</span> EventHandler&lt;MessageArrivedEventArgs&gt; MessageArrived;</span><br><span class="line"></span><br><span class="line"><span class="comment">//事件参数类的定义</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MessageArrivedEventArgs</span> : <span class="title">EventArgs</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">string</span> message;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Message</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span>&#123;<span class="keyword">return</span> message;&#125;    <span class="comment">//让message通过Message只读</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//显式定义无参构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessageArrivedEventArgs</span>()</span>=&gt;</span><br><span class="line">        message = <span class="string">&quot;No message sent.&quot;</span></span><br><span class="line">    <span class="comment">//有参构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MessageArrivedEventArgs</span>(<span class="params"><span class="built_in">string</span> newMessage</span>)</span>=&gt;</span><br><span class="line">        message = newMessage;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//引发事件，第一个参数是this，第二个实例化事件参数类</span></span><br><span class="line">MessageArrived(<span class="keyword">this</span>, <span class="keyword">new</span> MessageArrivedEventArgs(<span class="string">&quot;Hello World!&quot;</span>))；</span><br></pre></td></tr></table></figure>
 <p>最后要注意的是，如果事件根本不需要传入参数，依然可以用<code>EventHandler</code>委托来定义，只要向第二项参数里传入<code>EventArgs.Empty</code>就行了。</p>
@@ -452,9 +452,9 @@
   </main>
 
   <!--TypeKit start-->
-  <link rel="preconnect" href="https://fonts.loli.net">
+  <link rel="preconnect" href="https://fonts.proxy.ustclug.org">
   
-  <link href="https://fonts.loli.net/css2?family=Noto+Sans+Mono:wght@400;700&family=Noto+Serif+SC:wght@400;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.proxy.ustclug.org/css2?family=Noto+Sans+Mono:wght@400;700&family=Noto+Serif+SC:wght@400;900&display=swap" rel="stylesheet">
   <!--TypeKit end-->
 
   <!-- APlayer start -->
@@ -524,14 +524,14 @@
   </footer>
 
   
-  <script src="https://cdnjs.loli.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.loli.net/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.loli.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="//lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
-<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
 
 

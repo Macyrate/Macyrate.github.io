@@ -50,7 +50,7 @@ Mesh并不仅仅支持Wi-Fi。它指的是网状网络的组网形式，各种�
 
 切换的逻辑，大致可以用以下的流程图描述：
 
-![Band Steering](https://i.loli.net/2021/01/09/osE4JgtABSelavN.png)
+![Band Steering](http://storage.live.com/items/3550ADEE9AFF19FD!99482:/osE4JgtABSelavN.png?authkey=AIbyrqnS5z58phc)
 
 简单来说，就是：
 

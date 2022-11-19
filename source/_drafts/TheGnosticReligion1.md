@@ -9,7 +9,7 @@ tags:
 
 > 注意：我并不是专业的哲学研究者，以下陈述均源于阅读资料和个人理解，可能存在事实性错误，仅供参考。
 
-![豆瓣评分9.2](https://s2.loli.net/2022/04/06/8ob1dCOlXE7eMTB.png)
+![豆瓣评分9.2](http://storage.live.com/items/3550ADEE9AFF19FD!99478:/8ob1dCOlXE7eMTB.png?authkey=AIbyrqnS5z58phc)
 
 近期有几个因素将我引向这本书：
 

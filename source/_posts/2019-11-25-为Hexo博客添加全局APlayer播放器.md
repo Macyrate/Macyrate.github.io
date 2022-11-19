@@ -50,7 +50,7 @@ tags:
 {{- next_inject('header') }}
 ```
 
-![site-nav中的iframe.jpg](https://i.loli.net/2020/01/12/Dmhzxi8XFIQK7np.jpg)
+![site-nav中的iframe.jpg](http://storage.live.com/items/3550ADEE9AFF19FD!99517:/Dmhzxi8XFIQK7np.jpg?authkey=AIbyrqnS5z58phc)
 
 这个效果属实🍔🍔。并且在桌面版视图下还会把sidebar压下去，不太理想。
 
@@ -62,7 +62,7 @@ tags:
 
 一阵操作之后，预览的效果确实挺理想的，可是到我网站上就只能播放第一首曲子了，和上面那篇文章的评论区里一位老哥说的一模一样：
 
-![出现了绚丽的问题](https://i.loli.net/2020/01/12/Sb8tgk2FZLrnu3i.jpg)
+![出现了绚丽的问题](http://storage.live.com/items/3550ADEE9AFF19FD!99518:/Sb8tgk2FZLrnu3i.jpg?authkey=AIbyrqnS5z58phc)
 
 在我试图解决这个问题的时候，`badapple.top`突然就503了，回想起上面最后的更新日期是2018年，我就感到一阵不妙。不一会儿我就发现了和这绚丽播放器几乎`  完 全 一 致  `的替代品[AIP播放器](https://music.ain19.com/)，并且找出了前面问题的解决方案。可是，这两个东西相似度怎么能够这么高？？
 
@@ -98,11 +98,11 @@ tags:
 
 所以我又查到一个[issue](https://github.com/MoePlayer/hexo-tag-aplayer/issues/79)，什么？`吸底`？这正是我想要的——这说的不就是**原版**APlayer吗？！
 
-![APlayer吸底模式](https://i.loli.net/2020/01/12/Rm4tpK1sBMrdcyT.jpg)
+![APlayer吸底模式](http://storage.live.com/items/3550ADEE9AFF19FD!99523:/Rm4tpK1sBMrdcyT.jpg?authkey=AIbyrqnS5z58phc)
 
 在APlayer的文档里，对`fixed`模式的描述是`吸底`，这才是我所期望的功能，前面被“固定模式”这个沙雕翻译给整蒙了。那么，原版APlayer又是怎么用的呢？
 
-![APlayer入门](https://i.loli.net/2020/01/12/CBPWNdEnRqrUoHs.jpg)
+![APlayer入门](http://storage.live.com/items/3550ADEE9AFF19FD!99519:/CBPWNdEnRqrUoHs.jpg?authkey=AIbyrqnS5z58phc)
 
 看到这里，我的迷惑更上一层楼，有一定前端知识的人应该很快就能看懂这里在说什么，但是我显然不是……
 
@@ -121,7 +121,7 @@ tags:
 
 事后发现这里加载的最新版本MetingJS是`2.0.0`，但实际上这个版本和APlayer根本不兼容，而MetingJS的文档却给人一种稳得一批的感觉：
 
-![虚假的MetingJS文档](https://i.loli.net/2020/01/12/tmUfeSh5KFILic7.jpg)
+![虚假的MetingJS文档](http://storage.live.com/items/3550ADEE9AFF19FD!99520:/tmUfeSh5KFILic7.jpg?authkey=AIbyrqnS5z58phc)
 
 （都不Supported你贴个啥APLAYER啊！！）
 
@@ -179,7 +179,7 @@ tags:
 ```
 然后按照以下方法使用pjax:
 
-![使用pjax](https://i.loli.net/2020/01/12/gsN2MBVqIzCW9Uf.jpg)
+![使用pjax](http://storage.live.com/items/3550ADEE9AFF19FD!99521:/gsN2MBVqIzCW9Uf.jpg?authkey=AIbyrqnS5z58phc)
 
 **然而，全部木大！** 该跳还是跳了，也许是我姿势不对。
 

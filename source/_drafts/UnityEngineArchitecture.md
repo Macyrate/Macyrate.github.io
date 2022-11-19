@@ -3,10 +3,10 @@ title: UnityEngineArchitecture
 tags:
 - Unity
 - UI
-- 笔记
+- 锟绞硷拷
 - CSharp
 ---
 
-今天上招聘网站看了看Unity研发岗的JD，发现有不少公司要求“熟悉Unity引擎架构设计”，“熟悉UGUI底层原理”，我有点纳闷，Unity作为一个闭源引擎，怎么才能熟悉引擎架构设计呢？
+锟斤拷锟斤拷锟斤拷锟斤拷聘锟斤拷站锟斤拷锟剿匡拷Unity锟叫凤拷锟节碉拷JD锟斤拷锟斤拷锟斤拷锟叫诧拷锟劫癸拷司要锟斤拷锟斤拷悉Unity锟斤拷锟斤拷芄锟斤拷锟狡★拷锟斤拷锟斤拷锟斤拷悉UGUI锟阶诧拷原锟斤拷锟斤拷锟斤拷锟斤拷锟叫碉拷锟斤拷锟狡ｏ拷Unity锟斤拷为一锟斤拷锟斤拷源锟斤拷锟芥，锟斤拷么锟斤拷锟斤拷锟斤拷悉锟斤拷锟斤拷芄锟斤拷锟斤拷锟截ｏ拷
 
-然而，Unity文档中有一节讲的就是[Unity 架构](https://docs.unity3d.com/cn/2020.3/Manual/unity-architecture.html)，
+然锟斤拷锟斤拷Unity锟侥碉拷锟斤拷锟斤拷一锟节斤拷锟侥撅拷锟斤拷[Unity 锟杰癸拷](https://docs.unity3d.com/cn/2020.3/Manual/unity-architecture.html)锟斤拷

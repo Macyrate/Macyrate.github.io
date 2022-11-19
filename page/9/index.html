@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#93251A" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#93251A" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
 
-
+<link rel="preconnect" href="https://mirrors.sustech.edu.cn/cdnjs" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
@@ -51,6 +51,7 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
+<link rel="alternate" href="/atom.xml" title="博丽东亭分社 | Macyrate" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -86,7 +87,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-lab"><a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>实验</a></li><li class="menu-item menu-item-aria"><a href="http://hakurei.red/aria/" rel="section"><i class="fa fa-cloud-arrow-down fa-fw"></i>下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-lab"><a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>实验</a></li><li class="menu-item menu-item-aria"><a href="http://hakurei.red/aria/" rel="section"><i class="fa fa-cloud-arrow-down fa-fw"></i>下载</a></li><li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>订阅</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -149,7 +150,7 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Macyrate"
-      src="https://s2.loli.net/2022/10/07/2b3v51ryK7eHosD.jpg">
+      src="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
   <p class="site-author-name" itemprop="name">Macyrate</p>
   <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
 </div>
@@ -253,7 +254,7 @@
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://s2.loli.net/2022/10/07/2b3v51ryK7eHosD.jpg">
+      <meta itemprop="image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
       <meta itemprop="name" content="Macyrate">
     </span>
 
@@ -304,7 +305,7 @@
 <p><code>\themes\next\layout\_partials\header\index.swig</code></p>
 <p>由于toggle展开的是<code>site-nav</code>，将源码修改如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; partial(&#x27;_partials/header/brand.swig&#x27;, &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">&quot;site-nav&quot;</span>&gt;</span></span><br><span class="line">  &#123;&#123; partial(&#x27;_partials/header/menu.swig&#x27;, &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line">  <span class="comment">&lt;!--网易云iframe--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">src</span>=<span class="string">&quot;//music.163.com/outchain/player?type=2&amp;id=1384318412&amp;auto=0&amp;height=66&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--网易云iframe end--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;%- if theme.algolia_search.enable or theme.local_search.enable %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;site-search&quot;</span>&gt;</span></span><br><span class="line">    &#123;&#123; partial(&#x27;_partials/search/index.swig&#x27;, &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;- next_inject(&#x27;header&#x27;) &#125;&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2020/01/12/Dmhzxi8XFIQK7np.jpg" alt="site-nav中的iframe.jpg"></p>
+<p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99517:/Dmhzxi8XFIQK7np.jpg?authkey=AIbyrqnS5z58phc" alt="site-nav中的iframe.jpg"></p>
 <p>这个效果属实🍔🍔。并且在桌面版视图下还会把sidebar压下去，不太理想。</p>
           <!--noindex-->
             <div class="post-button">
@@ -342,7 +343,7 @@
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/24/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://s2.loli.net/2022/10/07/2b3v51ryK7eHosD.jpg">
+      <meta itemprop="image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
       <meta itemprop="name" content="Macyrate">
     </span>
 
@@ -428,7 +429,7 @@
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/23/%E5%85%B3%E4%BA%8E%E2%80%9C%E6%B6%8C%E7%8E%B0%E2%80%9D%E7%9A%84%E6%80%9D%E8%80%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://s2.loli.net/2022/10/07/2b3v51ryK7eHosD.jpg">
+      <meta itemprop="image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
       <meta itemprop="name" content="Macyrate">
     </span>
 
@@ -511,7 +512,7 @@
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/22/191122/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://s2.loli.net/2022/10/07/2b3v51ryK7eHosD.jpg">
+      <meta itemprop="image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
       <meta itemprop="name" content="Macyrate">
     </span>
 
@@ -669,6 +670,7 @@
   </footer>
 
   
+  <script size="100" alpha="0.2" zIndex="-1" src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
   <script src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
   <script src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>

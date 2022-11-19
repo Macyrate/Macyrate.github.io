@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>博丽东亭分社 | Macyrate</title>
+  <icon>https://hakurei.red/icon.png</icon>
+  
+  <link href="https://hakurei.red/atom.xml" rel="self"/>
+  
+  <link href="https://hakurei.red/"/>
+  <updated>2022-03-29T17:56:24.000Z</updated>
+  <id>https://hakurei.red/</id>
+  
+  <author>
+    <name>Macyrate</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《被讨厌的勇气》</title>
+    <link href="https://hakurei.red/2022/03/30/KirawareruYuuki/"/>
+    <id>https://hakurei.red/2022/03/30/KirawareruYuuki/</id>
+    <published>2022-03-29T17:56:24.000Z</published>
+    <updated>2022-03-29T17:56:24.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99608:/tbOdUpGE5WFwXT6.png?authkey=AIbyrqnS5z58phc&quot; alt=&quot;豆瓣评分8.6&quot;&gt;&lt;/p&gt;
+&lt;p&gt;前段时间华为推出了10.3寸的墨水屏平板Matepad Paper，似乎非常贴合我对“平板”这一形态的需求。毕竟我手上的Matepad 11原本几乎唯一的作用就是阅读，而基本告别娱乐属性的墨水屏是强化这一属性最好不过的配置了。不过由于了解到华为对PDF的优化并不到位，阅读灯也没有色温调节，我还是把Matepad换成了文石的BOOX NoteX。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99609:/1qMstzlrGAFSWo4.jpg?authkey=AIbyrqnS5z58phc&quot; alt=&quot;BOOX NoteX&quot;&gt;&lt;/p&gt;
+&lt;p&gt;在把那些买来就基本没读过的书来来去去搬过几回之后，我的纸质书“情怀”就转化为了对科技的崇尚。我决定不再购买纸质书，而是尽可能获取epub/pdf的版本，&lt;a href=&quot;https://singlelogin.org&quot;&gt;Z-Library&lt;/a&gt;和&lt;a href=&quot;http://www.ucdrs.net/&quot;&gt;全国图书馆参考咨询联盟&lt;/a&gt;也给了我这么做的充足底气，现在也有了这台不错的设备，没有理由不把阅读这件事捡起来了。&lt;/p&gt;
+&lt;p&gt;有多久没有从头到尾读完一整本书了呢？似乎大学以后，阅读就是为了查阅资料，或者在碎片时间里读些短篇故事，这也许也是数年间我的认知水平与思考深度未曾有过提升的原因。之后也许会试着每两周左右读一本书吧。&lt;/p&gt;
+&lt;p&gt;那么第一本书就是Z-Library推荐的《被讨厌的勇气》。它初看像是又一卷成功学厕纸，但读过之后却发现意外地有道理也有趣味。&lt;/p&gt;
+&lt;p&gt;这本书仿照类似柏拉图《理想国》的对话形式，以“青年”与“哲人”的辩论引出心理学家阿尔弗雷德·阿德勒（Alfred Adler）的理论，以图让读者找到“幸福”的真谛。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="读书" scheme="https://hakurei.red/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="心理学" scheme="https://hakurei.red/tags/%E5%BF%83%E7%90%86%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义的==运算符，我们应该保留吗？</title>
+    <link href="https://hakurei.red/2022/03/16/UnityCustomEqualOperator/"/>
+    <id>https://hakurei.red/2022/03/16/UnityCustomEqualOperator/</id>
+    <published>2022-03-15T16:20:12.000Z</published>
+    <updated>2022-03-15T16:20:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;该文章译自Unity官网博客，原文：&lt;a href=&quot;https://blog.unity.com/technology/custom-operator-should-we-keep-it&quot;&gt;Custom == operator, should we keep it?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;TL;DR: Unity的&lt;code&gt;==&lt;/code&gt;是魔改版，与原生C#里的行为不一样。所以不要对&lt;code&gt;UnityEngine.Object&lt;/code&gt;派生出的任何东西（包括&lt;code&gt;MonoBehaviour&lt;/code&gt;）使用C#的空值相关语法糖，包括&lt;code&gt;?.&lt;/code&gt;，&lt;code&gt;??&lt;/code&gt;，&lt;code&gt;??=&lt;/code&gt;等等（三元运算符可以用），而应该老老实实使用&lt;code&gt;== null&lt;/code&gt;来判空。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;正文&lt;/h1&gt;
+&lt;p&gt;当你在Unity中进行这样的操作时：&lt;/p&gt;
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (myGameObject == &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Unity对&lt;code&gt;==&lt;/code&gt;运算符做了一些特殊处理。与大多数人所期望的不同，我们对&lt;code&gt;==&lt;/code&gt;运算符有一个特殊实现。&lt;/p&gt;
+&lt;p&gt;这样做是为了达到两个目的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;当一个&lt;code&gt;MonoBehaviour&lt;/code&gt;有字段时，仅仅在编辑器中&lt;sup&gt;1&lt;/sup&gt;，我们不会将这些字段设置为“真null”，而是设置为一个“假null”对象。我们自定义的&lt;code&gt;==&lt;/code&gt;操作符能够检查某物是否是这种假null，并采取相应的行为。虽然这种机制怪怪的，但它能让我们在假null中存储信息，这样当你对它调用一个方法，或者读取一个属性时，它可以给你更多的上下文信息。如果没有这个技巧，你只会得到一个&lt;code&gt;NullReferenceException&lt;/code&gt;，一个堆栈跟踪，但你不知道到底哪个&lt;code&gt;GameObject&lt;/code&gt;的&lt;code&gt;MonoBehaviour&lt;/code&gt;的字段是空的。而有了这个技巧，我们就可以在检查器中突出显示&lt;code&gt;GameObject&lt;/code&gt;，也可以给你更多的提示：“看起来你正在访问这个&lt;code&gt;MonoBehaviour&lt;/code&gt;中的一个未初始化的字段，请用Inspector将这个字段指向某个东西”。&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    
+    <category term="Unity" scheme="https://hakurei.red/tags/Unity/"/>
+    
+    <category term="C Sharp" scheme="https://hakurei.red/tags/C-Sharp/"/>
+    
+    <category term="译文" scheme="https://hakurei.red/tags/%E8%AF%91%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#杂记之柒：特性与反射</title>
+    <link href="https://hakurei.red/2022/02/14/CSharpNote7-AttributeAndReflection/"/>
+    <id>https://hakurei.red/2022/02/14/CSharpNote7-AttributeAndReflection/</id>
+    <published>2022-02-13T16:04:50.000Z</published>
+    <updated>2022-02-13T16:04:50.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;其实19年在实习期间写CFET的时候，就有用到过Attribute这个特性&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn1&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;，但当时并没有研究过它的作用和原理，只是照着文档给的案例使用。最近准备看看Unity中是如何用Lua实现热更新的，发现attribute满天飞，这就不得不理解一下了。&lt;/p&gt;
+&lt;p&gt;简单看了看，attribute似乎和反射息息相关，正好反射这块我也不太了解，这次就将一些相关的概念一并记录吧。&lt;/p&gt;
+&lt;h1&gt;特性 Attribute&lt;/h1&gt;
+&lt;p&gt;特性是一种标签，可以用方括号贴在各种元素&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn2&quot; id=&quot;fnref2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt;之前，给这些元素添加&lt;strong&gt;元数据&lt;/strong&gt;。元数据包括编译器指令、注释、描述、方法、类等信息。&lt;/p&gt;
+&lt;p&gt;许多特性都附带一些参数，如在声明&lt;code&gt;element&lt;/code&gt;的时候，通过带参的attribute附加元数据，按下面的格式使用：&lt;/p&gt;
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;meta&quot;&gt;SomeAttribute(positional_parameters, name_parameter = value, ...)&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;element&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;特性实际上是&lt;code&gt;System.Attribute&lt;/code&gt;的一系列派生类，它们的后缀均为&amp;quot;Attribute&amp;quot;，在打标签的时候这个后缀可以省略掉。&lt;/p&gt;
+&lt;h2 id=&quot;预定义的Attribute&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#预定义的Attribute&quot;&gt;¶&lt;/a&gt;预定义的Attribute&lt;/h2&gt;
+&lt;p&gt;微软在.NET库里已经内置了一堆&lt;code&gt;System.Attribute&lt;/code&gt;的派生类，我们可能只会接触到其中一小部分，这里举几种常用的为例。&lt;/p&gt;
+&lt;h3 id=&quot;ObsoleteAttribute&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#ObsoleteAttribute&quot;&gt;¶&lt;/a&gt;ObsoleteAttribute&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Obsolete&lt;/code&gt;用于指示过时、弃用的元素。这些元素被认为不应该使用，因此在有调用到这种元素的地方，会产生Warning，并且附带参数&lt;code&gt;message&lt;/code&gt;所包含的提示信息。如果建议使用某种新方案，就可以写在提示信息里。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99601:/tkSGJRc4mFe1w2y.png?authkey=AIbyrqnS5z58phc&quot; alt=&quot;对过时元素告警&quot;&gt;&lt;/p&gt;
+&lt;p&gt;另外，还有可选的第二个参数&lt;code&gt;iserror&lt;/code&gt;，如果被设置为&lt;code&gt;true&lt;/code&gt;，则会产生Error而不是Warning，阻止编译。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="C Sharp" scheme="https://hakurei.red/tags/C-Sharp/"/>
+    
+    <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#杂记之陆：真·杂记</title>
+    <link href="https://hakurei.red/2022/02/07/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/"/>
+    <id>https://hakurei.red/2022/02/07/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/</id>
+    <published>2022-02-07T01:51:35.000Z</published>
+    <updated>2022-02-07T01:51:35.000Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;注：以下文稿写于2020年，虽未完整，为了不卡杂记的序号，还是发出来了。&lt;br&gt;
+日后会在这里添加更多内容，也可能另起一篇拾遗（&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这一篇是真正的“杂”记。这段时间在刷LeetCode的同时，阅览了一些Java中常见的问题，鉴于Java与C#的殊途同归，也有了些收获。&lt;/p&gt;
+&lt;p&gt;为查漏补缺，将之前理解还不够明了的部分记在这里，主要是涉及OOP思想的一些概念。&lt;/p&gt;
+&lt;h1&gt;关于多态&lt;/h1&gt;
+&lt;p&gt;面向对象设计有四大特征：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;抽象：通过类和接口的属性与方法实现&lt;/li&gt;
+&lt;li&gt;继承：通过类和接口的继承实现&lt;/li&gt;
+&lt;li&gt;封装：通过访问控制符实现&lt;/li&gt;
+&lt;li&gt;多态：？？？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;多态这个概念比较神秘。以前看到一个解释是这么说的：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;继承是子类引用父类方法；多态是父类引用子类方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当时看了觉得有点奇怪，父类怎么能引用子类方法呢？现在我的理解是如下：&lt;/p&gt;
+&lt;p&gt;子类对象&lt;strong&gt;继承&lt;/strong&gt;了父类方法，但是可能又对继承过来的父类方法进行了&lt;strong&gt;重写&lt;/strong&gt;覆盖。而一切出现父类的地方都可以用其子类&lt;strong&gt;向上转型&lt;/strong&gt;进行替换(里氏替换原则)，调用方法时调用的会是在子类里被重写的子类方法。继承、重写和向上转型，这是实现多态的三要素。&lt;/p&gt;
+&lt;p&gt;这样，如果一个父类有多个子类，它们又分别用不同方式重写了继承下来的同一个方法，那么在把这些子类都当父类使用时，就会展现出多态性：明明是对同一个类的对象调用了同一个方法，但行为却完全不同。&lt;/p&gt;
+&lt;p&gt;举个例子，假如有个&lt;code&gt;扬声器&lt;/code&gt;类，包含一个&lt;code&gt;大叫()&lt;/code&gt;方法，调用时会“嘤嘤嘤”；而继承自它的有大叫“洒↓比↑”的&lt;code&gt;喇叭&lt;/code&gt;类和大叫“哼，哼，啊啊啊啊啊啊啊”的&lt;code&gt;野兽先辈&lt;/code&gt;类：&lt;/p&gt;
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//这段代码甚至真的可以跑，C#支持用汉字做标识符，大概是因为用了Unicode&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; System;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; System.Collections.Generic;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;PlayGround&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; 扬声器&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; 大叫() =&amp;gt; Console.WriteLine(&lt;span class=&quot;string&quot;&gt;&amp;quot;嘤嘤嘤&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; 喇叭 : 扬声器&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; 大叫() =&amp;gt; Console.WriteLine(&lt;span class=&quot;string&quot;&gt;&amp;quot;洒↓比↑&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; 野兽先辈 : 扬声器&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; 大叫() =&amp;gt; Console.WriteLine(&lt;span class=&quot;string&quot;&gt;&amp;quot;哼，哼，啊啊啊啊啊啊啊&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; 屑狐狸 : 扬声器&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; 大叫() =&amp;gt; Console.WriteLine(&lt;span class=&quot;string&quot;&gt;&amp;quot;呜呜呜呜，好可怜啊&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Program&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Main&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;[] args&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; 一堆扬声器 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; List&amp;lt;扬声器&amp;gt;() &amp;#123; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; 扬声器(), &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; 喇叭(), &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; 野兽先辈(), &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; 屑狐狸() &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;foreach&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; 某个扬声器 &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; 一堆扬声器)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                某个扬声器.大叫();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// 输出：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// 嘤嘤嘤&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// 洒↓比↑&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// 哼，哼，啊啊啊啊啊啊啊&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// 呜呜呜呜，好可怜啊&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    
+    <category term="C Sharp" scheme="https://hakurei.red/tags/C-Sharp/"/>
+    
+    <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 常用命令行</title>
+    <link href="https://hakurei.red/2021/08/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    <id>https://hakurei.red/2021/08/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C/</id>
+    <published>2021-08-23T16:50:46.000Z</published>
+    <updated>2021-08-23T16:50:46.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;以下所介绍的部分命令，在设备上是由适合嵌入式 Linux 的工具集 BusyBox 提供，行为和 Linux 桌面发行版上不完全一致，这里均采用 BusyBox 所提供的指令用法。&lt;/p&gt;
+&lt;h1&gt;ifconfig：查看接口状态&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;ifconfig&lt;/code&gt; 可设置网卡接口的状态，或是显示目前的设置。以下是一些主要的设置参数。&lt;/p&gt;
+&lt;p&gt;语法格式：&lt;code&gt;ifconfig &amp;lt; -a &amp;gt; [网卡名称] &amp;lt;参数&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;参数&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;add &amp;lt;地址&amp;gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;设置网卡的IPv6地址。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;del &amp;lt;地址&amp;gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;删除网卡的IPv6地址。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;up&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;启动指定的网卡。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;down&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;关闭指定的网卡。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;metric &amp;lt;数目&amp;gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;指定在计算数据包的转送次数时，所要加上的数目。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;mtu &amp;lt;字节&amp;gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;设置网卡的MTU（最大数据包大小）。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;netmask &amp;lt;子网掩码&amp;gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;设置网卡的子网掩码。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;-broadcast &amp;lt;地址&amp;gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;将要送往指定地址的数据包当成广播数据包来处理。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;[IP地址]&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;指定网卡的IP地址。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;直接输入 &lt;code&gt;ifconfig&lt;/code&gt; 就会列出目前已激活的网卡，不论这个卡是否有给予 IP ，都会被显示出来。带接口的 &lt;code&gt;ifconfig eth0&lt;/code&gt; 则仅会表示接口 eth0 的相关数据，无论其是否启动。使用 &lt;code&gt;-a&lt;/code&gt; 选项，则会展示所有网卡的属性。&lt;/p&gt;
+&lt;h2 id=&quot;示例&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#示例&quot;&gt;¶&lt;/a&gt;示例&lt;/h2&gt;
+&lt;figure class=&quot;highlight console&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;ifconfig ra8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ra8       Link encap:Ethernet  HWaddr 02:A1:BB:01:23:48  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          inet6 addr: fe80::a1:bbff:fe01:2348/64 Scope:Link&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          RX packets:130 errors:0 dropped:0 overruns:0 frame:0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          TX packets:61 errors:0 dropped:0 overruns:0 carrier:0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          collisions:0 txqueuelen:1000 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          RX bytes:13971 (13.6 KiB)  TX bytes:7767 (7.5 KiB)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    
+    <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="C" scheme="https://hakurei.red/tags/C/"/>
+    
+    <category term="Linux" scheme="https://hakurei.red/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux内核内存问题定位</title>
+    <link href="https://hakurei.red/2021/04/13/Linux%E5%86%85%E6%A0%B8%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/"/>
+    <id>https://hakurei.red/2021/04/13/Linux%E5%86%85%E6%A0%B8%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/</id>
+    <published>2021-04-13T12:06:03.000Z</published>
+    <updated>2021-04-13T12:06:03.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;定位linux内存异常问题思路&lt;/h1&gt;
+&lt;h2 id=&quot;内存访问异常&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#内存访问异常&quot;&gt;¶&lt;/a&gt;内存访问异常&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;空指针访问：常见，易解决&lt;/li&gt;
+&lt;li&gt;“踩内存”：对不属于你的内存进行读写，难点在于踩内存发生的时间与程序崩溃的时间没有任何关系&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;被踩内存-踩内存的关系分类&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#被踩内存-踩内存的关系分类&quot;&gt;¶&lt;/a&gt;被踩内存/踩内存的关系分类&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;越界踩内存&lt;br&gt;
+定义或申请的内存小了&lt;/li&gt;
+&lt;li&gt;使用已释放的内存&lt;br&gt;
+释放掉的内存又被使用&lt;/li&gt;
+&lt;li&gt;随机踩内存（最难排查）&lt;br&gt;
+踩坏的位置与使用的内存没有直接关系，每次崩溃的情况可能都不一样&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;被踩坏内存的位置分类&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#被踩坏内存的位置分类&quot;&gt;¶&lt;/a&gt;被踩坏内存的位置分类&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;堆踩坏&lt;br&gt;
+&lt;code&gt;malloc/new/kmalloc/vmalloc&lt;/code&gt;申请的内存&lt;/li&gt;
+&lt;li&gt;栈踩坏&lt;/li&gt;
+&lt;li&gt;全局变量踩坏&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;被踩坏内存的内容分类&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#被踩坏内存的内容分类&quot;&gt;¶&lt;/a&gt;被踩坏内存的内容分类&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;字符串&lt;/li&gt;
+&lt;li&gt;指针&lt;/li&gt;
+&lt;li&gt;随机值&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    
+    <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="C" scheme="https://hakurei.red/tags/C/"/>
+    
+    <category term="Linux" scheme="https://hakurei.red/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WLAN笔记-壹</title>
+    <link href="https://hakurei.red/2020/09/10/WLAN-Note-1/"/>
+    <id>https://hakurei.red/2020/09/10/WLAN-Note-1/</id>
+    <published>2020-09-10T07:52:07.000Z</published>
+    <updated>2020-09-10T07:52:07.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;WLAN历史&lt;/h1&gt;
+&lt;p&gt;WLAN是Wireless Local Area Network(无线局域网)的缩写，实际上就是要在不采用网线的情况下，提供以太网的互联功能。&lt;/p&gt;
+&lt;p&gt;我们更常见到的词是Wi-Fi(Wireless Fidelity, 无线保真)，但其实Wi-Fi是实现WLAN的技术之一，它遵循IEEE 802.11标准。实现WLAN的技术还可以是IrDA红外，Bluetooth蓝牙，HomeRF，乃至于GSM和LTE等，但Wi-Fi具有巨大的优势，以至于现在说到WLAN，基本就等于Wi-Fi。&lt;/p&gt;
+&lt;p&gt;Wi-Fi同时作为一个商标，被WiFi联盟WFA持有，新产品要通过Wi-Fi联盟的测试和认证后，才被允许使用“Wi-Fi”logo。这实际上是为了保证产品之间的兼容性。&lt;/p&gt;
+&lt;p&gt;Wi-Fi技术伴随着802.11标准演进。这一过程带来了更多的子载波、更高的调制方式、更高的编码率、更短的GI、更宽的带宽、还有MAC层的报文聚合等等。当然，它们的共同目的都是不断提升无线网络的吞吐量，降低时延。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99596:/SBMczewQtKh6NoU.jpg?authkey=AIbyrqnS5z58phc&quot; alt=&quot;历代Wi-Fi&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="计算机网络" scheme="https://hakurei.red/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="标准" scheme="https://hakurei.red/tags/%E6%A0%87%E5%87%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VS Code C语言开发环境配置</title>
+    <link href="https://hakurei.red/2020/09/01/VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    <id>https://hakurei.red/2020/09/01/VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</id>
+    <published>2020-09-01T05:08:05.000Z</published>
+    <updated>2020-09-01T05:08:05.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;由于安全上的要求，我司的开发环境比较复杂，涉及到Citrix非涉密/涉密桌面和远程Linux编译服务器等等，在这样的环境下用VS Code需要经过一系列的折腾，这篇文章简要记录了我最初的配置流程。&lt;/p&gt;
+&lt;h1&gt;安装VS Code&lt;/h1&gt;
+&lt;p&gt;首先，在非涉密桌面访问&lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;VS Code官网&lt;/a&gt;下载最新安装包，然后安装到&lt;strong&gt;Q盘中（重要！）&lt;/strong&gt;。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件就没了。&lt;/p&gt;
+&lt;p&gt;不要急着删除安装包，将它&lt;strong&gt;复制&lt;/strong&gt;到T盘（直接剪切可能会报权限错误），转移到涉密桌面。如果之前你已经启动了涉密桌面，可以尝试用快捷键&lt;code&gt;Ctrl + Alt + Tab&lt;/code&gt;进行切换。&lt;/p&gt;
+&lt;p&gt;到涉密桌面环境后，安装VS Code——这次可以装在C盘里，涉密桌面的C盘是不会被重置的。注意，安装时会有几个选项，询问是否要加入右键菜单以及PATH等，请把所有的勾都勾上。&lt;/p&gt;
+&lt;h1&gt;安装扩展&lt;/h1&gt;
+&lt;p&gt;众所周知，VS Code最重要的是扩展。由于涉密桌面没有外网，我们要安装扩展只能先从非涉密桌面下载，再通过T盘转移。&lt;/p&gt;
+&lt;p&gt;但是，VS Code默认存放扩展的目录在C盘，这导致非涉密桌面一旦重启，你的扩展就会全部消失。所以，装扩展之前要先更改非涉密桌面中VS Code存放扩展的目录。&lt;/p&gt;
+&lt;p&gt;我没有在设置里找到直接修改的方法，但你可以通过以下的方法来间接修改。&lt;/p&gt;
+&lt;p&gt;首先进入VS Code的安装目录（没忘记装在哪了吧），新建一个文件夹，命名为&lt;code&gt;extensions&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;在桌面上VS Code的快捷方式上右键打开属性（假如桌面上没有，就去安装目录里找到code.exe，右键发送-&amp;gt;桌面快捷方式），找到&lt;code&gt;目标(T)&lt;/code&gt;一栏，在已有内容的后面添上:&lt;/p&gt;
+&lt;figure class=&quot;highlight dsconfig&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;--extensions-dir&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;(你刚才创建的extensions文件夹的完整路径)&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    
+    <category term="工具" scheme="https://hakurei.red/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="C" scheme="https://hakurei.red/tags/C/"/>
+    
+    <category term="折腾" scheme="https://hakurei.red/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>能不能好好上网-壹：搭建IPv6私有云盘</title>
+    <link href="https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/"/>
+    <id>https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/</id>
+    <published>2020-08-08T18:54:46.000Z</published>
+    <updated>2020-08-08T18:54:46.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;能不能好好上网？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在中国，很难。&lt;/p&gt;
+&lt;h1&gt;故事背景&lt;/h1&gt;
+&lt;p&gt;我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99586:/FcrqSmxuBWz9e8a.png?authkey=AIbyrqnS5z58phc&quot; alt=&quot;远程桌面连接&quot;&gt;&lt;/p&gt;
+&lt;p&gt;到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？&lt;/p&gt;
+&lt;p&gt;以此为契机，我了解到了局域网，IP和3389端口的概念——巧合的是，我目前的手机尾号就是&lt;code&gt;3389&lt;/code&gt;，而前半部分则恰好可以写作一个IPv4地址。那时，中国的网络用户数量远不如今天，大部分设备都有公网IP。可能也正因如此，诸如CS1.6，War3和东方非想天则一类基于IP联机的游戏能够风靡一时。&lt;/p&gt;
+&lt;p&gt;时代变了。匮乏的IPv4地址资源遇上万物互联的爆发式增长势头，NAT一层套一层，再也没法畅快地IP直连，人们在网络里也像居住于水泥丛林间的鸽子笼，失却了那种田间地头吆喝一嗓子的快意。&lt;/p&gt;
+&lt;p&gt;在演变到今天状况的前两年，大家还有动态的公网IPv4地址，而不是被圈养在运营商的“大内网”里，那段时间我还能进行一些“叠床架屋”的操作来胡作非为。&lt;/p&gt;
+&lt;p&gt;我在树莓派上弄了一个简单的Python脚本，每隔一小时检查路由器的公网IP，如果发生了变动就用邮件形式发出通知。再配合路由器上配置的IP-MAC绑定和端口转发，我就能在外访问到局域网里某台设备的具体端口。虽然后来改用了更方便的TeamViewer，但很长一段时间里，我就是这样在实验课机房里连接寝室中的台式机来写代码的。如今看来，我这操作基本就是实现了一个“低配版”的DDNS服务。&lt;/p&gt;
+&lt;p&gt;那么，说回现在。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="计算机网络" scheme="https://hakurei.red/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="折腾" scheme="https://hakurei.red/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>200722：中国移动与高跟鞋</title>
+    <link href="https://hakurei.red/2020/07/22/200722/"/>
+    <id>https://hakurei.red/2020/07/22/200722/</id>
+    <published>2020-07-22T15:35:44.000Z</published>
+    <updated>2020-07-22T15:35:44.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;又是一个月，我还是没有写技术方面的博客，这两个月的状况恰如自己突然变得稀疏的GitHub页面：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99584:/ZHmG2KzgC4vMa95.png?authkey=AIbyrqnS5z58phc&quot; alt=&quot;GitHub突然稀疏&quot;&gt;&lt;/p&gt;
+&lt;p&gt;再这么下去，我可真的要写不来代码了。&lt;/p&gt;
+&lt;p&gt;最大的事儿，当然是入职了。这次加入的是成立不久的央企中国信科，由历史悠久的烽火通信和大唐电信合并而成，一言蔽之如今是在通信行业排在华为和中兴之后第三位的公司。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99585:/QadeXHJM6t8fyvD.png?authkey=AIbyrqnS5z58phc&quot; alt=&quot;中国信科&quot;&gt;&lt;/p&gt;
+&lt;p&gt;说实话，以前我与烽火通信几乎没有什么交集，而大唐电信倒是早有耳闻，不仅仅是因为它那霸气侧漏的名字，最主要的是3G时代大唐电信给中国移动搞的那套备受吐槽的&lt;code&gt;TD-SCDMA&lt;/code&gt;制式，让我这个当年的G3用户深切认识到了什么叫“如果G3就是3G，那么国美就是美国”。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="随笔" scheme="https://hakurei.red/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>200621：江湖再见</title>
+    <link href="https://hakurei.red/2020/06/23/200621/"/>
+    <id>https://hakurei.red/2020/06/23/200621/</id>
+    <published>2020-06-23T04:51:04.000Z</published>
+    <updated>2020-06-23T04:51:04.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;距离上一次更新竟然过去了一个半月。倒也不是我不想写，每当念起时总有些“俗事缠身”。而当处理完这些事，我要么是没有安静的适合写作的环境，要么便是只想躺平刷微博，失却了敲键盘的热情。&lt;/p&gt;
+&lt;p&gt;今天终于得闲，慢慢地来记几笔吧。&lt;/p&gt;
+&lt;p&gt;五月初，我终于得知毕设deadline的确切日期已经不远，而且那时我的春招战果虽不算好，但总归拿到了保底的offer，唯一要做的就是赶进度了。To Do List上的待办事项随着Commit被勾掉一些，那时我充满热情，状态是相当理想的。我又满怀兴奋地购入一堆技术书籍——不必说，它们自然还是没有被翻过几页。&lt;/p&gt;
+&lt;p&gt;我的Unity终于有了点入门的感觉，开发就像华科的施工队般“日新月异”。为了保持这种节奏，毕设所需要写的那些形式上的文书之类一度令我深恶痛绝，但很快我就从中感受到了回顾与总结既往工作的乐趣，这项杂务实际上是大有裨益的，让人能暂时跳出“此山中”，不至于沉迷于手头的问题而“不见庐山真面目”。&lt;/p&gt;
+&lt;p&gt;到了线上答辩的时刻，大家的课题多是大型分布式系统或者机器学习等等非常“Computer Science”的内容，我的《基于Unity的东方Project同人ARPG游戏设计与开发》无论什么时候都那么格格不入。偏偏我的答辩排在最后几位，只好先接受了数个小时的天书洗礼。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="随笔" scheme="https://hakurei.red/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>200505：后浪</title>
+    <link href="https://hakurei.red/2020/05/05/200505/"/>
+    <id>https://hakurei.red/2020/05/05/200505/</id>
+    <published>2020-05-05T12:27:52.000Z</published>
+    <updated>2020-05-05T12:27:52.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;不可避免地，这两天被《后浪》刷了屏。&lt;/p&gt;
+&lt;p&gt;看到&lt;strong&gt;后浪&lt;/strong&gt;二字，我一开始想到的是那家后浪出版公司。我还在读《vista看天下》时，这家出版公司就有许多存在感。虽然知乎上只看梵语原著的大佬们将其打为营销号的同类，但我至少认同他们在选书和装帧上的天分。对于一家出版公司，这好像也就是最重要的：把那些有趣有用的书以亲近可人的姿态送进大街小巷的书店，让那些或许仅仅是为刻奇所驱使，亦或许真正识文解意的爱书人，能够看到那个熟悉的图标就忍不住算算自己的余额。&lt;/p&gt;
+&lt;p&gt;显然，我是属于前一种“爱书人”。也许上次去书店我抽出了《山海经校注》，这次我找来了一本《中国神话史》，下次还要考虑着把那套《火鸟》扛走……但是实际上堆在桌上，自己经常翻看的还是诸如《C#高级编程》和《Unity 5.x从入门到精通》之类，“科技类图书四大社”的俗套玩意。&lt;/p&gt;
+&lt;p&gt;噢，不——在那堆东西里甚至还夹着一本没翻过几页的《日本书纪》。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99578:/Vna4JIWD3xKYSe5.jpg?authkey=AIbyrqnS5z58phc&quot; alt=&quot;冠位十二阶 宪法十七条&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="随笔" scheme="https://hakurei.red/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="国事" scheme="https://hakurei.red/tags/%E5%9B%BD%E4%BA%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#杂记之伍：数组与集合</title>
+    <link href="https://hakurei.red/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/"/>
+    <id>https://hakurei.red/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/</id>
+    <published>2020-04-14T16:08:01.000Z</published>
+    <updated>2020-04-14T16:08:01.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;数组可以说是在任何语言中都非常基本的数据结构了。这篇笔记以C#中的数组为引，再延伸到C#的几种集合类(Collections)以及一些相关的基本概念。&lt;/p&gt;
+&lt;h1&gt;数组 Array&lt;/h1&gt;
+&lt;h2 id=&quot;概述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#概述&quot;&gt;¶&lt;/a&gt;概述&lt;/h2&gt;
+&lt;p&gt;数组存储相同种类的元素，其大小固定，且是顺序存储的，即在内存中占据一段连续的地址。&lt;/p&gt;
+&lt;p&gt;数组作为一种引用类型(其基类是System.Array)，需要用&lt;code&gt;new&lt;/code&gt;来创建实例。&lt;/p&gt;
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//初始化时指定大小&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt;[] balance = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt;[&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//可以直接赋值来初始化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt;[] marks = &amp;#123;&lt;span class=&quot;number&quot;&gt;99&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;98&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;92&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;97&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;95&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;初始化而尚未赋值的数组，编译器会根据其类型隐式地将所有元素设置为默认值。&lt;/p&gt;
+&lt;p&gt;数组最大的特点还是能够用下标索引来随机访问其中的元素：&lt;/p&gt;
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt; salary = balance[&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//以下是C# 8.0引入的好东西！&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//末尾运算符 ^ &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//[^n]表示[length-n]，类似Python用负数索引[-n]表示[length-n]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt; salary = balance[^&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//范围运算符 ..&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//[a..b]表示从[a]到[b]的范围(但不包含[b]！)，类似Python的切片[a:b]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//省略a代表0，省略b代表^0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt;[] salaries1 = balance[..^&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//如果a比b还大，会抛出异常(Python中则是返回空列表)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt;[] salaries2 = balance[&lt;span class=&quot;number&quot;&gt;3.&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.2&lt;/span&gt;];     &lt;span class=&quot;comment&quot;&gt;//ArgumentOutOfRangeException&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//a和b一样大时，返回长度为0的集合&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt;[] salaries3 = balance[&lt;span class=&quot;number&quot;&gt;3.&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.3&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Console.WriteLine(salaries3.Length);   &lt;span class=&quot;comment&quot;&gt;//0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;由于实现了&lt;code&gt;IEnumerable&lt;/code&gt;接口，数组可以使用&lt;code&gt;foreach...in...&lt;/code&gt;的方式进行迭代访问，还可以使用LINQ，这样就无需获取数组长度再用for循环迭代了。关于这个接口及其相关的内容，我在本文稍后的部分记述。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="C Sharp" scheme="https://hakurei.red/tags/C-Sharp/"/>
+    
+    <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#杂记之肆：异步</title>
+    <link href="https://hakurei.red/2020/04/08/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/"/>
+    <id>https://hakurei.red/2020/04/08/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/</id>
+    <published>2020-04-08T14:58:53.000Z</published>
+    <updated>2020-04-08T14:58:53.000Z</updated>
+    
+    
+    <summary type="html">&lt;div class=&quot;note warning&quot;&gt;&lt;p&gt;&lt;strong&gt;前方高能！&lt;/strong&gt;&lt;br&gt;
+这篇笔记断断续续花了近10天，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。&lt;br&gt;
+（其实就是我写完实在不愿审阅）&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;首先说明，异步是&lt;strong&gt;极为高深&lt;/strong&gt;的高级编程技术，这篇文章只是才疏学浅的我阅读文档之后的一些思考与理解，可能有极多描述不准确乃至完全错误之处，还望批评指导。顺便吐槽，C#文档翻译得实在是太烂了，很多地方一看就是机翻的，却没有机翻警告。很多地方百思不得其解的词，切换到英语就发现其实很简单，翻译的用词完全错误，难受啊！&lt;/p&gt;
+&lt;h1&gt;何为异步&lt;/h1&gt;
+&lt;p&gt;与异步相对的是“同步”，代表着一句代码的执行结束是其后一句代码的执行开始，整个流程是按照固定的顺序进行的，这是一般程序的逻辑。然而，某些语句可能需要花较长时间才能得到结果——比如网络通信和文件读写——这些语句的执行并不怎么占用CPU，但会阻塞整个线程，后续的语句需要等待这些语句执行完成，造成大量的浪费。特别是如果网络环境很不好、读取的文件好几个G，那可是尤其要命，可能整个程序都会出现肉眼可见的卡顿甚至崩溃。&lt;/p&gt;
+&lt;p&gt;为了解决这种飞快的CPU与龟爬的IO之间的不平衡，传统的方案是单独开个线程让它去执行耗时的操作，让主线程继续运行与耗时操作的结果无关的代码。但是线程操作很麻烦、开销很高，线程数量也有限，不是能随便使用的，所以依然不是个完美的方法。&lt;/p&gt;
+&lt;p&gt;异步就是为了解决这个问题而存在的。当代码需要执行一个耗时的操作时，它只发出指令，并不等待结果，然后就去执行其他代码了。一段时间后，当耗时操作返回结果时，再通知CPU进行处理。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="C Sharp" scheme="https://hakurei.red/tags/C-Sharp/"/>
+    
+    <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>200404：清明追思</title>
+    <link href="https://hakurei.red/2020/04/04/200404/"/>
+    <id>https://hakurei.red/2020/04/04/200404/</id>
+    <published>2020-04-04T13:11:47.000Z</published>
+    <updated>2020-04-04T13:11:47.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;到了清明节，很奇怪的，今年并没有下雨。印象中每年的清明正应那句“清明时节雨纷纷”，这几天就该是细雨连绵，气温恰好舒适得让人头脑清晰。气象数据统计上也反映了这一点。杏花村所在的安徽池州，历年来清明前后的降雨概率高达85%。湖北离得不远，这印象是有基础的。&lt;/p&gt;
+&lt;p&gt;下不下雨倒是无关紧要，今天有其更大的意义。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;新华社北京4月3日电 为表达全国各族人民对抗击新冠肺炎疫情斗争牺牲烈士和逝世同胞的深切哀悼，国务院今天发布公告，决定2020年4月4日举行全国性哀悼活动。在此期间，全国和驻外使领馆下半旗志哀，全国停止公共娱乐活动。4月4日10时起，全国人民默哀3分钟，汽车、火车、舰船鸣笛，防空警报鸣响。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99570:/LS6WIcNkAsH4VeJ.jpg?authkey=AIbyrqnS5z58phc&quot; alt=&quot;清明追思&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="随笔" scheme="https://hakurei.red/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#杂记之叁：LINQ</title>
+    <link href="https://hakurei.red/2020/03/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%8F%81/"/>
+    <id>https://hakurei.red/2020/03/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%8F%81/</id>
+    <published>2020-03-27T15:32:14.000Z</published>
+    <updated>2020-03-27T15:32:14.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;准备完了开题答辩，弄完了笔试，又咸鱼了数天、玩了数天《动物森友会》，一下子离上一篇C#杂记过了三个星期。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99568:/CPuc8SVgWGXTkEA.jpg?authkey=AIbyrqnS5z58phc&quot; alt=&quot;朔月&quot;&gt;&lt;/p&gt;
+&lt;p&gt;所以接下来要填的坑是LINQ和异步。弄完了这个，C#最大的几块拼图才得以完整，大抵能够叫是入了门。&lt;/p&gt;
+&lt;h1&gt;查询表达式&lt;/h1&gt;
+&lt;p&gt;所谓的LINQ，是语言集成查询&lt;strong&gt;L&lt;/strong&gt;anguage &lt;strong&gt;IN&lt;/strong&gt;tegrated &lt;strong&gt;Q&lt;/strong&gt;uery的缩写。通过引用命名空间&lt;code&gt;System.Linq&lt;/code&gt;，可以用可读性极强的、类似SQL查询语句形式的代码对一些数据结构，甚至直接对数据库进行便捷的操作，如查询、排序、分组等，而不必编写大量逻辑复杂的循环代码。&lt;!--尤其是在与异步流式处理相结合时，可以优雅地将C#的性能发挥到极致。(存疑)--&gt;LINQ的操作十分高深，这里我仅学习一些基础、常用的LINQ功能。&lt;/p&gt;
+&lt;p&gt;以下是一个典型的LINQ查询示例：&lt;/p&gt;
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Main&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;[] args&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//数据源&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;[] name = &amp;#123;&lt;span class=&quot;string&quot;&gt;&amp;quot;Alonso&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Zheng&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Smith&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Jones&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Smythe&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Small&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Ruiz&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Hsieh&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Jorgenson&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Ilyich&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Singh&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Samba&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Fatimah&amp;quot;&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//查询表达式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; queryResults = &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; n &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; names&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;where&lt;/span&gt; n.StartWith(&lt;span class=&quot;string&quot;&gt;&amp;quot;S&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;select&lt;/span&gt; n;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//迭代查询结果&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    WriteLine(&lt;span class=&quot;string&quot;&gt;&amp;quot;Name beginning with S:&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;foreach&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; item &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; queryResults)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        WriteLine(item);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Write(&lt;span class=&quot;string&quot;&gt;&amp;quot;Program finished. Press Enter/Return to continue:&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ReadLine();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    
+    <category term="C Sharp" scheme="https://hakurei.red/tags/C-Sharp/"/>
+    
+    <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>试分析苇名弦一郎的BOSS设计</title>
+    <link href="https://hakurei.red/2020/03/16/%E8%AF%95%E5%88%86%E6%9E%90%E8%8B%87%E5%90%8D%E5%BC%A6%E4%B8%80%E9%83%8E%E7%9A%84BOSS%E8%AE%BE%E8%AE%A1/"/>
+    <id>https://hakurei.red/2020/03/16/%E8%AF%95%E5%88%86%E6%9E%90%E8%8B%87%E5%90%8D%E5%BC%A6%E4%B8%80%E9%83%8E%E7%9A%84BOSS%E8%AE%BE%E8%AE%A1/</id>
+    <published>2020-03-16T13:07:32.000Z</published>
+    <updated>2020-03-16T13:07:32.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;对BOSS战的分析，可以从战斗机制的设计和对玩家能力的考验两个方向进行。&lt;/p&gt;
+&lt;h1&gt;战斗机制&lt;/h1&gt;
+&lt;p&gt;何谓战斗机制？&lt;/p&gt;
+&lt;p&gt;“机制”这个词实在太宽泛。几个月前我曾在&lt;a href=&quot;https://hakurei.red/2019/11/20/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/&quot;&gt;这篇笔记&lt;/a&gt;里总结过一次。&lt;/p&gt;
+&lt;p&gt;根据MDA框架，机制是“数据层面上的组件与算法”；形式、戏剧和动态元素框架中，“机制”基本等同于“形式”元素，即交互模式、目标、规则、过程、资源、边界、结局等等。四元法有一元是机制，指的是“玩家与游戏互动的规则”，也是游戏与其他非互动性媒体的区别所在。&lt;/p&gt;
+&lt;p&gt;不过，我们仍然可以把“机制”换个词，用“规则”来代替。更进一步的，战斗机制即是指，在战斗时，玩家能做什么？&lt;/p&gt;
+&lt;p&gt;那么《只狼》的战斗中，玩家能做什么？&lt;/p&gt;
+&lt;p&gt;最大的特色就是“打铁”，即弹反与架势槽。这个机制把传统动作游戏里高难度、高回报、低频率的“弹反”完全逆转成为难度相对偏低、回报不算明显，但使用频率极高的一种主要操作。《只狼》的战斗目标不再是单纯的削血，而主要是以进攻和弹反使敌人的架势槽涨满，此时即可一击必杀（忍杀）。同时架势槽的自然回落速度随剩余血量的减少而变慢，架势槽和血槽成为了相辅相成的两个机制。&lt;/p&gt;
+&lt;p&gt;第二点是处理敌人的“危”攻击。敌人偶尔发动无法格挡的技能，玩家头顶会浮现出红色的“危”字，这时就需要玩家根据敌人的起手动作，紧急判断下一步的应对措施。所谓的“危”其实也蕴含着“机”，如果处理得当，可以对敌方架势槽造成较大的上升。&lt;/p&gt;
+&lt;p&gt;主要的“危”攻击有两种类别，一是突刺，无法格挡，可以精准弹反，但正确的处理是在突刺的瞬间向敌人脸上垫步发动“识破”，造成较大的架势条上涨；二是横扫，最佳的处理方法是跳到敌人头上踩踏，亦可以造成较大的架势条上涨。一些BOSS战中能用“雷电奉还”反弹雷电攻击，而少数敌人能使出的擒抱攻击只能靠闪避处理。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="游戏" scheme="https://hakurei.red/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+    <category term="游戏学" scheme="https://hakurei.red/tags/%E6%B8%B8%E6%88%8F%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>200305：写在开题答辩之前</title>
+    <link href="https://hakurei.red/2020/03/05/200305/"/>
+    <id>https://hakurei.red/2020/03/05/200305/</id>
+    <published>2020-03-04T16:00:00.000Z</published>
+    <updated>2020-03-04T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这一篇虽记于3月4日，但一看日历，明日惊蛰，四舍五入等我写完便也是依照惯例的特殊日随笔了，那就把时间改为明天的第一帧吧。&lt;/p&gt;
+&lt;p&gt;写这篇的主要目的是作毕业设计工作进度的报告，因为昨天接到10号便要开题答辩的通知，依照要求我应在两天之内联系导师汇报工作进度。回过神来已是晚上八点，再不总结一下就要来不及了。&lt;/p&gt;
+&lt;h1&gt;干了些什么？&lt;/h1&gt;
+&lt;p&gt;太长不看，上列表：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;决定转向游戏制作&lt;/li&gt;
+&lt;li&gt;学习C#和游戏学基础&lt;/li&gt;
+&lt;li&gt;学习Aseprite和Photoshop&lt;/li&gt;
+&lt;li&gt;TextMesh Pro和UGUI&lt;/li&gt;
+&lt;li&gt;DanmakU类库，弹幕的生成&lt;/li&gt;
+&lt;li&gt;Pixel Perfect效果&lt;/li&gt;
+&lt;li&gt;实现基本的游戏逻辑&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    
+    <category term="随笔" scheme="https://hakurei.red/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="Unity" scheme="https://hakurei.red/tags/Unity/"/>
+    
+    <category term="C Sharp" scheme="https://hakurei.red/tags/C-Sharp/"/>
+    
+    <category term="游戏" scheme="https://hakurei.red/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+    <category term="东方Project" scheme="https://hakurei.red/tags/%E4%B8%9C%E6%96%B9Project/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#杂记之贰：协变与逆变</title>
+    <link href="https://hakurei.red/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/"/>
+    <id>https://hakurei.red/2020/03/02/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%B4%B0/</id>
+    <published>2020-03-02T01:02:19.000Z</published>
+    <updated>2020-03-02T01:02:19.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;昨天费力把上一篇中的“事件”章节给写完了，弄明白的确实不少（发现弄不明白的更多了）。&lt;/p&gt;
+&lt;p&gt;由于沉迷《饥荒》，并且也因为有点抗拒没听说过的概念，这一篇鸽到了现在。今天还是开始看吧。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;协变&lt;/strong&gt;（Covariance）和&lt;strong&gt;逆变&lt;/strong&gt;（Contravariance）统称为变体（Variance）。&lt;/p&gt;
+&lt;h1&gt;协变&lt;/h1&gt;
+&lt;p&gt;协变是指，对派生程度更大的类型的支持。也就是说，对于某处要求的类型，传入它的派生类也是没关系的。这是很容易理解的，因为子类可以隐式地转换为基类。协变体现的即是面向对象程序设计思想中，所谓的“&lt;strong&gt;里氏替换原则&lt;/strong&gt;”（Liskov Substitution Principle）：任何基类可以出现的地方，子类一定可以出现。&lt;/p&gt;
+&lt;h1&gt;逆变&lt;/h1&gt;
+&lt;h2 id=&quot;神秘的问题&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#神秘的问题&quot;&gt;¶&lt;/a&gt;神秘的问题&lt;/h2&gt;
+&lt;p&gt;比较难以理解的是逆变。与协变相反，这是对派生程度更小的类型的支持。比如在要求&lt;code&gt;string&lt;/code&gt;的地方支持使用&lt;code&gt;object&lt;/code&gt;。什么地方会出现这种看似违反里氏替换原则的“危险”操作呢？&lt;/p&gt;
+&lt;p&gt;在翻阅了许多文档之后，我反而是在&lt;a href=&quot;https://github.com/jkchao/typescript-book-chinese/blob/master/docs/tips/covarianceAndContravariance.md&quot;&gt;《深入理解 TypeScript》&lt;/a&gt;中找到了较为明白的解释，下面我试着用C#的方式叙述一下。&lt;/p&gt;
+&lt;p&gt;假设&lt;code&gt;Greyhound&lt;/code&gt; （灰狗）是 &lt;code&gt;Dog&lt;/code&gt; （狗）的子类，而 &lt;code&gt;Dog&lt;/code&gt; 则是 &lt;code&gt;Animal&lt;/code&gt; （动物）的子类。由于子类型通常是可传递的，因此我们也称 &lt;code&gt;Greyhound&lt;/code&gt; 是 &lt;code&gt;Animal&lt;/code&gt; 的子类。这是显然的。&lt;/p&gt;
+&lt;p&gt;那么，一个问题出现了：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如果我们有一个委托&lt;code&gt;Func&amp;lt;Dog, Dog&amp;gt;&lt;/code&gt;，是不是真的只能分配那些接受&lt;code&gt;Dog&lt;/code&gt;为参数，并返回&lt;code&gt;Dog&lt;/code&gt;的方法呢？&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="C Sharp" scheme="https://hakurei.red/tags/C-Sharp/"/>
+    
+    <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C#杂记之壹：委托与事件</title>
+    <link href="https://hakurei.red/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/"/>
+    <id>https://hakurei.red/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/</id>
+    <published>2020-02-27T04:25:36.000Z</published>
+    <updated>2020-02-27T04:25:36.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;此前虽然接触过C#中的一些较为高级的操作，但基本是只知其有，不知在哪些场景下可以应用。这几天写着代码就顿觉冗杂不堪，虽然能跑但看起来十分难受，希望寻求一些函数式编程之类的魔法来简化流程。&lt;/p&gt;
+&lt;p&gt;那首先要理解的还是委托和事件。虽然学完了也不一定会用，但看懂一点总是好的。&lt;/p&gt;
+&lt;h1&gt;委托&lt;/h1&gt;
+&lt;h2 id=&quot;定义&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#定义&quot;&gt;¶&lt;/a&gt;定义&lt;/h2&gt;
+&lt;p&gt;如之前所说，委托类似于函数指针。或者说，委托/是/一种/存储/函数引用/的/&lt;strong&gt;类型&lt;/strong&gt;(注意断句)。由于函数的参数须是变量、常量、表达式，只要把函数变成一种&lt;strong&gt;引用类型&lt;/strong&gt;的变量，就可以让一个函数作为其它函数的参数了。同样，也可以通过直接调用委托变量来调用委托变量所引用的函数。&lt;/p&gt;
+&lt;p&gt;为什么要把&lt;strong&gt;类型&lt;/strong&gt;加粗？因为声明一个委托类型并不是声明一个委托变量，而是一类委托的&lt;strong&gt;模板&lt;/strong&gt;，说明了这类委托应具有的的返回值类型与参数列表。委托类型与具体的委托变量之关系，类似于“类”和“对象”的关系。&lt;/p&gt;
+&lt;p&gt;委托类型声明和函数类似，拥有返回值类型和参数列表，但没有函数体，并且在前面用&lt;code&gt;delegate&lt;/code&gt;关键字声明这是一个委托类型。然后我们再声明这个委托类型的变量：&lt;/p&gt;
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//声明委托类型和委托变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;delegate&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ProcessDelegate&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt; param1, &lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt; param2&lt;/span&gt;)&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ProcessDelegate process;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//将函数Multiply注册到ProcessDelegate类型的委托变量process&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;process = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; ProcessDelegate(Multiply);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//也可以简写&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;process = Multiply;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//多播委托(虽然这里没什么用)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;process += Divide;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;process += Add;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//调用委托&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;System.Console.WriteLine(&lt;span class=&quot;string&quot;&gt;$&amp;quot;Result:&lt;span class=&quot;subst&quot;&gt;&amp;#123;process(&lt;span class=&quot;number&quot;&gt;12.1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;22.4&lt;/span&gt;)&amp;#125;&lt;/span&gt;&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;实际上，委托确实是一种“类”。上面所展示的委托变量声明，其形式就和类的实例化完全一致。在委托变量后面打个点，你甚至能看到一堆委托类型包含的方法和属性：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99556:/xVONQiE1hJIrWf2.jpg?authkey=AIbyrqnS5z58phc&quot; alt=&quot;委托也是类&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="C Sharp" scheme="https://hakurei.red/tags/C-Sharp/"/>
+    
+    <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+</feed>

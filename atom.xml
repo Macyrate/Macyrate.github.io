@@ -6,7 +6,7 @@
   <link href="https://hakurei.red/atom.xml" rel="self"/>
   
   <link href="https://hakurei.red/"/>
-  <updated>2022-03-29T17:56:24.000Z</updated>
+  <updated>2022-12-03T18:22:02.000Z</updated>
   <id>https://hakurei.red/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《神话学入门》：神话研究的历程</title>
+    <link href="https://hakurei.red/2022/12/04/MythologyIntroduction1/"/>
+    <id>https://hakurei.red/2022/12/04/MythologyIntroduction1/</id>
+    <published>2022-12-03T18:22:02.000Z</published>
+    <updated>2022-12-03T18:22:02.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+    <category term="读书" scheme="https://hakurei.red/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="宗教与神话" scheme="https://hakurei.red/tags/%E5%AE%97%E6%95%99%E4%B8%8E%E7%A5%9E%E8%AF%9D/"/>
+    
+  </entry>
   
   <entry>
     <title>《被讨厌的勇气》</title>
@@ -606,34 +631,6 @@
 &lt;p&gt;假设&lt;code&gt;Greyhound&lt;/code&gt; （灰狗）是 &lt;code&gt;Dog&lt;/code&gt; （狗）的子类，而 &lt;code&gt;Dog&lt;/code&gt; 则是 &lt;code&gt;Animal&lt;/code&gt; （动物）的子类。由于子类型通常是可传递的，因此我们也称 &lt;code&gt;Greyhound&lt;/code&gt; 是 &lt;code&gt;Animal&lt;/code&gt; 的子类。这是显然的。&lt;/p&gt;
 &lt;p&gt;那么，一个问题出现了：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;如果我们有一个委托&lt;code&gt;Func&amp;lt;Dog, Dog&amp;gt;&lt;/code&gt;，是不是真的只能分配那些接受&lt;code&gt;Dog&lt;/code&gt;为参数，并返回&lt;code&gt;Dog&lt;/code&gt;的方法呢？&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="C Sharp" scheme="https://hakurei.red/tags/C-Sharp/"/>
-    
-    <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C#杂记之壹：委托与事件</title>
-    <link href="https://hakurei.red/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/"/>
-    <id>https://hakurei.red/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/</id>
-    <published>2020-02-27T04:25:36.000Z</published>
-    <updated>2020-02-27T04:25:36.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;此前虽然接触过C#中的一些较为高级的操作，但基本是只知其有，不知在哪些场景下可以应用。这几天写着代码就顿觉冗杂不堪，虽然能跑但看起来十分难受，希望寻求一些函数式编程之类的魔法来简化流程。&lt;/p&gt;
-&lt;p&gt;那首先要理解的还是委托和事件。虽然学完了也不一定会用，但看懂一点总是好的。&lt;/p&gt;
-&lt;h1&gt;委托&lt;/h1&gt;
-&lt;h2 id=&quot;定义&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#定义&quot;&gt;¶&lt;/a&gt;定义&lt;/h2&gt;
-&lt;p&gt;如之前所说，委托类似于函数指针。或者说，委托/是/一种/存储/函数引用/的/&lt;strong&gt;类型&lt;/strong&gt;(注意断句)。由于函数的参数须是变量、常量、表达式，只要把函数变成一种&lt;strong&gt;引用类型&lt;/strong&gt;的变量，就可以让一个函数作为其它函数的参数了。同样，也可以通过直接调用委托变量来调用委托变量所引用的函数。&lt;/p&gt;
-&lt;p&gt;为什么要把&lt;strong&gt;类型&lt;/strong&gt;加粗？因为声明一个委托类型并不是声明一个委托变量，而是一类委托的&lt;strong&gt;模板&lt;/strong&gt;，说明了这类委托应具有的的返回值类型与参数列表。委托类型与具体的委托变量之关系，类似于“类”和“对象”的关系。&lt;/p&gt;
-&lt;p&gt;委托类型声明和函数类似，拥有返回值类型和参数列表，但没有函数体，并且在前面用&lt;code&gt;delegate&lt;/code&gt;关键字声明这是一个委托类型。然后我们再声明这个委托类型的变量：&lt;/p&gt;
-&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//声明委托类型和委托变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;delegate&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ProcessDelegate&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt; param1, &lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt; param2&lt;/span&gt;)&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ProcessDelegate process;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//将函数Multiply注册到ProcessDelegate类型的委托变量process&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;process = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; ProcessDelegate(Multiply);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//也可以简写&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;process = Multiply;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//多播委托(虽然这里没什么用)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;process += Divide;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;process += Add;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//调用委托&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;System.Console.WriteLine(&lt;span class=&quot;string&quot;&gt;$&amp;quot;Result:&lt;span class=&quot;subst&quot;&gt;&amp;#123;process(&lt;span class=&quot;number&quot;&gt;12.1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;22.4&lt;/span&gt;)&amp;#125;&lt;/span&gt;&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;实际上，委托确实是一种“类”。上面所展示的委托变量声明，其形式就和类的实例化完全一致。在委托变量后面打个点，你甚至能看到一堆委托类型包含的方法和属性：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99556:/xVONQiE1hJIrWf2.jpg?authkey=AIbyrqnS5z58phc&quot; alt=&quot;委托也是类&quot;&gt;&lt;/p&gt;</summary>
     
     
     

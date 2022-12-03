@@ -158,13 +158,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -242,6 +242,91 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
+      <meta itemprop="name" content="Macyrate">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽东亭分社 | Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 博丽东亭分社 | Macyrate">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/" class="post-title-link" itemprop="url">C#杂记之壹：委托与事件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-27 12:25:36" itemprop="dateCreated datePublished" datetime="2020-02-27T12:25:36+08:00">2020-02-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>此前虽然接触过C#中的一些较为高级的操作，但基本是只知其有，不知在哪些场景下可以应用。这几天写着代码就顿觉冗杂不堪，虽然能跑但看起来十分难受，希望寻求一些函数式编程之类的魔法来简化流程。</p>
+<p>那首先要理解的还是委托和事件。虽然学完了也不一定会用，但看懂一点总是好的。</p>
+<h1>委托</h1>
+<h2 id="定义"><a class="header-anchor" href="#定义">¶</a>定义</h2>
+<p>如之前所说，委托类似于函数指针。或者说，委托/是/一种/存储/函数引用/的/<strong>类型</strong>(注意断句)。由于函数的参数须是变量、常量、表达式，只要把函数变成一种<strong>引用类型</strong>的变量，就可以让一个函数作为其它函数的参数了。同样，也可以通过直接调用委托变量来调用委托变量所引用的函数。</p>
+<p>为什么要把<strong>类型</strong>加粗？因为声明一个委托类型并不是声明一个委托变量，而是一类委托的<strong>模板</strong>，说明了这类委托应具有的的返回值类型与参数列表。委托类型与具体的委托变量之关系，类似于“类”和“对象”的关系。</p>
+<p>委托类型声明和函数类似，拥有返回值类型和参数列表，但没有函数体，并且在前面用<code>delegate</code>关键字声明这是一个委托类型。然后我们再声明这个委托类型的变量：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明委托类型和委托变量</span></span><br><span class="line"><span class="function"><span class="built_in">delegate</span> <span class="built_in">double</span> <span class="title">ProcessDelegate</span>(<span class="params"><span class="built_in">double</span> param1, <span class="built_in">double</span> param2</span>)</span>;</span><br><span class="line">ProcessDelegate process;</span><br><span class="line"></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将函数Multiply注册到ProcessDelegate类型的委托变量process</span></span><br><span class="line">process = <span class="keyword">new</span> ProcessDelegate(Multiply);</span><br><span class="line"></span><br><span class="line"><span class="comment">//也可以简写</span></span><br><span class="line">process = Multiply;</span><br><span class="line"></span><br><span class="line"><span class="comment">//多播委托(虽然这里没什么用)</span></span><br><span class="line">process += Divide;</span><br><span class="line">process += Add;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用委托</span></span><br><span class="line">System.Console.WriteLine(<span class="string">$&quot;Result:<span class="subst">&#123;process(<span class="number">12.1</span>, <span class="number">22.4</span>)&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>实际上，委托确实是一种“类”。上面所展示的委托变量声明，其形式就和类的实例化完全一致。在委托变量后面打个点，你甚至能看到一堆委托类型包含的方法和属性：</p>
+<p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99556:/xVONQiE1hJIrWf2.jpg?authkey=AIbyrqnS5z58phc" alt="委托也是类"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -499,88 +584,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/07/200207/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
-      <meta itemprop="name" content="Macyrate">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽东亭分社 | Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 博丽东亭分社 | Macyrate">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/07/200207/" class="post-title-link" itemprop="url">200207：绿叶，月，细毛顶端</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-02-07 23:00:07" itemprop="dateCreated datePublished" datetime="2020-02-07T23:00:07+08:00">2020-02-07</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>也很有些时间没更新博客了。在我没反应过来的时候，时间依旧飞速地流逝。</p>
-<p>这近一个月来发生的事太多又太少，无非绕不开“新型冠状病毒感染的肺炎疫情”一事。截至今日我已经有半个多月未尝出过门了，站在阳台上看着除了人以外什么都还存在着的大街，感到有些荒诞。“末日之后”的感觉却又不是那么浓烈，也许是我度过几次独自在寝室的大学假期，已经习惯了在杳无人烟的氛围里，抬头看着漏下日光的翠绿梧桐叶子发呆的生活吧。</p>
-<p>大学的最后一个假期也将要过去，我大抵是不会再有体验这种生活的机会了——这种莫名有点感慨的心态，就像当年高考前最后的一次晚自习——以后不会再有晚自习了，也不会再有晚自习上小心回避着老师而听的歌、看的闲书了。“大学四年顶个球”，留下的东西实在不多，而我才刚刚开始认识这个世界。</p>
-<p>身边参加了考研的朋友们，面对前途大多迷茫，苦笑着一年努力八成喂了狗。往往是越学越了解自己的浅薄，就像现在看看6年前入宅不久时自己写的、自己得意的东西，显得与2020年的网络那么格格不入，像mikufans时期的弹幕乃至古早时期猫扑大杂烩里的帖子，没有经过思考的吐槽、没有经过考证的论调中，真挚与弱智三七分成。</p>
-<p>不过网络变化其实不大，至少真挚与弱智的三七分成还是没变。谁都没有上帝视角，哪一方都太容易被现实愚弄，绕来绕去才发现大家其实都有同一种病，没有谁就高人一等。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/07/200207/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

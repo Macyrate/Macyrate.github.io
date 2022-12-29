@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -242,6 +242,109 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2021/04/13/Linux%E5%86%85%E6%A0%B8%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
+      <meta itemprop="name" content="Macyrate">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽东亭分社 | Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 博丽东亭分社 | Macyrate">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/04/13/Linux%E5%86%85%E6%A0%B8%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/" class="post-title-link" itemprop="url">Linux内核内存问题定位</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-04-13 20:06:03" itemprop="dateCreated datePublished" datetime="2021-04-13T20:06:03+08:00">2021-04-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1>定位linux内存异常问题思路</h1>
+<h2 id="内存访问异常"><a class="header-anchor" href="#内存访问异常">¶</a>内存访问异常</h2>
+<ul>
+<li>空指针访问：常见，易解决</li>
+<li>“踩内存”：对不属于你的内存进行读写，难点在于踩内存发生的时间与程序崩溃的时间没有任何关系</li>
+</ul>
+<h2 id="被踩内存-踩内存的关系分类"><a class="header-anchor" href="#被踩内存-踩内存的关系分类">¶</a>被踩内存/踩内存的关系分类</h2>
+<ol>
+<li>越界踩内存<br>
+定义或申请的内存小了</li>
+<li>使用已释放的内存<br>
+释放掉的内存又被使用</li>
+<li>随机踩内存（最难排查）<br>
+踩坏的位置与使用的内存没有直接关系，每次崩溃的情况可能都不一样</li>
+</ol>
+<h2 id="被踩坏内存的位置分类"><a class="header-anchor" href="#被踩坏内存的位置分类">¶</a>被踩坏内存的位置分类</h2>
+<ol>
+<li>堆踩坏<br>
+<code>malloc/new/kmalloc/vmalloc</code>申请的内存</li>
+<li>栈踩坏</li>
+<li>全局变量踩坏</li>
+</ol>
+<h2 id="被踩坏内存的内容分类"><a class="header-anchor" href="#被踩坏内存的内容分类">¶</a>被踩坏内存的内容分类</h2>
+<ol>
+<li>字符串</li>
+<li>指针</li>
+<li>随机值</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/13/Linux%E5%86%85%E6%A0%B8%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -475,87 +578,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/07/22/200722/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
-      <meta itemprop="name" content="Macyrate">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽东亭分社 | Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 博丽东亭分社 | Macyrate">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/22/200722/" class="post-title-link" itemprop="url">200722：中国移动与高跟鞋</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-22 23:35:44" itemprop="dateCreated datePublished" datetime="2020-07-22T23:35:44+08:00">2020-07-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>又是一个月，我还是没有写技术方面的博客，这两个月的状况恰如自己突然变得稀疏的GitHub页面：</p>
-<p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99584:/ZHmG2KzgC4vMa95.png?authkey=AIbyrqnS5z58phc" alt="GitHub突然稀疏"></p>
-<p>再这么下去，我可真的要写不来代码了。</p>
-<p>最大的事儿，当然是入职了。这次加入的是成立不久的央企中国信科，由历史悠久的烽火通信和大唐电信合并而成，一言蔽之如今是在通信行业排在华为和中兴之后第三位的公司。</p>
-<p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99585:/QadeXHJM6t8fyvD.png?authkey=AIbyrqnS5z58phc" alt="中国信科"></p>
-<p>说实话，以前我与烽火通信几乎没有什么交集，而大唐电信倒是早有耳闻，不仅仅是因为它那霸气侧漏的名字，最主要的是3G时代大唐电信给中国移动搞的那套备受吐槽的<code>TD-SCDMA</code>制式，让我这个当年的G3用户深切认识到了什么叫“如果G3就是3G，那么国美就是美国”。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/22/200722/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

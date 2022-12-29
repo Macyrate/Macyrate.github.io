@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -242,6 +242,87 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/15/Unity%E5%BC%82%E6%AD%A5%E5%9C%BA%E6%99%AF%E5%8A%A0%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
+      <meta itemprop="name" content="Macyrate">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽东亭分社 | Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 博丽东亭分社 | Macyrate">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/12/15/Unity%E5%BC%82%E6%AD%A5%E5%9C%BA%E6%99%AF%E5%8A%A0%E8%BD%BD/" class="post-title-link" itemprop="url">Unity异步场景加载</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-15 17:17:11" itemprop="dateCreated datePublished" datetime="2019-12-15T17:17:11+08:00">2019-12-15</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在游戏中，场景加载是很常用的功能。如果要在加载的时候让当前的场景还能正常运行，或者加载时能有一个包含进度条之类组件的加载界面，就应该采取异步的场景加载方式。</p>
+<h1>同步加载</h1>
+<p>在讲异步加载以前，先说同步加载。</p>
+<p>当执行同步加载时，正在运行的场景会被阻塞，产生卡顿，这种方法适合小型的、不怎么需要获取读取进度的场景的加载。如在地牢中切换到另一个房间，读取完成之前当前房间中的一切都静止不动，这种情况应该是用同步加载实现的。</p>
+<p>Unity使用<code>SceneManager</code>类的静态方法<a target="_blank" rel="noopener" href="https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html">LoadScene</a>实现同步的场景加载。由于是静态方法，不需要对<code>SceneManager</code>类进行实例化，只要使用命名空间<code>using UnityEngine.SceneManagement;</code>就可直接通过<code>SceneManager.LoadSceneAsync</code>访问。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法原型：</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="built_in">int</span> sceneBuildIndex, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">LoadScene</span>(<span class="params"><span class="built_in">string</span> sceneName, SceneManagement.LoadSceneMode mode = LoadSceneMode.Single</span>)</span>;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/15/Unity%E5%BC%82%E6%AD%A5%E5%9C%BA%E6%99%AF%E5%8A%A0%E8%BD%BD/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -476,92 +557,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/11/24/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
-      <meta itemprop="name" content="Macyrate">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽东亭分社 | Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 博丽东亭分社 | Macyrate">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/11/24/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/" class="post-title-link" itemprop="url">游戏设计理论学习笔记 壹</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-11-24 14:04:11" itemprop="dateCreated datePublished" datetime="2019-11-24T14:04:11+08:00">2019-11-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1>迭代设计</h1>
-<p><strong>游戏设计由1%的灵感和99%的重复组成。</strong></p>
-<p>分析-&gt;设计-&gt;实现-&gt;测试-&gt;分析……</p>
-<p>这就是迭代设计的流程。</p>
-<h2 id="分析"><a class="header-anchor" href="#分析">¶</a>分析</h2>
-<p><strong>面向的玩家群体？</strong> 这决定了游戏里应该有哪些要素。无论，做这个游戏的目的是毕业设计，面向的群体就是<s>评审老师</s>我自己了。如果能有些弹幕爱好者玩就更好了。</p>
-<p>这么一想，应该像STG一样有多难度级别，还要有计分系统给人刷。但是我向来都不在意分数。或者像《东方梦想曲》那样做得极难但不限重试次数，这就很亲民——其实更符合的应该是绀珠传。</p>
-<p><strong>我有什么资源？</strong> 当然，只有我自己的一百天左右时间，以及网络上配布的相关素材。</p>
-<p><strong>现有技术有什么？</strong> 现有技术指与要设计的作品相关联的<strong>现存游戏及其他媒介</strong>。对我来讲，具体的是Unity引擎，东方Project的大量官方以及同人游戏。同人游戏中可以着重参考的是登陆steam的几部作品，《东方红辉心》、《永远消失的幻想乡》、《东方华彩乱战》。还有些不属于东方但类型相似的游戏，比如《Enter the Gungeon》和其模仿者《元气骑士》等。</p>
-<p><strong>如何尽快制作原型？</strong> 高效利用时间，优先开发<strong>核心机制</strong>并进行测试。美工、音乐等外观要素可以在后期进行处理。</p>
-<p>设计、实现和测试，此处不必多讲。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/24/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

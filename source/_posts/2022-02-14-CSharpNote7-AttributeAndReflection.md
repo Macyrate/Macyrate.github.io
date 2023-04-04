@@ -13,7 +13,7 @@ date: 2022-02-14 00:04:50
 
 简单看了看，attribute似乎和反射息息相关，正好反射这块我也不太了解，这次就将一些相关的概念一并记录吧。
 
-# 特性 Attribute
+## 特性 Attribute
 
 特性是一种标签，可以用方括号贴在各种元素[^2]之前，给这些元素添加**元数据**。元数据包括编译器指令、注释、描述、方法、类等信息。
 
@@ -28,11 +28,11 @@ element
 
 特性实际上是`System.Attribute`的一系列派生类，它们的后缀均为"Attribute"，在打标签的时候这个后缀可以省略掉。
 
-## 预定义的Attribute
+### 预定义的Attribute
 
 微软在.NET库里已经内置了一堆`System.Attribute`的派生类，我们可能只会接触到其中一小部分，这里举几种常用的为例。
 
-### ObsoleteAttribute
+#### ObsoleteAttribute
 
 `Obsolete`用于指示过时、弃用的元素。这些元素被认为不应该使用，因此在有调用到这种元素的地方，会产生Warning，并且附带参数`message`所包含的提示信息。如果建议使用某种新方案，就可以写在提示信息里。
 
@@ -42,14 +42,14 @@ element
 
 <!-- more -->
 
-### ConditionalAttribute
+#### ConditionalAttribute
 
 `Conditional`用于进行条件编译，只有参数中所记录的符号有定义时，才编译相关的代码。
 
 不过，这个attribute只适用于`System.Attribute`的派生类（也就是各种attribute），以及返回类型为`void`的方法。毕竟，比起它们来说，如果不编译其它的类，或者那些提供了返回值的方法，程序更有可能会整个垮掉。
 
 ```CSharp
-#undef DEBUG
+##undef DEBUG
 //#define TEST_SYMBOL
 
 using System;
@@ -76,7 +76,7 @@ class Test
 }
 ```
 
-### AttributeUsageAttribute
+#### AttributeUsageAttribute
 
 `AttributeUsage`可以放在我们自定义的attribute类前面，用来规定该如何使用这种attribute。
 
@@ -103,7 +103,7 @@ public class MyTestAttribute : Attribute
 `Inherited`: 默认为true这个attribute是否可以被继承。
 
 
-## 自定义的Attribute
+### 自定义的Attribute
 
 既然attribute是一系列继承自`System.Attribute`的类，我们也可以编写它的派生类，实现自己的attribute。
 
@@ -177,7 +177,7 @@ public class Hello
 }
 ```
 
-## 编译器对Attribute的处理
+### 编译器对Attribute的处理
 
 当C#编译器发现有元素应用了一个attribute时，根据其名称是否以"Attribute"结尾，编译器会决定是否把字符串"Attribute"追加到后面，然后在其搜索路径的所有名称空间中搜索符合指定名称的类。
 
@@ -189,9 +189,9 @@ public class Hello
 
 而这种读取元数据的机制，就是**反射**（Reflection）。
 
-# 反射 Reflection
+## 反射 Reflection
 
-## Type类
+### Type类
 
 Type类表示“对类型的引用”，可以说是反射的核心。它包含了类类型、接口类型、数组类型、值类型、枚举类型、类型参数、泛型类型定义，以及开放或封闭构造的泛型类型。
 
@@ -205,7 +205,7 @@ Type类表示“对类型的引用”，可以说是反射的核心。它包含�
 
 可以看到，`Type`中除了基本的类型名称、继承自的类、声明所属的namespace等信息，还有大量的bool值，表示这个类型的各种特点，如是否为数组，是否抽象，是否支持泛型等等。
 
-## 读取元数据
+### 读取元数据
 
 首先我们需要了解元数据的组织层级，如下图所示。
 
@@ -231,7 +231,7 @@ Type类表示“对类型的引用”，可以说是反射的核心。它包含�
 
 ![对Type类GetMembers()](http://storage.live.com/items/3550ADEE9AFF19FD!99606:/E6H2RXZ1rVOmuvB.png?authkey=AIbyrqnS5z58phc)
 
-## 示例：读取Attribute中的属性
+### 示例：读取Attribute中的属性
 
 在前面我们自定义了一个[DevelopAttribute](##自定义的Attribute)。
 

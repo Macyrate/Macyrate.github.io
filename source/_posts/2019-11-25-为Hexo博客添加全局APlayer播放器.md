@@ -12,9 +12,9 @@ tags:
 [“Show me the CODE!”](/2019/11/25/为Hexo博客添加全局APlayer播放器/#Show-me-the-CODE)
 {% endnote %}
 
-# 早期尝试
+## 早期尝试
 
-## 网易云iframe
+### 网易云iframe
 
 今天，我试图解决一个历史遗留问题。
 
@@ -56,7 +56,7 @@ tags:
 
 <!-- more -->
 
-## 明月浩空音乐
+### 明月浩空音乐
 
 有没有悬浮式的播放器呢？有的。随便查一查就看到了这篇文章：[一款炫丽的网页播放器插件](https://leafjame.github.io/posts/2636059693.html)，这里介绍了`绚丽彩虹播放器`，确实是够绚丽的，点进去一看还是个东方二次元，连域名都叫`badapple.top`，爱了。
 
@@ -74,7 +74,7 @@ tags:
 
 那咋办嘛，只能再看看有没有其他选择了。如此“简单”的需求难道会没有对应的开源软件吗？
 
-# APlayer
+## APlayer
 
 在寻找替代品的过程中，我曾看到过这篇文章：[可能是目前最好用的两个 Hexo 播放器插件](https://diygod.me/best-players-in-hexo/)，讲的是开源的[hexo-tag-aplayer](https://github.com/MoePlayer/hexo-tag-aplayer)，这是一个给hexo使用的[APlayer](https://github.com/MoePlayer/APlayer)。
 
@@ -127,7 +127,7 @@ tags:
 
 好，那就自己加上版本号。这里从`jsDelivr`引用了三个文件，APlayer的CSS和JS，Meting的JS。最新的（截至2019年11月25日）稳定版本使用如下，你也可以去`jsDelivr`自行查找。
 
-# Show me the CODE!
+## Show me the CODE!
 
 如果你和我一样使用`NexT`主题，请复制以下代码，定位到`\theme\next\layout\_layout.swig`，将其粘贴到body体内即可。如果是其他情况，**大同小异！大同小异！**
 
@@ -157,7 +157,7 @@ tags:
 
   > **注意：** 如果你使用上述代码，请以`data-xxx`格式书写参数名！
 
-  # Bonus：使用pjax，页面跳转不重新播放
+## Bonus：使用pjax，页面跳转不重新播放
 
 **最后一步！**
 

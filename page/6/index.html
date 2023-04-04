@@ -206,9 +206,6 @@
           <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="http://sukunahust.com/" title="http:&#x2F;&#x2F;sukunahust.com&#x2F;" rel="noopener" target="_blank">Sukuna</a>
         </li>
         <li class="links-of-blogroll-item">
@@ -295,7 +292,7 @@
     <div class="post-body" itemprop="articleBody">
           <p>这一篇虽记于3月4日，但一看日历，明日惊蛰，四舍五入等我写完便也是依照惯例的特殊日随笔了，那就把时间改为明天的第一帧吧。</p>
 <p>写这篇的主要目的是作毕业设计工作进度的报告，因为昨天接到10号便要开题答辩的通知，依照要求我应在两天之内联系导师汇报工作进度。回过神来已是晚上八点，再不总结一下就要来不及了。</p>
-<h1>干了些什么？</h1>
+<h2 id="干了些什么？"><a class="header-anchor" href="#干了些什么？">¶</a>干了些什么？</h2>
 <p>太长不看，上列表：</p>
 <ul>
 <li>决定转向游戏制作</li>
@@ -384,10 +381,10 @@
           <p>昨天费力把上一篇中的“事件”章节给写完了，弄明白的确实不少（发现弄不明白的更多了）。</p>
 <p>由于沉迷《饥荒》，并且也因为有点抗拒没听说过的概念，这一篇鸽到了现在。今天还是开始看吧。</p>
 <p><strong>协变</strong>（Covariance）和<strong>逆变</strong>（Contravariance）统称为变体（Variance）。</p>
-<h1>协变</h1>
+<h2 id="协变"><a class="header-anchor" href="#协变">¶</a>协变</h2>
 <p>协变是指，对派生程度更大的类型的支持。也就是说，对于某处要求的类型，传入它的派生类也是没关系的。这是很容易理解的，因为子类可以隐式地转换为基类。协变体现的即是面向对象程序设计思想中，所谓的“<strong>里氏替换原则</strong>”（Liskov Substitution Principle）：任何基类可以出现的地方，子类一定可以出现。</p>
-<h1>逆变</h1>
-<h2 id="神秘的问题"><a class="header-anchor" href="#神秘的问题">¶</a>神秘的问题</h2>
+<h2 id="逆变"><a class="header-anchor" href="#逆变">¶</a>逆变</h2>
+<h3 id="神秘的问题"><a class="header-anchor" href="#神秘的问题">¶</a>神秘的问题</h3>
 <p>比较难以理解的是逆变。与协变相反，这是对派生程度更小的类型的支持。比如在要求<code>string</code>的地方支持使用<code>object</code>。什么地方会出现这种看似违反里氏替换原则的“危险”操作呢？</p>
 <p>在翻阅了许多文档之后，我反而是在<a target="_blank" rel="noopener" href="https://github.com/jkchao/typescript-book-chinese/blob/master/docs/tips/covarianceAndContravariance.md">《深入理解 TypeScript》</a>中找到了较为明白的解释，下面我试着用C#的方式叙述一下。</p>
 <p>假设<code>Greyhound</code> （灰狗）是 <code>Dog</code> （狗）的子类，而 <code>Dog</code> 则是 <code>Animal</code> （动物）的子类。由于子类型通常是可传递的，因此我们也称 <code>Greyhound</code> 是 <code>Animal</code> 的子类。这是显然的。</p>
@@ -470,8 +467,8 @@
     <div class="post-body" itemprop="articleBody">
           <p>此前虽然接触过C#中的一些较为高级的操作，但基本是只知其有，不知在哪些场景下可以应用。这几天写着代码就顿觉冗杂不堪，虽然能跑但看起来十分难受，希望寻求一些函数式编程之类的魔法来简化流程。</p>
 <p>那首先要理解的还是委托和事件。虽然学完了也不一定会用，但看懂一点总是好的。</p>
-<h1>委托</h1>
-<h2 id="定义"><a class="header-anchor" href="#定义">¶</a>定义</h2>
+<h2 id="委托"><a class="header-anchor" href="#委托">¶</a>委托</h2>
+<h3 id="定义"><a class="header-anchor" href="#定义">¶</a>定义</h3>
 <p>如之前所说，委托类似于函数指针。或者说，委托/是/一种/存储/函数引用/的/<strong>类型</strong>(注意断句)。由于函数的参数须是变量、常量、表达式，只要把函数变成一种<strong>引用类型</strong>的变量，就可以让一个函数作为其它函数的参数了。同样，也可以通过直接调用委托变量来调用委托变量所引用的函数。</p>
 <p>为什么要把<strong>类型</strong>加粗？因为声明一个委托类型并不是声明一个委托变量，而是一类委托的<strong>模板</strong>，说明了这类委托应具有的的返回值类型与参数列表。委托类型与具体的委托变量之关系，类似于“类”和“对象”的关系。</p>
 <p>委托类型声明和函数类似，拥有返回值类型和参数列表，但没有函数体，并且在前面用<code>delegate</code>关键字声明这是一个委托类型。然后我们再声明这个委托类型的变量：</p>

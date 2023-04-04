@@ -206,9 +206,6 @@
           <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="http://sukunahust.com/" title="http:&#x2F;&#x2F;sukunahust.com&#x2F;" rel="noopener" target="_blank">Sukuna</a>
         </li>
         <li class="links-of-blogroll-item">
@@ -293,13 +290,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>定位linux内存异常问题思路</h1>
-<h2 id="内存访问异常"><a class="header-anchor" href="#内存访问异常">¶</a>内存访问异常</h2>
+          <h2 id="定位linux内存异常问题思路"><a class="header-anchor" href="#定位linux内存异常问题思路">¶</a>定位linux内存异常问题思路</h2>
+<h3 id="内存访问异常"><a class="header-anchor" href="#内存访问异常">¶</a>内存访问异常</h3>
 <ul>
 <li>空指针访问：常见，易解决</li>
 <li>“踩内存”：对不属于你的内存进行读写，难点在于踩内存发生的时间与程序崩溃的时间没有任何关系</li>
 </ul>
-<h2 id="被踩内存-踩内存的关系分类"><a class="header-anchor" href="#被踩内存-踩内存的关系分类">¶</a>被踩内存/踩内存的关系分类</h2>
+<h3 id="被踩内存-踩内存的关系分类"><a class="header-anchor" href="#被踩内存-踩内存的关系分类">¶</a>被踩内存/踩内存的关系分类</h3>
 <ol>
 <li>越界踩内存<br>
 定义或申请的内存小了</li>
@@ -308,14 +305,14 @@
 <li>随机踩内存（最难排查）<br>
 踩坏的位置与使用的内存没有直接关系，每次崩溃的情况可能都不一样</li>
 </ol>
-<h2 id="被踩坏内存的位置分类"><a class="header-anchor" href="#被踩坏内存的位置分类">¶</a>被踩坏内存的位置分类</h2>
+<h3 id="被踩坏内存的位置分类"><a class="header-anchor" href="#被踩坏内存的位置分类">¶</a>被踩坏内存的位置分类</h3>
 <ol>
 <li>堆踩坏<br>
 <code>malloc/new/kmalloc/vmalloc</code>申请的内存</li>
 <li>栈踩坏</li>
 <li>全局变量踩坏</li>
 </ol>
-<h2 id="被踩坏内存的内容分类"><a class="header-anchor" href="#被踩坏内存的内容分类">¶</a>被踩坏内存的内容分类</h2>
+<h3 id="被踩坏内存的内容分类"><a class="header-anchor" href="#被踩坏内存的内容分类">¶</a>被踩坏内存的内容分类</h3>
 <ol>
 <li>字符串</li>
 <li>指针</li>
@@ -396,7 +393,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>WLAN历史</h1>
+          <h2 id="WLAN历史"><a class="header-anchor" href="#WLAN历史">¶</a>WLAN历史</h2>
 <p>WLAN是Wireless Local Area Network(无线局域网)的缩写，实际上就是要在不采用网线的情况下，提供以太网的互联功能。</p>
 <p>我们更常见到的词是Wi-Fi(Wireless Fidelity, 无线保真)，但其实Wi-Fi是实现WLAN的技术之一，它遵循IEEE 802.11标准。实现WLAN的技术还可以是IrDA红外，Bluetooth蓝牙，HomeRF，乃至于GSM和LTE等，但Wi-Fi具有巨大的优势，以至于现在说到WLAN，基本就等于Wi-Fi。</p>
 <p>Wi-Fi同时作为一个商标，被WiFi联盟WFA持有，新产品要通过Wi-Fi联盟的测试和认证后，才被允许使用“Wi-Fi”logo。这实际上是为了保证产品之间的兼容性。</p>
@@ -478,11 +475,11 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>由于安全上的要求，我司的开发环境比较复杂，涉及到Citrix非涉密/涉密桌面和远程Linux编译服务器等等，在这样的环境下用VS Code需要经过一系列的折腾，这篇文章简要记录了我最初的配置流程。</p>
-<h1>安装VS Code</h1>
+<h2 id="安装VS-Code"><a class="header-anchor" href="#安装VS-Code">¶</a>安装VS Code</h2>
 <p>首先，在非涉密桌面访问<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code官网</a>下载最新安装包，然后安装到<strong>Q盘中（重要！）</strong>。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件就没了。</p>
 <p>不要急着删除安装包，将它<strong>复制</strong>到T盘（直接剪切可能会报权限错误），转移到涉密桌面。如果之前你已经启动了涉密桌面，可以尝试用快捷键<code>Ctrl + Alt + Tab</code>进行切换。</p>
 <p>到涉密桌面环境后，安装VS Code——这次可以装在C盘里，涉密桌面的C盘是不会被重置的。注意，安装时会有几个选项，询问是否要加入右键菜单以及PATH等，请把所有的勾都勾上。</p>
-<h1>安装扩展</h1>
+<h2 id="安装扩展"><a class="header-anchor" href="#安装扩展">¶</a>安装扩展</h2>
 <p>众所周知，VS Code最重要的是扩展。由于涉密桌面没有外网，我们要安装扩展只能先从非涉密桌面下载，再通过T盘转移。</p>
 <p>但是，VS Code默认存放扩展的目录在C盘，这导致非涉密桌面一旦重启，你的扩展就会全部消失。所以，装扩展之前要先更改非涉密桌面中VS Code存放扩展的目录。</p>
 <p>我没有在设置里找到直接修改的方法，但你可以通过以下的方法来间接修改。</p>
@@ -566,7 +563,7 @@
     <div class="post-body" itemprop="articleBody">
           <p><strong>能不能好好上网？</strong></p>
 <p>在中国，很难。</p>
-<h1>故事背景</h1>
+<h2 id="故事背景"><a class="header-anchor" href="#故事背景">¶</a>故事背景</h2>
 <p>我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。</p>
 <p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99586:/FcrqSmxuBWz9e8a.png?authkey=AIbyrqnS5z58phc" alt="远程桌面连接"></p>
 <p>到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？</p>

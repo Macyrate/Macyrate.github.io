@@ -22,12 +22,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/hexo-theme-next/8.13.1/config.min.js"></script>
 
-    <meta name="description" content="该文章译自Unity官网博客，原文：Custom &#x3D;&#x3D; operator, should we keep it? TL;DR: Unity的&#x3D;&#x3D;是魔改版，与原生C#里的行为不一样。所以不要对UnityEngine.Object派生出的任何东西（包括MonoBehaviour）使用C#的空值相关语法糖，包括?.，??，??&#x3D;等等（三元运算符可以用），而应该老老实实使用&#x3D;&#x3D; null来判空。  正文">
+    <meta name="description" content="该文章译自Unity官网博客，原文：Custom &#x3D;&#x3D; operator, should we keep it? TL;DR: Unity的&#x3D;&#x3D;是魔改版，与原生C#里的行为不一样。所以不要对UnityEngine.Object派生出的任何东西（包括MonoBehaviour）使用C#的空值相关语法糖，包括?.，??，??&#x3D;等等（三元运算符可以用），而应该老老实实使用&#x3D;&#x3D; null来判空。  ¶正">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义的&#x3D;&#x3D;运算符，我们应该保留吗？">
 <meta property="og:url" content="https://hakurei.red/2022/03/16/UnityCustomEqualOperator/index.html">
 <meta property="og:site_name" content="博丽东亭分社 | Macyrate">
-<meta property="og:description" content="该文章译自Unity官网博客，原文：Custom &#x3D;&#x3D; operator, should we keep it? TL;DR: Unity的&#x3D;&#x3D;是魔改版，与原生C#里的行为不一样。所以不要对UnityEngine.Object派生出的任何东西（包括MonoBehaviour）使用C#的空值相关语法糖，包括?.，??，??&#x3D;等等（三元运算符可以用），而应该老老实实使用&#x3D;&#x3D; null来判空。  正文">
+<meta property="og:description" content="该文章译自Unity官网博客，原文：Custom &#x3D;&#x3D; operator, should we keep it? TL;DR: Unity的&#x3D;&#x3D;是魔改版，与原生C#里的行为不一样。所以不要对UnityEngine.Object派生出的任何东西（包括MonoBehaviour）使用C#的空值相关语法糖，包括?.，??，??&#x3D;等等（三元运算符可以用），而应该老老实实使用&#x3D;&#x3D; null来判空。  ¶正">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-15T16:20:12.000Z">
 <meta property="article:modified_time" content="2022-03-15T16:20:12.000Z">
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">备注</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8"><span class="nav-number">2.</span> <span class="nav-text">备注</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -210,9 +210,6 @@
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="http://sukunahust.com/" title="http:&#x2F;&#x2F;sukunahust.com&#x2F;" rel="noopener" target="_blank">Sukuna</a>
@@ -311,7 +308,7 @@
 <p>该文章译自Unity官网博客，原文：<a target="_blank" rel="noopener" href="https://blog.unity.com/technology/custom-operator-should-we-keep-it">Custom == operator, should we keep it?</a></p>
 <p>TL;DR: Unity的<code>==</code>是魔改版，与原生C#里的行为不一样。所以不要对<code>UnityEngine.Object</code>派生出的任何东西（包括<code>MonoBehaviour</code>）使用C#的空值相关语法糖，包括<code>?.</code>，<code>??</code>，<code>??=</code>等等（三元运算符可以用），而应该老老实实使用<code>== null</code>来判空。</p>
 </blockquote>
-<h1>正文</h1>
+<h2 id="正文"><a class="header-anchor" href="#正文">¶</a>正文</h2>
 <p>当你在Unity中进行这样的操作时：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (myGameObject == <span class="literal">null</span>) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Unity对<code>==</code>运算符做了一些特殊处理。与大多数人所期望的不同，我们对<code>==</code>运算符有一个特殊实现。</p>
@@ -338,7 +335,7 @@
 <p>你觉得我们怎么做好？是给你一个更清晰的体验，但你必须为此改变项目中的判空逻辑，还是保持原样？</p>
 <p>以上，Lucas (<a target="_blank" rel="noopener" href="https://twitter.com/lucasmeijer">@lucasmeijer</a>)</p>
 <hr>
-<h1>备注</h1>
+<h2 id="备注"><a class="header-anchor" href="#备注">¶</a>备注</h2>
 <ol>
 <li>
 <p>我们只在编辑器中这样做。这就是为什么当你调用<code>GetComponent()</code>查询一个不存在的组件时，你会发现发生了C#的内存分配，因为我们在新分配的假null中生成了这个自定义的警告字符串。这种内存分配不会发生在构建出的游戏中。这是一个很好的例子，如果你要对你的游戏做性能分析，你总该分析实际的电脑端或移动端，而不是在编辑器里进行分析，因为我们在编辑器里对安全性、使用方法做了很多额外的检查便于你开展工作，但却牺牲了一些性能。当对性能表现和内存分配进行分析时，绝对不要对编辑器进行分析，而是总应对构建出的游戏进行分析。</p>

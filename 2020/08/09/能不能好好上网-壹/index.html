@@ -22,12 +22,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/hexo-theme-next/8.13.1/config.min.js"></script>
 
-    <meta name="description" content="能不能好好上网？ 在中国，很难。 故事背景 我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。  到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？ 以此为契机，我了解到了局域网，IP和3389端口的">
+    <meta name="description" content="能不能好好上网？ 在中国，很难。 ¶故事背景 我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。  到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？ 以此为契机，我了解到了局域网，IP和3389端口">
 <meta property="og:type" content="article">
 <meta property="og:title" content="能不能好好上网-壹：搭建IPv6私有云盘">
 <meta property="og:url" content="https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/index.html">
 <meta property="og:site_name" content="博丽东亭分社 | Macyrate">
-<meta property="og:description" content="能不能好好上网？ 在中国，很难。 故事背景 我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。  到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？ 以此为契机，我了解到了局域网，IP和3389端口的">
+<meta property="og:description" content="能不能好好上网？ 在中国，很难。 ¶故事背景 我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。  到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？ 以此为契机，我了解到了局域网，IP和3389端口">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99586:/FcrqSmxuBWz9e8a.png?authkey=AIbyrqnS5z58phc">
 <meta property="og:image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99587:/H6TtIV3QYKRnZek.jpg?authkey=AIbyrqnS5z58phc">
@@ -158,7 +158,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">故事背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">无源光网络PON</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">路由？桥接？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">IPv6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">DDNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">Cloudreve</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">故事背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E6%BA%90%E5%85%89%E7%BD%91%E7%BB%9CPON"><span class="nav-number">2.</span> <span class="nav-text">无源光网络PON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%EF%BC%9F%E6%A1%A5%E6%8E%A5%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">路由？桥接？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPv6"><span class="nav-number">4.</span> <span class="nav-text">IPv6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DDNS"><span class="nav-number">5.</span> <span class="nav-text">DDNS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">6.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cloudreve"><span class="nav-number">7.</span> <span class="nav-text">Cloudreve</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -219,9 +219,6 @@
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="http://sukunahust.com/" title="http:&#x2F;&#x2F;sukunahust.com&#x2F;" rel="noopener" target="_blank">Sukuna</a>
@@ -318,7 +315,7 @@
     <div class="post-body" itemprop="articleBody">
         <p><strong>能不能好好上网？</strong></p>
 <p>在中国，很难。</p>
-<h1>故事背景</h1>
+<h2 id="故事背景"><a class="header-anchor" href="#故事背景">¶</a>故事背景</h2>
 <p>我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。</p>
 <p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99586:/FcrqSmxuBWz9e8a.png?authkey=AIbyrqnS5z58phc" alt="远程桌面连接"></p>
 <p>到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？</p>
@@ -328,7 +325,7 @@
 <p>我在树莓派上弄了一个简单的Python脚本，每隔一小时检查路由器的公网IP，如果发生了变动就用邮件形式发出通知。再配合路由器上配置的IP-MAC绑定和端口转发，我就能在外访问到局域网里某台设备的具体端口。虽然后来改用了更方便的TeamViewer，但很长一段时间里，我就是这样在实验课机房里连接寝室中的台式机来写代码的。如今看来，我这操作基本就是实现了一个“低配版”的DDNS服务。</p>
 <p>那么，说回现在。</p>
 <span id="more"></span>
-<h1>无源光网络PON</h1>
+<h2 id="无源光网络PON"><a class="header-anchor" href="#无源光网络PON">¶</a>无源光网络PON</h2>
 <p>这半个多月的培训期间我虽然挺摸，但也不是白学的。</p>
 <p>首先，要从网络的宏观结构讲起。放到可能是最宏观的角度，整个通信网络就分为三层：</p>
 <ol>
@@ -343,7 +340,7 @@
 <p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99588:/pWMHZyJ2tDA8Sua.jpg?authkey=AIbyrqnS5z58phc" alt="光交箱"></p>
 <p>你家弱电箱里连接光纤的“光猫”属于光网络单元<code>ONU</code>(Optical Network Unit)。它最重要的功能就是拨号，并将接收到的光信号转换成电信号，再通过以太网线连接其他设备。不过，现在的ONU大多还集成了无线路由器，就如下图所示，它甚至能使用双频WiFi兼顾穿墙和大带宽的功能。</p>
 <p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99590:/zCWKXgnjQtHGDm2.jpg?authkey=AIbyrqnS5z58phc" alt="ONU"></p>
-<h1>路由？桥接？</h1>
+<h2 id="路由？桥接？"><a class="header-anchor" href="#路由？桥接？">¶</a>路由？桥接？</h2>
 <p>光猫有两种工作模式：“路由”与“桥接”。</p>
 <p>默认情况下，光猫以“路由”模式工作。此时它身兼数职，有些“融合终端”类型的设备甚至还要充当IPTV机顶盒。可它毕竟是办宽带的时候100块钱就给你装上的玩意，其无线热点质量当然没法和专职的无线路由器媲美。现在的无线路由器大多也内置了拨号能力，如果我们让专业的设备做专业的事，即让路由器负责拨号和无线热点，而仅仅将光猫作为一个无情的光电转换器，二者的负载会平衡许多。</p>
 <p>这就是光猫的“桥接”模式。除了性能上的考虑，更重要的是，这样做可以少去光猫上的一层NAT，让你的局域网设备可以通过路由器直接接入广域网，而不是被光猫再设一道卡。如果要像我曾经做的那样在外访问家中的局域网设备，改桥接是必不可少的。</p>
@@ -352,7 +349,7 @@
 <p>关键是要拿到配置页面的超级管理员密码：移动写在设备背面铭牌上，联通直接就是<code>CUAdmin</code>，电信则比较麻烦，可能得用Telnet从光猫里获取一个配置文件才能找到。</p>
 <p>改好桥接，光猫就失去了拨号上网的功能。接下来就需要插上无线路由器，在路由器的配置页面里设置宽带账号和密码，进行PPPoE拨号。</p>
 <p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99589:/4cAU1RgiLjKJamB.png?authkey=AIbyrqnS5z58phc" alt="路由器拨号"></p>
-<h1>IPv6</h1>
+<h2 id="IPv6"><a class="header-anchor" href="#IPv6">¶</a>IPv6</h2>
 <p>按说现在就可以故技重施，为路由器配置IP-MAC绑定和端口转发，然后用公网IP来搞事了。可正如我之前所说，现在哪还有什么公网IP，你能查到的不过是运营商“大内网”里的IP罢了。</p>
 <p>我不信邪，要试试前几年被网友实践过无数次的法子：打电话给运营商人工客服，宣称家里需要装摄像头/远程办公，希望分配动态公网IP。然后，再补上万能的“财富密码”——<strong>工、信、部</strong>。</p>
 <p>然而依然是搞不定，到v2ex上一查也发现湖北联通确实早就弄不到公网IP了。</p>
@@ -364,7 +361,7 @@
 <p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99593:/7wRjS3lHJ1OgyvL.png?authkey=AIbyrqnS5z58phc" alt="IPv6设置"></p>
 <p><a target="_blank" rel="noopener" href="https://www.test-ipv6.com/">IPv6连接测试</a>全绿，爽到！你甚至可以现在就用手机流量/WiFi环境试一试能否接入IPv6网络。</p>
 <p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99594:/5SJeWwB8DVXquh6.png?authkey=AIbyrqnS5z58phc" alt="测试结果"></p>
-<h1>DDNS</h1>
+<h2 id="DDNS"><a class="header-anchor" href="#DDNS">¶</a>DDNS</h2>
 <p>这下公网IP也有了，可我在外怎么知道自己的IP呢？难道还像以前一样自动定时检查然后发邮件通知？</p>
 <p>对了，合理的方法就是使用动态域名服务DDNS(Dynamic Domain Name Server)。</p>
 <p>网络建立在IP地址的基础上，它虽然适合计算机处理运算，但不方便人类记忆，所以才引入了域名。当我们用域名(网址)访问一个网站时，其实要先找DNS服务器将域名转换成IP地址，这类似于打114查号台进行电话导航。也许你还知道hosts文件，它相当于一本“私人通讯录”，假如你要去的网站在hosts里有对应的IP，就没必要费事去DNS查了。</p>
@@ -372,7 +369,7 @@
 <p>这个例子中，查号台是DNS服务器，张三本人是网站，“张三”这个名字是域名，而张三的手机号就是IP地址——很容易理解吧？</p>
 <p>所以，如果要实现DDNS，还需要一个域名。这个网站的域名“hakurei.red”正是我去年花16元在阿里云上注册的，主域名已经拿来做了博客，用子域名“shrine.hakurei.red”做DDNS正合适。</p>
 <p>我使用的工具是GitHub上开源的<a target="_blank" rel="noopener" href="https://github.com/xuchao1213/AliyunDdnsCSharp">xuchao1213/AliyunDdnsCSharp</a>。看名字就知道它由C#开发，干净得不得了，只要在配置文件里简单填上几项就能生成一个Windows服务，自动实现DDNS的功能。最棒的是，它支持IPv6。</p>
-<h1>防火墙</h1>
+<h2 id="防火墙"><a class="header-anchor" href="#防火墙">¶</a>防火墙</h2>
 <p>IP有了，域名也绑上了——接下来就测试下能不能从外网连接上吧。用Live Server把网站弄到890端口上试试？</p>
 <p><code>ERR_CONNECTION_REFUSED</code></p>
 <p>这是典型的防火墙问题。</p>
@@ -384,7 +381,7 @@
 <p>随后重新加载一下，让新规则生效：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/firewall reload</span><br></pre></td></tr></table></figure>
 <p>接下来，只要我电脑上的服务器开着，就能通过<a target="_blank" rel="noopener" href="http://shrine.hakurei.red:890">shrine.hakurei.red:890</a>访问到它了。</p>
-<h1>Cloudreve</h1>
+<h2 id="Cloudreve"><a class="header-anchor" href="#Cloudreve">¶</a>Cloudreve</h2>
 <p>端口已经成功打开，放点什么上去呢？</p>
 <p>一开始，我尝试了最简单的静态文件服务器<a target="_blank" rel="noopener" href="https://github.com/JacksonTian/anywhere">JacksonTian/anywhere</a>，把一些漫画和动画放了进去。但文件服务器毕竟是为了获取文件，不方便在线浏览，比如没法给漫画翻页，得一张张地打开；PDF文件更是必须完整下载然后在本地阅读。</p>
 <p>还是整点复杂的吧——比如很多神秘网站使用的网盘系统<a target="_blank" rel="noopener" href="https://github.com/cloudreve/Cloudreve">cloudreve/Cloudreve</a>。这个国产项目完全采用Material Design风格，几个月前还用Go语言重构，如今开箱即用，体验十分优良。</p>

@@ -206,9 +206,6 @@
           <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="http://sukunahust.com/" title="http:&#x2F;&#x2F;sukunahust.com&#x2F;" rel="noopener" target="_blank">Sukuna</a>
         </li>
         <li class="links-of-blogroll-item">
@@ -379,7 +376,7 @@
     <div class="post-body" itemprop="articleBody">
           <p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99535:/PgJko6yGmOHnYqW.png?authkey=AIbyrqnS5z58phc" alt="HustBase结构"></p>
 <p>经过一个月的胡乱操作，这个数据库总算是按照预期地跑了起来。</p>
-<h1>主要工作</h1>
+<h2 id="主要工作"><a class="header-anchor" href="#主要工作">¶</a>主要工作</h2>
 <ol>
 <li>提供了数据定义功能：定义数据库、系统表、数据表、索引。</li>
 <li>提供了数据库操作功能：创建、打开、关闭、删除数据库。</li>
@@ -389,7 +386,7 @@
 <li>为查询模块提供部分语义分析功能。</li>
 <li>编写部分用户界面模块功能。</li>
 </ol>
-<h1>遇到的问题</h1>
+<h2 id="遇到的问题"><a class="header-anchor" href="#遇到的问题">¶</a>遇到的问题</h2>
 <p>编写模块的过程中，主要出现了以下几个问题：</p>
 <ol>
 <li>
@@ -474,7 +471,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。</p>
-<h1>char foo[bar] 和 char* foo</h1>
+<h2 id="char-foo-bar-和-char-foo"><a class="header-anchor" href="#char-foo-bar-和-char-foo">¶</a>char foo[bar] 和 char* foo</h2>
 <p><code>char foo[bar]</code>这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这两行都定义了相同的字符串&quot;Hello&quot;</span></span><br><span class="line"><span class="type">char</span> foo1[] = <span class="string">&quot;Hello&quot;</span>;      <span class="comment">//末尾有隐藏的&#x27;\0&#x27;</span></span><br><span class="line"><span class="type">char</span> foo2[<span class="number">6</span>] = &#123;<span class="string">&#x27;H&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125;;</span><br></pre></td></tr></table></figure>
 <p><code>char* foo</code>是声明了一个字符指针，指向单个字符，可以将其当作以<code>'\0'</code>为末尾的字符串的首字符地址。如果要把字符串赋给它，需要先申请内存空间，再使用<code>memcpy()</code>或<code>strcpy()</code>。当然，也可以不分配空间，直接用<strong>十分危险的指针赋值</strong>。</p>

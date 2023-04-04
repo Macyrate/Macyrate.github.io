@@ -206,9 +206,6 @@
           <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="http://sukunahust.com/" title="http:&#x2F;&#x2F;sukunahust.com&#x2F;" rel="noopener" target="_blank">Sukuna</a>
         </li>
         <li class="links-of-blogroll-item">
@@ -298,7 +295,7 @@
 （其实就是我写完实在不愿审阅）</p>
 </div>
 <p>首先说明，异步是<strong>极为高深</strong>的高级编程技术，这篇文章只是才疏学浅的我阅读文档之后的一些思考与理解，可能有极多描述不准确乃至完全错误之处，还望批评指导。顺便吐槽，C#文档翻译得实在是太烂了，很多地方一看就是机翻的，却没有机翻警告。很多地方百思不得其解的词，切换到英语就发现其实很简单，翻译的用词完全错误，难受啊！</p>
-<h1>何为异步</h1>
+<h2 id="何为异步"><a class="header-anchor" href="#何为异步">¶</a>何为异步</h2>
 <p>与异步相对的是“同步”，代表着一句代码的执行结束是其后一句代码的执行开始，整个流程是按照固定的顺序进行的，这是一般程序的逻辑。然而，某些语句可能需要花较长时间才能得到结果——比如网络通信和文件读写——这些语句的执行并不怎么占用CPU，但会阻塞整个线程，后续的语句需要等待这些语句执行完成，造成大量的浪费。特别是如果网络环境很不好、读取的文件好几个G，那可是尤其要命，可能整个程序都会出现肉眼可见的卡顿甚至崩溃。</p>
 <p>为了解决这种飞快的CPU与龟爬的IO之间的不平衡，传统的方案是单独开个线程让它去执行耗时的操作，让主线程继续运行与耗时操作的结果无关的代码。但是线程操作很麻烦、开销很高，线程数量也有限，不是能随便使用的，所以依然不是个完美的方法。</p>
 <p>异步就是为了解决这个问题而存在的。当代码需要执行一个耗时的操作时，它只发出指令，并不等待结果，然后就去执行其他代码了。一段时间后，当耗时操作返回结果时，再通知CPU进行处理。</p>
@@ -461,7 +458,7 @@
           <p>准备完了开题答辩，弄完了笔试，又咸鱼了数天、玩了数天《动物森友会》，一下子离上一篇C#杂记过了三个星期。</p>
 <p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99568:/CPuc8SVgWGXTkEA.jpg?authkey=AIbyrqnS5z58phc" alt="朔月"></p>
 <p>所以接下来要填的坑是LINQ和异步。弄完了这个，C#最大的几块拼图才得以完整，大抵能够叫是入了门。</p>
-<h1>查询表达式</h1>
+<h2 id="查询表达式"><a class="header-anchor" href="#查询表达式">¶</a>查询表达式</h2>
 <p>所谓的LINQ，是语言集成查询<strong>L</strong>anguage <strong>IN</strong>tegrated <strong>Q</strong>uery的缩写。通过引用命名空间<code>System.Linq</code>，可以用可读性极强的、类似SQL查询语句形式的代码对一些数据结构，甚至直接对数据库进行便捷的操作，如查询、排序、分组等，而不必编写大量逻辑复杂的循环代码。<!--尤其是在与异步流式处理相结合时，可以优雅地将C#的性能发挥到极致。(存疑)-->LINQ的操作十分高深，这里我仅学习一些基础、常用的LINQ功能。</p>
 <p>以下是一个典型的LINQ查询示例：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//数据源</span></span><br><span class="line">    <span class="built_in">string</span>[] name = &#123;<span class="string">&quot;Alonso&quot;</span>, <span class="string">&quot;Zheng&quot;</span>, <span class="string">&quot;Smith&quot;</span>, <span class="string">&quot;Jones&quot;</span>, <span class="string">&quot;Smythe&quot;</span>, <span class="string">&quot;Small&quot;</span>, <span class="string">&quot;Ruiz&quot;</span>, <span class="string">&quot;Hsieh&quot;</span>, <span class="string">&quot;Jorgenson&quot;</span>, <span class="string">&quot;Ilyich&quot;</span>, <span class="string">&quot;Singh&quot;</span>, <span class="string">&quot;Samba&quot;</span>, <span class="string">&quot;Fatimah&quot;</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询表达式</span></span><br><span class="line">    <span class="keyword">var</span> queryResults = </span><br><span class="line">        <span class="keyword">from</span> n <span class="keyword">in</span> names</span><br><span class="line">        <span class="keyword">where</span> n.StartWith(<span class="string">&quot;S&quot;</span>)</span><br><span class="line">        <span class="keyword">select</span> n;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//迭代查询结果</span></span><br><span class="line">    WriteLine(<span class="string">&quot;Name beginning with S:&quot;</span>);</span><br><span class="line">    <span class="keyword">foreach</span>(<span class="keyword">var</span> item <span class="keyword">in</span> queryResults)&#123;</span><br><span class="line">        WriteLine(item);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Write(<span class="string">&quot;Program finished. Press Enter/Return to continue:&quot;</span>);</span><br><span class="line">    ReadLine();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -541,7 +538,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>对BOSS战的分析，可以从战斗机制的设计和对玩家能力的考验两个方向进行。</p>
-<h1>战斗机制</h1>
+<h2 id="战斗机制"><a class="header-anchor" href="#战斗机制">¶</a>战斗机制</h2>
 <p>何谓战斗机制？</p>
 <p>“机制”这个词实在太宽泛。几个月前我曾在<a href="https://hakurei.red/2019/11/20/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/">这篇笔记</a>里总结过一次。</p>
 <p>根据MDA框架，机制是“数据层面上的组件与算法”；形式、戏剧和动态元素框架中，“机制”基本等同于“形式”元素，即交互模式、目标、规则、过程、资源、边界、结局等等。四元法有一元是机制，指的是“玩家与游戏互动的规则”，也是游戏与其他非互动性媒体的区别所在。</p>

@@ -206,9 +206,6 @@
           <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="http://sukunahust.com/" title="http:&#x2F;&#x2F;sukunahust.com&#x2F;" rel="noopener" target="_blank">Sukuna</a>
         </li>
         <li class="links-of-blogroll-item">
@@ -294,7 +291,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>在游戏中，场景加载是很常用的功能。如果要在加载的时候让当前的场景还能正常运行，或者加载时能有一个包含进度条之类组件的加载界面，就应该采取异步的场景加载方式。</p>
-<h1>同步加载</h1>
+<h2 id="同步加载"><a class="header-anchor" href="#同步加载">¶</a>同步加载</h2>
 <p>在讲异步加载以前，先说同步加载。</p>
 <p>当执行同步加载时，正在运行的场景会被阻塞，产生卡顿，这种方法适合小型的、不怎么需要获取读取进度的场景的加载。如在地牢中切换到另一个房间，读取完成之前当前房间中的一切都静止不动，这种情况应该是用同步加载实现的。</p>
 <p>Unity使用<code>SceneManager</code>类的静态方法<a target="_blank" rel="noopener" href="https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html">LoadScene</a>实现同步的场景加载。由于是静态方法，不需要对<code>SceneManager</code>类进行实例化，只要使用命名空间<code>using UnityEngine.SceneManagement;</code>就可直接通过<code>SceneManager.LoadSceneAsync</code>访问。</p>
@@ -456,7 +453,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>由于准备solo操作，美工大部分就得自己搞定了。</p>
-<h1>Aseprite</h1>
+<h2 id="Aseprite"><a class="header-anchor" href="#Aseprite">¶</a>Aseprite</h2>
 <p>Pixel Art其实很早就想玩一玩，不过之前一直没有找到合适的工具。如今因为要做游戏的任务驱动，终于开始尝试了。也因此，认真搜索资料之下就知道了<code>Aseprite</code>这个🐂🍺到爆炸的像素画制作软件，Steam售价38元，非常划算。</p>
 <iframe src="https://store.steampowered.com/widget/431730/" frameborder="0" width="646" height="190"></iframe>
 <p>我学习的是Youtube上MortMort这位小哥的教学视频，讲得非常清晰：</p>
@@ -543,8 +540,8 @@
           <div class="note info"><p>如果你只是想要在自己站点的左下角加一个极其Stable的音乐播放器，而不想听我废话自己踩的坑，请直接跳转：<br>
 <a href="/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/#Show-me-the-CODE">“Show me the CODE!”</a></p>
 </div>
-<h1>早期尝试</h1>
-<h2 id="网易云iframe"><a class="header-anchor" href="#网易云iframe">¶</a>网易云iframe</h2>
+<h2 id="早期尝试"><a class="header-anchor" href="#早期尝试">¶</a>早期尝试</h2>
+<h3 id="网易云iframe"><a class="header-anchor" href="#网易云iframe">¶</a>网易云iframe</h3>
 <p>今天，我试图解决一个历史遗留问题。</p>
 <p>之前我博客上的音乐播放器一直都是网易云的外链iframe，就这个样式的：</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1384318412&auto=0&height=66"></iframe>

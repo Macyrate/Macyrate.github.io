@@ -206,9 +206,6 @@
           <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="http://sukunahust.com/" title="http:&#x2F;&#x2F;sukunahust.com&#x2F;" rel="noopener" target="_blank">Sukuna</a>
         </li>
         <li class="links-of-blogroll-item">
@@ -297,7 +294,7 @@
 <p>该文章译自Unity官网博客，原文：<a target="_blank" rel="noopener" href="https://blog.unity.com/technology/custom-operator-should-we-keep-it">Custom == operator, should we keep it?</a></p>
 <p>TL;DR: Unity的<code>==</code>是魔改版，与原生C#里的行为不一样。所以不要对<code>UnityEngine.Object</code>派生出的任何东西（包括<code>MonoBehaviour</code>）使用C#的空值相关语法糖，包括<code>?.</code>，<code>??</code>，<code>??=</code>等等（三元运算符可以用），而应该老老实实使用<code>== null</code>来判空。</p>
 </blockquote>
-<h1>正文</h1>
+<h2 id="正文"><a class="header-anchor" href="#正文">¶</a>正文</h2>
 <p>当你在Unity中进行这样的操作时：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (myGameObject == <span class="literal">null</span>) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Unity对<code>==</code>运算符做了一些特殊处理。与大多数人所期望的不同，我们对<code>==</code>运算符有一个特殊实现。</p>
@@ -382,14 +379,14 @@
     <div class="post-body" itemprop="articleBody">
           <p>其实19年在实习期间写CFET的时候，就有用到过Attribute这个特性<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，但当时并没有研究过它的作用和原理，只是照着文档给的案例使用。最近准备看看Unity中是如何用Lua实现热更新的，发现attribute满天飞，这就不得不理解一下了。</p>
 <p>简单看了看，attribute似乎和反射息息相关，正好反射这块我也不太了解，这次就将一些相关的概念一并记录吧。</p>
-<h1>特性 Attribute</h1>
+<h2 id="特性-Attribute"><a class="header-anchor" href="#特性-Attribute">¶</a>特性 Attribute</h2>
 <p>特性是一种标签，可以用方括号贴在各种元素<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>之前，给这些元素添加<strong>元数据</strong>。元数据包括编译器指令、注释、描述、方法、类等信息。</p>
 <p>许多特性都附带一些参数，如在声明<code>element</code>的时候，通过带参的attribute附加元数据，按下面的格式使用：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">SomeAttribute(positional_parameters, name_parameter = value, ...)</span>]</span><br><span class="line">element</span><br></pre></td></tr></table></figure>
 <p>特性实际上是<code>System.Attribute</code>的一系列派生类，它们的后缀均为&quot;Attribute&quot;，在打标签的时候这个后缀可以省略掉。</p>
-<h2 id="预定义的Attribute"><a class="header-anchor" href="#预定义的Attribute">¶</a>预定义的Attribute</h2>
+<h3 id="预定义的Attribute"><a class="header-anchor" href="#预定义的Attribute">¶</a>预定义的Attribute</h3>
 <p>微软在.NET库里已经内置了一堆<code>System.Attribute</code>的派生类，我们可能只会接触到其中一小部分，这里举几种常用的为例。</p>
-<h3 id="ObsoleteAttribute"><a class="header-anchor" href="#ObsoleteAttribute">¶</a>ObsoleteAttribute</h3>
+<h4 id="ObsoleteAttribute"><a class="header-anchor" href="#ObsoleteAttribute">¶</a>ObsoleteAttribute</h4>
 <p><code>Obsolete</code>用于指示过时、弃用的元素。这些元素被认为不应该使用，因此在有调用到这种元素的地方，会产生Warning，并且附带参数<code>message</code>所包含的提示信息。如果建议使用某种新方案，就可以写在提示信息里。</p>
 <p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99601:/tkSGJRc4mFe1w2y.png?authkey=AIbyrqnS5z58phc" alt="对过时元素告警"></p>
 <p>另外，还有可选的第二个参数<code>iserror</code>，如果被设置为<code>true</code>，则会产生Error而不是Warning，阻止编译。</p>
@@ -474,7 +471,7 @@
 </blockquote>
 <p>这一篇是真正的“杂”记。这段时间在刷LeetCode的同时，阅览了一些Java中常见的问题，鉴于Java与C#的殊途同归，也有了些收获。</p>
 <p>为查漏补缺，将之前理解还不够明了的部分记在这里，主要是涉及OOP思想的一些概念。</p>
-<h1>关于多态</h1>
+<h2 id="关于多态"><a class="header-anchor" href="#关于多态">¶</a>关于多态</h2>
 <p>面向对象设计有四大特征：</p>
 <ul>
 <li>抽象：通过类和接口的属性与方法实现</li>
@@ -567,7 +564,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>以下所介绍的部分命令，在设备上是由适合嵌入式 Linux 的工具集 BusyBox 提供，行为和 Linux 桌面发行版上不完全一致，这里均采用 BusyBox 所提供的指令用法。</p>
-<h1>ifconfig：查看接口状态</h1>
+<h2 id="ifconfig：查看接口状态"><a class="header-anchor" href="#ifconfig：查看接口状态">¶</a>ifconfig：查看接口状态</h2>
 <p><code>ifconfig</code> 可设置网卡接口的状态，或是显示目前的设置。以下是一些主要的设置参数。</p>
 <p>语法格式：<code>ifconfig &lt; -a &gt; [网卡名称] &lt;参数&gt;</code></p>
 <table>
@@ -617,7 +614,7 @@
 </tbody>
 </table>
 <p>直接输入 <code>ifconfig</code> 就会列出目前已激活的网卡，不论这个卡是否有给予 IP ，都会被显示出来。带接口的 <code>ifconfig eth0</code> 则仅会表示接口 eth0 的相关数据，无论其是否启动。使用 <code>-a</code> 选项，则会展示所有网卡的属性。</p>
-<h2 id="示例"><a class="header-anchor" href="#示例">¶</a>示例</h2>
+<h3 id="示例"><a class="header-anchor" href="#示例">¶</a>示例</h3>
 <figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ifconfig ra8</span></span><br><span class="line">ra8       Link encap:Ethernet  HWaddr 02:A1:BB:01:23:48  </span><br><span class="line">          inet6 addr: fe80::a1:bbff:fe01:2348/64 Scope:Link</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:130 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:61 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000 </span><br><span class="line">          RX bytes:13971 (13.6 KiB)  TX bytes:7767 (7.5 KiB)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">

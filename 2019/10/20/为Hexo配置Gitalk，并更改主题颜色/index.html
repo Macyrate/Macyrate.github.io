@@ -22,12 +22,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/hexo-theme-next/8.13.1/config.min.js"></script>
 
-    <meta name="description" content="配置Gitalk 在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？ 当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行hexo g却永远都是： next disqus">
+    <meta name="description" content="¶配置Gitalk 在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？ 当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行hexo g却永远都是： next disqu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为Hexo配置Gitalk，并更改主题颜色">
 <meta property="og:url" content="https://hakurei.red/2019/10/20/%E4%B8%BAHexo%E9%85%8D%E7%BD%AEGitalk%EF%BC%8C%E5%B9%B6%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2/index.html">
 <meta property="og:site_name" content="博丽东亭分社 | Macyrate">
-<meta property="og:description" content="配置Gitalk 在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？ 当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行hexo g却永远都是： next disqus">
+<meta property="og:description" content="¶配置Gitalk 在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？ 当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行hexo g却永远都是： next disqu">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99494:/fkE8JSxeo4pjmu7.jpg?authkey=AIbyrqnS5z58phc">
 <meta property="og:image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99495:/jPw6frglHAW52ME.jpg?authkey=AIbyrqnS5z58phc">
@@ -160,7 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">配置Gitalk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">更改Gitalk的主题颜色</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEGitalk"><span class="nav-number">1.</span> <span class="nav-text">配置Gitalk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9Gitalk%E7%9A%84%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2"><span class="nav-number">2.</span> <span class="nav-text">更改Gitalk的主题颜色</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -221,9 +221,6 @@
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="http://jushen.xyz/" title="http:&#x2F;&#x2F;jushen.xyz&#x2F;" rel="noopener" target="_blank">JuShen巨神</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="http://sukunahust.com/" title="http:&#x2F;&#x2F;sukunahust.com&#x2F;" rel="noopener" target="_blank">Sukuna</a>
@@ -318,7 +315,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1>配置Gitalk</h1>
+        <h2 id="配置Gitalk"><a class="header-anchor" href="#配置Gitalk">¶</a>配置Gitalk</h2>
 <p>在重新搭建这个站点的过程中，碰到一个“小”问题：以前我的网站使用的是WordPress，内建了评论系统，而现在在Hexo站点中该如何引入评论系统？</p>
 <p>当然，这根本就不是问题，Hexo最著名的主题NexT已经在配置文件中给出了多种可供选择的评论系统。Google搜索到的大部分人使用的是Disqus，然而当我按照他们的流程一通操作后，执行<code>hexo g</code>却永远都是：</p>
 <pre><code>next disqus TypeError: Cannot read property 'replace' of null
@@ -345,7 +342,7 @@
 <p>而这是repo里对应的issue：</p>
 <p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99502:/l7pDt8vaf1gKdmk.jpg?authkey=AIbyrqnS5z58phc" alt="gitalk在issue中"></p>
 <p>注意到红线标出的这一行，Gitalk就是用这两个标签来对应issue和文章的。</p>
-<h1>更改Gitalk的主题颜色</h1>
+<h2 id="更改Gitalk的主题颜色"><a class="header-anchor" href="#更改Gitalk的主题颜色">¶</a>更改Gitalk的主题颜色</h2>
 <p>如果你足够细心，也许会注意到官方的gitalk是蓝色的，而我站点中的却是与页头一致的绯色。</p>
 <p>这两种颜色差别太大，我想要保持网页配色的一致性，于是免不了多折腾两下。</p>
 <p>要更改颜色，首先就得知道这是什么颜色。</p>

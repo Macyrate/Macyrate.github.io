@@ -6,7 +6,7 @@
   <link href="https://hakurei.red/atom.xml" rel="self"/>
   
   <link href="https://hakurei.red/"/>
-  <updated>2022-12-29T17:35:20.000Z</updated>
+  <updated>2023-09-11T16:38:50.000Z</updated>
   <id>https://hakurei.red/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《神话学入门》：世界观念，神话、礼仪、社会</title>
+    <link href="https://hakurei.red/2023/09/12/MythologyIntroduction4/"/>
+    <id>https://hakurei.red/2023/09/12/MythologyIntroduction4/</id>
+    <published>2023-09-11T16:38:50.000Z</published>
+    <updated>2023-09-11T16:38:50.000Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;世界观念的诸类型&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#世界观念的诸类型&quot;&gt;¶&lt;/a&gt;世界观念的诸类型&lt;/h2&gt;
+&lt;p&gt;世界观念&lt;code&gt;Weltbild&lt;/code&gt;是人们对待现实的根本观点和态度。&lt;/p&gt;
+&lt;p&gt;具体的神话和礼仪可以反映出一个民族或文化的世界观念。&lt;/p&gt;
+&lt;h3 id=&quot;狩猎民和动物&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#狩猎民和动物&quot;&gt;¶&lt;/a&gt;狩猎民和动物&lt;/h3&gt;
+&lt;p&gt;人类历史98%以上的时间里，人们都不知道农耕和饲养家畜，文化处在采集狩猎民的阶段。&lt;/p&gt;
+&lt;p&gt;狩猎民的世界观念中，动物起着重要作用。人类和动物属于同等地位，动物和人一样能说话、会做事，人和动物之间还可以相互转换。一些特定的动物还被看作是神。&lt;/p&gt;
+&lt;p&gt;弗罗贝尼乌斯将这种世界观念称为“人类动物说”。&lt;/p&gt;
+&lt;p&gt;在阿伊努人的“祭熊仪式”及其它许多民族的类似礼仪中，有反映出这种世界观念。阿伊努人认为，熊以人的形象在另一个世界生活，而以熊的形象来到此世游玩。在捕获小熊后，他们会举行仪式将其杀死，以将灵魂从熊的肉体中解放，送还熊国。而这一过程中留下的熊肉熊皮，则是赠送给人类的谢礼。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!100518:/71751377_p0.png?authkey=AIbyrqnS5z58phc&quot; alt=&quot;志度内(Pixiv ID 71751377)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;人类动物说的世界观念以图腾崇拜为基础，即笃信人类与某种动物或事物之间有着神秘关系。&lt;/p&gt;
+&lt;h3 id=&quot;农耕民和人的死&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#农耕民和人的死&quot;&gt;¶&lt;/a&gt;农耕民和人的死&lt;/h3&gt;
+&lt;p&gt;农耕的发明是技术和经济形态上的重大变化，这也使得人们的世界观念得到了发展，人们关心的重点从动物转移到了植物与人类本身上来。&lt;/p&gt;
+&lt;p&gt;由开花，结果，而后枯死的植物，发展出了“生与死”的象征主义。生死不仅互相关联，而且，死是生的前提。&lt;/p&gt;
+&lt;p&gt;在落后农耕民的世界观念中，曾起到重大作用的人，或者说最初的神，实际上就是死者、祖先。&lt;/p&gt;
+&lt;p&gt;分布在中国云南至缅甸一带的佤族人直至近代都有“猎头”的习俗。传说佤族人的先祖是青蛙和妖怪，他们在捕食人类，并把人类的头盖骨带回居住的洞窟之后，才生了许多具有人类的形象的孩子。后世的佤族人在每年三四月农耕开始的季节猎取人头，供献先祖，祈求作物丰收。类似的习俗还广泛存在于世界各地的落后农耕民之中。&lt;/p&gt;
+&lt;p&gt;猎头习俗说明：死，尤其是杀害，是生的前提。这是农耕民世界观念中，“生与死”的象征主义的一种重要表现。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="读书" scheme="https://hakurei.red/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="宗教与神话" scheme="https://hakurei.red/tags/%E5%AE%97%E6%95%99%E4%B8%8E%E7%A5%9E%E8%AF%9D/"/>
+    
+  </entry>
   
   <entry>
     <title>《神话学入门》：起源神话</title>
@@ -627,34 +661,6 @@
     <category term="C Sharp" scheme="https://hakurei.red/tags/C-Sharp/"/>
     
     <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>试分析苇名弦一郎的BOSS设计</title>
-    <link href="https://hakurei.red/2020/03/16/%E8%AF%95%E5%88%86%E6%9E%90%E8%8B%87%E5%90%8D%E5%BC%A6%E4%B8%80%E9%83%8E%E7%9A%84BOSS%E8%AE%BE%E8%AE%A1/"/>
-    <id>https://hakurei.red/2020/03/16/%E8%AF%95%E5%88%86%E6%9E%90%E8%8B%87%E5%90%8D%E5%BC%A6%E4%B8%80%E9%83%8E%E7%9A%84BOSS%E8%AE%BE%E8%AE%A1/</id>
-    <published>2020-03-16T13:07:32.000Z</published>
-    <updated>2020-03-16T13:07:32.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;对BOSS战的分析，可以从战斗机制的设计和对玩家能力的考验两个方向进行。&lt;/p&gt;
-&lt;h2 id=&quot;战斗机制&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#战斗机制&quot;&gt;¶&lt;/a&gt;战斗机制&lt;/h2&gt;
-&lt;p&gt;何谓战斗机制？&lt;/p&gt;
-&lt;p&gt;“机制”这个词实在太宽泛。几个月前我曾在&lt;a href=&quot;https://hakurei.red/2019/11/20/%E6%B8%B8%E6%88%8F%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A3%B9/&quot;&gt;这篇笔记&lt;/a&gt;里总结过一次。&lt;/p&gt;
-&lt;p&gt;根据MDA框架，机制是“数据层面上的组件与算法”；形式、戏剧和动态元素框架中，“机制”基本等同于“形式”元素，即交互模式、目标、规则、过程、资源、边界、结局等等。四元法有一元是机制，指的是“玩家与游戏互动的规则”，也是游戏与其他非互动性媒体的区别所在。&lt;/p&gt;
-&lt;p&gt;不过，我们仍然可以把“机制”换个词，用“规则”来代替。更进一步的，战斗机制即是指，在战斗时，玩家能做什么？&lt;/p&gt;
-&lt;p&gt;那么《只狼》的战斗中，玩家能做什么？&lt;/p&gt;
-&lt;p&gt;最大的特色就是“打铁”，即弹反与架势槽。这个机制把传统动作游戏里高难度、高回报、低频率的“弹反”完全逆转成为难度相对偏低、回报不算明显，但使用频率极高的一种主要操作。《只狼》的战斗目标不再是单纯的削血，而主要是以进攻和弹反使敌人的架势槽涨满，此时即可一击必杀（忍杀）。同时架势槽的自然回落速度随剩余血量的减少而变慢，架势槽和血槽成为了相辅相成的两个机制。&lt;/p&gt;
-&lt;p&gt;第二点是处理敌人的“危”攻击。敌人偶尔发动无法格挡的技能，玩家头顶会浮现出红色的“危”字，这时就需要玩家根据敌人的起手动作，紧急判断下一步的应对措施。所谓的“危”其实也蕴含着“机”，如果处理得当，可以对敌方架势槽造成较大的上升。&lt;/p&gt;
-&lt;p&gt;主要的“危”攻击有两种类别，一是突刺，无法格挡，可以精准弹反，但正确的处理是在突刺的瞬间向敌人脸上垫步发动“识破”，造成较大的架势条上涨；二是横扫，最佳的处理方法是跳到敌人头上踩踏，亦可以造成较大的架势条上涨。一些BOSS战中能用“雷电奉还”反弹雷电攻击，而少数敌人能使出的擒抱攻击只能靠闪避处理。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="游戏" scheme="https://hakurei.red/tags/%E6%B8%B8%E6%88%8F/"/>
-    
-    <category term="游戏学" scheme="https://hakurei.red/tags/%E6%B8%B8%E6%88%8F%E5%AD%A6/"/>
     
   </entry>
   

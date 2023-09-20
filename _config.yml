@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 博丽东亭分社 | Macyrate
+title: 博丽听涛分社 | Macyrate
 subtitle: 
 description: "&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。"
 keywords: 
@@ -127,6 +127,7 @@ markdown:
     - markdown-it-abbr
     - markdown-it-footnote
     - markdown-it-sup
+    - markdown-it-ruby
   # 锚点设置（因为我没有尝试相关内容，所以就不翻译相关说明了）
   anchors:
     level: 2
@@ -146,6 +147,6 @@ feed:
   content_limit: 140
   content_limit_delim: ' '
   order_by: -date
-  icon: icon.png
+  icon: images/890-Errors.png
   autodiscovery: true
   template:

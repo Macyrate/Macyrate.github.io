@@ -3,6 +3,7 @@ title: 《佛教常识答问》：佛与佛法
 tags:
   - 读书
   - 宗教与神话
+date: 2023-09-21 00:49:44
 ---
 
 ![佛教常识答问](http://storage.live.com/items/3550ADEE9AFF19FD!101900:/佛教常识答问.png?authkey=AIbyrqnS5z58phc)

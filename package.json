@@ -29,6 +29,7 @@
     "hexo-renderer-stylus": "^2.0.1",
     "hexo-server": "^2.0.0",
     "http-server": "^14.1.0",
+    "markdown-it-ruby": "^0.1.1",
     "markdown-it-task-checkbox": "^1.0.6"
   }
 }

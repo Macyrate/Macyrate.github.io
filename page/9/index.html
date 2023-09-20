@@ -24,9 +24,9 @@
 
     <meta name="description" content="&amp;nbsp;&amp;nbsp;氣霽風梳新柳髮，&amp;nbsp;&amp;nbsp;冰消浪洗舊苔須。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="博丽梨园分社 | Macyrate">
+<meta property="og:title" content="博丽听涛分社 | Macyrate">
 <meta property="og:url" content="https://hakurei.red/page/9/index.html">
-<meta property="og:site_name" content="博丽梨园分社 | Macyrate">
+<meta property="og:site_name" content="博丽听涛分社 | Macyrate">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;氣霽風梳新柳髮，&amp;nbsp;&amp;nbsp;冰消浪洗舊苔須。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Macyrate">
@@ -40,7 +40,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/9/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>博丽梨园分社 | Macyrate</title>
+<title>博丽听涛分社 | Macyrate</title>
   
 
 
@@ -51,7 +51,7 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="博丽梨园分社 | Macyrate" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="博丽听涛分社 | Macyrate" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -248,6 +248,87 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
+      <meta itemprop="name" content="Macyrate">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽听涛分社 | Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 博丽听涛分社 | Macyrate">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/" class="post-title-link" itemprop="url">从C++里的一大堆字符串说起</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-30 18:19:09" itemprop="dateCreated datePublished" datetime="2019-12-30T18:19:09+08:00">2019-12-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。</p>
+<h2 id="char-foo-bar-和-char-foo"><a class="header-anchor" href="#char-foo-bar-和-char-foo">¶</a>char foo[bar] 和 char* foo</h2>
+<p><code>char foo[bar]</code>这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这两行都定义了相同的字符串&quot;Hello&quot;</span></span><br><span class="line"><span class="type">char</span> foo1[] = <span class="string">&quot;Hello&quot;</span>;      <span class="comment">//末尾有隐藏的&#x27;\0&#x27;</span></span><br><span class="line"><span class="type">char</span> foo2[<span class="number">6</span>] = &#123;<span class="string">&#x27;H&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;\0&#x27;</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>char* foo</code>是声明了一个字符指针，指向单个字符，可以将其当作以<code>'\0'</code>为末尾的字符串的首字符地址。如果要把字符串赋给它，需要先申请内存空间，再使用<code>memcpy()</code>或<code>strcpy()</code>。当然，也可以不分配空间，直接用<strong>十分危险的指针赋值</strong>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span>* foo1 = (<span class="type">char</span>*)<span class="built_in">calloc</span>(<span class="number">6</span>, <span class="built_in">sizeof</span>(<span class="type">char</span>));</span><br><span class="line"><span class="built_in">strcpy</span>(foo1, <span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">char</span>* foo2 = <span class="string">&quot;Hello&quot;</span>;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/30/%E4%BB%8EC-%E9%87%8C%E7%9A%84%E4%B8%80%E5%A4%A7%E5%A0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%AF%B4%E8%B5%B7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/26/191226/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -256,12 +337,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽梨园分社 | Macyrate">
+      <meta itemprop="name" content="博丽听涛分社 | Macyrate">
       <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 博丽梨园分社 | Macyrate">
+      <meta itemprop="name" content="undefined | 博丽听涛分社 | Macyrate">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -342,12 +423,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽梨园分社 | Macyrate">
+      <meta itemprop="name" content="博丽听涛分社 | Macyrate">
       <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 博丽梨园分社 | Macyrate">
+      <meta itemprop="name" content="undefined | 博丽听涛分社 | Macyrate">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -423,12 +504,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽梨园分社 | Macyrate">
+      <meta itemprop="name" content="博丽听涛分社 | Macyrate">
       <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 博丽梨园分社 | Macyrate">
+      <meta itemprop="name" content="undefined | 博丽听涛分社 | Macyrate">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -488,93 +569,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2019/12/03/Aseprite%E5%92%8CPhotoshop%E5%85%A5%E9%97%A8%E6%88%90%E6%9E%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="http://storage.live.com/items/3550ADEE9AFF19FD!99449:/AiAvatar.png?authkey=AIbyrqnS5z58phc">
-      <meta itemprop="name" content="Macyrate">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="博丽梨园分社 | Macyrate">
-      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 博丽梨园分社 | Macyrate">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/12/03/Aseprite%E5%92%8CPhotoshop%E5%85%A5%E9%97%A8%E6%88%90%E6%9E%9C/" class="post-title-link" itemprop="url">Aseprite和Photoshop入门成果</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-03 21:37:06" itemprop="dateCreated datePublished" datetime="2019-12-03T21:37:06+08:00">2019-12-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>由于准备solo操作，美工大部分就得自己搞定了。</p>
-<h2 id="Aseprite"><a class="header-anchor" href="#Aseprite">¶</a>Aseprite</h2>
-<p>Pixel Art其实很早就想玩一玩，不过之前一直没有找到合适的工具。如今因为要做游戏的任务驱动，终于开始尝试了。也因此，认真搜索资料之下就知道了<code>Aseprite</code>这个🐂🍺到爆炸的像素画制作软件，Steam售价38元，非常划算。</p>
-<iframe src="https://store.steampowered.com/widget/431730/" frameborder="0" width="646" height="190"></iframe>
-<p>我学习的是Youtube上MortMort这位小哥的教学视频，讲得非常清晰：</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLR3Ra9cf8aV06i2jKmgKvcYVHI86-4K_b" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>如果没有代理，可以在bilibili观看该系列视频的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av14603015">第一部分</a>：</p>
-<iframe src="//player.bilibili.com/player.html?aid=14603015&cid=23810173&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-<p>这是我在还没有看教学视频之前，自己胡乱尝试下摸索了将近一整天完成的<a target="_blank" rel="noopener" href="https://www.pixiv.net/artworks/78095634">第一幅作品</a>：</p>
-<p><img src="http://storage.live.com/items/3550ADEE9AFF19FD!99522:/rWmnCw9V1uBeDH6.gif?authkey=AIbyrqnS5z58phc" alt="youmu"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/03/Aseprite%E5%92%8CPhotoshop%E5%85%A5%E9%97%A8%E6%88%90%E6%9E%9C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

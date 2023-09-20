@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>博丽梨园分社 | Macyrate</title>
+  <title>博丽听涛分社 | Macyrate</title>
   <icon>https://hakurei.red/images/890-Errors.png</icon>
   
   <link href="https://hakurei.red/atom.xml" rel="self"/>
   
   <link href="https://hakurei.red/"/>
-  <updated>2023-09-11T16:38:50.000Z</updated>
+  <updated>2023-09-20T16:49:44.000Z</updated>
   <id>https://hakurei.red/</id>
   
   <author>
@@ -17,6 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>《佛教常识答问》：佛与佛法</title>
+    <link href="https://hakurei.red/2023/09/21/BuddhismQnA1/"/>
+    <id>https://hakurei.red/2023/09/21/BuddhismQnA1/</id>
+    <published>2023-09-20T16:49:44.000Z</published>
+    <updated>2023-09-20T16:49:44.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!101900:/%E4%BD%9B%E6%95%99%E5%B8%B8%E8%AF%86%E7%AD%94%E9%97%AE.png?authkey=AIbyrqnS5z58phc&quot; alt=&quot;佛教常识答问&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;佛陀和佛教的创立-v2&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#佛陀和佛教的创立-v2&quot;&gt;¶&lt;/a&gt;佛陀和佛教的创立&lt;/h2&gt;
+&lt;h3 id=&quot;法-v2&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#法-v2&quot;&gt;¶&lt;/a&gt;法&lt;/h3&gt;
+&lt;p&gt;在佛教的观点看来，佛法是佛陀的教诲，是宇宙间的唯一真理，能助众生解脱。&lt;/p&gt;
+&lt;p&gt;&lt;ruby&gt;“法”&lt;rt&gt;dharma&lt;/rt&gt;&lt;/ruby&gt;(&lt;code&gt;धर्म&lt;/code&gt;，音译作“达摩”)，佛教的解释是 &lt;strong&gt;“任持自性，轨生物解”&lt;/strong&gt;，即一切事物都必然保持它所特有的性质和相状(自性)，使人看到就可以了解是何物。&lt;/p&gt;
+&lt;p&gt;因此，宇宙间一切可以被理解的事物都能被称为法，即“诸法”。&lt;/p&gt;
+&lt;h3 id=&quot;佛-v2&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#佛-v2&quot;&gt;¶&lt;/a&gt;佛&lt;/h3&gt;
+&lt;p&gt;&lt;ruby&gt;佛陀&lt;rt&gt;Buddha&lt;/rt&gt;&lt;/ruby&gt;这一词汇早在佛教创立之前的印度就已经存在，它的含义是“觉者”、“智者”。佛教中所有的佛都不具备神明的身份，而是普通的人类，只是达到了觉悟的境界。&lt;/p&gt;
+&lt;p&gt;佛教对佛陀一词赋予了三种涵义：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;正觉&lt;/strong&gt;：无增无减、如实地觉悟了一切“法”(事物的性质相状)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;等觉/遍觉&lt;/strong&gt;：不仅自己觉悟，还能平等普遍地让他人觉悟。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;无上觉/圆觉&lt;/strong&gt;：觉悟的智慧和功行都达到了最高最圆满的水平。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以上三种涵义应是合称&lt;ruby&gt;“无上正等正觉”&lt;rt&gt;anuttara-samyak-saṃbodhi&lt;/rt&gt;&lt;/ruby&gt;(阿耨多罗三藐三菩提)。指佛教修行的最高觉悟、最高涅槃境界，证得此者与成佛无异。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="读书" scheme="https://hakurei.red/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+    <category term="宗教与神话" scheme="https://hakurei.red/tags/%E5%AE%97%E6%95%99%E4%B8%8E%E7%A5%9E%E8%AF%9D/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《神话学入门》：世界观念，神话、礼仪、社会</title>
     <link href="https://hakurei.red/2023/09/12/MythologyIntroduction4/"/>
     <id>https://hakurei.red/2023/09/12/MythologyIntroduction4/</id>
@@ -25,7 +60,7 @@
     
     
     <summary type="html">&lt;h2 id=&quot;世界观念的诸类型&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#世界观念的诸类型&quot;&gt;¶&lt;/a&gt;世界观念的诸类型&lt;/h2&gt;
-&lt;p&gt;世界观念&lt;code&gt;Weltbild&lt;/code&gt;是人们对待现实的根本观点和态度。&lt;/p&gt;
+&lt;p&gt;&lt;ruby&gt;世界观念&lt;rt&gt;Weltbild&lt;/rt&gt;&lt;/ruby&gt;是人们对待现实的根本观点和态度。&lt;/p&gt;
 &lt;p&gt;具体的神话和礼仪可以反映出一个民族或文化的世界观念。&lt;/p&gt;
 &lt;h3 id=&quot;狩猎民和动物&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#狩猎民和动物&quot;&gt;¶&lt;/a&gt;狩猎民和动物&lt;/h3&gt;
 &lt;p&gt;人类历史98%以上的时间里，人们都不知道农耕和饲养家畜，文化处在采集狩猎民的阶段。&lt;/p&gt;
@@ -145,7 +180,7 @@
 &lt;p&gt;寓意说认为，自然现象是神话的基础，在&lt;strong&gt;神话中反映着自然界的各种规律&lt;/strong&gt;。另一方面，神话还是&lt;strong&gt;抽象的伦理观念的诗化结果&lt;/strong&gt;，寓意着思虑、欲望等各种伦理的原理。&lt;/p&gt;
 &lt;p&gt;亚里士多德等哲学家、斯多葛学派，乃至十九世纪的自然神话学派均受到寓意说的影响。&lt;/p&gt;
 &lt;h3 id=&quot;欧赫美尔主义&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#欧赫美尔主义&quot;&gt;¶&lt;/a&gt;欧赫美尔主义&lt;/h3&gt;
-&lt;p&gt;欧赫美尔主义(Euhemerism)认为，&lt;strong&gt;神话中的神祇是曾经立下丰功伟绩的人&lt;/strong&gt;。神是死后被人所崇拜的英雄，神话是英雄事迹的记录。宙斯创造文明的活动，可以被理解为英雄带领人类从未开化状态走向文明的历程。&lt;/p&gt;
+&lt;p&gt;&lt;ruby&gt;欧赫美尔主义&lt;rt&gt;Euhemerism&lt;/rt&gt;&lt;/ruby&gt;认为，&lt;strong&gt;神话中的神祇是曾经立下丰功伟绩的人&lt;/strong&gt;。神是死后被人所崇拜的英雄，神话是英雄事迹的记录。宙斯创造文明的活动，可以被理解为英雄带领人类从未开化状态走向文明的历程。&lt;/p&gt;
 &lt;p&gt;这种观点源于古希腊的欧赫美尔，在希罗多德和柏拉图的著作中也有所体现。&lt;/p&gt;
 &lt;p&gt;徐松石对射日神话的解读就采取欧赫美尔主义的方法。他认为，十个太阳指的是十个君主，九日被射中，一日逃走，说明九个夷王被屈服，一个夷王逃之夭夭；或者九夷屈服而中原王朝再度兴盛。&lt;/p&gt;
 &lt;p&gt;有一些情况可以作为欧赫美尔主义的佐证：印度的土著民给那些卓越的或令人恐惧的欧洲人授予神的资格；类似的情况也出现在非洲、美洲、波利尼西亚地区。&lt;/p&gt;</summary>
@@ -636,31 +671,6 @@
     
     
     <category term="随笔" scheme="https://hakurei.red/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C#杂记之叁：LINQ</title>
-    <link href="https://hakurei.red/2020/03/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%8F%81/"/>
-    <id>https://hakurei.red/2020/03/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%8F%81/</id>
-    <published>2020-03-27T15:32:14.000Z</published>
-    <updated>2020-03-27T15:32:14.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;准备完了开题答辩，弄完了笔试，又咸鱼了数天、玩了数天《动物森友会》，一下子离上一篇C#杂记过了三个星期。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://storage.live.com/items/3550ADEE9AFF19FD!99568:/CPuc8SVgWGXTkEA.jpg?authkey=AIbyrqnS5z58phc&quot; alt=&quot;朔月&quot;&gt;&lt;/p&gt;
-&lt;p&gt;所以接下来要填的坑是LINQ和异步。弄完了这个，C#最大的几块拼图才得以完整，大抵能够叫是入了门。&lt;/p&gt;
-&lt;h2 id=&quot;查询表达式&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#查询表达式&quot;&gt;¶&lt;/a&gt;查询表达式&lt;/h2&gt;
-&lt;p&gt;所谓的LINQ，是语言集成查询&lt;strong&gt;L&lt;/strong&gt;anguage &lt;strong&gt;IN&lt;/strong&gt;tegrated &lt;strong&gt;Q&lt;/strong&gt;uery的缩写。通过引用命名空间&lt;code&gt;System.Linq&lt;/code&gt;，可以用可读性极强的、类似SQL查询语句形式的代码对一些数据结构，甚至直接对数据库进行便捷的操作，如查询、排序、分组等，而不必编写大量逻辑复杂的循环代码。&lt;!--尤其是在与异步流式处理相结合时，可以优雅地将C#的性能发挥到极致。(存疑)--&gt;LINQ的操作十分高深，这里我仅学习一些基础、常用的LINQ功能。&lt;/p&gt;
-&lt;p&gt;以下是一个典型的LINQ查询示例：&lt;/p&gt;
-&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Main&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;[] args&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//数据源&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;[] name = &amp;#123;&lt;span class=&quot;string&quot;&gt;&amp;quot;Alonso&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Zheng&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Smith&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Jones&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Smythe&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Small&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Ruiz&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Hsieh&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Jorgenson&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Ilyich&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Singh&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Samba&amp;quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;quot;Fatimah&amp;quot;&lt;/span&gt; &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//查询表达式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; queryResults = &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; n &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; names&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;where&lt;/span&gt; n.StartWith(&lt;span class=&quot;string&quot;&gt;&amp;quot;S&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;select&lt;/span&gt; n;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//迭代查询结果&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    WriteLine(&lt;span class=&quot;string&quot;&gt;&amp;quot;Name beginning with S:&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;foreach&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; item &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; queryResults)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        WriteLine(item);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Write(&lt;span class=&quot;string&quot;&gt;&amp;quot;Program finished. Press Enter/Return to continue:&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ReadLine();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    
-    <category term="C Sharp" scheme="https://hakurei.red/tags/C-Sharp/"/>
-    
-    <category term="笔记" scheme="https://hakurei.red/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

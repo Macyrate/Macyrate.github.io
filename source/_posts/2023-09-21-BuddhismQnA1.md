@@ -7,7 +7,7 @@ date: 2023-09-21 00:49:44
 updated: 2023-09-27 23:30:00
 ---
 
-![佛教常识答问](http://storage.live.com/items/3550ADEE9AFF19FD!101900:/佛教常识答问.png?authkey=AIbyrqnS5z58phc)
+![佛教常识答问](https://images.hakurei.red/佛教常识答问.png)
 
 佛教堪称与生活联系最为密切的宗教之一，但对其作系统性了解的机会实在不多。况且佛教发展至今，理论庞杂，流派林立，使得众说纷纭，无从入手。这本书的作者赵朴初先生曾任中国佛教协会会长，在本书中他深入浅出地介绍了许多关于佛教历史、佛学知识的内容，非常适合作为正本清源、破除迷信的佛学入门读物。
 
@@ -39,7 +39,7 @@ updated: 2023-09-27 23:30:00
 
 释迦牟尼佛和阿弥陀佛都是佛，但不是同一人。
 
-![Fate中的觉者](http://storage.live.com/items/3550ADEE9AFF19FD!101901:/觉者.jpg?authkey=AIbyrqnS5z58phc)
+![Fate中的觉者](https://images.hakurei.red/觉者.jpg)
 
 ### 成佛前的悉达多
 
@@ -55,7 +55,7 @@ updated: 2023-09-27 23:30:00
 
 从悉达多约三十多岁成佛，到他八十岁逝世期间，他一直在周游说法。最初的一次，就是到波罗奈城找到那五位侍从，在鹿野苑为他们说法，即“初转法轮”。
 
-![Fate中觉者的宝具 转轮圣王](http://storage.live.com/items/3550ADEE9AFF19FD!101902:/转轮圣王.jpg?authkey=AIbyrqnS5z58phc)
+![Fate中觉者的宝具 转轮圣王](https://images.hakurei.red/转轮圣王.jpg)
 
 > 在印度神话中，当统一世界的君王出现时，天上将会出现一个旋转金轮，作为他统治权力的证明。拥有这个旋转金轮的人，将成为这个世界以及全宇宙的统治者，他将会以慈悲与智慧治理这个世界，开创“转轮圣朝”。
 >
@@ -105,7 +105,7 @@ updated: 2023-09-27 23:30:00
 
 世界是由时间上无数的异时互存关系、空间上无数的同时互存关系，组织起来的无限的网。
 
-![往昔的桓那兰那](http://storage.live.com/items/3550ADEE9AFF19FD!101927:/觉王树.png?authkey=AIbyrqnS5z58phc)
+![往昔的桓那兰那](https://images.hakurei.red/觉王树.png)
 
 ### 十一义
 
@@ -208,7 +208,7 @@ updated: 2023-09-27 23:30:00
 - 求不得苦：欲求而得不到之苦。
 - 五取蕴苦：色受想行识这五蕴因烦恼所生，同时它们又领受、聚集种种烦恼。亦译作五阴炽盛苦。
 
-![暖雪 五阴炽盛](http://storage.live.com/items/3550ADEE9AFF19FD!101941:/五阴炽盛.png?authkey=AIbyrqnS5z58phc)
+![暖雪 五阴炽盛](https://images.hakurei.red/五阴炽盛.png)
 
 苦的产生也是有因缘的。关于其缘起的解释，可以分成十二个阶段来分析，即“十二缘起”。沿着这十二缘起，就可以逐步反推到一切苦的根源。
 
@@ -253,7 +253,7 @@ updated: 2023-09-27 23:30:00
 
 度，即{“波罗蜜多”|pāramitā}，意为“到彼岸”，即从烦恼的此岸到达觉悟的彼岸。
 
-![六渡桥 2013](http://storage.live.com/items/3550ADEE9AFF19FD!101942:/六渡桥.jpg?authkey=AIbyrqnS5z58phc)
+![六渡桥 2013](https://images.hakurei.red/六渡桥.jpg)
 
 六度分为：
 

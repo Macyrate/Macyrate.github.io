@@ -6,11 +6,11 @@ tags:
 date: 2022-03-30 01:56:24
 ---
 
-![豆瓣评分8.6](http://storage.live.com/items/3550ADEE9AFF19FD!99608:/tbOdUpGE5WFwXT6.png?authkey=AIbyrqnS5z58phc)
+![豆瓣评分8.6](https://images.hakurei.red/tbOdUpGE5WFwXT6.png)
 
 前段时间华为推出了10.3寸的墨水屏平板Matepad Paper，似乎非常贴合我对“平板”这一形态的需求。毕竟我手上的Matepad 11原本几乎唯一的作用就是阅读，而基本告别娱乐属性的墨水屏是强化这一属性最好不过的配置了。不过由于了解到华为对PDF的优化并不到位，阅读灯也没有色温调节，我还是把Matepad换成了文石的BOOX NoteX。
 
-![BOOX NoteX](http://storage.live.com/items/3550ADEE9AFF19FD!99609:/1qMstzlrGAFSWo4.jpg?authkey=AIbyrqnS5z58phc)
+![BOOX NoteX](https://images.hakurei.red/1qMstzlrGAFSWo4.jpg)
 
 在把那些买来就基本没读过的书来来去去搬过几回之后，我的纸质书“情怀”就转化为了对科技的崇尚。我决定不再购买纸质书，而是尽可能获取epub/pdf的版本，[Z-Library](https://singlelogin.org)和[全国图书馆参考咨询联盟](http://www.ucdrs.net/)也给了我这么做的充足底气，现在也有了这台不错的设备，没有理由不把阅读这件事捡起来了。
 
@@ -270,7 +270,7 @@ date: 2022-03-30 01:56:24
 
 我也曾和复数的人讲过那个从罗永浩口中听到的纽约公交司机的故事，虽然不知道是否有人get到。
 
-![纽约公交司机威廉·西米洛出走](http://storage.live.com/items/3550ADEE9AFF19FD!99610:/HqXMmkjgdzyPKnW.png?authkey=AIbyrqnS5z58phc)
+![纽约公交司机威廉·西米洛出走](https://images.hakurei.red/HqXMmkjgdzyPKnW.png)
 
 ## 价值
 
@@ -404,4 +404,4 @@ date: 2022-03-30 01:56:24
 即使是一秒过去的事怎么样都好。
 ```
 
-![Happy Ending](http://storage.live.com/items/3550ADEE9AFF19FD!99611:/ies6Bon2Tt41m7h.jpg?authkey=AIbyrqnS5z58phc)
+![Happy Ending](https://images.hakurei.red/ies6Bon2Tt41m7h.jpg)

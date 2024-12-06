@@ -8,7 +8,7 @@ date: 2022-12-04 02:22:02
 
 ## 神话研究的历程
 
-![神话学入门](http://storage.live.com/items/3550ADEE9AFF19FD!99627:/神话学入门.png?authkey=AIbyrqnS5z58phc)
+![神话学入门](https://images.hakurei.red/神话学入门.png)
 
 只有当神话与现实生活之间产生距离，人与神渐行渐远的时候，神话才能被客观地对待。因此，从神话的诞生，到将神话真正作为一门学科来研究，经历了漫长的岁月。
 

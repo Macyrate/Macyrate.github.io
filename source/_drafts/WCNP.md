@@ -5,7 +5,7 @@ tags:
   - 社会学
 ---
 
-![工作、消费主义和新穷人](http://storage.live.com/items/3550ADEE9AFF19FD!103341:/工作消费主义和新穷人.png?authkey=AIbyrqnS5z58phc)
+![工作、消费主义和新穷人](https://images.hakurei.red/工作消费主义和新穷人.png)
 
 本书成书于1998年，但对今天我们所处的环境而言，仍具备重要的现实意义。
 

@@ -385,13 +385,15 @@ td {
   margin-top: 4px;
 }
 .toggle.toggle-arrow :first-child {
+  left: 50%;
   top: 2px;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
   width: 50%;
 }
 .toggle.toggle-arrow :last-child {
+  left: 50%;
   top: -2px;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   width: 50%;
 }
 .toggle.toggle-close :nth-child(2) {
@@ -399,11 +401,11 @@ td {
 }
 .toggle.toggle-close :first-child {
   top: 6px;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
 }
 .toggle.toggle-close :last-child {
   top: -6px;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
 }
 pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#444;background:#f0f0f0}.hljs-subst{color:#444}.hljs-comment{color:#888}.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-name,.hljs-selector-tag{font-weight:700}.hljs-attribute{color:#0e9a00}.hljs-function{color:#99069a}.hljs-deletion,.hljs-number,.hljs-quote,.hljs-selector-class,.hljs-selector-id,.hljs-string,.hljs-template-tag,.hljs-type{color:#800}.hljs-section,.hljs-title{color:#800;font-weight:700}.hljs-link,.hljs-regexp,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-symbol,.hljs-template-variable,.hljs-variable{color:#bc6060}.hljs-literal{color:#78a960}.hljs-addition,.hljs-built_in,.hljs-bullet,.hljs-code{color:#0c9a9a}.hljs-meta{color:#1f7199}.hljs-meta .hljs-string{color:#4d99bf}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}
 @media (prefers-color-scheme: dark) {
@@ -1134,10 +1136,10 @@ pre code {
 }
 @media (max-width: 899px) {
   .sidebar {
-    right: -320px;
+    left: -320px;
   }
   .sidebar-active .sidebar {
-    right: 0;
+    left: 0;
   }
   .sidebar {
     background: #000;
@@ -1170,7 +1172,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ffffbd;
+    background: #4e5542;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1240,13 +1242,15 @@ pre code {
 }
 @media (any-hover: hover) {
   body:not(.sidebar-active) .sidebar-toggle:hover :first-child {
+    left: 50%;
     top: 2px;
-    transform: rotate(-45deg);
+    transform: rotate(45deg);
     width: 50%;
   }
   body:not(.sidebar-active) .sidebar-toggle:hover :last-child {
+    left: 50%;
     top: -2px;
-    transform: rotate(45deg);
+    transform: rotate(-45deg);
     width: 50%;
   }
 }
@@ -1255,11 +1259,11 @@ pre code {
 }
 .sidebar-active .sidebar-toggle :first-child {
   top: 6px;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
 }
 .sidebar-active .sidebar-toggle :last-child {
   top: -6px;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
 }
 .sidebar-nav {
   font-size: 0.875em;
@@ -2495,7 +2499,6 @@ header.header {
   justify-content: space-between;
   margin: 0 auto;
   width: calc(100% - 20px);
-  flex-direction: row-reverse;
 }
 @media (max-width: 767px) {
   .main {
@@ -2530,7 +2533,7 @@ header.header {
   }
 }
 .footer-inner {
-  padding-right: 252px;
+  padding-left: 252px;
 }
 @media (max-width: 899px) {
   .footer-inner {

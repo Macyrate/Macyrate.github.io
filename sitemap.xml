@@ -582,7 +582,7 @@
   </url>
   
   <url>
-    <loc>https://hakurei.red/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://hakurei.red/tags/%E5%AE%97%E6%95%99%E4%B8%8E%E7%A5%9E%E8%AF%9D/</loc>
     <lastmod>2024-12-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -596,14 +596,14 @@
   </url>
   
   <url>
-    <loc>https://hakurei.red/tags/%E6%A0%87%E5%87%86/</loc>
+    <loc>https://hakurei.red/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2024-12-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hakurei.red/tags/%E5%AE%97%E6%95%99%E4%B8%8E%E7%A5%9E%E8%AF%9D/</loc>
+    <loc>https://hakurei.red/tags/%E6%A0%87%E5%87%86/</loc>
     <lastmod>2024-12-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -638,13 +638,6 @@
   </url>
   
   <url>
-    <loc>https://hakurei.red/tags/%E4%BB%BB%E5%A4%A9%E5%A0%82/</loc>
-    <lastmod>2024-12-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hakurei.red/tags/Hexo/</loc>
     <lastmod>2024-12-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -653,6 +646,13 @@
   
   <url>
     <loc>https://hakurei.red/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2024-12-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hakurei.red/tags/%E4%BB%BB%E5%A4%A9%E5%A0%82/</loc>
     <lastmod>2024-12-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -701,14 +701,14 @@
   </url>
   
   <url>
-    <loc>https://hakurei.red/tags/%E9%81%97%E4%BA%A7/</loc>
+    <loc>https://hakurei.red/tags/%E5%9B%BD%E4%BA%8B/</loc>
     <lastmod>2024-12-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hakurei.red/tags/%E5%9B%BD%E4%BA%8B/</loc>
+    <loc>https://hakurei.red/tags/%E9%81%97%E4%BA%A7/</loc>
     <lastmod>2024-12-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

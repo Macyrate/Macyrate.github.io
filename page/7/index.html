@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#93251A"><meta name="generator" content="Hexo 8.1.1">
 <link rel="preconnect" href="https://fonts.font.im" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="https://images.hakurei.red/VmI4h6RczwKMXfE.png">
@@ -20,7 +19,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"routeros","dark":"vs2015"},"prism":{"enable":true,"light":"prism-one-light","dark":"prism-one-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"github-dark","dark":"github-dark"},"prism":{"light":"prism-one-light","dark":"prism-one-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，&nbsp;&nbsp;冰消浪洗舊苔須。">
 <meta property="og:type" content="website">
@@ -263,7 +262,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/27/2020-02-27-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://images.hakurei.red/AiAvatar.png">
@@ -281,7 +280,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/" class="post-title-link" itemprop="url">C#杂记之壹：委托与事件</a>
+          <a href="/2020/02/27/2020-02-27-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/" class="post-title-link" itemprop="url">C#杂记之壹：委托与事件</a>
         </h2>
 
         <div class="post-meta-container">
@@ -312,12 +311,29 @@
 <p>如之前所说，委托类似于函数指针。或者说，委托/是/一种/存储/函数引用/的/<strong>类型</strong>(注意断句)。由于函数的参数须是变量、常量、表达式，只要把函数变成一种<strong>引用类型</strong>的变量，就可以让一个函数作为其它函数的参数了。同样，也可以通过直接调用委托变量来调用委托变量所引用的函数。</p>
 <p>为什么要把<strong>类型</strong>加粗？因为声明一个委托类型并不是声明一个委托变量，而是一类委托的<strong>模板</strong>，说明了这类委托应具有的的返回值类型与参数列表。委托类型与具体的委托变量之关系，类似于“类”和“对象”的关系。</p>
 <p>委托类型声明和函数类似，拥有返回值类型和参数列表，但没有函数体，并且在前面用<code>delegate</code>关键字声明这是一个委托类型。然后我们再声明这个委托类型的变量：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明委托类型和委托变量</span></span><br><span class="line"><span class="function"><span class="built_in">delegate</span> <span class="built_in">double</span> <span class="title">ProcessDelegate</span>(<span class="params"><span class="built_in">double</span> param1, <span class="built_in">double</span> param2</span>)</span>;</span><br><span class="line">ProcessDelegate process;</span><br><span class="line"></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将函数Multiply注册到ProcessDelegate类型的委托变量process</span></span><br><span class="line">process = <span class="keyword">new</span> ProcessDelegate(Multiply);</span><br><span class="line"></span><br><span class="line"><span class="comment">//也可以简写</span></span><br><span class="line">process = Multiply;</span><br><span class="line"></span><br><span class="line"><span class="comment">//多播委托(虽然这里没什么用)</span></span><br><span class="line">process += Divide;</span><br><span class="line">process += Add;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用委托</span></span><br><span class="line">System.Console.WriteLine(<span class="string">$&quot;Result:<span class="subst">&#123;process(<span class="number">12.1</span>, <span class="number">22.4</span>)&#125;</span>&quot;</span>);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-CSharp" data-language="CSharp"><code class="language-CSharp">&#x2F;&#x2F;声明委托类型和委托变量
+delegate double ProcessDelegate(double param1, double param2);
+ProcessDelegate process;
+
+&#x2F;&#x2F;...
+
+&#x2F;&#x2F;将函数Multiply注册到ProcessDelegate类型的委托变量process
+process &#x3D; new ProcessDelegate(Multiply);
+
+&#x2F;&#x2F;也可以简写
+process &#x3D; Multiply;
+
+&#x2F;&#x2F;多播委托(虽然这里没什么用)
+process +&#x3D; Divide;
+process +&#x3D; Add;
+
+&#x2F;&#x2F;调用委托
+System.Console.WriteLine($&quot;Result:&#123;process(12.1, 22.4)&#125;&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>实际上，委托确实是一种“类”。上面所展示的委托变量声明，其形式就和类的实例化完全一致。在委托变量后面打个点，你甚至能看到一堆委托类型包含的方法和属性：</p>
 <p><img src="https://images.hakurei.red/xVONQiE1hJIrWf2.jpg" alt="委托也是类"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/02/27/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/#more" rel="contents">
+              <a class="btn" href="/2020/02/27/2020-02-27-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E5%A3%B9/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -348,7 +364,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/23/200223/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/23/2020-02-23-200223/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://images.hakurei.red/AiAvatar.png">
@@ -366,7 +382,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/23/200223/" class="post-title-link" itemprop="url">200223：890 Errors创立</a>
+          <a href="/2020/02/23/2020-02-23-200223/" class="post-title-link" itemprop="url">200223：890 Errors创立</a>
         </h2>
 
         <div class="post-meta-container">
@@ -437,7 +453,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/09/%E4%BB%8EANSI%E7%BC%96%E7%A0%81%E6%98%AF%E5%95%A5%E8%AF%B4%E8%B5%B7/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/09/2020-02-09-%E4%BB%8EANSI%E7%BC%96%E7%A0%81%E6%98%AF%E5%95%A5%E8%AF%B4%E8%B5%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://images.hakurei.red/AiAvatar.png">
@@ -455,7 +471,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/09/%E4%BB%8EANSI%E7%BC%96%E7%A0%81%E6%98%AF%E5%95%A5%E8%AF%B4%E8%B5%B7/" class="post-title-link" itemprop="url">从ANSI编码是啥说起</a>
+          <a href="/2020/02/09/2020-02-09-%E4%BB%8EANSI%E7%BC%96%E7%A0%81%E6%98%AF%E5%95%A5%E8%AF%B4%E8%B5%B7/" class="post-title-link" itemprop="url">从ANSI编码是啥说起</a>
         </h2>
 
         <div class="post-meta-container">
@@ -492,7 +508,7 @@
 <p>奇怪的是，英文、数字、以及一些符号部分并没有变成乱码，这时你就明白，该死的编码问题又出现了。一直到几年前，Windows记事本的默认编码都是写在右下角的<code>ANSI</code>（现在已经是UTF-8），这是什么编码呢？</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/02/09/%E4%BB%8EANSI%E7%BC%96%E7%A0%81%E6%98%AF%E5%95%A5%E8%AF%B4%E8%B5%B7/#more" rel="contents">
+              <a class="btn" href="/2020/02/09/2020-02-09-%E4%BB%8EANSI%E7%BC%96%E7%A0%81%E6%98%AF%E5%95%A5%E8%AF%B4%E8%B5%B7/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -523,7 +539,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/08/200208/">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2020/02/08/2020-02-08-200208/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://images.hakurei.red/AiAvatar.png">
@@ -541,7 +557,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/02/08/200208/" class="post-title-link" itemprop="url">200208：瘟疫，党，怎样说话</a>
+          <a href="/2020/02/08/2020-02-08-200208/" class="post-title-link" itemprop="url">200208：瘟疫，党，怎样说话</a>
         </h2>
 
         <div class="post-meta-container">
@@ -573,7 +589,7 @@
 <p>这些天，肺炎疫情把武汉政府的虚伪面具撕得稀烂，官僚主义、形式主义的败絮化为血的火焰，烧穿包装纸让魔幻的现实在全世界面前光彩夺目。因此，舆论的战斗被推到自习近平同志就任以来所未有的高度，甚至有人表示“上一次有这么多人觉醒，还是1989年”，品葱的反共分子和连登的香港废青们弹冠相庆，似乎民智将开，马上就要十月革命一声炮响，共产党就要被打倒了。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/02/08/200208/#more" rel="contents">
+              <a class="btn" href="/2020/02/08/2020-02-08-200208/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -616,7 +632,7 @@
   data-order="random" 
   data-volume="0.40" 
   data-theme="#93251A"
-  data-preload="auto" >
+  data-preload="metadata" >
   </div>
 
   <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/meting/1.2.0/Meting.min.js"></script>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#93251A"><meta name="generator" content="Hexo 8.1.1">
+<link rel="preconnect" href="https://fonts.font.im" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="https://images.hakurei.red/VmI4h6RczwKMXfE.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://images.hakurei.red/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://images.hakurei.red/favicon-16x16.ico">
+  <link rel="mask-icon" href="https://images.hakurei.red/VmI4h6RczwKMXfE.png" color="#93251A">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"github-dark","dark":"github-dark"},"prism":{"light":"prism-one-light","dark":"prism-one-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="注：以下文稿写于2020年，虽未完整，为了不卡杂记的序号，还是发出来了。 日后会在这里添加更多内容，也可能另起一篇拾遗（  这一篇是真正的“杂”记。这段时间在刷LeetCode的同时，阅览了一些Java中常见的问题，鉴于Java与C#的殊途同归，也有了些收获。 为查漏补缺，将之前理解还不够明了的部分记在这里，主要是涉及OOP思想的一些概念。 ¶关于多态 面向对象设计有四大特征：  抽象：通过类和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#杂记之陆：真·杂记">
+<meta property="og:url" content="https://hakurei.red/2022/02/07/2022-02-07-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/index.html">
+<meta property="og:site_name" content="博丽京汉分社 | Macyrate">
+<meta property="og:description" content="注：以下文稿写于2020年，虽未完整，为了不卡杂记的序号，还是发出来了。 日后会在这里添加更多内容，也可能另起一篇拾遗（  这一篇是真正的“杂”记。这段时间在刷LeetCode的同时，阅览了一些Java中常见的问题，鉴于Java与C#的殊途同归，也有了些收获。 为查漏补缺，将之前理解还不够明了的部分记在这里，主要是涉及OOP思想的一些概念。 ¶关于多态 面向对象设计有四大特征：  抽象：通过类和">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-07T01:51:35.000Z">
+<meta property="article:modified_time" content="2022-02-07T01:51:35.000Z">
+<meta property="article:author" content="Macyrate">
+<meta property="article:tag" content="C Sharp">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hakurei.red/2022/02/07/2022-02-07-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hakurei.red/2022/02/07/2022-02-07-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/","path":"2022/02/07/2022-02-07-C-杂记之陆：真·杂记/","title":"C#杂记之陆：真·杂记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C#杂记之陆：真·杂记 | 博丽京汉分社 | Macyrate</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+
+
+
+
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://cdnjs.cloudflare.com/ajax/libs/busuanzi/2.3.0/bsz.pure.mini.min.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/lxgwwenkaimono-regular.min.css" />
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="博丽京汉分社 | Macyrate" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <img src="https://images.hakurei.red/Banner.png">
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-lab"><a href="/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>实验</a></li><li class="menu-item menu-item-aria"><a href="http://hakurei.red/aria/" rel="section"><i class="fa fa-cloud-arrow-down fa-fw"></i>下载</a></li><li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>订阅</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%A4%9A%E6%80%81"><span class="nav-number">1.</span> <span class="nav-text">关于多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text">关于接口和抽象类的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7Property%E5%92%8C%E5%AD%97%E6%AE%B5Field"><span class="nav-number">3.</span> <span class="nav-text">属性Property和字段Field</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E9%87%8Fconst%E5%92%8C%E5%8F%AA%E8%AF%BBreadonly"><span class="nav-number">4.</span> <span class="nav-text">常量const和只读readonly</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8F%E3%80%81%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91"><span class="nav-number">5.</span> <span class="nav-text">宏、条件编译</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Macyrate"
+      src="https://images.hakurei.red/AiAvatar.png">
+  <p class="site-author-name" itemprop="name">Macyrate</p>
+  <div class="site-description" itemprop="description">&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Macyrate" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Macyrate" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:macyrate@foxmail.com" title="E-Mail → mailto:macyrate@foxmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/macyrate/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;macyrate&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://steamcommunity.com/profiles/76561198313695590/" title="Steam → https:&#x2F;&#x2F;steamcommunity.com&#x2F;profiles&#x2F;76561198313695590&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-steam fa-fw"></i>Steam</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://music.163.com/#/user/home?id=36445171" title="Netease → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;36445171" rel="noopener me" target="_blank"><i class="fas fa-music fa-fw"></i>Netease</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/macyrate" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;macyrate" rel="noopener me" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://sukunahust.moe/" title="https:&#x2F;&#x2F;sukunahust.moe&#x2F;" rel="noopener" target="_blank">Sukuna</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.viseator.com/" title="https:&#x2F;&#x2F;www.viseator.com&#x2F;" rel="noopener" target="_blank">viseator</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.llgzone.com/" title="https:&#x2F;&#x2F;blog.llgzone.com&#x2F;" rel="noopener" target="_blank">Lean</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://touhoudog.net/" title="http:&#x2F;&#x2F;touhoudog.net&#x2F;" rel="noopener" target="_blank">充满魔力的土地下</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://kourindou.exblog.jp/" title="https:&#x2F;&#x2F;kourindou.exblog.jp&#x2F;" rel="noopener" target="_blank">博麗幻想書譜</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hakurei.red/2022/02/07/2022-02-07-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://images.hakurei.red/AiAvatar.png">
+      <meta itemprop="name" content="Macyrate">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博丽京汉分社 | Macyrate">
+      <meta itemprop="description" content="&nbsp;&nbsp;氣霽風梳新柳髮，<br>&nbsp;&nbsp;冰消浪洗舊苔須。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C#杂记之陆：真·杂记 | 博丽京汉分社 | Macyrate">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C#杂记之陆：真·杂记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-07 09:51:35" itemprop="dateCreated datePublished" datetime="2022-02-07T09:51:35+08:00">2022-02-07</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>注：以下文稿写于2020年，虽未完整，为了不卡杂记的序号，还是发出来了。<br>
+日后会在这里添加更多内容，也可能另起一篇拾遗（</p>
+</blockquote>
+<p>这一篇是真正的“杂”记。这段时间在刷LeetCode的同时，阅览了一些Java中常见的问题，鉴于Java与C#的殊途同归，也有了些收获。</p>
+<p>为查漏补缺，将之前理解还不够明了的部分记在这里，主要是涉及OOP思想的一些概念。</p>
+<h2 id="关于多态"><a class="header-anchor" href="#关于多态">¶</a>关于多态</h2>
+<p>面向对象设计有四大特征：</p>
+<ul>
+<li>抽象：通过类和接口的属性与方法实现</li>
+<li>继承：通过类和接口的继承实现</li>
+<li>封装：通过访问控制符实现</li>
+<li>多态：？？？</li>
+</ul>
+<p>多态这个概念比较神秘。以前看到一个解释是这么说的：</p>
+<blockquote>
+<p>继承是子类引用父类方法；多态是父类引用子类方法。</p>
+</blockquote>
+<p>当时看了觉得有点奇怪，父类怎么能引用子类方法呢？现在我的理解是如下：</p>
+<p>子类对象<strong>继承</strong>了父类方法，但是可能又对继承过来的父类方法进行了<strong>重写</strong>覆盖。而一切出现父类的地方都可以用其子类<strong>向上转型</strong>进行替换(里氏替换原则)，调用方法时调用的会是在子类里被重写的子类方法。继承、重写和向上转型，这是实现多态的三要素。</p>
+<p>这样，如果一个父类有多个子类，它们又分别用不同方式重写了继承下来的同一个方法，那么在把这些子类都当父类使用时，就会展现出多态性：明明是对同一个类的对象调用了同一个方法，但行为却完全不同。</p>
+<p>举个例子，假如有个<code>扬声器</code>类，包含一个<code>大叫()</code>方法，调用时会“嘤嘤嘤”；而继承自它的有大叫“洒↓比↑”的<code>喇叭</code>类和大叫“哼，哼，啊啊啊啊啊啊啊”的<code>野兽先辈</code>类：</p>
+<pre class="line-numbers language-CSharp" data-language="CSharp"><code class="language-CSharp">&#x2F;&#x2F;这段代码甚至真的可以跑，C#支持用汉字做标识符，大概是因为用了Unicode
+using System;
+using System.Collections.Generic;
+
+namespace PlayGround
+&#123;
+    class 扬声器
+    &#123;
+        public virtual void 大叫() &#x3D;&gt; Console.WriteLine(&quot;嘤嘤嘤&quot;);
+    &#125;
+
+    class 喇叭 : 扬声器
+    &#123;
+        public override void 大叫() &#x3D;&gt; Console.WriteLine(&quot;洒↓比↑&quot;);
+    &#125;
+
+    class 野兽先辈 : 扬声器
+    &#123;
+        public override void 大叫() &#x3D;&gt; Console.WriteLine(&quot;哼，哼，啊啊啊啊啊啊啊&quot;);
+    &#125;
+
+    class 屑狐狸 : 扬声器
+    &#123;
+        public override void 大叫() &#x3D;&gt; Console.WriteLine(&quot;呜呜呜呜，好可怜啊&quot;);
+    &#125;
+
+    class Program
+    &#123;
+        static void Main(string[] args)
+        &#123;
+            var 一堆扬声器 &#x3D; new List&lt;扬声器&gt;() &#123; new 扬声器(), new 喇叭(), new 野兽先辈(), new 屑狐狸() &#125;;
+
+            foreach (var 某个扬声器 in 一堆扬声器)
+            &#123;
+                某个扬声器.大叫();
+                &#x2F;&#x2F; 输出：
+                &#x2F;&#x2F; 嘤嘤嘤
+                &#x2F;&#x2F; 洒↓比↑
+                &#x2F;&#x2F; 哼，哼，啊啊啊啊啊啊啊
+                &#x2F;&#x2F; 呜呜呜呜，好可怜啊
+            &#125;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span id="more"></span>
+<p>不过，另外有一种操作是“成员隐藏”，在派生类中用<code>new</code>修饰符对基类已有的成员重新进行定义，在这种情况下体现不出多态，因为向上转型时调用的仍然会是基类已经定义的成员。</p>
+<p>在竞技世界面试中，还被问到这样一个问题：<strong>多态的实现方法是什么？</strong></p>
+<p>我确实没搞明白什么叫“实现方式”，于是按照上面的部分答了，但那其实是多态存在的必要条件。</p>
+<p>其实现在理解来，实现方式就是指什么情况下会体现出多态。</p>
+<p>方式一是重写，就像上面代码中的例子；方式二是接口，不同类对接口中方法的实现不同造成多态；方式三是抽象类和抽象方法，子类对抽象方法进行重写时的实现不同造成多态。</p>
+<p>（其实我对着这几句话想了半天，觉得它们说的几乎是同一件事……）</p>
+<h2 id="关于接口和抽象类的区别"><a class="header-anchor" href="#关于接口和抽象类的区别">¶</a>关于接口和抽象类的区别</h2>
+<p>这两个都是无法被实例化的东西。</p>
+<p>在较早版本的Java中，接口仅包含公有属性和方法，而且方法全部都是隐式抽象方法，没有任何实现，也不可以定义静态方法，仅仅是对实现接口的类的一种规约。</p>
+<p>但在Java 8之后可以定义静态方法，而且方法还可以有方法体了。</p>
+<p>C#情况也差不多，接口里可以包含方法(包括static方法)、属性、索引器、事件的声明。原本的接口完全是抽象的，不包含任何实现代码。</p>
+<p>但和Java一样，从C# 8.0开始，接口可以为成员定义默认实现了。</p>
+<p>这么看来，如今接口和抽象类的区别正变得不是那么大，但它们的设计目的始终是不变的：<strong>接口用来进行“有”约束，抽象类用来进行代码复用。</strong></p>
+<p>不过文档里有句话让我比较在意：</p>
+<blockquote>
+<p>接口不能声明实例数据，如<strong>字段</strong>、自动实现的属性或类似属性的事件。</p>
+</blockquote>
+<p>字段和属性有什么区别？</p>
+<h2 id="属性Property和字段Field"><a class="header-anchor" href="#属性Property和字段Field">¶</a>属性Property和字段Field</h2>
+<p>以前在学习C++和Java的时候，我往往把“属性”和“数据成员”当作同一种东西，而且它们在课本上表现得确实就是同一种东西。但在实际的语言中，数据成员被称为<strong>字段</strong>，和属性有一些不同。</p>
+<p>字段就像SQL里所表述的，它是真正承载数据的部分。一般情况下，我们趋向于不直接暴露字段，而是将它设为<code>private</code>。在命名规范上，字段一般使用驼峰命名法，即第一个单词首字母小写，其它首字母大写。由于字段一般是私有的，命名上往往还会加上下划线前缀，如<code>private string _myField</code>。</p>
+<p>属性其实是上一篇中所提到的get/set访问器的外壳。它自己不承载数据，而是将字段暴露给外界进行读/写，更像是一种方法。属性对应的字段被称为属性的“后备变量”。属性和方法一样采用帕斯卡命名法，即每个单词的首字母都大写。</p>
+<pre class="line-numbers language-CSharp" data-language="CSharp"><code class="language-CSharp">private string _myField;
+
+public string MyProperty
+&#123;
+    get
+    &#123;
+        return _myField;
+    &#125;
+    set
+    &#123;
+        _myField &#x3D; value;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>由此延伸出的是<strong>自动属性</strong>，这是在属性的访问器不需要进行特别的定义时使用的。实际上，上面的例子就可以使用自动属性：</p>
+<pre class="line-numbers language-C#" data-language="C#"><code class="language-C#">public string MyProperty&#123; get; set; &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>自动属性当然不是没有对应的字段，而是由编译器自动创建了一个隐藏的后备变量。</p>
+<p>使用属性而不是直接使用字段的一个好处是，你可以给get/set单独设置访问控制符，甚至可以不设置set访问器，使其成为只读属性：</p>
+<pre class="line-numbers language-C#" data-language="C#"><code class="language-C#">&#x2F;&#x2F;使set访问器为private
+public string MyProperty&#123; get; private set; &#125;
+
+&#x2F;&#x2F;只读属性
+public string MyProperty&#123; get; &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>另外，还可以在用属性读写字段的过程中做一些别的操作，比如验证值的合法性，就不举例了。</p>
+<h2 id="常量const和只读readonly"><a class="header-anchor" href="#常量const和只读readonly">¶</a>常量const和只读readonly</h2>
+<p>被<code>const</code>和<code>readonly</code>修饰的字段都不能被修改，但它们也有区别。</p>
+<p><code>const</code>常量是在<strong>编译时</strong>被编译器确定，用其值取代了所有使用到它的地方，类似于C语言的宏定义。</p>
+<p>而<code>readonly</code>的值是在<strong>运行时</strong>被构造函数决定的，它仍然是个变量，只不过它的值只能在构造函数中分配。对于引用类型，<code>readonly</code>会使其自始至终只引用同一个实例，但实例本身可以修改。比如一个<code>readonly</code>的<code>List&lt;T&gt;</code>，不能在构造函数之外对其直接赋值，但是可以调用它的Add()方法，向其中添加元素。</p>
+<pre class="line-numbers language-CSharp" data-language="CSharp"><code class="language-CSharp">class Program
+&#123;
+    static private readonly List&lt;int&gt; list &#x3D; new List&lt;int&gt; &#123; 1, 2, 3, 4 &#125;;
+
+    static void Main(string[] args)
+    &#123;
+        list.Add(5);
+
+        &#x2F;&#x2F; 报错，无法对静态只读字段赋值(静态构造函数或变量初始值中除外)
+        list &#x3D; new List&lt;int&gt; &#123; 5, 6 &#125;;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这类似于C语言的指针常量：指针本身，即 <strong>“指针指向的是什么地址”</strong> 不能修改，但 <strong>“指向的地址上写了什么东西”</strong> 是可以修改的。</p>
+<h2 id="宏、条件编译"><a class="header-anchor" href="#宏、条件编译">¶</a>宏、条件编译</h2>
+<p>注意，<strong>C#没有宏定义这一机制！</strong></p>
+<p>确切地说，C#的预处理器不会像C语言一样，将源代码的内容根据宏定义进行替换。像<code>#define ...</code>这样的预处理器指令，并不是用来进行宏定义的，它仅仅用于设置条件编译符号。而且，这些符号也不能像在C语言中一样被分配值。</p>
+<p>条件编译符号还可以通过系统环境变量、编译器命令行选项提供。</p>
+<p>条件编译符号的使用场景当然是条件编译。配合另外几条预处理器指令，可以选择一定情况下编译哪些代码：</p>
+<ol>
+<li>#if：开始条件编译代码块，仅在定义了指定的符号时，才会编译其中的代码。</li>
+<li>#elif：结束前面的条件编译代码块，并基于是否定义了指定的符号，开始一个新的条件编译代码块。</li>
+<li>#else：结束前面的条件编译代码块，如果没有定义前面指定的符号，开始一个新的条件编译代码块。</li>
+<li>#endif：结束前面的条件编译代码块。</li>
+<li>#undef：取消符号的定义。</li>
+</ol>
+<p>比如：</p>
+<pre class="line-numbers language-CSharp" data-language="CSharp"><code class="language-CSharp">&#x2F;&#x2F;注意符号的定义和取消要放在文件最前面
+&#x2F;&#x2F; #define DEBUG
+##define VC7
+
+&#x2F;&#x2F;...
+##if DEBUG
+    Console.WriteLine(&quot;Debug build&quot;);
+##elif VC7
+    Console.WriteLine(&quot;Visual Studio 7&quot;);
+##else
+    Console.WriteLine(&quot;No symbol defined&quot;);
+##endif
+
+&#x2F;&#x2F;输出&quot;Visual Studio 7&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>另外，还有通过特性attribute实现条件编译的方法。具体在下一篇的特性部分记录。</p>
+<!-- # CLR内存机制
+
+C#实际上并不需要怎么关心内存管理，自动垃圾收集非常强大。但是要细说的话内容太多了，之后单独用一片来讲。
+
+## 指针和引用的区别
+
+指针是一个变量，只不过这个变量存储的是一个地址，指向内存的一个存储单元；而引用跟原来的变量实质上是同一个东西，只不过是原变量的一个别名而已。
+
+
+## 异常处理
+
+
+
+## 生命周期
+
+
+
+## using
+
+
+> 在公司太久没机会写代码，手痒，想要重拾C#，去开源社区做“第二份工作”了。      
+> 语言特性不用就会生疏，我用以复健的工具是《深入解析C# (第4版)》， -->
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一罐可乐？</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://images.hakurei.red/收款码.png" alt="Macyrate 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Macyrate
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://hakurei.red/2022/02/07/2022-02-07-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/" title="C#杂记之陆：真·杂记">https://hakurei.red/2022/02/07/2022-02-07-C-杂记之陆：真·杂记/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 笔记</a>
+              <a href="/tags/C-Sharp/" rel="tag"><i class="fa fa-tag"></i> C Sharp</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/24/2021-08-24-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C/" rel="prev" title="Linux 常用命令行">
+                  <i class="fa fa-angle-left"></i> Linux 常用命令行
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/02/14/2022-02-14-CSharpNote7-AttributeAndReflection/" rel="next" title="C#杂记之柒：特性与反射">
+                  C#杂记之柒：特性与反射 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <!--Aplayer start-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" >
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"
+  integrity="sha512-RWosNnDNw8FxHibJqdFRySIswOUgYhFxnmYO3fp+BgCU7gfo4z0oS7mYFBvaa8qu+axY39BmQOrhW3Tp70XbaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <div class="aplayer" 
+  data-id="4928780612" 
+  data-server="netease" 
+  data-type="playlist" 
+  data-fixed="true" 
+  data-autoplay="true" 
+  data-order="random" 
+  data-volume="0.40" 
+  data-theme="#93251A"
+  data-preload="metadata" >
+  </div>
+
+  <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/meting/1.2.0/Meting.min.js"></script>
+
+   <meting-js
+    server="netease"
+    type="playlist"
+    id="60198">
+  </meting-js>
+  <!-- APlayer end -->
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Macyrate & Hakurei Reimu</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://thwiki.cc/%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6" class="theme-link" rel="noopener" target="_blank">博丽大结界</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.css">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","body":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js"},"path_md5":"f3ab7a8e84bdb946a4424189b4a60698"}</script>
+<script src="/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>

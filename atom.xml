@@ -18,8 +18,8 @@
   
   <entry>
     <title>《佛教常识答问》：佛陀，佛法</title>
-    <link href="https://hakurei.red/2023/09/21/BuddhismQnA1/"/>
-    <id>https://hakurei.red/2023/09/21/BuddhismQnA1/</id>
+    <link href="https://hakurei.red/2023/09/21/2023-09-21-BuddhismQnA1/"/>
+    <id>https://hakurei.red/2023/09/21/2023-09-21-BuddhismQnA1/</id>
     <published>2023-09-20T16:49:44.000Z</published>
     <updated>2023-09-27T15:30:00.000Z</updated>
     
@@ -54,8 +54,8 @@
   
   <entry>
     <title>《神话学入门》：世界观念，神话、礼仪、社会</title>
-    <link href="https://hakurei.red/2023/09/12/MythologyIntroduction4/"/>
-    <id>https://hakurei.red/2023/09/12/MythologyIntroduction4/</id>
+    <link href="https://hakurei.red/2023/09/12/2023-09-12-MythologyIntroduction4/"/>
+    <id>https://hakurei.red/2023/09/12/2023-09-12-MythologyIntroduction4/</id>
     <published>2023-09-11T16:38:50.000Z</published>
     <updated>2023-09-11T16:38:50.000Z</updated>
     
@@ -88,8 +88,8 @@
   
   <entry>
     <title>《神话学入门》：起源神话</title>
-    <link href="https://hakurei.red/2022/12/30/MythologyIntroduction3/"/>
-    <id>https://hakurei.red/2022/12/30/MythologyIntroduction3/</id>
+    <link href="https://hakurei.red/2022/12/30/2022-12-30-MythologyIntroduction3/"/>
+    <id>https://hakurei.red/2022/12/30/2022-12-30-MythologyIntroduction3/</id>
     <published>2022-12-29T17:35:20.000Z</published>
     <updated>2022-12-29T17:35:20.000Z</updated>
     
@@ -136,8 +136,8 @@
   
   <entry>
     <title>《神话学入门》：神话的定义与分类</title>
-    <link href="https://hakurei.red/2022/12/26/MythologyIntroduction2/"/>
-    <id>https://hakurei.red/2022/12/26/MythologyIntroduction2/</id>
+    <link href="https://hakurei.red/2022/12/26/2022-12-26-MythologyIntroduction2/"/>
+    <id>https://hakurei.red/2022/12/26/2022-12-26-MythologyIntroduction2/</id>
     <published>2022-12-25T16:29:11.000Z</published>
     <updated>2022-12-25T16:29:11.000Z</updated>
     
@@ -166,8 +166,8 @@
   
   <entry>
     <title>《神话学入门》：神话研究的历程</title>
-    <link href="https://hakurei.red/2022/12/04/MythologyIntroduction1/"/>
-    <id>https://hakurei.red/2022/12/04/MythologyIntroduction1/</id>
+    <link href="https://hakurei.red/2022/12/04/2022-12-04-MythologyIntroduction1/"/>
+    <id>https://hakurei.red/2022/12/04/2022-12-04-MythologyIntroduction1/</id>
     <published>2022-12-03T18:22:02.000Z</published>
     <updated>2022-12-03T18:22:02.000Z</updated>
     
@@ -197,8 +197,8 @@
   
   <entry>
     <title>《被讨厌的勇气》</title>
-    <link href="https://hakurei.red/2022/03/30/KirawareruYuuki/"/>
-    <id>https://hakurei.red/2022/03/30/KirawareruYuuki/</id>
+    <link href="https://hakurei.red/2022/03/30/2022-03-30-KirawareruYuuki/"/>
+    <id>https://hakurei.red/2022/03/30/2022-03-30-KirawareruYuuki/</id>
     <published>2022-03-29T17:56:24.000Z</published>
     <updated>2022-03-29T17:56:24.000Z</updated>
     
@@ -222,8 +222,8 @@
   
   <entry>
     <title>自定义的==运算符，我们应该保留吗？</title>
-    <link href="https://hakurei.red/2022/03/16/UnityCustomEqualOperator/"/>
-    <id>https://hakurei.red/2022/03/16/UnityCustomEqualOperator/</id>
+    <link href="https://hakurei.red/2022/03/16/2022-03-16-UnityCustomEqualOperator/"/>
+    <id>https://hakurei.red/2022/03/16/2022-03-16-UnityCustomEqualOperator/</id>
     <published>2022-03-15T16:20:12.000Z</published>
     <updated>2022-03-15T16:20:12.000Z</updated>
     
@@ -234,7 +234,10 @@
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;正文&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#正文&quot;&gt;¶&lt;/a&gt;正文&lt;/h2&gt;
 &lt;p&gt;当你在Unity中进行这样的操作时：&lt;/p&gt;
-&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (myGameObject == &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre class=&quot;line-numbers language-CSharp&quot; data-language=&quot;CSharp&quot;&gt;&lt;code class=&quot;language-CSharp&quot;&gt;if (myGameObject &amp;#x3D;&amp;#x3D; null) 
+&amp;#123;
+    &amp;#x2F;&amp;#x2F;...
+&amp;#125;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Unity对&lt;code&gt;==&lt;/code&gt;运算符做了一些特殊处理。与大多数人所期望的不同，我们对&lt;code&gt;==&lt;/code&gt;运算符有一个特殊实现。&lt;/p&gt;
 &lt;p&gt;这样做是为了达到两个目的：&lt;/p&gt;
 &lt;ol&gt;
@@ -254,8 +257,8 @@
   
   <entry>
     <title>C#杂记之柒：特性与反射</title>
-    <link href="https://hakurei.red/2022/02/14/CSharpNote7-AttributeAndReflection/"/>
-    <id>https://hakurei.red/2022/02/14/CSharpNote7-AttributeAndReflection/</id>
+    <link href="https://hakurei.red/2022/02/14/2022-02-14-CSharpNote7-AttributeAndReflection/"/>
+    <id>https://hakurei.red/2022/02/14/2022-02-14-CSharpNote7-AttributeAndReflection/</id>
     <published>2022-02-13T16:04:50.000Z</published>
     <updated>2022-02-13T16:04:50.000Z</updated>
     
@@ -265,7 +268,8 @@
 &lt;h2 id=&quot;特性-Attribute&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#特性-Attribute&quot;&gt;¶&lt;/a&gt;特性 Attribute&lt;/h2&gt;
 &lt;p&gt;特性是一种标签，可以用方括号贴在各种元素&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;#fn2&quot; id=&quot;fnref2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt;之前，给这些元素添加&lt;strong&gt;元数据&lt;/strong&gt;。元数据包括编译器指令、注释、描述、方法、类等信息。&lt;/p&gt;
 &lt;p&gt;许多特性都附带一些参数，如在声明&lt;code&gt;element&lt;/code&gt;的时候，通过带参的attribute附加元数据，按下面的格式使用：&lt;/p&gt;
-&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;meta&quot;&gt;SomeAttribute(positional_parameters, name_parameter = value, ...)&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;element&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre class=&quot;line-numbers language-CSharp&quot; data-language=&quot;CSharp&quot;&gt;&lt;code class=&quot;language-CSharp&quot;&gt;[SomeAttribute(positional_parameters, name_parameter &amp;#x3D; value, ...)]
+element&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;特性实际上是&lt;code&gt;System.Attribute&lt;/code&gt;的一系列派生类，它们的后缀均为&amp;quot;Attribute&amp;quot;，在打标签的时候这个后缀可以省略掉。&lt;/p&gt;
 &lt;h3 id=&quot;预定义的Attribute&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#预定义的Attribute&quot;&gt;¶&lt;/a&gt;预定义的Attribute&lt;/h3&gt;
 &lt;p&gt;微软在.NET库里已经内置了一堆&lt;code&gt;System.Attribute&lt;/code&gt;的派生类，我们可能只会接触到其中一小部分，这里举几种常用的为例。&lt;/p&gt;
@@ -285,8 +289,8 @@
   
   <entry>
     <title>C#杂记之陆：真·杂记</title>
-    <link href="https://hakurei.red/2022/02/07/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/"/>
-    <id>https://hakurei.red/2022/02/07/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/</id>
+    <link href="https://hakurei.red/2022/02/07/2022-02-07-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/"/>
+    <id>https://hakurei.red/2022/02/07/2022-02-07-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E9%99%86%EF%BC%9A%E7%9C%9F%C2%B7%E6%9D%82%E8%AE%B0/</id>
     <published>2022-02-07T01:51:35.000Z</published>
     <updated>2022-02-07T01:51:35.000Z</updated>
     
@@ -313,7 +317,50 @@
 &lt;p&gt;子类对象&lt;strong&gt;继承&lt;/strong&gt;了父类方法，但是可能又对继承过来的父类方法进行了&lt;strong&gt;重写&lt;/strong&gt;覆盖。而一切出现父类的地方都可以用其子类&lt;strong&gt;向上转型&lt;/strong&gt;进行替换(里氏替换原则)，调用方法时调用的会是在子类里被重写的子类方法。继承、重写和向上转型，这是实现多态的三要素。&lt;/p&gt;
 &lt;p&gt;这样，如果一个父类有多个子类，它们又分别用不同方式重写了继承下来的同一个方法，那么在把这些子类都当父类使用时，就会展现出多态性：明明是对同一个类的对象调用了同一个方法，但行为却完全不同。&lt;/p&gt;
 &lt;p&gt;举个例子，假如有个&lt;code&gt;扬声器&lt;/code&gt;类，包含一个&lt;code&gt;大叫()&lt;/code&gt;方法，调用时会“嘤嘤嘤”；而继承自它的有大叫“洒↓比↑”的&lt;code&gt;喇叭&lt;/code&gt;类和大叫“哼，哼，啊啊啊啊啊啊啊”的&lt;code&gt;野兽先辈&lt;/code&gt;类：&lt;/p&gt;
-&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//这段代码甚至真的可以跑，C#支持用汉字做标识符，大概是因为用了Unicode&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; System;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; System.Collections.Generic;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;PlayGround&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; 扬声器&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; 大叫() =&amp;gt; Console.WriteLine(&lt;span class=&quot;string&quot;&gt;&amp;quot;嘤嘤嘤&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; 喇叭 : 扬声器&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; 大叫() =&amp;gt; Console.WriteLine(&lt;span class=&quot;string&quot;&gt;&amp;quot;洒↓比↑&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; 野兽先辈 : 扬声器&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; 大叫() =&amp;gt; Console.WriteLine(&lt;span class=&quot;string&quot;&gt;&amp;quot;哼，哼，啊啊啊啊啊啊啊&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; 屑狐狸 : 扬声器&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; 大叫() =&amp;gt; Console.WriteLine(&lt;span class=&quot;string&quot;&gt;&amp;quot;呜呜呜呜，好可怜啊&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Program&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Main&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;[] &lt;span class=&quot;keyword&quot;&gt;args&lt;/span&gt;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; 一堆扬声器 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; List&amp;lt;扬声器&amp;gt;() &amp;#123; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; 扬声器(), &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; 喇叭(), &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; 野兽先辈(), &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; 屑狐狸() &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;foreach&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; 某个扬声器 &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; 一堆扬声器)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                某个扬声器.大叫();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// 输出：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// 嘤嘤嘤&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// 洒↓比↑&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// 哼，哼，啊啊啊啊啊啊啊&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// 呜呜呜呜，好可怜啊&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+&lt;pre class=&quot;line-numbers language-CSharp&quot; data-language=&quot;CSharp&quot;&gt;&lt;code class=&quot;language-CSharp&quot;&gt;&amp;#x2F;&amp;#x2F;这段代码甚至真的可以跑，C#支持用汉字做标识符，大概是因为用了Unicode
+using System;
+using System.Collections.Generic;
+
+namespace PlayGround
+&amp;#123;
+    class 扬声器
+    &amp;#123;
+        public virtual void 大叫() &amp;#x3D;&amp;gt; Console.WriteLine(&amp;quot;嘤嘤嘤&amp;quot;);
+    &amp;#125;
+
+    class 喇叭 : 扬声器
+    &amp;#123;
+        public override void 大叫() &amp;#x3D;&amp;gt; Console.WriteLine(&amp;quot;洒↓比↑&amp;quot;);
+    &amp;#125;
+
+    class 野兽先辈 : 扬声器
+    &amp;#123;
+        public override void 大叫() &amp;#x3D;&amp;gt; Console.WriteLine(&amp;quot;哼，哼，啊啊啊啊啊啊啊&amp;quot;);
+    &amp;#125;
+
+    class 屑狐狸 : 扬声器
+    &amp;#123;
+        public override void 大叫() &amp;#x3D;&amp;gt; Console.WriteLine(&amp;quot;呜呜呜呜，好可怜啊&amp;quot;);
+    &amp;#125;
+
+    class Program
+    &amp;#123;
+        static void Main(string[] args)
+        &amp;#123;
+            var 一堆扬声器 &amp;#x3D; new List&amp;lt;扬声器&amp;gt;() &amp;#123; new 扬声器(), new 喇叭(), new 野兽先辈(), new 屑狐狸() &amp;#125;;
+
+            foreach (var 某个扬声器 in 一堆扬声器)
+            &amp;#123;
+                某个扬声器.大叫();
+                &amp;#x2F;&amp;#x2F; 输出：
+                &amp;#x2F;&amp;#x2F; 嘤嘤嘤
+                &amp;#x2F;&amp;#x2F; 洒↓比↑
+                &amp;#x2F;&amp;#x2F; 哼，哼，啊啊啊啊啊啊啊
+                &amp;#x2F;&amp;#x2F; 呜呜呜呜，好可怜啊
+            &amp;#125;
+        &amp;#125;
+    &amp;#125;
+&amp;#125;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
     
     
     
@@ -326,8 +373,8 @@
   
   <entry>
     <title>Linux 常用命令行</title>
-    <link href="https://hakurei.red/2021/08/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
-    <id>https://hakurei.red/2021/08/24/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C/</id>
+    <link href="https://hakurei.red/2021/08/24/2021-08-24-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    <id>https://hakurei.red/2021/08/24/2021-08-24-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C/</id>
     <published>2021-08-23T16:50:46.000Z</published>
     <updated>2021-08-23T16:50:46.000Z</updated>
     
@@ -384,7 +431,14 @@
 &lt;/table&gt;
 &lt;p&gt;直接输入 &lt;code&gt;ifconfig&lt;/code&gt; 就会列出目前已激活的网卡，不论这个卡是否有给予 IP ，都会被显示出来。带接口的 &lt;code&gt;ifconfig eth0&lt;/code&gt; 则仅会表示接口 eth0 的相关数据，无论其是否启动。使用 &lt;code&gt;-a&lt;/code&gt; 选项，则会展示所有网卡的属性。&lt;/p&gt;
 &lt;h3 id=&quot;示例&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#示例&quot;&gt;¶&lt;/a&gt;示例&lt;/h3&gt;
-&lt;figure class=&quot;highlight console&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;ifconfig ra8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ra8       Link encap:Ethernet  HWaddr 02:A1:BB:01:23:48  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          inet6 addr: fe80::a1:bbff:fe01:2348/64 Scope:Link&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          RX packets:130 errors:0 dropped:0 overruns:0 frame:0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          TX packets:61 errors:0 dropped:0 overruns:0 carrier:0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          collisions:0 txqueuelen:1000 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          RX bytes:13971 (13.6 KiB)  TX bytes:7767 (7.5 KiB)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+&lt;pre class=&quot;line-numbers language-console&quot; data-language=&quot;console&quot;&gt;&lt;code class=&quot;language-console&quot;&gt;$ ifconfig ra8
+ra8       Link encap:Ethernet  HWaddr 02:A1:BB:01:23:48  
+          inet6 addr: fe80::a1:bbff:fe01:2348&amp;#x2F;64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:130 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:61 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:13971 (13.6 KiB)  TX bytes:7767 (7.5 KiB)&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
     
     
     
@@ -399,8 +453,8 @@
   
   <entry>
     <title>Linux内核内存问题定位</title>
-    <link href="https://hakurei.red/2021/04/13/Linux%E5%86%85%E6%A0%B8%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/"/>
-    <id>https://hakurei.red/2021/04/13/Linux%E5%86%85%E6%A0%B8%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/</id>
+    <link href="https://hakurei.red/2021/04/13/2021-04-13-Linux%E5%86%85%E6%A0%B8%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/"/>
+    <id>https://hakurei.red/2021/04/13/2021-04-13-Linux%E5%86%85%E6%A0%B8%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D/</id>
     <published>2021-04-13T12:06:03.000Z</published>
     <updated>2021-04-13T12:06:03.000Z</updated>
     
@@ -447,8 +501,8 @@
   
   <entry>
     <title>WLAN笔记-壹</title>
-    <link href="https://hakurei.red/2020/09/10/WLAN-Note-1/"/>
-    <id>https://hakurei.red/2020/09/10/WLAN-Note-1/</id>
+    <link href="https://hakurei.red/2020/09/10/2020-09-10-WLAN-Note-1/"/>
+    <id>https://hakurei.red/2020/09/10/2020-09-10-WLAN-Note-1/</id>
     <published>2020-09-10T07:52:07.000Z</published>
     <updated>2020-09-10T07:52:07.000Z</updated>
     
@@ -473,8 +527,8 @@
   
   <entry>
     <title>VS Code C语言开发环境配置</title>
-    <link href="https://hakurei.red/2020/09/01/VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    <id>https://hakurei.red/2020/09/01/VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</id>
+    <link href="https://hakurei.red/2020/09/01/2020-09-01-VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    <id>https://hakurei.red/2020/09/01/2020-09-01-VS-Code-C%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</id>
     <published>2020-09-01T05:08:05.000Z</published>
     <updated>2020-09-01T05:08:05.000Z</updated>
     
@@ -490,7 +544,7 @@
 &lt;p&gt;我没有在设置里找到直接修改的方法，但你可以通过以下的方法来间接修改。&lt;/p&gt;
 &lt;p&gt;首先进入VS Code的安装目录（没忘记装在哪了吧），新建一个文件夹，命名为&lt;code&gt;extensions&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;在桌面上VS Code的快捷方式上右键打开属性（假如桌面上没有，就去安装目录里找到code.exe，右键发送-&amp;gt;桌面快捷方式），找到&lt;code&gt;目标(T)&lt;/code&gt;一栏，在已有内容的后面添上:&lt;/p&gt;
-&lt;figure class=&quot;highlight dsconfig&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;--extensions-dir&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;quot;(你刚才创建的extensions文件夹的完整路径)&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;--extensions-dir &amp;quot;(你刚才创建的extensions文件夹的完整路径)&amp;quot;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
     
     
     
@@ -505,8 +559,8 @@
   
   <entry>
     <title>能不能好好上网-壹：搭建IPv6私有云盘</title>
-    <link href="https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/"/>
-    <id>https://hakurei.red/2020/08/09/%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/</id>
+    <link href="https://hakurei.red/2020/08/09/2020-08-09-%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/"/>
+    <id>https://hakurei.red/2020/08/09/2020-08-09-%E8%83%BD%E4%B8%8D%E8%83%BD%E5%A5%BD%E5%A5%BD%E4%B8%8A%E7%BD%91-%E5%A3%B9/</id>
     <published>2020-08-08T18:54:46.000Z</published>
     <updated>2020-08-08T18:54:46.000Z</updated>
     
@@ -534,8 +588,8 @@
   
   <entry>
     <title>200722：中国移动与高跟鞋</title>
-    <link href="https://hakurei.red/2020/07/22/200722/"/>
-    <id>https://hakurei.red/2020/07/22/200722/</id>
+    <link href="https://hakurei.red/2020/07/22/2020-07-22-200722/"/>
+    <id>https://hakurei.red/2020/07/22/2020-07-22-200722/</id>
     <published>2020-07-22T15:35:44.000Z</published>
     <updated>2020-07-22T15:35:44.000Z</updated>
     
@@ -556,8 +610,8 @@
   
   <entry>
     <title>200621：江湖再见</title>
-    <link href="https://hakurei.red/2020/06/23/200621/"/>
-    <id>https://hakurei.red/2020/06/23/200621/</id>
+    <link href="https://hakurei.red/2020/06/23/2020-06-23-200621/"/>
+    <id>https://hakurei.red/2020/06/23/2020-06-23-200621/</id>
     <published>2020-06-23T04:51:04.000Z</published>
     <updated>2020-06-23T04:51:04.000Z</updated>
     
@@ -577,8 +631,8 @@
   
   <entry>
     <title>200505：后浪</title>
-    <link href="https://hakurei.red/2020/05/05/200505/"/>
-    <id>https://hakurei.red/2020/05/05/200505/</id>
+    <link href="https://hakurei.red/2020/05/05/2020-05-05-200505/"/>
+    <id>https://hakurei.red/2020/05/05/2020-05-05-200505/</id>
     <published>2020-05-05T12:27:52.000Z</published>
     <updated>2020-05-05T12:27:52.000Z</updated>
     
@@ -600,8 +654,8 @@
   
   <entry>
     <title>C#杂记之伍：数组与集合</title>
-    <link href="https://hakurei.red/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/"/>
-    <id>https://hakurei.red/2020/04/15/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/</id>
+    <link href="https://hakurei.red/2020/04/15/2020-04-15-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/"/>
+    <id>https://hakurei.red/2020/04/15/2020-04-15-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E4%BC%8D%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88/</id>
     <published>2020-04-14T16:08:01.000Z</published>
     <updated>2020-04-14T16:08:01.000Z</updated>
     
@@ -611,10 +665,30 @@
 &lt;h3 id=&quot;概述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#概述&quot;&gt;¶&lt;/a&gt;概述&lt;/h3&gt;
 &lt;p&gt;数组存储相同种类的元素，其大小固定，且是顺序存储的，即在内存中占据一段连续的地址。&lt;/p&gt;
 &lt;p&gt;数组作为一种引用类型(其基类是System.Array)，需要用&lt;code&gt;new&lt;/code&gt;来创建实例。&lt;/p&gt;
-&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//初始化时指定大小&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt;[] balance = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt;[&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//可以直接赋值来初始化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt;[] marks = &amp;#123;&lt;span class=&quot;number&quot;&gt;99&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;98&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;92&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;97&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;95&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre class=&quot;line-numbers language-CSharp&quot; data-language=&quot;CSharp&quot;&gt;&lt;code class=&quot;language-CSharp&quot;&gt;&amp;#x2F;&amp;#x2F;初始化时指定大小
+double[] balance &amp;#x3D; new double[10];
+
+&amp;#x2F;&amp;#x2F;可以直接赋值来初始化
+int[] marks &amp;#x3D; &amp;#123;99, 98, 92, 97, 95&amp;#125;;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;初始化而尚未赋值的数组，编译器会根据其类型隐式地将所有元素设置为默认值。&lt;/p&gt;
 &lt;p&gt;数组最大的特点还是能够用下标索引来随机访问其中的元素：&lt;/p&gt;
-&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt; salary = balance[&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//以下是C# 8.0引入的好东西！&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//末尾运算符 ^ &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//[^n]表示[length-n]，类似Python用负数索引[-n]表示[length-n]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt; salary = balance[^&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//范围运算符 ..&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//[a..b]表示从[a]到[b]的范围(但不包含[b]！)，类似Python的切片[a:b]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//省略a代表0，省略b代表^0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt;[] salaries1 = balance[..^&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//如果a比b还大，会抛出异常(Python中则是返回空列表)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt;[] salaries2 = balance[&lt;span class=&quot;number&quot;&gt;3.&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.2&lt;/span&gt;];     &lt;span class=&quot;comment&quot;&gt;//ArgumentOutOfRangeException&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//a和b一样大时，返回长度为0的集合&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;double&lt;/span&gt;[] salaries3 = balance[&lt;span class=&quot;number&quot;&gt;3.&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;.3&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Console.WriteLine(salaries3.Length);   &lt;span class=&quot;comment&quot;&gt;//0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre class=&quot;line-numbers language-CSharp&quot; data-language=&quot;CSharp&quot;&gt;&lt;code class=&quot;language-CSharp&quot;&gt;double salary &amp;#x3D; balance[9];
+
+&amp;#x2F;&amp;#x2F;以下是C# 8.0引入的好东西！
+
+&amp;#x2F;&amp;#x2F;末尾运算符 ^ 
+&amp;#x2F;&amp;#x2F;[^n]表示[length-n]，类似Python用负数索引[-n]表示[length-n]
+double salary &amp;#x3D; balance[^1];
+
+&amp;#x2F;&amp;#x2F;范围运算符 ..
+&amp;#x2F;&amp;#x2F;[a..b]表示从[a]到[b]的范围(但不包含[b]！)，类似Python的切片[a:b]
+&amp;#x2F;&amp;#x2F;省略a代表0，省略b代表^0
+double[] salaries1 &amp;#x3D; balance[..^3];
+&amp;#x2F;&amp;#x2F;如果a比b还大，会抛出异常(Python中则是返回空列表)
+double[] salaries2 &amp;#x3D; balance[3..2];     &amp;#x2F;&amp;#x2F;ArgumentOutOfRangeException
+&amp;#x2F;&amp;#x2F;a和b一样大时，返回长度为0的集合
+double[] salaries3 &amp;#x3D; balance[3..3];
+Console.WriteLine(salaries3.Length);   &amp;#x2F;&amp;#x2F;0&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;由于实现了&lt;code&gt;IEnumerable&lt;/code&gt;接口，数组可以使用&lt;code&gt;foreach...in...&lt;/code&gt;的方式进行迭代访问，还可以使用LINQ，这样就无需获取数组长度再用for循环迭代了。关于这个接口及其相关的内容，我在本文稍后的部分记述。&lt;/p&gt;</summary>
     
     
@@ -628,8 +702,8 @@
   
   <entry>
     <title>C#杂记之肆：异步</title>
-    <link href="https://hakurei.red/2020/04/08/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/"/>
-    <id>https://hakurei.red/2020/04/08/C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/</id>
+    <link href="https://hakurei.red/2020/04/08/2020-04-08-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/"/>
+    <id>https://hakurei.red/2020/04/08/2020-04-08-C-%E6%9D%82%E8%AE%B0%E4%B9%8B%E8%82%86/</id>
     <published>2020-04-08T14:58:53.000Z</published>
     <updated>2020-04-08T14:58:53.000Z</updated>
     
@@ -655,8 +729,8 @@
   
   <entry>
     <title>200404：清明追思</title>
-    <link href="https://hakurei.red/2020/04/04/200404/"/>
-    <id>https://hakurei.red/2020/04/04/200404/</id>
+    <link href="https://hakurei.red/2020/04/04/2020-04-04-200404/"/>
+    <id>https://hakurei.red/2020/04/04/2020-04-04-200404/</id>
     <published>2020-04-04T13:11:47.000Z</published>
     <updated>2020-04-04T13:11:47.000Z</updated>
     

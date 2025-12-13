@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.font.im/css2?family=LXGW+WenKai+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -385,15 +385,14 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>数组可以说是在任何语言中都非常基本的数据结构了。这篇笔记以C#中的数组为引，再延伸到C#的几种集合类(Collections)以及一些相关的基本概念。</p>
-<h2 id="数组-Array"><a class="header-anchor" href="#数组-Array">¶</a>数组 Array</h2>
-<h3 id="概述"><a class="header-anchor" href="#概述">¶</a>概述</h3>
-<p>数组存储相同种类的元素，其大小固定，且是顺序存储的，即在内存中占据一段连续的地址。</p>
+<h2 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组 Array"></a>数组 Array</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>数组存储相同种类的元素，其大小固定，且是顺序存储的，即在内存中占据一段连续的地址。</p>
 <p>数组作为一种引用类型(其基类是System.Array)，需要用<code>new</code>来创建实例。</p>
 <pre class="line-numbers language-CSharp" data-language="CSharp"><code class="language-CSharp">&#x2F;&#x2F;初始化时指定大小
 double[] balance &#x3D; new double[10];
 
 &#x2F;&#x2F;可以直接赋值来初始化
 int[] marks &#x3D; &#123;99, 98, 92, 97, 95&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>初始化而尚未赋值的数组，编译器会根据其类型隐式地将所有元素设置为默认值。</p>
 <p>数组最大的特点还是能够用下标索引来随机访问其中的元素：</p>
 <pre class="line-numbers language-CSharp" data-language="CSharp"><code class="language-CSharp">double salary &#x3D; balance[9];
@@ -413,6 +412,7 @@ double[] salaries2 &#x3D; balance[3..2];     &#x2F;&#x2F;ArgumentOutOfRangeExcep
 &#x2F;&#x2F;a和b一样大时，返回长度为0的集合
 double[] salaries3 &#x3D; balance[3..3];
 Console.WriteLine(salaries3.Length);   &#x2F;&#x2F;0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>由于实现了<code>IEnumerable</code>接口，数组可以使用<code>foreach...in...</code>的方式进行迭代访问，还可以使用LINQ，这样就无需获取数组长度再用for循环迭代了。关于这个接口及其相关的内容，我在本文稍后的部分记述。</p>
           <!--noindex-->
             <div class="post-button">
@@ -489,13 +489,11 @@ Console.WriteLine(salaries3.Length);   &#x2F;&#x2F;0<span aria-hidden="true" cla
     
     
     <div class="post-body" itemprop="articleBody">
-          <div class="note warning"><p><strong>前方高能！</strong><br>
-这篇笔记断断续续花了近10天，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。<br>
-（其实就是我写完实在不愿审阅）</p>
+          <div class="note warning"><p><strong>前方高能！</strong><br>这篇笔记断断续续花了近10天，思路、结构较为混沌，如果没有充分做好心理准备，建议立刻关闭窗口。<br>（其实就是我写完实在不愿审阅）</p>
 </div>
+
 <p>首先说明，异步是<strong>极为高深</strong>的高级编程技术，这篇文章只是才疏学浅的我阅读文档之后的一些思考与理解，可能有极多描述不准确乃至完全错误之处，还望批评指导。顺便吐槽，C#文档翻译得实在是太烂了，很多地方一看就是机翻的，却没有机翻警告。很多地方百思不得其解的词，切换到英语就发现其实很简单，翻译的用词完全错误，难受啊！</p>
-<h2 id="何为异步"><a class="header-anchor" href="#何为异步">¶</a>何为异步</h2>
-<p>与异步相对的是“同步”，代表着一句代码的执行结束是其后一句代码的执行开始，整个流程是按照固定的顺序进行的，这是一般程序的逻辑。然而，某些语句可能需要花较长时间才能得到结果——比如网络通信和文件读写——这些语句的执行并不怎么占用CPU，但会阻塞整个线程，后续的语句需要等待这些语句执行完成，造成大量的浪费。特别是如果网络环境很不好、读取的文件好几个G，那可是尤其要命，可能整个程序都会出现肉眼可见的卡顿甚至崩溃。</p>
+<h2 id="何为异步"><a href="#何为异步" class="headerlink" title="何为异步"></a>何为异步</h2><p>与异步相对的是“同步”，代表着一句代码的执行结束是其后一句代码的执行开始，整个流程是按照固定的顺序进行的，这是一般程序的逻辑。然而，某些语句可能需要花较长时间才能得到结果——比如网络通信和文件读写——这些语句的执行并不怎么占用CPU，但会阻塞整个线程，后续的语句需要等待这些语句执行完成，造成大量的浪费。特别是如果网络环境很不好、读取的文件好几个G，那可是尤其要命，可能整个程序都会出现肉眼可见的卡顿甚至崩溃。</p>
 <p>为了解决这种飞快的CPU与龟爬的IO之间的不平衡，传统的方案是单独开个线程让它去执行耗时的操作，让主线程继续运行与耗时操作的结果无关的代码。但是线程操作很麻烦、开销很高，线程数量也有限，不是能随便使用的，所以依然不是个完美的方法。</p>
 <p>异步就是为了解决这个问题而存在的。当代码需要执行一个耗时的操作时，它只发出指令，并不等待结果，然后就去执行其他代码了。一段时间后，当耗时操作返回结果时，再通知CPU进行处理。</p>
           <!--noindex-->
@@ -683,9 +681,9 @@ Console.WriteLine(salaries3.Length);   &#x2F;&#x2F;0<span aria-hidden="true" cla
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","body":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js"},"path_md5":"82ca3c470e333e0bd93410abdccf0f6d"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","body":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"82ca3c470e333e0bd93410abdccf0f6d"}</script>
 <script src="/js/third-party/comments/gitalk.js" defer></script>
 
 </body>

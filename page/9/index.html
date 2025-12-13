@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.font.im/css2?family=LXGW+WenKai+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -305,12 +305,12 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>写数据库管理系统时遇到了不少关于C++字符串的问题，要命的是C++的字符串种类实在是太多了，今天试着搜集一些资料总结一下。</p>
-<h2 id="char-foo-bar-和-char-foo"><a class="header-anchor" href="#char-foo-bar-和-char-foo">¶</a>char foo[bar] 和 char* foo</h2>
-<p><code>char foo[bar]</code>这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”：</p>
+<h2 id="char-foo-bar-和-char-foo"><a href="#char-foo-bar-和-char-foo" class="headerlink" title="char foo[bar] 和 char* foo"></a>char foo[bar] 和 char* foo</h2><p><code>char foo[bar]</code>这种形式被称为“C风格字符串”，它是从C语言中流传下来的。它实际上完全就是char型的数组，只是你可以用这样的方式来给它赋值，看上去比较像“字符串”：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//这两行都定义了相同的字符串"Hello"</span>
 <span class="token keyword">char</span> foo1<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>      <span class="token comment">//末尾有隐藏的'\0'</span>
 <span class="token keyword">char</span> foo2<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token char">'H'</span><span class="token punctuation">,</span> <span class="token char">'e'</span><span class="token punctuation">,</span> <span class="token char">'l'</span><span class="token punctuation">,</span> <span class="token char">'l'</span><span class="token punctuation">,</span> <span class="token char">'o'</span><span class="token punctuation">,</span> <span class="token char">'\0'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><code>char* foo</code>是声明了一个字符指针，指向单个字符，可以将其当作以<code>'\0'</code>为末尾的字符串的首字符地址。如果要把字符串赋给它，需要先申请内存空间，再使用<code>memcpy()</code>或<code>strcpy()</code>。当然，也可以不分配空间，直接用<strong>十分危险的指针赋值</strong>。</p>
+
+<p><code>char* foo</code>是声明了一个字符指针，指向单个字符，可以将其当作以<code>&#39;\0&#39;</code>为末尾的字符串的首字符地址。如果要把字符串赋给它，需要先申请内存空间，再使用<code>memcpy()</code>或<code>strcpy()</code>。当然，也可以不分配空间，直接用<strong>十分危险的指针赋值</strong>。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">char</span><span class="token operator">*</span> foo1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">calloc</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">strcpy</span><span class="token punctuation">(</span>foo1<span class="token punctuation">,</span> <span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -395,8 +395,7 @@
 <p>啊，思绪繁杂。不过既然叫随笔，也不该讲求甚么“章法”，就依照“随笔”其名，想一出是一出地写吧。</p>
 <p>首先还是在做数据库系统时遇到了海量的问题。这回是不怎么能“倚靠大佬”，相互借鉴交融并包了，所以基本上除了在一筹莫展时从GitHub上稍微看看往届学长的思路之外，都是自己老老实实写出来的东西。这个时候就能体现出“亲力亲为”太少的问题了，功夫是真的不行：一天可能摸不出50行代码，而且逻辑混乱，调试痛苦，维护困难。要说这水平是大二时候的我，倒也勉强可以接受，但是大学四年差不多就剩一个学期了，就连差强人意都算不上。</p>
 <blockquote>
-<p>“我并不想变强，也并不想解决问题，只是想表达自己并非坐以待毙，想表达自己在努力，只是摆出这样一个明显的姿态将自己正当化。我想说自己没办法，我想说自己束手无策，只是为了放弃，我才会做出拼命努力的表象……”<br>
-——《Re：从零开始的异世界生活》 第18话</p>
+<p>“我并不想变强，也并不想解决问题，只是想表达自己并非坐以待毙，想表达自己在努力，只是摆出这样一个明显的姿态将自己正当化。我想说自己没办法，我想说自己束手无策，只是为了放弃，我才会做出拼命努力的表象……”<br>——《Re：从零开始的异世界生活》 第18话</p>
 </blockquote>
 <p>这是我觉得十分危险的一种状态，这段话也时常被我用来反省。实际上这几个月，乃至这几年我还真有点这个意思，表面看起来并不算是“堕落”，却也说不上是在真正“努力”。</p>
 <p>努力……难道人必须要努力才能存在吗？显然不是，往往带恶人活得同样滋润。</p>
@@ -477,8 +476,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>在游戏中，场景加载是很常用的功能。如果要在加载的时候让当前的场景还能正常运行，或者加载时能有一个包含进度条之类组件的加载界面，就应该采取异步的场景加载方式。</p>
-<h2 id="同步加载"><a class="header-anchor" href="#同步加载">¶</a>同步加载</h2>
-<p>在讲异步加载以前，先说同步加载。</p>
+<h2 id="同步加载"><a href="#同步加载" class="headerlink" title="同步加载"></a>同步加载</h2><p>在讲异步加载以前，先说同步加载。</p>
 <p>当执行同步加载时，正在运行的场景会被阻塞，产生卡顿，这种方法适合小型的、不怎么需要获取读取进度的场景的加载。如在地牢中切换到另一个房间，读取完成之前当前房间中的一切都静止不动，这种情况应该是用同步加载实现的。</p>
 <p>Unity使用<code>SceneManager</code>类的静态方法<a target="_blank" rel="noopener" href="https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html">LoadScene</a>实现同步的场景加载。由于是静态方法，不需要对<code>SceneManager</code>类进行实例化，只要使用命名空间<code>using UnityEngine.SceneManagement;</code>就可直接通过<code>SceneManager.LoadSceneAsync</code>访问。</p>
 <pre class="line-numbers language-Csharp" data-language="Csharp"><code class="language-Csharp">&#x2F;&#x2F;方法原型：
@@ -671,9 +669,9 @@ public static void LoadScene(string sceneName, SceneManagement.LoadSceneMode mod
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","body":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js"},"path_md5":"714488baade32696a787a6623cb247eb"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","body":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"714488baade32696a787a6623cb247eb"}</script>
 <script src="/js/third-party/comments/gitalk.js" defer></script>
 
 </body>

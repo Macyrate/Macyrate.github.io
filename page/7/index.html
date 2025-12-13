@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.font.im/css2?family=LXGW+WenKai+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -306,9 +306,7 @@
     <div class="post-body" itemprop="articleBody">
           <p>此前虽然接触过C#中的一些较为高级的操作，但基本是只知其有，不知在哪些场景下可以应用。这几天写着代码就顿觉冗杂不堪，虽然能跑但看起来十分难受，希望寻求一些函数式编程之类的魔法来简化流程。</p>
 <p>那首先要理解的还是委托和事件。虽然学完了也不一定会用，但看懂一点总是好的。</p>
-<h2 id="委托"><a class="header-anchor" href="#委托">¶</a>委托</h2>
-<h3 id="定义"><a class="header-anchor" href="#定义">¶</a>定义</h3>
-<p>如之前所说，委托类似于函数指针。或者说，委托/是/一种/存储/函数引用/的/<strong>类型</strong>(注意断句)。由于函数的参数须是变量、常量、表达式，只要把函数变成一种<strong>引用类型</strong>的变量，就可以让一个函数作为其它函数的参数了。同样，也可以通过直接调用委托变量来调用委托变量所引用的函数。</p>
+<h2 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>如之前所说，委托类似于函数指针。或者说，委托&#x2F;是&#x2F;一种&#x2F;存储&#x2F;函数引用&#x2F;的&#x2F;<strong>类型</strong>(注意断句)。由于函数的参数须是变量、常量、表达式，只要把函数变成一种<strong>引用类型</strong>的变量，就可以让一个函数作为其它函数的参数了。同样，也可以通过直接调用委托变量来调用委托变量所引用的函数。</p>
 <p>为什么要把<strong>类型</strong>加粗？因为声明一个委托类型并不是声明一个委托变量，而是一类委托的<strong>模板</strong>，说明了这类委托应具有的的返回值类型与参数列表。委托类型与具体的委托变量之关系，类似于“类”和“对象”的关系。</p>
 <p>委托类型声明和函数类似，拥有返回值类型和参数列表，但没有函数体，并且在前面用<code>delegate</code>关键字声明这是一个委托类型。然后我们再声明这个委托类型的变量：</p>
 <pre class="line-numbers language-CSharp" data-language="CSharp"><code class="language-CSharp">&#x2F;&#x2F;声明委托类型和委托变量
@@ -329,6 +327,7 @@ process +&#x3D; Add;
 
 &#x2F;&#x2F;调用委托
 System.Console.WriteLine($&quot;Result:&#123;process(12.1, 22.4)&#125;&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>实际上，委托确实是一种“类”。上面所展示的委托变量声明，其形式就和类的实例化完全一致。在委托变量后面打个点，你甚至能看到一堆委托类型包含的方法和属性：</p>
 <p><img src="https://images.hakurei.red/xVONQiE1hJIrWf2.jpg" alt="委托也是类"></p>
           <!--noindex-->
@@ -413,9 +412,7 @@ System.Console.WriteLine($&quot;Result:&#123;process(12.1, 22.4)&#125;&quot;);<s
 <p>设计的时候，首先想到的就是阴阳玉，把阴阳玉挂在未来要做的社团Logo上是长期以来的夙愿了。</p>
 <p>然后受<a target="_blank" rel="noopener" href="https://thwiki.cc/%E6%81%92%E8%90%83%E5%B7%A5%E5%9D%8A">恆萃工坊</a>Logo的影响，也想把某个卦象用进去。看了看六十四卦有哪些之后，又无从挑起了。索性直接卜上一卦，得到的结果就是这个<code>风山渐 ䷴</code>。</p>
 <blockquote>
-<p>象曰：<br>
-俊鸟幸得出笼中，脱离灾难显威风。<br>
-一朝得意福力至，东西南北任意行。</p>
+<p>象曰：<br>俊鸟幸得出笼中，脱离灾难显威风。<br>一朝得意福力至，东西南北任意行。  </p>
 </blockquote>
 <p>是“稳步发展”的一卦，挺不错的，那就决定是它了（如果不好？那就再Roll一个）。但我岂能期盼什么“福力至”呢？</p>
 <p>只用三种颜色未免有些过于单调，于是我把阴阳玉的右半和渐卦的阳爻用“混乱”工具处理了一下，变成了这种好像打上了马赛克的样子——而且这样的六爻不是有点扫描线内味了吗？加上边框和下面的banner之后，阴阳玉又像是陈列在带有“腰封”的盒子里了。<em>（妙啊，妙啊）</em></p>
@@ -496,12 +493,9 @@ System.Console.WriteLine($&quot;Result:&#123;process(12.1, 22.4)&#125;&quot;);<s
     
     <div class="post-body" itemprop="articleBody">
           <blockquote>
-<p>在 Windows 记事本的语境中：<br>
-所谓的「ANSI」指的是对应当前系统 locale 的遗留（legacy）编码。<br>
-<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20650946/answer/15745831">梁海的回答 - 知乎</a></p>
+<p>在 Windows 记事本的语境中：<br>所谓的「ANSI」指的是对应当前系统 locale 的遗留（legacy）编码。<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20650946/answer/15745831">梁海的回答 - 知乎</a></p>
 </blockquote>
-<h2 id="所谓编码"><a class="header-anchor" href="#所谓编码">¶</a>所谓编码</h2>
-<p>也许你曾试着购买东方Project正作游戏，或别的什么非英语内容：</p>
+<h2 id="所谓编码"><a href="#所谓编码" class="headerlink" title="所谓编码"></a>所谓编码</h2><p>也许你曾试着购买东方Project正作游戏，或别的什么非英语内容：</p>
 <p><img src="https://images.hakurei.red/SOd1FeGDNHx9iLt.jpg" alt="东方正作"></p>
 <p>扔进光驱，兴冲冲安装之后，点开附带的<code>omake.txt</code>文档，你会发现和安装时就遇到的一样，大部分成了乱码：</p>
 <p><img src="https://images.hakurei.red/UV9Pzu8rQFtSHMj.jpg" alt="omake原文"></p>
@@ -691,9 +685,9 @@ System.Console.WriteLine($&quot;Result:&#123;process(12.1, 22.4)&#125;&quot;);<s
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","body":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js"},"path_md5":"f96e384362e35929e7a2ca2c30b19531"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","body":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"f96e384362e35929e7a2ca2c30b19531"}</script>
 <script src="/js/third-party/comments/gitalk.js" defer></script>
 
 </body>

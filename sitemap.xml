@@ -617,13 +617,6 @@
   </url>
   
   <url>
-    <loc>https://hakurei.red/tags/%E4%B8%9C%E6%96%B9Project/</loc>
-    <lastmod>2025-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hakurei.red/tags/%E6%B8%B8%E6%88%8F%E5%AD%A6/</loc>
     <lastmod>2025-12-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -631,7 +624,21 @@
   </url>
   
   <url>
+    <loc>https://hakurei.red/tags/%E4%B8%9C%E6%96%B9Project/</loc>
+    <lastmod>2025-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hakurei.red/tags/%E9%9F%B3%E4%B9%90/</loc>
+    <lastmod>2025-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hakurei.red/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2025-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -666,20 +673,6 @@
   </url>
   
   <url>
-    <loc>https://hakurei.red/tags/%E6%8A%98%E8%85%BE/</loc>
-    <lastmod>2025-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hakurei.red/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2025-12-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hakurei.red/tags/%E9%81%97%E4%BA%A7/</loc>
     <lastmod>2025-12-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -688,6 +681,13 @@
   
   <url>
     <loc>https://hakurei.red/tags/%E5%9B%BD%E4%BA%8B/</loc>
+    <lastmod>2025-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hakurei.red/tags/%E6%8A%98%E8%85%BE/</loc>
     <lastmod>2025-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

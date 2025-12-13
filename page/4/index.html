@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.font.im/css2?family=LXGW+WenKai+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -304,13 +304,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>由于安全上的要求，我司的开发环境比较复杂，涉及到Citrix非涉密/涉密桌面和远程Linux编译服务器等等，在这样的环境下用VS Code需要经过一系列的折腾，这篇文章简要记录了我最初的配置流程。</p>
-<h2 id="安装VS-Code"><a class="header-anchor" href="#安装VS-Code">¶</a>安装VS Code</h2>
-<p>首先，在非涉密桌面访问<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code官网</a>下载最新安装包，然后安装到<strong>Q盘中（重要！）</strong>。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件就没了。</p>
+          <p>由于安全上的要求，我司的开发环境比较复杂，涉及到Citrix非涉密&#x2F;涉密桌面和远程Linux编译服务器等等，在这样的环境下用VS Code需要经过一系列的折腾，这篇文章简要记录了我最初的配置流程。</p>
+<h2 id="安装VS-Code"><a href="#安装VS-Code" class="headerlink" title="安装VS Code"></a>安装VS Code</h2><p>首先，在非涉密桌面访问<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code官网</a>下载最新安装包，然后安装到<strong>Q盘中（重要！）</strong>。这是因为各种软件默认安装到的是被隐藏的C盘，而非涉密桌面环境中的C盘会在重启时被自动重置，你的软件就没了。</p>
 <p>不要急着删除安装包，将它<strong>复制</strong>到T盘（直接剪切可能会报权限错误），转移到涉密桌面。如果之前你已经启动了涉密桌面，可以尝试用快捷键<code>Ctrl + Alt + Tab</code>进行切换。</p>
 <p>到涉密桌面环境后，安装VS Code——这次可以装在C盘里，涉密桌面的C盘是不会被重置的。注意，安装时会有几个选项，询问是否要加入右键菜单以及PATH等，请把所有的勾都勾上。</p>
-<h2 id="安装扩展"><a class="header-anchor" href="#安装扩展">¶</a>安装扩展</h2>
-<p>众所周知，VS Code最重要的是扩展。由于涉密桌面没有外网，我们要安装扩展只能先从非涉密桌面下载，再通过T盘转移。</p>
+<h2 id="安装扩展"><a href="#安装扩展" class="headerlink" title="安装扩展"></a>安装扩展</h2><p>众所周知，VS Code最重要的是扩展。由于涉密桌面没有外网，我们要安装扩展只能先从非涉密桌面下载，再通过T盘转移。</p>
 <p>但是，VS Code默认存放扩展的目录在C盘，这导致非涉密桌面一旦重启，你的扩展就会全部消失。所以，装扩展之前要先更改非涉密桌面中VS Code存放扩展的目录。</p>
 <p>我没有在设置里找到直接修改的方法，但你可以通过以下的方法来间接修改。</p>
 <p>首先进入VS Code的安装目录（没忘记装在哪了吧），新建一个文件夹，命名为<code>extensions</code>。</p>
@@ -393,8 +391,7 @@
     <div class="post-body" itemprop="articleBody">
           <p><strong>能不能好好上网？</strong></p>
 <p>在中国，很难。</p>
-<h2 id="故事背景"><a class="header-anchor" href="#故事背景">¶</a>故事背景</h2>
-<p>我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。</p>
+<h2 id="故事背景"><a href="#故事背景" class="headerlink" title="故事背景"></a>故事背景</h2><p>我对网络的探索与折腾，源于每台Windows电脑都自带的“远程桌面连接”。和“公文包”与“媒体库”一样，这种系统里的隐秘角落就像等待人去探险的洞窟和密林，激发着我的好奇心。</p>
 <p><img src="https://images.hakurei.red/FcrqSmxuBWz9e8a.png" alt="远程桌面连接"></p>
 <p>到底要怎样使用这个东西呢？尤其是，当发现计算机名竟然可以随意更改时，我产生了担心：如果有重名的计算机，我怎么知道要连到哪一台呢？</p>
 <p>以此为契机，我了解到了局域网，IP和3389端口的概念——巧合的是，我目前的手机尾号就是<code>3389</code>，而前半部分则恰好可以写作一个IPv4地址。那时，中国的网络用户数量远不如今天，大部分设备都有公网IP。可能也正因如此，诸如CS1.6，War3和东方非想天则一类基于IP联机的游戏能够风靡一时。</p>
@@ -667,9 +664,9 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","body":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js"},"path_md5":"dbb1aad0300bb8f37fa677175e85a293"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","body":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"dbb1aad0300bb8f37fa677175e85a293"}</script>
 <script src="/js/third-party/comments/gitalk.js" defer></script>
 
 </body>

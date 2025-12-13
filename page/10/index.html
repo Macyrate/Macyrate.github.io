@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.font.im/css2?family=LXGW+WenKai+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -305,13 +305,15 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>由于准备solo操作，美工大部分就得自己搞定了。</p>
-<h2 id="Aseprite"><a class="header-anchor" href="#Aseprite">¶</a>Aseprite</h2>
-<p>Pixel Art其实很早就想玩一玩，不过之前一直没有找到合适的工具。如今因为要做游戏的任务驱动，终于开始尝试了。也因此，认真搜索资料之下就知道了<code>Aseprite</code>这个🐂🍺到爆炸的像素画制作软件，Steam售价38元，非常划算。</p>
+<h2 id="Aseprite"><a href="#Aseprite" class="headerlink" title="Aseprite"></a>Aseprite</h2><p>Pixel Art其实很早就想玩一玩，不过之前一直没有找到合适的工具。如今因为要做游戏的任务驱动，终于开始尝试了。也因此，认真搜索资料之下就知道了<code>Aseprite</code>这个🐂🍺到爆炸的像素画制作软件，Steam售价38元，非常划算。</p>
 <iframe src="https://store.steampowered.com/widget/431730/" frameborder="0" width="646" height="190"></iframe>
+
 <p>我学习的是Youtube上MortMort这位小哥的教学视频，讲得非常清晰：</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLR3Ra9cf8aV06i2jKmgKvcYVHI86-4K_b" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <p>如果没有代理，可以在bilibili观看该系列视频的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av14603015">第一部分</a>：</p>
 <iframe src="//player.bilibili.com/player.html?aid=14603015&cid=23810173&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 <p>这是我在还没有看教学视频之前，自己胡乱尝试下摸索了将近一整天完成的<a target="_blank" rel="noopener" href="https://www.pixiv.net/artworks/78095634">第一幅作品</a>：</p>
 <p><img src="https://images.hakurei.red/rWmnCw9V1uBeDH6.gif" alt="youmu"></p>
           <!--noindex-->
@@ -389,14 +391,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <div class="note info"><p>如果你只是想要在自己站点的左下角加一个极其Stable的音乐播放器，而不想听我废话自己踩的坑，请直接跳转：<br>
-<a href="/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/#Show-me-the-CODE">“Show me the CODE!”</a></p>
+          <div class="note info"><p>如果你只是想要在自己站点的左下角加一个极其Stable的音乐播放器，而不想听我废话自己踩的坑，请直接跳转：<br><a href="/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/#Show-me-the-CODE">“Show me the CODE!”</a></p>
 </div>
-<h2 id="早期尝试"><a class="header-anchor" href="#早期尝试">¶</a>早期尝试</h2>
-<h3 id="网易云iframe"><a class="header-anchor" href="#网易云iframe">¶</a>网易云iframe</h3>
-<p>今天，我试图解决一个历史遗留问题。</p>
+
+<h2 id="早期尝试"><a href="#早期尝试" class="headerlink" title="早期尝试"></a>早期尝试</h2><h3 id="网易云iframe"><a href="#网易云iframe" class="headerlink" title="网易云iframe"></a>网易云iframe</h3><p>今天，我试图解决一个历史遗留问题。</p>
 <p>之前我博客上的音乐播放器一直都是网易云的外链iframe，就这个样式的：</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1384318412&auto=0&height=66"></iframe>
+
 <p>我一直把这个玩意放在sidebar里。但是问题是，移动版视图下sidebar是不展示的，只有header能够显示出来，而且还需要用toggle展开。我使用的主题是<code>NexT</code>，试验了一下，需要修改的地方是：</p>
 <p><code>\themes\next\layout\_partials\header\index.swig</code></p>
 <p>由于toggle展开的是<code>site-nav</code>，将源码修改如下：</p>
@@ -419,6 +420,7 @@
 &#123;%- endif %&#125;
 
 &#123;&#123;- next_inject('header') &#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><img src="https://images.hakurei.red/Dmhzxi8XFIQK7np.jpg" alt="site-nav中的iframe.jpg"></p>
 <p>这个效果属实🍔🍔。并且在桌面版视图下还会把sidebar压下去，不太理想。</p>
           <!--noindex-->
@@ -496,12 +498,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="迭代设计"><a class="header-anchor" href="#迭代设计">¶</a>迭代设计</h2>
-<p><strong>游戏设计由1%的灵感和99%的重复组成。</strong></p>
+          <h2 id="迭代设计"><a href="#迭代设计" class="headerlink" title="迭代设计"></a>迭代设计</h2><p><strong>游戏设计由1%的灵感和99%的重复组成。</strong></p>
 <p>分析-&gt;设计-&gt;实现-&gt;测试-&gt;分析……</p>
 <p>这就是迭代设计的流程。</p>
-<h3 id="分析"><a class="header-anchor" href="#分析">¶</a>分析</h3>
-<p><strong>面向的玩家群体？</strong> 这决定了游戏里应该有哪些要素。无论，做这个游戏的目的是毕业设计，面向的群体就是<s>评审老师</s>我自己了。如果能有些弹幕爱好者玩就更好了。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p><strong>面向的玩家群体？</strong> 这决定了游戏里应该有哪些要素。无论，做这个游戏的目的是毕业设计，面向的群体就是<del>评审老师</del>我自己了。如果能有些弹幕爱好者玩就更好了。</p>
 <p>这么一想，应该像STG一样有多难度级别，还要有计分系统给人刷。但是我向来都不在意分数。或者像《东方梦想曲》那样做得极难但不限重试次数，这就很亲民——其实更符合的应该是绀珠传。</p>
 <p><strong>我有什么资源？</strong> 当然，只有我自己的一百天左右时间，以及网络上配布的相关素材。</p>
 <p><strong>现有技术有什么？</strong> 现有技术指与要设计的作品相关联的<strong>现存游戏及其他媒介</strong>。对我来讲，具体的是Unity引擎，东方Project的大量官方以及同人游戏。同人游戏中可以着重参考的是登陆steam的几部作品，《东方红辉心》、《永远消失的幻想乡》、《东方华彩乱战》。还有些不属于东方但类型相似的游戏，比如《Enter the Gungeon》和其模仿者《元气骑士》等。</p>
@@ -583,8 +583,8 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>“涌现”可以说是相当重要，我认为它是一个与重复游玩密切相关的概念。涌现导致不同的游戏体验，而单个玩家感受不同游戏体验的方法就是换种思路重复游玩。这可以说是游戏可玩性的一种代表。</p>
-<p>我需要着重参考的非东方游戏中有《Enter the Gungeon》和《元气骑士》。想到这里我发现了一个共同点，它们都用多样的自机天赋、武器、技能、Buff实现了“涌现”。</p>
-<p>但我是否需要这样做呢？以上两个游戏都是Roguelike类型，甚至连随机生成的地图都高度体现着“涌现”，具有高度的重复游玩性，但我想要做的是一个拥有线性叙事的游戏。</p>
+<p>我需要着重参考的非东方游戏中有《Enter the Gungeon》和《元气骑士》。想到这里我发现了一个共同点，它们都用多样的自机天赋、武器、技能、Buff实现了“涌现”。   </p>
+<p>但我是否需要这样做呢？以上两个游戏都是Roguelike类型，甚至连随机生成的地图都高度体现着“涌现”，具有高度的重复游玩性，但我想要做的是一个拥有线性叙事的游戏。 </p>
 <p>枪牢用“杀死过去的枪”这个线索巧妙地把重复的游玩变成一定程度上的线性叙事，元气骑士则完全不在意这个，剧情只是随口一说，花式推地牢才是其核心。</p>
 <p>其他游戏是怎么做的呢？如果是自由度高的大型游戏，极长的主线首先就无须让人进行重复游玩。如果要体现“涌现”，无数的支线任务、收集要素、角色养成就能体现作用。</p>
 <p>《战地1》这种游戏，其单人模式根本就是多人竞技模式的新手教学，而多人竞技模式中的涌现是由多名玩家的行为共同构建的。</p>
@@ -694,9 +694,9 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","body":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js"},"path_md5":"fd46efe9cca932ba064caf546fedea22"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"macyrate","repo":"Macyrate.github.io","client_id":"aa2288c6cbb5322cac6b","client_secret":"63492ee584a83a8479f1408f33e2ca04e3ef9f82","admin_user":"macyrate","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","body":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"fd46efe9cca932ba064caf546fedea22"}</script>
 <script src="/js/third-party/comments/gitalk.js" defer></script>
 
 </body>

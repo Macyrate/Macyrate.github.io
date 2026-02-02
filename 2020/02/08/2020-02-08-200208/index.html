@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#93251A"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 <link rel="preconnect" href="https://fonts.font.im" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="https://images.hakurei.red/VmI4h6RczwKMXfE.png">
@@ -19,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"github-dark","dark":"github-dark"},"prism":{"light":"prism-one-light","dark":"prism-one-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"github-dark","dark":"github-dark"},"prism":{"light":"prism-one-light","dark":"prism-one-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="昨天说今天该讲讲ANSI编码，并且不再去微博乱逛了，但早上习惯性地点开翻几页，又感觉那根弦紧了一紧。有一些话想说，但在境内当然是没办法开口的，无论说得多么谨小慎微也避不过全体人民“群防群控”的自我审查。GitHub Pages上这块无人造访的IP就算作是互联网的“法外之地”，让我在这里信口开河，“反动”几下吧。 我早年从知乎结识的网友神宫寺铃香发了这么一段：  这段话出自法国大革命时期吉伦特派的皮">
 <meta property="og:type" content="article">
@@ -58,6 +59,9 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-9cmf7tcLdXpKsPi/2AWE93PbZpTp4M4tqzFk+lWomjU=" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
 
@@ -326,14 +330,13 @@
 <p>显然是不能的。“得道者多助，失道者寡助”，受到这样批判的当然是寡助者——多助者在被这样批判的时候，发出批判的人立刻就会被口水淹没。不幸的是，政治的发展和技术的变革让得道者不一定多助，失道者也不一定寡助了，或者至少将他们多助、寡助的时间点大大延后，使得许多事物可以被扼杀于摇篮。</p>
 <p>这些天，肺炎疫情把武汉政府的虚伪面具撕得稀烂，官僚主义、形式主义的败絮化为血的火焰，烧穿包装纸让魔幻的现实在全世界面前光彩夺目。因此，舆论的战斗被推到自习近平同志就任以来所未有的高度，甚至有人表示“上一次有这么多人觉醒，还是1989年”，品葱的反共分子和连登的香港废青们弹冠相庆，似乎民智将开，马上就要十月革命一声炮响，共产党就要被打倒了。</p>
 <span id="more"></span>
-
 <p>但从大体上看，中国共产党经历九十九年仍然是得道者。多助寡助自不必说，光是党员就有9000万之巨，假如将其看作一种有具体名头的宗教，那也是世界第五大教了。得道就在于，无论当年是通过机缘巧合还是苏联援助，还是中共声称的历史必然性，即“没有共产党就没有新中国”的阐释，中共最终是成功在中国建立了较为稳定的社会主义政权，使中国摆脱了半殖民地半封建社会的性质，这一点无论怎么抹黑都是不可否认的。而且经过七十年的“艰难探索”，在集中力量办大事，杀了许多好人和坏人之后，在让懒惰的人穷下去，勤劳的人富起来之后，成为了“第三世界”中有头有脸的一员，甚至让一部分狂妄的人提前敢于和曾经骑在祖先头上的“西方列强”掰掰手腕。</p>
 <p>但是哪个政权是可以永远存在的呢？古代的帝王号称受命于天，但嫡传几代就免不了“天数有变”的历史周期律；“资本主义社会”以资本为中心，政权怎么更迭都是服务于资本，本质上没有多少区别；中国的马克思主义者认为建设社会主义并逐渐发展到共产主义的究极形态是破除周期律的方法——毕竟那时就根本没有政权了。</p>
 <p><strong>可是我们并不能很自信地声称我们的国家是一个社会主义国家，朋友们。</strong> 尽管习近平同志鼓励我们要自信，要有“道路自信、理论自信、制度自信、文化自信”，我们依然没有自信。中国人失掉自信力了吗？</p>
-<p><img src="https://images.hakurei.red/ilGZPOxw13Me97R.jpg"></p>
+<p><img src="https://images.hakurei.red/ilGZPOxw13Me97R.jpg" alt=""></p>
 <p>“我对社会主义没有概念”，这是一个迷惘的青年人的话语，也是时代的缩影。他成长在远离战争与革命的21世纪中国，至少他从日常生活中体会不到我们和我们曾经的敌人到底有什么不同，也许区别仅仅在我们的限制比他们更多。</p>
 <blockquote>
-<p>我们从古以来，就有埋头苦干的人，有拼命硬干的人，有为民请命的人，有舍身求法的人，……虽是等于为帝王将相作家谱的所谓“正史”，也往往掩不住他们的光耀，这就是中国的脊梁。 </p>
+<p>我们从古以来，就有埋头苦干的人，有拼命硬干的人，有为民请命的人，有舍身求法的人，……虽是等于为帝王将相作家谱的所谓“正史”，也往往掩不住他们的光耀，这就是中国的脊梁。</p>
 <p>——鲁迅</p>
 </blockquote>
 <p>我们看到，至今仍然有埋头苦干的人和拼命硬干的人，但为民请命、舍身求法的人去了哪里？他们虽有的在发光发热，甚至在主席之位孤军奋战，却也有许多人成了“404”，那些人里有的收到了训诫书，有的在监狱，有的亡命天涯，有的已经死去。</p>
@@ -447,7 +450,7 @@
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2025</span>
+    <span itemprop="copyrightYear">2026</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>

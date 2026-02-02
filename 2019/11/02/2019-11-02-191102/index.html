@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#93251A"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 <link rel="preconnect" href="https://fonts.font.im" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="https://images.hakurei.red/VmI4h6RczwKMXfE.png">
@@ -19,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"github-dark","dark":"github-dark"},"prism":{"light":"prism-one-light","dark":"prism-one-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"github-dark","dark":"github-dark"},"prism":{"light":"prism-one-light","dark":"prism-one-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="这一周，我开始了在华科聚变与等离子体研究所的实习。  其实我完全不明白自己应该干什么。八月底退出考研大军之后，我捡起大一没能坚持看下去的廖雪峰Python教程读了个大概（在这期间，Python 3甚至已经普及了），半懂不懂地接触了些之前所学的语言里没有讲过的“迭代器、生成器、装饰器”一类玩意，就去投秋招简历了。 可想而知，一个数据结构、算法、操作系统、计算机网络统统没复习，没有刷LeetCode，">
 <meta property="og:type" content="article">
@@ -55,6 +56,9 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-9cmf7tcLdXpKsPi/2AWE93PbZpTp4M4tqzFk+lWomjU=" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
 
@@ -322,7 +326,6 @@
 <p>可想而知，一个数据结构、算法、操作系统、计算机网络统统没复习，没有刷LeetCode，工程实践基本靠课程设计（甚至还有不少是东拼西凑）的学生，哪家公司会收留就有鬼了。何况，我投的岗位还是数据研发，但在这之前我对数据研发的了解还真的是仅限<code>Hadoop</code>和<code>Spark</code>的拼写……</p>
 <p>因此，笔试直接挂是理所当然的了。可是投字节跳动实习的时候，我这个铁憨憨还是投了数据研发。好歹实习不用笔试，不过面试当然还是挂了——一个小时的面试里，全是灵魂拷问，“人，有实力，是不怕的”，但是没有实力的话就算冷静镇定也不会带来更好的结果。</p>
 <span id="more"></span>
-
 <p>那既然这样，就开始学吧。九月，在Python学习、实习扫尾和秋招投递的混乱中度过。月底，为了养生的规律作息，我搬出学校宿舍，和一群退休爹爹婆婆住在森林公园对面。静谧的午后，他们摇着轮椅去沐浴阳光。这确实是好的，我暂且告别了凌晨两点睡，上午十点醒的混沌生活，每天能在起床时看到楼下初中生们的早自习了。</p>
 <p>剧情又恰似高中的落魄时刻，不过却相隔四年半了。十月，我和那个少女每天高强度对线（并不是），好歹不至于成为一瞬就能为未来的孩子找到无数上学地点的标准A岛肥肥。这时候我才开始真正使用<code>Git</code>，并且试着使用<code>GitHub</code>上那些我曾经从未碰过的功能——Fork，Pull Request，Issue，Review等等。我暂时完成了Python的基础学习；试着理清了之前一直没整明白的几种排序算法；经过好几天的折腾，这个网站也总算重新开了起来。这时候，我一边思虑着应该再找份实习，一边觉得该开始学习真正的“数据研发”了。</p>
 <p>数据研发还没有学起来，我先去了<a target="_blank" rel="noopener" href="https://github.com/RichardoML">保研室友</a>的实验室参观。这就是在聚变与等离子体研究所了。虽然靠近托卡马克装置（<a target="_blank" rel="noopener" href="https://thwiki.cc/%E5%9C%B0%E7%8B%B1%E6%9E%81%E4%B9%90%E7%86%94%E6%AF%81">「Hell’s Tokamak」！</a>），但是这个实验室做的主要是计算机控制系统。我半开玩笑问实验室导师能否接收我去实习，结果这二次元浓度拉满的导师也就同意了。</p>
@@ -439,7 +442,7 @@
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2025</span>
+    <span itemprop="copyrightYear">2026</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>

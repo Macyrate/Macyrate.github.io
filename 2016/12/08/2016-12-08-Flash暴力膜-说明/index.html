@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#93251A"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#93251A" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 <link rel="preconnect" href="https://fonts.font.im" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="https://images.hakurei.red/VmI4h6RczwKMXfE.png">
@@ -19,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"github-dark","dark":"github-dark"},"prism":{"light":"prism-one-light","dark":"prism-one-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hakurei.red","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"github-dark","dark":"github-dark"},"prism":{"light":"prism-one-light","dark":"prism-one-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#93251A","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":true,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="这篇文章是对“Flash暴力膜”一文的说明。  “所以×××同志同我讲话，说‘中央都决定了，你来当总书记’。我说另请高明吧，我实在也不是谦虚。我一个上海市委书记怎么到北京来了呢？但是，×××同志讲‘大家已经研究决定了’。后来我念了两首诗，叫‘苟利国家生死以，岂因祸福避趋之’。” —— 长者">
 <meta property="og:type" content="article">
@@ -54,6 +55,9 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-core.min.js" integrity="sha256-bKrTFt2ZHyT4AE4LnBnAVctYKf9l6XP77kBvltgbjn4=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha256-AjM0J5XIbiB590BrznLEgZGLnOQWrt62s3BEq65Q/I0=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha256-9cmf7tcLdXpKsPi/2AWE93PbZpTp4M4tqzFk+lWomjU=" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
 
@@ -321,36 +325,35 @@
 <p><em>—— 长者</em></p>
 </blockquote>
 <span id="more"></span>
-
 <p>Flash的素材来源于站长之家和百度图片（那张AV画质的背景图是中国联合工程公司，原国机二院），使用软件是Adobe Flash Professional CS6，因为没有VISA卡只好下载了破解免费版，在此向Adobe致歉(。</p>
 <p>制作过程比较简单，动画效果只有树和帽带的晃动（但是至少熟悉了flash的基本操作），毕竟我们要做到简洁纯朴啊。</p>
 <p>本来想给文字也添加一个动画效果的，但是出现了各种迷之问题，就秉承一贯的“简洁风”弃了。</p>
 <p>真正劳神的是把.swf插到wordpress站点里，因为flash早就是时代的眼泪了，wordpress已经不再支持.swf的上传，找来了“Swf Upload Enabler”插件才上传成功；插入.swf又用到WOPUS论坛上大佬的方法，引入代码：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--其实我也不知道是不是这段代码，网站迁移时这里的内容丢失了（--></span>
+<pre class="line-numbers language-markup" data-language="markup" data-start="1"><code class="language-markup">&lt;!--其实我也不知道是不是这段代码，网站迁移时这里的内容丢失了（--&gt;
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>object</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>flashcontent<span class="token punctuation">"</span></span> 
-        <span class="token attr-name">classid</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>clsid:D27CDB6E-AE6D-11cf-96B8-444553540000<span class="token punctuation">"</span></span> 
-        <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>550px<span class="token punctuation">"</span></span> 
-        <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>400px<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>movie<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mymovie.swf<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+&lt;object id&#x3D;&quot;flashcontent&quot; 
+        classid&#x3D;&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot; 
+        width&#x3D;&quot;550px&quot; 
+        height&#x3D;&quot;400px&quot;&gt;
+&lt;param name&#x3D;&quot;movie&quot; value&#x3D;&quot;mymovie.swf&quot; &#x2F;&gt;
 
-<span class="token comment">&lt;!--[if !IE]>--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>object</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/x-shockwave-flash<span class="token punctuation">"</span></span> 
-        <span class="token attr-name">data</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mymovie.swf<span class="token punctuation">"</span></span> 
-        <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>550px<span class="token punctuation">"</span></span> 
-        <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>400px<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token comment">&lt;!--&lt;![endif]--></span>
+&lt;!--[if !IE]&gt;--&gt;
+&lt;object type&#x3D;&quot;application&#x2F;x-shockwave-flash&quot; 
+        data&#x3D;&quot;mymovie.swf&quot; 
+        width&#x3D;&quot;550px&quot; 
+        height&#x3D;&quot;400px&quot;&gt;
+&lt;!--&lt;![endif]--&gt;
 
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
-    Fallback or "alternate" content goes here.
+    &lt;p&gt;
+    Fallback or &quot;alternate&quot; content goes here.
     This content will only be visible if the SWF fails to load.
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+    &lt;&#x2F;p&gt;
 
-<span class="token comment">&lt;!--[if !IE]>--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>object</span><span class="token punctuation">></span></span>
-<span class="token comment">&lt;!--&lt;![endif]--></span>
+&lt;!--[if !IE]&gt;--&gt;
+&lt;&#x2F;object&gt;
+&lt;!--&lt;![endif]--&gt;
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>object</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;object&gt;</code></pre>
 <p>（WP-Syntax简直有毒，锻炼视力的时刻到了）（代码显示效果以后再调试吧）</p>
 <p>把url改为媒体库中文件的链接，再改改宽高，就完成了。</p>
 <p>但是移动端上显示很不理想，因为尺寸不会自适应，导致排版出现缺陷（况且移动端根本不支持flash）</p>
@@ -460,7 +463,7 @@
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2025</span>
+    <span itemprop="copyrightYear">2026</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>

@@ -1,0 +1,21 @@
+diff --git a/src/lib/cors.ts b/src/lib/cors.ts
+index 3832a58..dd1f4b8 100644
+--- a/src/lib/cors.ts
++++ b/src/lib/cors.ts
+@@ -206,10 +206,16 @@ export const corsAndCsrf = (): MiddlewareHandler => {
+ 			c.req.url,
+ 		);
+ 		const noOriginPost = isNoOriginPost(c.req.method, path, origin);
++		// Browser GETs from our own embed omit Origin. Sec-Fetch-Site is a
++		// browser-controlled header; cross-origin embed requests still need
++		// the explicit allowlist, and writes never use this exception.
++		const sameOriginRead = c.req.method === "GET" && !origin &&
++			c.req.header("sec-fetch-site") === "same-origin";
+ 		if (
+ 			!isCarveOut(c.req.method, path) &&
+ 			!selfOriginPost &&
+ 			!noOriginPost &&
++			!sameOriginRead &&
+ 			!isDev
+ 		) {
+ 			if (!origin || !matches(origin, allowed)) {

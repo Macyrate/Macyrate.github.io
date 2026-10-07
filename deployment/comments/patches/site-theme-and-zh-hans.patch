@@ -1,0 +1,300 @@
+diff --git a/src/i18n/index.ts b/src/i18n/index.ts
+index ba4037e..7ddeaf9 100644
+--- a/src/i18n/index.ts
++++ b/src/i18n/index.ts
+@@ -9,6 +9,7 @@ import { nl } from "./nl";
+ import { pl } from "./pl";
+ import { pt } from "./pt";
+ import { zhHant } from "./zh-Hant";
++import { zhHans } from "./zh-Hans";
+ 
+ export type { StringKey };
+ 
+@@ -118,6 +119,7 @@ export const LOCALES: Record<string, LocaleMeta> = {
+ 		rtl: false,
+ 		status: "machine-seeded",
+ 	},
++  "zh-Hans": { label: "Simplified Chinese", endonym: "简体中文", rtl: false, status: "machine-seeded" },
+ };
+ 
+ export type LocaleTable = Partial<Record<StringKey, Message>>;
+@@ -142,6 +144,7 @@ export const TABLES: Record<string, LocaleTable> = {
+ 	pl,
+ 	pt,
+ 	"zh-Hant": zhHant,
++  "zh-Hans": zhHans,
+ };
+ 
+ /**
+diff --git a/src/i18n/widget/index.ts b/src/i18n/widget/index.ts
+index a955a5d..d0c012e 100644
+--- a/src/i18n/widget/index.ts
++++ b/src/i18n/widget/index.ts
+@@ -23,6 +23,7 @@ import { nl } from "./nl";
+ import { pl } from "./pl";
+ import { pt } from "./pt";
+ import { zhHant } from "./zh-Hant";
++import { zhHans } from "./zh-Hans";
+ 
+ /** A locale's overrides. Partial by design; missing keys render English. */
+ export type WidgetTable = Partial<Record<WidgetKey, StringValue>>;
+@@ -38,4 +39,5 @@ export const WIDGET_TABLES: Record<string, WidgetTable> = {
+ 	pl,
+ 	pt,
+ 	"zh-Hant": zhHant,
++  "zh-Hans": zhHans,
+ };
+diff --git a/src/routes/embed-iframe.ts b/src/routes/embed-iframe.ts
+index 7457485..363e974 100644
+--- a/src/routes/embed-iframe.ts
++++ b/src/routes/embed-iframe.ts
+@@ -243,7 +243,7 @@ iframe.get("/turnstile-frame", (c) => {
+ 		`script-src ${TURNSTILE_ORIGIN} 'unsafe-inline'`,
+ 		`connect-src 'self' ${TURNSTILE_ORIGIN}`,
+ 		`frame-src ${TURNSTILE_ORIGIN}`,
+-		"style-src 'unsafe-inline'",
++			"style-src 'unsafe-inline'",
+ 		frameAncestors(c.env, `${frameUrl.protocol}//${frameUrl.host}`),
+ 	].join("; ");
+ 
+@@ -427,9 +427,9 @@ iframe.get("/:slug", (c) => {
+ 		// already trusted for script and connect two lines up, and is either this
+ 		// Worker or an ALLOWED_ORIGINS entry.
+ 		`frame-src ${apiOrigin} ${TURNSTILE_ORIGIN}`,
+-		"style-src 'unsafe-inline'",
++		"style-src 'unsafe-inline' https://cdnjs.cloudflare.com",
+ 		"img-src data: https:",
+-		"font-src data:",
++		"font-src data: https://cdnjs.cloudflare.com",
+ 		frameAncestors(c.env, selfOrigin),
+ 	].join("; ");
+ 
+@@ -439,9 +439,42 @@ iframe.get("/:slug", (c) => {
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Comments</title>
++<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/lxgwwenkaimono-regular.min.css">
+ <style>
+   html, body { margin: 0; padding: 0; background: transparent; color-scheme: ${theme === "auto" ? "light dark" : theme}; }
+   body { font-family: system-ui, -apple-system, Segoe UI, sans-serif; }
++  #garrul {
++    --garrul-font: "LXGW WenKai Mono", "KaiTi", "PingFang SC", "Microsoft YaHei", sans-serif;
++    --garrul-font-size: 16px;
++    --garrul-bg: transparent;
++    --garrul-fg: #444;
++    --garrul-muted: #767676;
++    --garrul-input-bg: #fff;
++    --garrul-surface: #fafafa;
++    --garrul-border: #ddd;
++    --garrul-radius: 2px;
++    --garrul-shadow: none;
++    --garrul-accent: #93251a;
++    --garrul-accent-fg: #fff;
++    --garrul-accent-hover: #b52e21;
++    --garrul-link: #93251a;
++    --garrul-hover: #f0eeee;
++    --garrul-badge-bg: #f4e5e3;
++    --garrul-badge-fg: #93251a;
++  }
++  @media (prefers-color-scheme: dark) {
++    #garrul {
++      --garrul-fg: #ccc;
++      --garrul-muted: #999;
++      --garrul-input-bg: #111;
++      --garrul-surface: #161616;
++      --garrul-border: #444;
++      --garrul-link: #ee8b80;
++      --garrul-hover: #282020;
++      --garrul-badge-bg: #351b18;
++      --garrul-badge-fg: #ee8b80;
++    }
++  }
+ </style>
+ </head>
+ <body>
+diff --git a/src/i18n/zh-Hans.ts b/src/i18n/zh-Hans.ts
+new file mode 100644
+index 0000000..72fbefd
+--- /dev/null
++++ b/src/i18n/zh-Hans.ts
+@@ -0,0 +1,56 @@
++import type { LocaleTable } from "./index";
++export const zhHans = {
++  "err.body.required": "请输入评论内容。",
++  "err.body.too_long": "评论过长，最多 {max} 个字符。",
++  "err.post.required": "缺少文章标识。",
++  "err.post.invalid": "文章标识无效。",
++  "err.parent.not_found": "回复的评论不存在。",
++  "err.parent.different_post": "回复的评论属于另一篇文章。",
++  "err.parent.too_deep": "回复层级过深，请回复上一级评论。",
++  "err.name.required": "请输入昵称。",
++  "err.name.too_long": "昵称过长，最多 {max} 个字符。",
++  "err.name.reserved": "该昵称不可用于匿名评论，请更换昵称或登录。",
++  "err.turnstile.required": "人机验证未通过，请刷新后重试。",
++  "err.turnstile.invalid": "人机验证未通过，请刷新后重试。",
++  "err.ratelimit": "评论过于频繁，请稍后再试。",
++  "err.honeypot": "评论未被接受。",
++  "err.origin.forbidden": "请求来源不受支持。",
++  "err.session.expired": "会话已过期，请刷新后重试。",
++  "err.edit.window_expired": "编辑期限已过。",
++  "err.edit.not_author": "只能编辑自己的评论。",
++  "err.delete.not_author": "只能删除自己的评论。",
++  "err.not_found": "内容不存在。",
++  "err.banned": "该账号已被禁用。",
++  "err.staff.forbidden": "只有已登录的管理员才能使用管理员标识。",
++  "err.thread_closed": "本文已关闭评论。",
++  "err.internal": "出现错误，请重试。",
++  "ui.deleted": "[已删除]",
++  "ui.subscribe.pending": "请查收邮件并确认订阅。",
++  "ui.subscribe.confirmed": "已确认订阅。",
++  "ui.subscribe.link_expired": "链接已过期或已使用。",
++  "ui.subscribe.confirmed_page": "已订阅《{title}》的评论通知。",
++  "ui.subscribe.already_unsubscribed": "已取消《{title}》的评论通知。",
++  "ui.subscribe.unsubscribed": "已取消《{title}》的评论通知。",
++  "ui.subscribe.unsubscribe_confirm": "取消《{title}》的评论通知吗？",
++  "ui.subscribe.unsubscribe_cta": "确认取消订阅",
++  "ui.subscribe.unsubscribe_note": "尚未更改，确认后才会取消通知。",
++  "ui.subscribe.confirm_prompt": "开启《{title}》的评论通知吗？",
++  "ui.subscribe.confirm_cta": "确认订阅",
++  "ui.subscribe.confirm_note": "确认前不会发送通知。",
++  "ui.subscribe.manage_others": "此邮箱还订阅了以下讨论：",
++  "ui.subscribe.unsubscribe_row_cta": "取消订阅",
++  "ui.subscribe.unsubscribe_all_cta": "取消所有订阅",
++  "ui.subscribe.unsubscribed_all": "已取消所有评论通知。",
++  "email.confirm.subject": "请确认订阅《{title}》的评论",
++  "email.confirm.heading": "确认订阅",
++  "email.confirm.intro": "有人申请订阅《{title}》的新评论，请确认。",
++  "email.confirm.ignore": "如果不是你本人操作，请忽略此邮件。确认前不会发送更多通知。",
++  "email.confirm.cta": "确认订阅",
++  "email.confirm.paste": "也可以复制此链接到浏览器：",
++  "email.digest.subject": "《{title}》有新评论",
++  "email.digest.heading": { other: "《{title}》有 {count} 条新评论" },
++  "email.digest.permalink": "评论链接",
++  "email.digest.unsubscribe": "取消订阅此讨论",
++  "feed.title": "《{title}》的评论",
++  "feed.entry_title": "{author} 发布了评论",
++} satisfies LocaleTable;
+diff --git a/src/i18n/widget/zh-Hans.ts b/src/i18n/widget/zh-Hans.ts
+new file mode 100644
+index 0000000..3d85d12
+--- /dev/null
++++ b/src/i18n/widget/zh-Hans.ts
+@@ -0,0 +1,118 @@
++/** Simplified Chinese for the Hakurei blog. */
++import type { WidgetTable } from "./index";
++export const zhHans = {
++  "w.toolbar": "文字格式",
++  "w.md.bold": "加粗",
++  "w.md.italic": "斜体",
++  "w.md.link": "链接",
++  "w.md.code": "行内代码",
++  "w.md.quote": "引用",
++  "w.md.list": "无序列表",
++  "w.md.ph.bold": "加粗文字",
++  "w.md.ph.italic": "斜体文字",
++  "w.md.ph.link": "链接文字",
++  "w.md.ph.code": "代码",
++  "w.tab.write": "编辑",
++  "w.tab.preview": "预览",
++  "w.tab.list": "编辑模式",
++  "w.md_hint": "支持 Markdown",
++  "w.kbd_hint": "⌘/Ctrl + Enter 发布",
++  "w.count_left": { other: "还可输入 {n} 个字符" },
++  "w.count_over": { other: "已超出 {n} 个字符" },
++  "w.preview.empty": "暂无可预览的内容。",
++  "w.preview.loading": "正在加载预览…",
++  "w.preview.failed": "预览失败，请重试。",
++  "w.name_ph": "昵称",
++  "w.body_ph": "留下你的想法…",
++  "w.email_ph": "you@example.com",
++  "w.email_label": "电子邮箱",
++  "w.notify": "有新评论时通过邮件通知我",
++  "w.post_as_staff": "以管理员身份发布",
++  "w.post_comment": "发布评论",
++  "w.post_reply": "发布回复",
++  "w.reply_ph": "回复 @{name}…",
++  "w.edit_ph": "编辑评论…",
++  "w.loading": "加载中…",
++  "w.save": "保存",
++  "w.cancel": "取消",
++  "w.posted": "评论已发布",
++  "w.ts.title": "人机验证",
++  "w.ts.checking": "验证中…",
++  "w.ts.interactive": "请完成上方的人机验证，然后重新发布。",
++  "w.ts.timeout": "验证加载失败，请检查网络或刷新页面。",
++  "w.ts.retrying": "验证遇到问题，正在重试，请稍后发布。",
++  "w.ts.failed": "验证加载失败，请刷新页面；若仍无法加载，请联系站点管理员检查验证服务。",
++  "w.verified": "已验证",
++  "w.signed_in_with": "已通过 {provider} 登录",
++  "w.pinned": "置顶",
++  "w.staff": "管理员",
++  "w.edited": "· 已编辑",
++  "w.pending": "等待审核",
++  "w.removed_by_mod": "[管理员已删除此评论]",
++  "w.deleted": "[已删除]",
++  "w.lowscore.hide": "隐藏评论",
++  "w.lowscore.show": "评论因评分过低已隐藏，点击显示",
++  "w.reply": "回复",
++  "w.edit": "编辑",
++  "w.edit_left": "剩余 {time}",
++  "w.edit_last_minute": "剩余不到一分钟",
++  "w.edit_expired": "评论的编辑期限已过。",
++  "w.delete": "删除",
++  "w.delete_confirm": "确定删除这条评论吗？",
++  "w.report": "举报",
++  "w.reported": "已举报，谢谢",
++  "w.vote.up": "赞同",
++  "w.vote.down": "反对",
++  "w.page.helpful": "这篇内容对你有帮助吗？",
++  "w.page.up": "赞同这篇内容",
++  "w.page.down": "反对这篇内容",
++  "w.page.react_prompt": "你的感想是？",
++  "w.react.fire": "精彩",
++  "w.react.love": "喜欢",
++  "w.react.wow": "惊喜",
++  "w.react.laugh": "好笑",
++  "w.react.hmm": "思考",
++  "w.react.cry": "难过",
++  "w.react.thumbsup": "赞同",
++  "w.react.party": "庆祝",
++  "w.react.eyes": "关注",
++  "w.react.thanks": "感谢",
++  "w.react.rocket": "期待",
++  "w.react.hundred": "完全同意",
++  "w.replies": { other: "{n} 条回复" },
++  "w.more_replies": { other: "显示另外 {n} 条回复" },
++  "w.loading_comments": "正在加载评论",
++  "w.permalink": "@{name} 的评论链接，{time}",
++  "w.region": "评论",
++  "w.empty.open": "还没有评论，来聊聊吧。",
++  "w.empty.closed": "暂无评论。",
++  "w.closed.post": "本文已关闭评论。",
++  "w.closed.aged": "此讨论已关闭，不再接受新评论。",
++  "w.closed.sunset": "评论期限已结束。",
++  "w.closed.other": "评论功能已关闭。",
++  "w.sort_by": "按{control}排序",
++  "w.sort.new": "最新",
++  "w.sort.old": "最早",
++  "w.sort.top": "热门",
++  "w.subscribe": "通过邮件接收本文的新评论",
++  "w.subscribe.submit": "订阅",
++  "w.subscribe.done": "请查收邮件并确认订阅。",
++  "w.subscribe.failed": "订阅失败，请重试。",
++  "w.subscribe.ratelimit": "请求过于频繁，请稍后重试。",
++  "w.subscribe.awaiting": "请查收确认邮件，或点击此处取消",
++  "w.unsubscribe": "不再接收本文的新评论邮件",
++  "w.unsubscribe.done": "已取消此讨论的邮件通知。",
++  "w.unsubscribe.failed": "取消订阅失败，请重试。",
++  "w.unsubscribe.row": "取消订阅",
++  "w.manage": "管理订阅",
++  "w.manage.empty": "你还没有订阅任何讨论。",
++  "w.manage.failed": "无法加载订阅。",
++  "w.load_more": "加载更早的评论",
++  "w.load_more_failed": "无法加载更多评论：{detail}",
++  "w.posting_as": "以 {name} 的身份发布",
++  "w.sign_out": "退出登录",
++  "w.signin_prompt": "登录可获得身份验证标识：",
++  "w.err.transient": "评论暂时不可用，请稍后再试。",
++  "w.err.generic": "无法加载评论。",
++  "w.powered_by": "评论由 {link} 提供",
++} satisfies WidgetTable;

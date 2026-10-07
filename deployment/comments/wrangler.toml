@@ -1,0 +1,40 @@
+name = "hakurei-comments"
+main = "src/index.ts"
+compatibility_date = "2026-10-07"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = false
+preview_urls = false
+routes = [{ pattern = "comments.hakurei.red", custom_domain = true }]
+account_id = "1f0d78e63f066b596311b8268e66be68"
+
+[vars]
+ENV = "production"
+ALLOWED_ORIGINS = "https://hakurei.red,https://comments.hakurei.red"
+PUBLIC_BASE_URL = "https://comments.hakurei.red"
+OAUTH_CALLBACK_BASE = "https://comments.hakurei.red"
+ADMIN_EMAILS = ""
+DEFAULT_SORT = "old"
+
+[triggers]
+crons = ["*/15 * * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "hakurei-comments"
+database_id = "1c5435d0-fc60-4c9d-b2e9-29743c3a838f"
+
+[[kv_namespaces]]
+binding = "RATE_LIMITS"
+id = "b44de7ddf94d41a6a42812e5df3fcbb9"
+
+[[kv_namespaces]]
+binding = "OAUTH_STATE"
+id = "aa2e32455fcf4ea29b2953fce8702644"
+
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "b9d4fbf88b914363a13d4d6b38d107f2"
+
+[[kv_namespaces]]
+binding = "TREE_CACHE"
+id = "58475a86e3524eff89b11a7843adbd31"

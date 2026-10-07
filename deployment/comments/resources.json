@@ -1,0 +1,24 @@
+{
+  "account_id": "1f0d78e63f066b596311b8268e66be68",
+  "worker": "hakurei-comments",
+  "domain": "comments.hakurei.red",
+  "kv": {
+    "RATE_LIMITS": "b44de7ddf94d41a6a42812e5df3fcbb9",
+    "OAUTH_STATE": "aa2e32455fcf4ea29b2953fce8702644",
+    "SESSIONS": "b9d4fbf88b914363a13d4d6b38d107f2",
+    "TREE_CACHE": "58475a86e3524eff89b11a7843adbd31"
+  },
+  "db": {
+    "uuid": "1c5435d0-fc60-4c9d-b2e9-29743c3a838f",
+    "name": "hakurei-comments",
+    "created_at": "2026-10-07T13:33:12.921Z",
+    "version": "production",
+    "file_size": 8192,
+    "num_tables": 0,
+    "created_in_region": "WNAM",
+    "jurisdiction": null,
+    "read_replication": {
+      "mode": "disabled"
+    }
+  }
+}

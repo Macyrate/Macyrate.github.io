@@ -106,13 +106,25 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-next
 
+# Fill only after the Cloudflare comment service has been verified.
+garrul:
+  server: https://comments.hakurei.red
+
+theme_config:
+  gitalk:
+    enable: false
+    client_id: ''
+    client_secret: ''
+  comments:
+    active: garrul
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repo:
     github: https://github.com/Macyrate/Macyrate.github.io.git
-  branch: rebirth
+  branch: master
 
 # aplayer
 aplayer:

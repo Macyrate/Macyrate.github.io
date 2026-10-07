@@ -1,0 +1,28 @@
+{
+  "measurement_id": "2a9z4NtzfPav2UYDa00021Gzo",
+  "created_at": "2026-10-07T13:36:33.446Z",
+  "scope": "HTTPS health endpoint only; not a browser submission test",
+  "results": [
+    {
+      "country": "CN",
+      "city": "Guangzhou",
+      "network": "Shenzhen Tencent Computer Systems Company",
+      "status": 200,
+      "total_ms": 1011
+    },
+    {
+      "country": "CN",
+      "city": "Shanghai",
+      "network": "Shenzhen Tencent Computer Systems Company",
+      "status": 200,
+      "total_ms": 909
+    },
+    {
+      "country": "CN",
+      "city": "Guilin",
+      "network": "CHINA UNICOM China169 Backbone",
+      "status": 200,
+      "total_ms": 4446
+    }
+  ]
+}

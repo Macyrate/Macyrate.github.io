@@ -1,0 +1,12 @@
+{
+  "verified_at": "2026-10-07T13:43:32.486Z",
+  "comments": 36,
+  "verified_fields": [
+    "body_md",
+    "author",
+    "created_at",
+    "post_slug",
+    "status"
+  ],
+  "all_match": true
+}

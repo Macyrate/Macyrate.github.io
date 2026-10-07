@@ -22,6 +22,7 @@
 - 升级前检查 `patches/iframe-same-origin.patch` 是否仍然必要。它只允许带浏览器 `Sec-Fetch-Site: same-origin` 的无 Origin GET；写请求仍要求明确的允许来源。
 - 访客界面使用本项目补充的简体中文 `zh-Hans`（包括错误信息），管理员界面为英文。
 - `site-theme-and-zh-hans.patch` 保留简体语言包和站点配色：霞鹜文楷、暗红按钮、细边框、明暗自适应。iframe 显式允许明暗两种色彩方案，覆盖 NexT 对 iframe 强制浅色的默认规则；字体复用站点现有的 cdnjs 字体资源，加载失败时使用本地字体。
+- `url-path-slugs.patch` 统一评论、订阅、管理、feed、iframe 和导入的文章标识规则，支持中文路径的百分号编码及较长路径；保留原编码，不改迁移数据。加载接口失败时也使用简体中文提示。相关 199 项回归测试及类型检查通过。
 - 旧测试文章的 4 条评论可直接查看：<https://comments.hakurei.red/embed/2019%2F10%2F18%2Fhello-world?lang=zh-Hant>。
 
 ## 验收记录

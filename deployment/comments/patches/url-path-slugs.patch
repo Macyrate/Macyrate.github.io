@@ -1,0 +1,194 @@
+diff --git a/src/lib/slug.ts b/src/lib/slug.ts
+index 7f09a22..de91a92 100644
+--- a/src/lib/slug.ts
++++ b/src/lib/slug.ts
+@@ -2,7 +2,7 @@
+  * The slug alphabet the read API accepts.
+  *
+  * `GET /api/v1/comments?slug=…` (and the bootstrap and page-engagement
+- * routes, which each carry their own copy) answers 400 for any slug outside
++ * routes) answers 400 for any slug outside
+  * this rule, so a `posts` row whose slug fails it is a page no reader can
+  * ever load. Anything that *creates* a posts row from data it did not mint
+  * itself — the importer core, an adapter deriving a slug from a source's own
+@@ -10,4 +10,7 @@
+  * the one place the rule lives that neither a route nor an adapter has to
+  * reach across a layer to import.
+  */
+-export const SLUG_RE = /^[a-zA-Z0-9_\-./]{1,200}$/;
++// Match URL.pathname as used by Hexo, including percent-encoded Chinese and
++// spaces. Keep the encoded key unchanged so existing imports retain identity.
++// Reject malformed escapes, raw query/fragment delimiters and unbounded keys.
++export const SLUG_RE = /^(?=.{1,2048}$)(?:[a-zA-Z0-9_\-./!~*'():@]|%[0-9a-fA-F]{2})+$/;
+diff --git a/src/routes/admin.ts b/src/routes/admin.ts
+index ad64467..e0e32b4 100644
+--- a/src/routes/admin.ts
++++ b/src/routes/admin.ts
+@@ -1957,7 +1957,7 @@ admin.post("/api/comments/:id", async (c) => {
+ // Per-post comment freeze/unfreeze. Flips posts.closed; the lazy thread
+ // resolver (src/lib/thread.ts) enforces it on the next POST. Mod-gated; the
+ // admin middleware already applies the same-origin CSRF check.
+-const POST_SLUG_RE = /^[a-zA-Z0-9_\-./]{1,200}$/;
++import { SLUG_RE as POST_SLUG_RE } from "../lib/slug";
+ 
+ admin.post("/api/posts/close", async (c) => {
+ 	const user = await requireMod(c);
+diff --git a/src/routes/api.comments.ts b/src/routes/api.comments.ts
+index 1598bea..cfe694f 100644
+--- a/src/routes/api.comments.ts
++++ b/src/routes/api.comments.ts
+@@ -135,7 +135,8 @@ const comments = new Hono<{
+  * has to accept and reject exactly the same slugs — a divergence there would
+  * mean the two boot paths disagree about which posts exist.
+  */
+-export const SLUG_RE = /^[a-zA-Z0-9_\-./]{1,200}$/;
++import { SLUG_RE } from "../lib/slug";
++export { SLUG_RE } from "../lib/slug";
+ const HONEYPOT_FIELD = "website";
+ 
+ // Signed-in writes get their own, looser budget. Signing in is a real cost to
+diff --git a/src/routes/api.page-engagement.ts b/src/routes/api.page-engagement.ts
+index d2b4332..310a69d 100644
+--- a/src/routes/api.page-engagement.ts
++++ b/src/routes/api.page-engagement.ts
+@@ -36,7 +36,7 @@ import type { LocaleVars } from "../lib/locale";
+ 
+ const pageEngagement = new Hono<{ Bindings: Bindings; Variables: LocaleVars }>();
+ 
+-const SLUG_RE = /^[a-zA-Z0-9_\-./]{1,200}$/;
++import { SLUG_RE } from "../lib/slug";
+ 
+ const normalizeValue = (raw: unknown): VoteValue | null => {
+ 	if (raw === 1 || raw === -1 || raw === 0) return raw;
+diff --git a/src/routes/embed-iframe.ts b/src/routes/embed-iframe.ts
+index 363e974..f2517f5 100644
+--- a/src/routes/embed-iframe.ts
++++ b/src/routes/embed-iframe.ts
+@@ -54,6 +54,7 @@
+ import { Hono } from "hono";
+ import { FALLBACK_LOCALE } from "../i18n";
+ import { matchLocale } from "../i18n/negotiate";
++import { SLUG_RE } from "../lib/slug";
+ import type { Bindings } from "../index";
+ 
+ const iframe = new Hono<{ Bindings: Bindings }>();
+@@ -361,7 +362,7 @@ iframe.get("/turnstile-frame", (c) => {
+ 
+ iframe.get("/:slug", (c) => {
+ 	const slug = c.req.param("slug");
+-	if (!slug || slug.length > 200) return c.text("invalid slug", 400);
++	if (!SLUG_RE.test(slug)) return c.text("invalid slug", 400);
+ 
+ 	const url = new URL(c.req.url);
+ 	const selfOrigin = `${url.protocol}//${url.host}`;
+diff --git a/src/routes/feed.ts b/src/routes/feed.ts
+index b94c660..7368ba2 100644
+--- a/src/routes/feed.ts
++++ b/src/routes/feed.ts
+@@ -73,9 +73,11 @@ const safeLink = (url: string | null | undefined, fallback: string): string => {
+ 	return url;
+ };
+ 
++import { SLUG_RE } from "../lib/slug";
++
+ feed.get("/:slug", async (c) => {
+ 	const slug = c.req.param("slug");
+-	if (!slug || slug.length > 200) return c.text("invalid slug", 400);
++	if (!SLUG_RE.test(slug)) return c.text("invalid slug", 400);
+ 
+ 	const post = await getPost(c.env.DB, slug);
+ 	const comments = await listLatestApprovedComments(c.env.DB, slug, 50);
+diff --git a/src/widget/embed.ts b/src/widget/embed.ts
+index 082ff1f..0518ed5 100644
+--- a/src/widget/embed.ts
++++ b/src/widget/embed.ts
+@@ -3074,6 +3074,13 @@ const init = () => {
+ 	// under English prose reads as broken, not helpful.
+ 	langExplicit = host.dataset.lang ?? "";
+ 	langHint = document.documentElement.lang;
++  // Bootstrap may fail before it can deliver the full locale table.
++  if (langExplicit === "zh-Hans") {
++    ({ s, sAround } = makeS({
++      "w.err.generic": "无法加载评论，请刷新页面后重试。",
++      "w.err.transient": "评论暂时不可用，请稍后再试。",
++    }, "zh-Hans"));
++  }
+ 
+ 	const root = host.attachShadow({ mode: "open" });
+ 	const style = el("style");
+diff --git a/tests/bootstrap.test.ts b/tests/bootstrap.test.ts
+index 77e34f8..13a00e1 100644
+--- a/tests/bootstrap.test.ts
++++ b/tests/bootstrap.test.ts
+@@ -157,6 +157,21 @@ beforeEach(() => {
+ afterEach(() => uninstallMockCaches());
+ 
+ describe("bootstrap — section equivalence", () => {
++  it.each([
++    "2019/11/25/2019-11-25-为Hexo博客添加全局APlayer播放器",
++    "2016/12/17/2016-12-17-Steam游览记录：Eternal Senia（永恒的赛妮亚）",
++  ])("loads imported comments for an encoded article: %s", async (path) => {
++    const slug = new URL(`https://hakurei.red/${path}`).pathname.slice(1);
++    sqlite.prepare("INSERT INTO posts (slug, title, created_at) VALUES (?, ?, ?)").run(slug, path, 1700000000000);
++    sqlite.prepare("UPDATE comments SET post_slug = ? WHERE id = ?").run(slug, COMMENT);
++    const query = new URLSearchParams({slug, lang: "zh-Hans"});
++    const response = await get(`/api/v1/bootstrap?${query}`);
++    expect(response.status).toBe(200);
++    const boot = await response.json() as any;
++    expect(boot.config.locale).toBe("zh-Hans");
++    expect(boot.comments.threads).toHaveLength(1);
++    expect(boot.comments).toEqual(await json(`/api/v1/comments?${query}`));
++  });
+ 	it("serves the same config body as GET /config", async () => {
+ 		const boot = await json(`/api/v1/bootstrap?slug=${SLUG}`);
+ 		const standalone = await json("/api/v1/config");
+diff --git a/tests/embed-iframe.test.ts b/tests/embed-iframe.test.ts
+index 8e3caf9..d37b53d 100644
+--- a/tests/embed-iframe.test.ts
++++ b/tests/embed-iframe.test.ts
+@@ -55,10 +55,17 @@ describe("GET /embed/:slug", () => {
+ 	});
+ 
+ 	it("rejects an over-long slug", async () => {
+-		const res = await fetchPage(`/embed/${"x".repeat(201)}`);
++		const res = await fetchPage(`/embed/${"x".repeat(2049)}`);
+ 		expect(res.status).toBe(400);
+ 	});
+ 
++  it("preserves encoded Chinese article keys through the iframe route", async () => {
++    const slug = new URL("https://hakurei.red/2019/11/25/2019-11-25-为Hexo博客添加全局APlayer播放器/").pathname.slice(1, -1);
++    const res = await fetchPage(`/embed/${encodeURIComponent(slug)}?lang=zh-Hans`);
++    expect(res.status).toBe(200);
++    expect(await res.text()).toContain(`data-slug="${slug}"`);
++  });
++
+ 	describe("parent_origin allowlist", () => {
+ 		it("honors an allowlisted origin", async () => {
+ 			const res = await fetchPage(
+diff --git a/tests/import-core.test.ts b/tests/import-core.test.ts
+index a765798..58f67b7 100644
+--- a/tests/import-core.test.ts
++++ b/tests/import-core.test.ts
+@@ -815,7 +815,7 @@ describe("slugFromPath", () => {
+ 	});
+ 
+ 	it("digests a path the read API would reject", () => {
+-		for (const bad of ["/a b", "/über", "/a:b", `/${"x".repeat(201)}`]) {
++		for (const bad of ["/a b", "/über", "/a%ZZ", `/${"x".repeat(2049)}`]) {
+ 			expect(slugFromPath(bad, "x-", "x-root")).toMatch(/^x-[0-9a-f]{16}$/);
+ 		}
+ 	});
+diff --git a/tests/subscriptions-api.test.ts b/tests/subscriptions-api.test.ts
+index 014b386..67ce0a0 100644
+--- a/tests/subscriptions-api.test.ts
++++ b/tests/subscriptions-api.test.ts
+@@ -165,7 +165,8 @@ describe("POST /subscribe — post_slug is held to the read side's alphabet", ()
+ 		["angle brackets", "<img src=x onerror=alert(1)>"],
+ 		["a space", "two words"],
+ 		["a query string", "oracle?x=1"],
+-		["over 200 chars", "a".repeat(201)],
++		["over 2048 chars", "a".repeat(2049)],
++		["malformed percent escape", "article%ZZ"],
+ 		["empty", ""],
+ 	])("400s a slug with %s and writes nothing", async (_label, post_slug) => {
+ 		const res = await subscribe({ post_slug, email: EMAIL });
